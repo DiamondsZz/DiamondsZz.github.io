@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
+  
+  
+  
+  
+  <title>前端笔记 | DiamondsZz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="记录了我学习前端的过程(持续更新中…)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.left 返回的是字符串，除了数">
+<meta name="keywords" content="js,css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端笔记">
+<meta property="og:url" content="https://DiamondsZz.github.io/2018/12/03/wfe/index.html">
+<meta property="og:site_name" content="DiamondsZz">
+<meta property="og:description" content="记录了我学习前端的过程(持续更新中…)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.left 返回的是字符串，除了数">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-01T02:48:05.061Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端笔记">
+<meta name="twitter:description" content="记录了我学习前端的过程(持续更新中…)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.left 返回的是字符串，除了数">
+  
+    <link rel="alternative" href="/atom.xml" title="DiamondsZz" type="application/atom+xml">
+  
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/iu.jpeg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">DiamondsZz</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">DiamondsZz</p>
+        
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/生活，心情/" style="font-size: 10px;">生活，心情</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/资源/" style="font-size: 10px;">资源</a>
+                    </div>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">矮穷矬!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">DiamondsZz</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/iu.jpeg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">DiamondsZz</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">DiamondsZz</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-wfe" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/03/wfe/" class="article-date">
+      <time datetime="2018-12-02T16:00:00.000Z" itemprop="datePublished">2018-12-03</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端笔记
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p> 记录了我学习前端的过程(持续更新中…)</p>
+<blockquote>
+<p>2018-12-3</p>
+</blockquote>
+<h2 id="offset-xxx与style-xxx的区别"><a href="#offset-xxx与style-xxx的区别" class="headerlink" title="offset.xxx与style.xxx的区别"></a>offset.xxx与style.xxx的区别</h2><ul>
+<li><code>style.left</code>只能获取行内的，而<code>offsetLeft</code>则可以获取到所有的；</li>
+<li><code>offsetLeft</code> 可以返回没有定位盒子距离左侧的位置；而<code>style.left</code>不可以，其只能返回有定位盒子的<code>left</code>;</li>
+<li><code>offsetLeft</code> 返回的是数字，而 <code>style.left</code> 返回的是字符串，除了数字外还带有单位：<code>px</code>;</li>
+<li>注意：可以用<code>parseInt</code>进行转化;比如：<code>styleLeft=&#39;300px&#39;</code> —&gt; <code>parseInt(styleLft)</code> —&gt; 300</li>
+<li><code>offsetLeft</code>是只读的，而<code>style.left</code>是可读写；</li>
+<li>如果没有给当前元素指定过<code>top</code>样式，则 <code>style.top</code>返回的是空字符串。</li>
+</ul>
+<h2 id="offset、client-、scroll"><a href="#offset、client-、scroll" class="headerlink" title="offset、client 、scroll"></a>offset、client 、scroll</h2><p><code>offsetWidth</code>  :内容宽度+<code>padding</code>+<code>border</code><br><code>offsetHeight</code>  :内容高度+<code>padding</code>+<code>border</code><br><code>clientWidth</code>  :内容宽度+<code>padding</code><br><code>clientHeight</code>  :内容高度度+<code>padding</code><br><code>scrollWidth</code>,<br><code>scrollHeight</code> :能够滚动的内容高度+<code>padding</code>1340=44*30（滚动内容高度）+20（<code>padding-top</code>）<br><code>offsetTop</code> :  距离具有定位属性的父盒子的距离,父盒子没有定位属性则一直向上找直到<code>body</code>(不带<code>border</code>值)<br><code>offsetLeft</code><br><code>clientTop</code>:<code>border-top</code>的值<br><code>cllientLeft</code>:<code>border-left</code><br><code>scrollTop</code>:滚动条滚动距离(需要<code>onscroll</code>事件监听)<br><code>scrollLeft</code></p>
+<ol>
+<li>width 和 height</li>
+</ol>
+<p><code>border</code> + <code>padding</code> + 内容的宽度和高度<br><code>console.log(box.offsetWidth, box.offsetHeight);</code></p>
+<p><code>padding</code> + 内容的宽度和高度<br><code>console.log(box.clientWidth, box.clientHeight);</code></p>
+<p> 能够滚动的内容的 宽度 和 高度<br><code>console.log(box.scrollWidth, box.scrollHeight);</code></p>
+<ol start="2">
+<li>top 和 left<br><code>offsetTop</code>:当前元素距离有定位的父盒子上边的距离<br><code>offsetLeft</code>:当前元素距离有定位的父盒子左边的距离<br><code>clientLeft</code>:左边边框的宽度；<code>clientTop</code>:上边边框的宽度<br><code>scrollLeft</code>:左边滚动的长度; <code>scrollTop</code>:上边滚动的长度;     </li>
+</ol>
+<h2 id="子元素的margin-top影响父元素"><a href="#子元素的margin-top影响父元素" class="headerlink" title="子元素的margin-top影响父元素"></a>子元素的margin-top影响父元素</h2><p>所有毗邻的两个或更多盒元素的<code>margin</code>将会合并为一个<code>margin</code>共享之。<br>毗邻的定义为：同级或者嵌套的盒元素，并且它们之间没有非空内容、<code>padding</code>或<code>Border</code>分隔。</p>
+<p>解决办法：<br>1.给父元素加上<code>padding/border/overflow:hidden</code>(IE要添加<code>zoom:1</code>)，<br>2.或者给父元素/子元素设置为<code>float/position:absolute.</code>（浮动元素和绝对定位元素不参与<code>margin</code>折叠）</p>
+<h2 id="文字溢出"><a href="#文字溢出" class="headerlink" title="文字溢出"></a>文字溢出</h2><p> <strong>单行溢出</strong></p>
+<pre><code>width: xxx;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+</code></pre><p><code>text-overflow:ellipsis;</code>要达到的效果是：文字超出容器宽度时，文字被隐藏的文字用省略号代替。所以该属性只能用于块状元素或行内块元素中，对行内元素是不起作用的。</p>
+<p><strong>多行溢出（仅适用于谷歌浏览器，可通过js来实现）</strong></p>
+<pre><code>width: xxx;
+overflow: hidden;  
+text-overflow: ellipsis;  
+display: -webkit-box;  
+-webkit-line-clamp:n; 第n行显示省略号
+-webkit-box-orient: vertical;
+</code></pre><h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><ol>
+<li>原型链的弊端是不支持多重继承。记住，原型链会用另一类型的对象重写类的 <code>prototype</code> 属性。  </li>
+<li>要确保构造函数没有任何参数。</li>
+</ol>
+<h2 id="call-和apply"><a href="#call-和apply" class="headerlink" title="call 和apply"></a>call 和apply</h2><p><strong>call() 方法</strong></p>
+<ol>
+<li>它的第一个参数用作 <code>this</code> 的对象。其他参数都直接传递给函数自身。</li>
+</ol>
+<p><strong>apply() 方法</strong></p>
+<ol>
+<li><code>apply()</code> 方法有两个参数，用作 <code>this</code> 的对象和要传递给函数的参数的数组。</li>
+<li>只有超类中的参数顺序与子类中的参数顺序完全一致时才可以传递参数对象。如果不是，就必须创建一个单独的数组，按照正确的顺序放置参数。</li>
+</ol>
+<h2 id="css盒子"><a href="#css盒子" class="headerlink" title="css盒子"></a>css盒子</h2><ol>
+<li>如果需要控制嵌套关系盒子之间的距离，应首先考虑<code>padding</code>（父子之间）,其次再考虑<code>margin</code>。（兄弟之间）</li>
+<li><code>margin</code>在垂直方向会合并（依据较大的）。</li>
+<li>浮动元素的位置根据元素浮动之前在标准文档流中的位置所决定。</li>
+</ol>
+<p><strong>清除浮动的六种方式</strong></p>
+<ol>
+<li>给上面一个盒子设置高度</li>
+<li>使用<code>clear</code>属性</li>
+<li>隔墙法：<br> 内墙法：给上一个盒子的所有子元素的后面添加一个块级元素，设置<code>clear</code>属性（第一个盒子可以使用<code>margin-bottom</code>属性，第二个盒子可以使用<code>margin-top</code>属性）</li>
+<li>外墙法：给两个盒子中间添加一个块级元素，设置<code>clear</code>属性（第一个盒子不能使用margin-bottom属性，第二个盒子可以使用<code>margin-top</code>属性，可以设置添加盒子的高度）</li>
+<li>使用伪元素选择器：<code>标签名：：after/before{content:&quot; &quot;;   height:0; clear:both; visibility:hidden; }</code>         兼容ie6 通过属性(<code>*zoom:1;</code>)  </li>
+<li>第一个盒子设置<code>overflow:hidden;</code>属性     兼容ie6 通过属性(<code>*zoom:1;</code>)<br> 设置了<code>overflow:hidden;</code>属性，内盒子设置<code>margin-top</code>属性父元素不会被顶下来（不用再设置父元素的边框<code>border</code>属性）</li>
+</ol>
+<p><strong>定位</strong><br>     绝对定位依据浏览器窗口首屏宽高而不是整个浏览器窗口的宽高。<br>     相对定位不脱离文档流，占据空间，不利于布局。</p>
+<p><strong>inline-block</strong><br>      <code>div</code>设置<code>inline-block</code>不能在排一行<br>   原因：可能是因为你标签间有间隙，空格一起渲染，解决办法可以是把两个<code>div</code>标签间的空隙注释掉，应该就可以了。</p>
+<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><p>1.“<code>！</code>”是逻辑与运算，并且可以与任何变量进行逻辑与将其转化为布尔值，“<code>!!</code>”则是逻辑与的取反运算，尤其后者在判断类型时代码简洁高效，省去了多次判断<code>null</code>、<code>undefined</code>和空字符串的冗余代码。</p>
+<h2 id="nth-child选择器"><a href="#nth-child选择器" class="headerlink" title="nth-child选择器"></a>nth-child选择器</h2><p>1.<code>nth-child(n+2):nth-child(odd):nth-child(-n+9)</code><br>使用 <code>nth-child(n+2):nth-child(odd):nth-child(-n+9)</code> 我们将会选中的子元素是从第2位到第9位，并且只包含奇数位。</p>
+<blockquote>
+<p>2018-12-4</p>
+</blockquote>
+<h2 id="判断一个对象是否为数组"><a href="#判断一个对象是否为数组" class="headerlink" title="判断一个对象是否为数组"></a>判断一个对象是否为数组</h2><p>1.<code>Array.prototype.isPrototypeOf(obj)</code><br>2.<code>obj instanceof Array</code><br>3.<code>Object.prototype.toString().call(obj)</code><br>4.<code>Array.isArray(obj)</code></p>
+<blockquote>
+<p>2018-12-24</p>
+</blockquote>
+<h2 id="创建BFC"><a href="#创建BFC" class="headerlink" title="创建BFC"></a>创建BFC</h2><p>1.float:left/right<br>2.position:absolute/fixed<br>3.overflow:auto/hidden/scroll<br>4.display:table-cell/inline-block<br>5.display:table-cell(ie8+)<br>6.*display:inline-block(ie7-)</p>
+<blockquote>
+<p>2018-12-26</p>
+</blockquote>
+<h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><pre><code>.clearfix:after
+{
+    content:&apos;&apos;;
+    display:table;
+    clear:both;
+}
+.clearfix
+{
+    *zoom:1;
+}
+
+</code></pre><h2 id="line-height"><a href="#line-height" class="headerlink" title="line-height"></a>line-height</h2><ul>
+<li>line-height:1.5 所有可继承元素根据font-size重新计算行高。</li>
+<li>line-height:1.5em/150% 当前元素根据font-size计算行高，继承给下面的元素。<blockquote>
+<p>2019-3-1</p>
+</blockquote>
+<h2 id="display-flex（弹性盒子、伸缩布局）"><a href="#display-flex（弹性盒子、伸缩布局）" class="headerlink" title="display:flex（弹性盒子、伸缩布局）"></a>display:flex（弹性盒子、伸缩布局）</h2></li>
+<li>flex:1 让所有弹性盒模型对象的子元素都有相同的长度,如果元素不是弹性盒模型对象的子元素，则 flex 属性不起作用。</li>
+<li>justify-content 主轴（默认为row方向） align-items 侧轴</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/12/03/wfe/">前端笔记</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
+        <p><span>发布时间:</span>2018年12月03日 - 00时00分</p>
+        <p><span>最后更新:</span>2019年03月01日 - 10时48分</p>    
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/12/10/store/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          杂货铺
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#offset-xxx与style-xxx的区别"><span class="toc-number">1.</span> <span class="toc-text">offset.xxx与style.xxx的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#offset、client-、scroll"><span class="toc-number">2.</span> <span class="toc-text">offset、client 、scroll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子元素的margin-top影响父元素"><span class="toc-number">3.</span> <span class="toc-text">子元素的margin-top影响父元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文字溢出"><span class="toc-number">4.</span> <span class="toc-text">文字溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链"><span class="toc-number">5.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#call-和apply"><span class="toc-number">6.</span> <span class="toc-text">call 和apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css盒子"><span class="toc-number">7.</span> <span class="toc-text">css盒子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js"><span class="toc-number">8.</span> <span class="toc-text">js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nth-child选择器"><span class="toc-number">9.</span> <span class="toc-text">nth-child选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断一个对象是否为数组"><span class="toc-number">10.</span> <span class="toc-text">判断一个对象是否为数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建BFC"><span class="toc-number">11.</span> <span class="toc-text">创建BFC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除浮动"><span class="toc-number">12.</span> <span class="toc-text">清除浮动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#line-height"><span class="toc-number">13.</span> <span class="toc-text">line-height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#display-flex（弹性盒子、伸缩布局）"><span class="toc-number">14.</span> <span class="toc-text">display:flex（弹性盒子、伸缩布局）</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/12/10/store/" title="上一篇: 杂货铺">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/17/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/js/">js</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 DiamondsZz
+            </div>        
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit">网站访问人数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" "="">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
