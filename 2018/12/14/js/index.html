@@ -18,7 +18,7 @@
 <meta property="og:description" content="2018-12-14  同步异步:如下代码: for(var i = 0; i &amp;lt; 5; i++) {  setTimeout(function(){  console.log(new Date, i);  }, 1000); } console.log(new Date, i); 运行结果图:如果用箭头表示其前后的两次输出之间有 1 秒的时间间隔,而逗号表示其前后的两次输出之间的时间间隔">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://diamondszz.github.io/images/rs1.png">
-<meta property="og:updated_time" content="2019-03-14T11:42:32.505Z">
+<meta property="og:updated_time" content="2019-03-14T11:44:54.866Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js">
 <meta name="twitter:description" content="2018-12-14  同步异步:如下代码: for(var i = 0; i &amp;lt; 5; i++) {  setTimeout(function(){  console.log(new Date, i);  }, 1000); } console.log(new Date, i); 运行结果图:如果用箭头表示其前后的两次输出之间有 1 秒的时间间隔,而逗号表示其前后的两次输出之间的时间间隔">
@@ -292,10 +292,17 @@ console.log(new Date, i);
 <li>返回一个新数组，不会改变现有的数组</li>
 <li>可以用于将伪数组转化为数组 </li>
 </ol>
-<p><code>`</code> let arrayLike = {<br>    ‘0’: ‘a’,<br>    ‘1’: ‘b’,<br>    ‘2’: ‘c’,<br>    length: 3<br>};<br>var arr1 = [].slice.call(arrayLike); </p>
-<p>es6: let arr2 = Array.from(arrayLike);</p>
-<p><code>`</code>  </p>
+<pre><code>let arrayLike = {
+    &apos;0&apos;: &apos;a&apos;,
+    &apos;1&apos;: &apos;b&apos;,
+    &apos;2&apos;: &apos;c&apos;,
+    length: 3
+};
+var arr1 = [].slice.call(arrayLike); 
 
+es6: let arr2 = Array.from(arrayLike);
+
+</code></pre>
       
     </div>
     
@@ -306,7 +313,7 @@ console.log(new Date, i);
         <p><span>本文标题:</span><a href="/2018/12/14/js/">js</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2018年12月14日 - 00时00分</p>
-        <p><span>最后更新:</span>2019年03月14日 - 19时42分</p>    
+        <p><span>最后更新:</span>2019年03月14日 - 19时44分</p>    
     </div>
 
 
