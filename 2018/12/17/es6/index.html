@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="2018-12-17   for循环有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域.  for (let i = 0; i &amp;lt; 3; i++) {   let i = &amp;apos;abc&amp;apos;;   console.log(i); } 上面代码正确运行，输出了 3 次abc。这表明函数内部的变量i与循环变量i不在同一个作用域，有各自单独的作用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-14T06:35:14.227Z">
+<meta property="og:updated_time" content="2019-03-14T11:35:43.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6">
 <meta name="twitter:description" content="2018-12-17   for循环有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域.  for (let i = 0; i &amp;lt; 3; i++) {   let i = &amp;apos;abc&amp;apos;;   console.log(i); } 上面代码正确运行，输出了 3 次abc。这表明函数内部的变量i与循环变量i不在同一个作用域，有各自单独的作用">
@@ -250,11 +250,24 @@
 <li>扩展运算符<code>...</code> （参数序列）</li>
 </ul>
 <ol>
-<li>替代函数的apply方法<br><code>`</code><br>// ES5 的写法<br>function f(x, y, z) {<br>// …<br>}<br>var args = [0, 1, 2];<br>f.apply(null, args);</li>
+<li>替代函数的apply方法</li>
 </ol>
 </blockquote>
-<p>// ES6的写法<br>function f(x, y, z) {<br>  // …<br>}<br>let args = [0, 1, 2];<br>f(…args);</p>
-<p><code>`</code><br>来自阮一峰老师：<a href="http://es6.ruanyifeng.com" target="_blank" rel="noopener">http://es6.ruanyifeng.com</a></p>
+<pre><code>// ES5 的写法
+function f(x, y, z) {
+  // ...
+}
+var args = [0, 1, 2];
+f.apply(null, args);
+
+// ES6的写法
+function f(x, y, z) {
+  // ...
+}
+let args = [0, 1, 2];
+f(...args);
+
+</code></pre><p>来自阮一峰老师：<a href="http://es6.ruanyifeng.com" target="_blank" rel="noopener">http://es6.ruanyifeng.com</a></p>
 
       
     </div>
@@ -266,7 +279,7 @@
         <p><span>本文标题:</span><a href="/2018/12/17/es6/">es6</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2018年12月17日 - 00时00分</p>
-        <p><span>最后更新:</span>2019年03月14日 - 14时35分</p>    
+        <p><span>最后更新:</span>2019年03月14日 - 19时35分</p>    
     </div>
 
 
