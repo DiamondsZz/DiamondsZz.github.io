@@ -18,7 +18,7 @@
 <meta property="og:description" content="2018-12-14  同步异步:如下代码: for(var i = 0; i &amp;lt; 5; i++) {  setTimeout(function(){  console.log(new Date, i);  }, 1000); } console.log(new Date, i); 运行结果图:如果用箭头表示其前后的两次输出之间有 1 秒的时间间隔,而逗号表示其前后的两次输出之间的时间间隔">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://diamondszz.github.io/images/rs1.png">
-<meta property="og:updated_time" content="2018-12-18T06:32:26.388Z">
+<meta property="og:updated_time" content="2019-03-14T07:03:39.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js">
 <meta name="twitter:description" content="2018-12-14  同步异步:如下代码: for(var i = 0; i &amp;lt; 5; i++) {  setTimeout(function(){  console.log(new Date, i);  }, 1000); } console.log(new Date, i); 运行结果图:如果用箭头表示其前后的两次输出之间有 1 秒的时间间隔,而逗号表示其前后的两次输出之间的时间间隔">
@@ -279,6 +279,26 @@ await sleep(1000);
 console.log(new Date, i);
 })();
 </code></pre><p>原文链接：<a href="https://zhuanlan.zhihu.com/p/25855075" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25855075</a></p>
+<blockquote>
+<p>2019-3-14</p>
+</blockquote>
+<h2 id="concat"><a href="#concat" class="headerlink" title="concat():"></a>concat():</h2><ol>
+<li>连接两个或多个数组</li>
+<li>不会改变现有的数组，返回被连接数组的一个副本</li>
+<li>可以用于数组的值拷贝  <code>const a1 = [1, 2]; const a2 = a1.concat();</code>  es6:<code>const a1 = [1, 2]; ①const a2 = [...a1];②const [...a2] = a1;</code></li>
+</ol>
+<h2 id="slice"><a href="#slice" class="headerlink" title="slice():"></a>slice():</h2><ol>
+<li>从已有的数组中返回选定的元素</li>
+<li>返回一个新数组，不会改变现有的数组</li>
+<li>可以用于将伪数组转化为数组 <pre><code>let arrayLike = {
+ &apos;0&apos;: &apos;a&apos;,
+ &apos;1&apos;: &apos;b&apos;,
+ &apos;2&apos;: &apos;c&apos;,
+ length: 3
+};
+var arr1 = [].slice.call(arrayLike); 
+</code></pre>es6: <code>let arr2 = Array.from(arrayLike);</code></li>
+</ol>
 
       
     </div>
@@ -290,7 +310,7 @@ console.log(new Date, i);
         <p><span>本文标题:</span><a href="/2018/12/14/js/">js</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2018年12月14日 - 00时00分</p>
-        <p><span>最后更新:</span>2018年12月18日 - 14时32分</p>    
+        <p><span>最后更新:</span>2019年03月14日 - 15时03分</p>    
     </div>
 
 
@@ -320,7 +340,7 @@ console.log(new Date, i);
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#同步异步"><span class="toc-number">1.</span> <span class="toc-text">同步异步:</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#同步异步"><span class="toc-number">1.</span> <span class="toc-text">同步异步:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#concat"><span class="toc-number">2.</span> <span class="toc-text">concat():</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#slice"><span class="toc-number">3.</span> <span class="toc-text">slice():</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {

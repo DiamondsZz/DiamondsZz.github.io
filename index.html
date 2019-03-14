@@ -383,9 +383,9 @@
 </ul>
 <p>原文链接:<a href="http://es6.ruanyifeng.com" target="_blank" rel="noopener">http://es6.ruanyifeng.com</a></p>
 <blockquote>
-<p>2018-3-14</p>
+<p>2019-3-14</p>
 <ul>
-<li>扩展运算符<code>...</code></li>
+<li>扩展运算符<code>...</code> （参数序列）</li>
 </ul>
 <ol>
 <li>替代函数的apply方法<br><code>`</code><br>// ES5 的写法<br>function f(x, y, z) {<br>// …<br>}<br>var args = [0, 1, 2];<br>f.apply(null, args);</li>
@@ -509,6 +509,26 @@ await sleep(1000);
 console.log(new Date, i);
 })();
 </code></pre><p>原文链接：<a href="https://zhuanlan.zhihu.com/p/25855075" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25855075</a></p>
+<blockquote>
+<p>2019-3-14</p>
+</blockquote>
+<h2 id="concat"><a href="#concat" class="headerlink" title="concat():"></a>concat():</h2><ol>
+<li>连接两个或多个数组</li>
+<li>不会改变现有的数组，返回被连接数组的一个副本</li>
+<li>可以用于数组的值拷贝  <code>const a1 = [1, 2]; const a2 = a1.concat();</code>  es6:<code>const a1 = [1, 2]; ①const a2 = [...a1];②const [...a2] = a1;</code></li>
+</ol>
+<h2 id="slice"><a href="#slice" class="headerlink" title="slice():"></a>slice():</h2><ol>
+<li>从已有的数组中返回选定的元素</li>
+<li>返回一个新数组，不会改变现有的数组</li>
+<li>可以用于将伪数组转化为数组 <pre><code>let arrayLike = {
+ &apos;0&apos;: &apos;a&apos;,
+ &apos;1&apos;: &apos;b&apos;,
+ &apos;2&apos;: &apos;c&apos;,
+ length: 3
+};
+var arr1 = [].slice.call(arrayLike); 
+</code></pre>es6: <code>let arr2 = Array.from(arrayLike);</code></li>
+</ol>
 
       
     </div>
