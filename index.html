@@ -822,7 +822,13 @@ display: -webkit-box;
 </blockquote>
 <h2 id="display-flex（弹性盒子、伸缩布局）"><a href="#display-flex（弹性盒子、伸缩布局）" class="headerlink" title="display:flex（弹性盒子、伸缩布局）"></a>display:flex（弹性盒子、伸缩布局）</h2></li>
 <li>flex:1 让所有弹性盒模型对象的子元素都有相同的长度,如果元素不是弹性盒模型对象的子元素，则 flex 属性不起作用。</li>
-<li>justify-content 主轴（默认为row方向） align-items 侧轴</li>
+<li>justify-content 主轴（默认为row方向） align-items 侧轴<blockquote>
+<p>2019-3-15</p>
+</blockquote>
+<h2 id="em-rem-px"><a href="#em-rem-px" class="headerlink" title="em/rem/px"></a>em/rem/px</h2></li>
+<li>em:值并不是固定的,继承父级元素的字体大小(相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px,在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px*62.5%=10px, 这样12px=1.2em, 10px=1em)在#content中声明了字体大小为1.2em，那么在声明p的字体大小时就只能是1em，而不是1.2em, 因为此em非彼em，它因继承#content的字体高而变为了1em=12px。</li>
+<li>rem:相对HTML根元素</li>
+<li>px:相对于显示器屏幕分辨率</li>
 </ul>
 
       

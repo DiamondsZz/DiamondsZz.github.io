@@ -10,14 +10,14 @@
   <title>前端笔记 | DiamondsZz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="记录了我学习前端的过程(持续更新中…)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.left 返回的是字符串，除了数">
-<meta name="keywords" content="css,js">
+<meta name="keywords" content="js,css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端笔记">
 <meta property="og:url" content="https://DiamondsZz.github.io/2018/12/03/wfe/index.html">
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="记录了我学习前端的过程(持续更新中…)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.left 返回的是字符串，除了数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-01T02:48:05.061Z">
+<meta property="og:updated_time" content="2019-03-15T02:31:47.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记">
 <meta name="twitter:description" content="记录了我学习前端的过程(持续更新中…)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.left 返回的是字符串，除了数">
@@ -323,7 +323,13 @@ display: -webkit-box;
 </blockquote>
 <h2 id="display-flex（弹性盒子、伸缩布局）"><a href="#display-flex（弹性盒子、伸缩布局）" class="headerlink" title="display:flex（弹性盒子、伸缩布局）"></a>display:flex（弹性盒子、伸缩布局）</h2></li>
 <li>flex:1 让所有弹性盒模型对象的子元素都有相同的长度,如果元素不是弹性盒模型对象的子元素，则 flex 属性不起作用。</li>
-<li>justify-content 主轴（默认为row方向） align-items 侧轴</li>
+<li>justify-content 主轴（默认为row方向） align-items 侧轴<blockquote>
+<p>2019-3-15</p>
+</blockquote>
+<h2 id="em-rem-px"><a href="#em-rem-px" class="headerlink" title="em/rem/px"></a>em/rem/px</h2></li>
+<li>em:值并不是固定的,继承父级元素的字体大小(相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px,在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px*62.5%=10px, 这样12px=1.2em, 10px=1em)在#content中声明了字体大小为1.2em，那么在声明p的字体大小时就只能是1em，而不是1.2em, 因为此em非彼em，它因继承#content的字体高而变为了1em=12px。</li>
+<li>rem:相对HTML根元素</li>
+<li>px:相对于显示器屏幕分辨率</li>
 </ul>
 
       
@@ -336,7 +342,7 @@ display: -webkit-box;
         <p><span>本文标题:</span><a href="/2018/12/03/wfe/">前端笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2018年12月03日</p>
-        <p><span>最后更新:</span>2019年03月01日 - 10时48分</p>    
+        <p><span>最后更新:</span>2019年03月15日 - 10时31分</p>    
     </div>
 
 
@@ -361,7 +367,7 @@ display: -webkit-box;
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#offset-xxx与style-xxx的区别"><span class="toc-number">1.</span> <span class="toc-text">offset.xxx与style.xxx的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#offset、client-、scroll"><span class="toc-number">2.</span> <span class="toc-text">offset、client 、scroll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子元素的margin-top影响父元素"><span class="toc-number">3.</span> <span class="toc-text">子元素的margin-top影响父元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文字溢出"><span class="toc-number">4.</span> <span class="toc-text">文字溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链"><span class="toc-number">5.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#call-和apply"><span class="toc-number">6.</span> <span class="toc-text">call 和apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css盒子"><span class="toc-number">7.</span> <span class="toc-text">css盒子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js"><span class="toc-number">8.</span> <span class="toc-text">js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nth-child选择器"><span class="toc-number">9.</span> <span class="toc-text">nth-child选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断一个对象是否为数组"><span class="toc-number">10.</span> <span class="toc-text">判断一个对象是否为数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建BFC"><span class="toc-number">11.</span> <span class="toc-text">创建BFC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除浮动"><span class="toc-number">12.</span> <span class="toc-text">清除浮动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#line-height"><span class="toc-number">13.</span> <span class="toc-text">line-height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#display-flex（弹性盒子、伸缩布局）"><span class="toc-number">14.</span> <span class="toc-text">display:flex（弹性盒子、伸缩布局）</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#offset-xxx与style-xxx的区别"><span class="toc-number">1.</span> <span class="toc-text">offset.xxx与style.xxx的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#offset、client-、scroll"><span class="toc-number">2.</span> <span class="toc-text">offset、client 、scroll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子元素的margin-top影响父元素"><span class="toc-number">3.</span> <span class="toc-text">子元素的margin-top影响父元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文字溢出"><span class="toc-number">4.</span> <span class="toc-text">文字溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链"><span class="toc-number">5.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#call-和apply"><span class="toc-number">6.</span> <span class="toc-text">call 和apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css盒子"><span class="toc-number">7.</span> <span class="toc-text">css盒子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js"><span class="toc-number">8.</span> <span class="toc-text">js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nth-child选择器"><span class="toc-number">9.</span> <span class="toc-text">nth-child选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断一个对象是否为数组"><span class="toc-number">10.</span> <span class="toc-text">判断一个对象是否为数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建BFC"><span class="toc-number">11.</span> <span class="toc-text">创建BFC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除浮动"><span class="toc-number">12.</span> <span class="toc-text">清除浮动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#line-height"><span class="toc-number">13.</span> <span class="toc-text">line-height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#display-flex（弹性盒子、伸缩布局）"><span class="toc-number">14.</span> <span class="toc-text">display:flex（弹性盒子、伸缩布局）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#em-rem-px"><span class="toc-number">15.</span> <span class="toc-text">em/rem/px</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
