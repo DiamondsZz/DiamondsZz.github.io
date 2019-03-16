@@ -828,9 +828,27 @@ display: -webkit-box;
 <h2 id="em-rem-px"><a href="#em-rem-px" class="headerlink" title="em/rem/px"></a>em/rem/px</h2></li>
 <li>em:值并不是固定的,继承父级元素的字体大小(相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px,在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px*62.5%=10px, 这样12px=1.2em, 10px=1em)在#content中声明了字体大小为1.2em，那么在声明p的字体大小时就只能是1em，而不是1.2em, 因为此em非彼em，它因继承#content的字体高而变为了1em=12px。</li>
 <li>rem:相对HTML根元素</li>
-<li>px:相对于显示器屏幕分辨率</li>
+<li>px:相对于显示器屏幕分辨率<h2 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h2></li>
+<li>利用事件冒泡原理。假如为一个ul下面100个li添加点击事件，考虑性能，可以使用事件代理。直接给ul添加事件监听，利用事件冒泡，进行触发，如果想在事件捕获阶段执行，可以设置addEventListener参数为true。<blockquote>
+<p>2019-3-16</p>
+</blockquote>
+<h2 id="bind-call-apply"><a href="#bind-call-apply" class="headerlink" title="bind/call/apply"></a>bind/call/apply</h2></li>
+<li>都能改变this指向</li>
+<li>bind：（返回对应函数）非立即执行，call/apply：立即执行</li>
 </ul>
+<pre><code>let person={
+    name:&quot;zs&quot;,
+    speak:function(){
+      console.log(&quot;我的名字叫&quot;+this.name);//这里的this看执行时的上下文，箭头函数看定义时的上下文。
+    }
+  };
+    let personSpeak=person.speak;
+  person.speak();//我的名字叫zs
+  personSpeak();//我的名字叫
+  personSpeak.bind(person)();//我的名字叫zs
 
+
+</code></pre>
       
     </div>
     
