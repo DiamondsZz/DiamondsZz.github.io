@@ -766,7 +766,10 @@ display: -webkit-box;
 <li>原型链的弊端是不支持多重继承。记住，原型链会用另一类型的对象重写类的 <code>prototype</code> 属性。  </li>
 <li>要确保构造函数没有任何参数。</li>
 </ol>
-<h2 id="call-和apply"><a href="#call-和apply" class="headerlink" title="call 和apply"></a>call 和apply</h2><p><strong>call() 方法</strong></p>
+<pre><code>let obj =new Object();
+console.log(obj.__proto__===Object.prototype);//true
+console.log(obj.constructor===Object.prototype.constructor);//true
+</code></pre><h2 id="call-和apply"><a href="#call-和apply" class="headerlink" title="call 和apply"></a>call 和apply</h2><p><strong>call() 方法</strong></p>
 <ol>
 <li>它的第一个参数用作 <code>this</code> 的对象。其他参数都直接传递给函数自身。</li>
 </ol>
@@ -848,6 +851,21 @@ display: -webkit-box;
   personSpeak.bind(person)();//我的名字叫zs
 
 
+</code></pre><h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><ul>
+<li>所谓‘柯里化’，就是把一个多参数的函数，转化成单参数的函数。</li>
+</ul>
+<pre><code>//柯里化之前
+function add(x,y)
+{
+    return x+y;
+}
+//柯里化之后
+function _add(x)
+{
+    return function(y){
+        return x+y;
+    }
+}
 </code></pre>
       
     </div>

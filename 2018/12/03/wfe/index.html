@@ -10,14 +10,14 @@
   <title>前端笔记 | DiamondsZz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="记录了我学习前端的过程(持续更新中…)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.left 返回的是字符串，除了数">
-<meta name="keywords" content="css,js">
+<meta name="keywords" content="js,css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端笔记">
 <meta property="og:url" content="https://DiamondsZz.github.io/2018/12/03/wfe/index.html">
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="记录了我学习前端的过程(持续更新中…)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.left 返回的是字符串，除了数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-16T04:54:16.404Z">
+<meta property="og:updated_time" content="2019-03-16T05:59:19.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记">
 <meta name="twitter:description" content="记录了我学习前端的过程(持续更新中…)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.left 返回的是字符串，除了数">
@@ -267,7 +267,10 @@ display: -webkit-box;
 <li>原型链的弊端是不支持多重继承。记住，原型链会用另一类型的对象重写类的 <code>prototype</code> 属性。  </li>
 <li>要确保构造函数没有任何参数。</li>
 </ol>
-<h2 id="call-和apply"><a href="#call-和apply" class="headerlink" title="call 和apply"></a>call 和apply</h2><p><strong>call() 方法</strong></p>
+<pre><code>let obj =new Object();
+console.log(obj.__proto__===Object.prototype);//true
+console.log(obj.constructor===Object.prototype.constructor);//true
+</code></pre><h2 id="call-和apply"><a href="#call-和apply" class="headerlink" title="call 和apply"></a>call 和apply</h2><p><strong>call() 方法</strong></p>
 <ol>
 <li>它的第一个参数用作 <code>this</code> 的对象。其他参数都直接传递给函数自身。</li>
 </ol>
@@ -349,6 +352,21 @@ display: -webkit-box;
   personSpeak.bind(person)();//我的名字叫zs
 
 
+</code></pre><h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><ul>
+<li>所谓‘柯里化’，就是把一个多参数的函数，转化成单参数的函数。</li>
+</ul>
+<pre><code>//柯里化之前
+function add(x,y)
+{
+    return x+y;
+}
+//柯里化之后
+function _add(x)
+{
+    return function(y){
+        return x+y;
+    }
+}
 </code></pre>
       
     </div>
@@ -360,7 +378,7 @@ display: -webkit-box;
         <p><span>本文标题:</span><a href="/2018/12/03/wfe/">前端笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2018年12月03日</p>
-        <p><span>最后更新:</span>2019年03月16日 - 12时54分</p>    
+        <p><span>最后更新:</span>2019年03月16日 - 13时59分</p>    
     </div>
 
 
@@ -385,7 +403,7 @@ display: -webkit-box;
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#offset-xxx与style-xxx的区别"><span class="toc-number">1.</span> <span class="toc-text">offset.xxx与style.xxx的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#offset、client-、scroll"><span class="toc-number">2.</span> <span class="toc-text">offset、client 、scroll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子元素的margin-top影响父元素"><span class="toc-number">3.</span> <span class="toc-text">子元素的margin-top影响父元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文字溢出"><span class="toc-number">4.</span> <span class="toc-text">文字溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链"><span class="toc-number">5.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#call-和apply"><span class="toc-number">6.</span> <span class="toc-text">call 和apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css盒子"><span class="toc-number">7.</span> <span class="toc-text">css盒子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js"><span class="toc-number">8.</span> <span class="toc-text">js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nth-child选择器"><span class="toc-number">9.</span> <span class="toc-text">nth-child选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断一个对象是否为数组"><span class="toc-number">10.</span> <span class="toc-text">判断一个对象是否为数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建BFC"><span class="toc-number">11.</span> <span class="toc-text">创建BFC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除浮动"><span class="toc-number">12.</span> <span class="toc-text">清除浮动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#line-height"><span class="toc-number">13.</span> <span class="toc-text">line-height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#display-flex（弹性盒子、伸缩布局）"><span class="toc-number">14.</span> <span class="toc-text">display:flex（弹性盒子、伸缩布局）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#em-rem-px"><span class="toc-number">15.</span> <span class="toc-text">em/rem/px</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件委托"><span class="toc-number">16.</span> <span class="toc-text">事件委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bind-call-apply"><span class="toc-number">17.</span> <span class="toc-text">bind/call/apply</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#offset-xxx与style-xxx的区别"><span class="toc-number">1.</span> <span class="toc-text">offset.xxx与style.xxx的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#offset、client-、scroll"><span class="toc-number">2.</span> <span class="toc-text">offset、client 、scroll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子元素的margin-top影响父元素"><span class="toc-number">3.</span> <span class="toc-text">子元素的margin-top影响父元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文字溢出"><span class="toc-number">4.</span> <span class="toc-text">文字溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链"><span class="toc-number">5.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#call-和apply"><span class="toc-number">6.</span> <span class="toc-text">call 和apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css盒子"><span class="toc-number">7.</span> <span class="toc-text">css盒子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js"><span class="toc-number">8.</span> <span class="toc-text">js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nth-child选择器"><span class="toc-number">9.</span> <span class="toc-text">nth-child选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断一个对象是否为数组"><span class="toc-number">10.</span> <span class="toc-text">判断一个对象是否为数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建BFC"><span class="toc-number">11.</span> <span class="toc-text">创建BFC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除浮动"><span class="toc-number">12.</span> <span class="toc-text">清除浮动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#line-height"><span class="toc-number">13.</span> <span class="toc-text">line-height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#display-flex（弹性盒子、伸缩布局）"><span class="toc-number">14.</span> <span class="toc-text">display:flex（弹性盒子、伸缩布局）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#em-rem-px"><span class="toc-number">15.</span> <span class="toc-text">em/rem/px</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件委托"><span class="toc-number">16.</span> <span class="toc-text">事件委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bind-call-apply"><span class="toc-number">17.</span> <span class="toc-text">bind/call/apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#柯里化"><span class="toc-number">18.</span> <span class="toc-text">柯里化</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
