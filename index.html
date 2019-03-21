@@ -725,7 +725,7 @@ animation-fill-mode:both;//（动画在播放之前或之后，其动画效果�
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p> 记录了我学习前端的过程(持续更新中…)</p>
+        <p> 记录了我学习前端的过程(总结当中会有不妥当的地方，会持续进行更新完善)</p>
 <blockquote>
 <p>2018-12-3</p>
 </blockquote>
@@ -782,6 +782,7 @@ console.log(obj.constructor===Object.prototype.constructor);//true
 <li>如果需要控制嵌套关系盒子之间的距离，应首先考虑<code>padding</code>（父子之间）,其次再考虑<code>margin</code>。（兄弟之间）</li>
 <li><code>margin</code>在垂直方向会合并（依据较大的）。</li>
 <li>浮动元素的位置根据元素浮动之前在标准文档流中的位置所决定。</li>
+<li>margin/padding 百分比根据父元素宽度来计算。translate依据自身。</li>
 </ol>
 <p><strong>清除浮动的六种方式</strong></p>
 <ol>
@@ -824,7 +825,7 @@ console.log(obj.constructor===Object.prototype.constructor);//true
 <p>2019-3-1</p>
 </blockquote>
 <h2 id="display-flex（弹性盒子、伸缩布局）"><a href="#display-flex（弹性盒子、伸缩布局）" class="headerlink" title="display:flex（弹性盒子、伸缩布局）"></a>display:flex（弹性盒子、伸缩布局）</h2></li>
-<li>flex:1 让所有弹性盒模型对象的子元素都有相同的长度,如果元素不是弹性盒模型对象的子元素，则 flex 属性不起作用。</li>
+<li>flex:1 让所有弹性盒模型对象的子元素都有相同的长度,如果元素不是弹性盒模型对象的子元素，则 flex 属性不起作用。(等同于 (扩展)flex-grow:1 (伸缩)flex-shrink:1 (初始长度)flex-basis:0%  默认值为 0 1 auto)</li>
 <li>justify-content 主轴（默认为row方向） align-items 侧轴<blockquote>
 <p>2019-3-15</p>
 </blockquote>
@@ -866,7 +867,21 @@ function _add(x)
         return x+y;
     }
 }
-</code></pre>
+</code></pre><blockquote>
+<p>2019-3-18</p>
+</blockquote>
+<h2 id="块级元素居中"><a href="#块级元素居中" class="headerlink" title="块级元素居中"></a>块级元素居中</h2><ul>
+<li>父级元素：<code>display:table-cell;vertical-align:middle;text-align:center</code>     子级块元素：<code>display:inline-block/display:inline</code>（使text-align:center;生效）</li>
+<li>定位结合margin或translate</li>
+<li>flex<blockquote>
+<p>2019-3-19</p>
+</blockquote>
+<h2 id="animation（动画）与transition（过渡）的区别（二者可以与transform结合使用）"><a href="#animation（动画）与transition（过渡）的区别（二者可以与transform结合使用）" class="headerlink" title="animation（动画）与transition（过渡）的区别（二者可以与transform结合使用）"></a>animation（动画）与transition（过渡）的区别（二者可以与transform结合使用）</h2></li>
+<li>animation自动触发，transition当过渡属性改变时触发，可以借助hover或js进行触发。</li>
+<li>复杂帧动画可以借助animation,简单过渡动画transition足矣（写到这让我想起了‘足以’这个词，思考一番还是‘足矣’适合）。</li>
+<li>animation可以控制暂停（animation-play-state）</li>
+</ul>
+
       
     </div>
     
