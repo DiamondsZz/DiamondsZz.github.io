@@ -973,7 +973,75 @@ Shift():删除第一个元素。     改变原数组， 返回第一个元素。
 Unshift():往最前面添加一个元素。   改变原数组，返回新数组的长度。
 
 </code></pre><h2 id="函数节流与函数防抖"><a href="#函数节流与函数防抖" class="headerlink" title="函数节流与函数防抖"></a>函数节流与函数防抖</h2><p>函数节流与防抖图示：<img src="/images/js1.png" alt="js1"><br><a href="https://blog.coding.net/blog/the-difference-between-throttle-and-debounce-in-underscorejs" target="_blank" rel="noopener">图片链接</a></p>
+<p>代码借鉴于<code>underscore.js</code>,感觉源码值得学习一下</p>
+<ul>
+<li>函数节流</li>
+</ul>
+<pre><code>function throttle(fn, wait,options) {
 
+    var timeout, result;
+    var previous = 0;
+    if (!options) options = {};
+
+    var later = function () {
+        previous = options.leading === false ? 0 :  Date.now();
+        timeout = null;
+        result = fn.apply(null);
+    };
+
+    var throttled = function () {
+
+        var now = Date.now();
+
+
+        if (!previous &amp;&amp; options.leading === false) previous = now;
+
+        //计算剩余时间
+        var remaining = wait - (now - previous);
+
+        if (remaining &lt;= 0 || remaining &gt; wait) {   //设置options中leading为false时 remaining=wait  不执行函数
+            if (timeout) {
+                clearTimeout(timeout);
+                timeout = null;
+            }
+            previous = now;
+            result = fn.apply(null);
+        } else if (!timeout &amp;&amp; options.trailing !== false) {
+            timeout = setTimeout(later, remaining);
+        }
+        return result;
+    };
+    return throttled;
+}
+
+</code></pre><ul>
+<li>函数防抖</li>
+</ul>
+<pre><code>function debounce(func, wait, immediate) {
+    var timeout, result;
+
+    var later = function () {
+        timeout = null;
+        result = func.apply(null);
+    };
+
+    var debounced =function () {
+        if (timeout) clearTimeout(timeout);
+        if (immediate) {
+            var callNow = !timeout;
+            timeout = setTimeout(later, wait);
+            if (callNow) result = func.apply(null);
+        } else {
+            timeout = setTimeout(later, wait);
+        }
+
+        return result;
+    };
+
+    return debounced;
+}
+
+</code></pre>
       
     </div>
     

@@ -10,7 +10,7 @@
   <title>前端笔记 | DiamondsZz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="记录了我学习前端的过程(总结当中会有不妥当的地方，会持续进行更新完善)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.">
-<meta name="keywords" content="js,css">
+<meta name="keywords" content="css,js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端笔记">
 <meta property="og:url" content="https://DiamondsZz.github.io/2018/12/03/wfe/index.html">
@@ -18,7 +18,7 @@
 <meta property="og:description" content="记录了我学习前端的过程(总结当中会有不妥当的地方，会持续进行更新完善)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://diamondszz.github.io/images/js1.png">
-<meta property="og:updated_time" content="2019-03-23T10:37:11.582Z">
+<meta property="og:updated_time" content="2019-03-24T07:35:38.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记">
 <meta name="twitter:description" content="记录了我学习前端的过程(总结当中会有不妥当的地方，会持续进行更新完善)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.">
@@ -476,7 +476,75 @@ Shift():删除第一个元素。     改变原数组， 返回第一个元素。
 Unshift():往最前面添加一个元素。   改变原数组，返回新数组的长度。
 
 </code></pre><h2 id="函数节流与函数防抖"><a href="#函数节流与函数防抖" class="headerlink" title="函数节流与函数防抖"></a>函数节流与函数防抖</h2><p>函数节流与防抖图示：<img src="/images/js1.png" alt="js1"><br><a href="https://blog.coding.net/blog/the-difference-between-throttle-and-debounce-in-underscorejs" target="_blank" rel="noopener">图片链接</a></p>
+<p>代码借鉴于<code>underscore.js</code>,感觉源码值得学习一下</p>
+<ul>
+<li>函数节流</li>
+</ul>
+<pre><code>function throttle(fn, wait,options) {
 
+    var timeout, result;
+    var previous = 0;
+    if (!options) options = {};
+
+    var later = function () {
+        previous = options.leading === false ? 0 :  Date.now();
+        timeout = null;
+        result = fn.apply(null);
+    };
+
+    var throttled = function () {
+
+        var now = Date.now();
+
+
+        if (!previous &amp;&amp; options.leading === false) previous = now;
+
+        //计算剩余时间
+        var remaining = wait - (now - previous);
+
+        if (remaining &lt;= 0 || remaining &gt; wait) {   //设置options中leading为false时 remaining=wait  不执行函数
+            if (timeout) {
+                clearTimeout(timeout);
+                timeout = null;
+            }
+            previous = now;
+            result = fn.apply(null);
+        } else if (!timeout &amp;&amp; options.trailing !== false) {
+            timeout = setTimeout(later, remaining);
+        }
+        return result;
+    };
+    return throttled;
+}
+
+</code></pre><ul>
+<li>函数防抖</li>
+</ul>
+<pre><code>function debounce(func, wait, immediate) {
+    var timeout, result;
+
+    var later = function () {
+        timeout = null;
+        result = func.apply(null);
+    };
+
+    var debounced =function () {
+        if (timeout) clearTimeout(timeout);
+        if (immediate) {
+            var callNow = !timeout;
+            timeout = setTimeout(later, wait);
+            if (callNow) result = func.apply(null);
+        } else {
+            timeout = setTimeout(later, wait);
+        }
+
+        return result;
+    };
+
+    return debounced;
+}
+
+</code></pre>
       
     </div>
     
@@ -487,7 +555,7 @@ Unshift():往最前面添加一个元素。   改变原数组，返回新数组�
         <p><span>本文标题:</span><a href="/2018/12/03/wfe/">前端笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2018年12月03日</p>
-        <p><span>最后更新:</span>2019年03月23日 - 18时37分</p>    
+        <p><span>最后更新:</span>2019年03月24日 - 15时35分</p>    
     </div>
 
 
