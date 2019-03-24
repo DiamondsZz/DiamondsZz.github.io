@@ -9,18 +9,18 @@
   
   <title>vue | DiamondsZz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2019-3-24  双向绑定http://www.cnblogs.com/canfoo/p/6891868.html">
+  <meta name="description" content="2019-3-24  双向绑定var Book = {} var name = &amp;apos;&amp;apos;; Object.defineProperty(Book, &amp;apos;name&amp;apos;, {   set: function (value) {     name = value;     console.log(&amp;apos;你取了一个书名叫做&amp;apos; + value);   },">
 <meta name="keywords" content="js,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue">
 <meta property="og:url" content="https://DiamondsZz.github.io/2019/03/24/vue/index.html">
 <meta property="og:site_name" content="DiamondsZz">
-<meta property="og:description" content="2019-3-24  双向绑定http://www.cnblogs.com/canfoo/p/6891868.html">
+<meta property="og:description" content="2019-3-24  双向绑定var Book = {} var name = &amp;apos;&amp;apos;; Object.defineProperty(Book, &amp;apos;name&amp;apos;, {   set: function (value) {     name = value;     console.log(&amp;apos;你取了一个书名叫做&amp;apos; + value);   },">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-24T12:18:49.402Z">
+<meta property="og:updated_time" content="2019-03-24T12:21:21.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue">
-<meta name="twitter:description" content="2019-3-24  双向绑定http://www.cnblogs.com/canfoo/p/6891868.html">
+<meta name="twitter:description" content="2019-3-24  双向绑定var Book = {} var name = &amp;apos;&amp;apos;; Object.defineProperty(Book, &amp;apos;name&amp;apos;, {   set: function (value) {     name = value;     console.log(&amp;apos;你取了一个书名叫做&amp;apos; + value);   },">
   
     <link rel="alternative" href="/atom.xml" title="DiamondsZz" type="application/atom+xml">
   
@@ -229,7 +229,22 @@
         <blockquote>
 <p>2019-3-24</p>
 </blockquote>
-<h2 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h2><p><a href="http://www.cnblogs.com/canfoo/p/6891868.html" target="_blank" rel="noopener">http://www.cnblogs.com/canfoo/p/6891868.html</a></p>
+<h2 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h2><pre><code>var Book = {}
+var name = &apos;&apos;;
+Object.defineProperty(Book, &apos;name&apos;, {
+  set: function (value) {
+    name = value;
+    console.log(&apos;你取了一个书名叫做&apos; + value);
+  },
+  get: function () {
+    return &apos;《&apos; + name + &apos;》&apos;
+  }
+})
+
+Book.name = &apos;vue权威指南&apos;;  // 你取了一个书名叫做vue权威指南
+console.log(Book.name);  // 《vue权威指南》
+
+</code></pre><p>源自:<a href="http://www.cnblogs.com/canfoo/p/6891868.html" target="_blank" rel="noopener">http://www.cnblogs.com/canfoo/p/6891868.html</a></p>
 
       
     </div>
@@ -241,7 +256,7 @@
         <p><span>本文标题:</span><a href="/2019/03/24/vue/">vue</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2019年03月24日</p>
-        <p><span>最后更新:</span>2019年03月24日 - 20时18分</p>    
+        <p><span>最后更新:</span>2019年03月24日 - 20时21分</p>    
     </div>
 
 
