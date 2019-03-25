@@ -311,6 +311,88 @@ console.log(Book.name);  // 《vue权威指南》
 <li>以上只是我的一些个人看法，因人而异吧。<br>最后想勉励一下自己，还得继续加油啊。</li>
 </ol>
 </blockquote>
+<blockquote>
+<p>2019-3-25<br>今天用js敲了几个排序算法（为了面试），让我再次发现了调试的重要性！尤其是希尔排序，话不多说，上代码</p>
+</blockquote>
+<pre><code>//希尔排序
+    let increase = Math.floor(arr.length / 2);
+    while (increase!==0) {
+
+        //第一层for循环 ：分成几组
+        for (let j = 0; j &lt; increase; j++) {
+
+             //第二层for循环 ：每组多少成员
+            for (let i = j + increase, t = 1; t &lt; arr.length / increase; i += increase, t++) {
+
+                let flag=i; //记录i值
+
+                //下面while循环是直接插入排序    注意！while循环会引起i值改变
+                while (arr[i] &lt; arr[i - increase]) {  
+
+                    arr[i - increase] = arr[i] + arr[i - increase];
+                    arr[i] = arr[i - increase] - arr[i];
+                    arr[i - increase] = arr[i - increase] - arr[i];
+
+                    i = i - increase;
+                    if (i === j) break;
+                } 
+
+                i=flag; //恢复i值
+            }
+        }
+        //debugger
+        //console.log(arr);
+        increase = Math.floor(increase/2); //记录每次增量改变
+    }
+
+</code></pre><p>折腾最久的就是上面那个i值得恢复，通过debugger发现，只要进行直接插入排序，i值就会发生变化，因此需要排序后进行i值恢复。<br>上面这个希尔排序只是简单的练手，算法的性能以及健壮性上面可能不是很好，但希尔排序算法的思想还是能体现出来的。<br>下面是几个简单的排序算法：</p>
+<pre><code> //简单选择排序
+ for(let i=0;i&lt;arr.length;i++)
+ {
+     for(let j=i+1;j&lt;arr.length;j++)
+     {
+         if(arr[j]&lt;arr[i])
+         {
+             arr[i]=arr[i]+arr[j];
+             arr[j]=arr[i]-arr[j];
+             arr[i]=arr[i]-arr[j];
+         }
+     }
+     //console.log(arr);
+ }
+
+ //冒泡排序
+ for(let i=0;i&lt;arr.length;i++)
+ {
+     for(let i=0;i&lt;arr.length;i++)
+     {
+         if(arr[i+1]&lt;arr[i])
+         {
+             arr[i]=arr[i]+arr[i+1];
+             arr[i+1]=arr[i]-arr[i+1];
+             arr[i]=arr[i]-arr[i+1];
+         }
+     }
+     //console.log(arr);
+ }
+
+ //直接插入排序
+for(let i=1;i&lt;arr.length;i++)
+{
+    while(arr[i]&lt;arr[i-1])
+    {
+        arr[i-1]=arr[i]+arr[i-1];
+        arr[i]=arr[i-1]-arr[i];
+        arr[i-1]=arr[i-1]-arr[i];
+
+        i=i-1;
+        if(i===0) break;
+
+    }
+   // console.log(arr);
+}
+
+</code></pre><p>通过敲这几个排序算法，发现动手实践是很重要的。但我认为，动手之前基本的东西最好搞明白，不然你会发现出的错都是跟它们有关，有些错误还很低级，但足够你折腾半天。<br>还要再说一遍，只是练手，只是练手，只是练手。</p>
 
       
     </div>
