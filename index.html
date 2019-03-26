@@ -312,7 +312,7 @@ console.log(Book.name);  // 《vue权威指南》
 </ol>
 </blockquote>
 <blockquote>
-<p>2019-3-25<br>今天用js敲了几个排序算法（为了面试），让我再次发现了调试的重要性！尤其是希尔排序，话不多说，上代码</p>
+<p>2019-3-25<br>今天用js敲了几个排序算法（为了面试），让我再次发现了调试的重要性！下面是希尔排序，话不多说，上代码</p>
 </blockquote>
 <pre><code>//希尔排序
     let increase = Math.floor(arr.length / 2);
@@ -345,7 +345,37 @@ console.log(Book.name);  // 《vue权威指南》
         increase = Math.floor(increase/2); //记录每次增量改变
     }
 
-</code></pre><p>折腾最久的就是上面那个i值得恢复，通过debugger发现，只要进行直接插入排序，i值就会发生变化，因此需要排序后进行i值恢复。<br>上面这个希尔排序只是简单的练手，算法的性能以及健壮性上面可能不是很好，但希尔排序算法的思想还是能体现出来的。<br>下面是几个简单的排序算法：</p>
+</code></pre><p>折腾最久的就是上面那个i值得恢复，通过debugger发现，只要进行直接插入排序，i值就会发生变化，因此需要排序后进行i值恢复。<br>上面这个希尔排序只是简单的练手，算法的性能以及健壮性上面可能不是很好，但希尔排序算法的思想还是能体现出来的。</p>
+<pre><code>//快速排序  (百度百科)  （基准值、左右索引、递归）
+    const quickSort = (array) =&gt; {
+         const sort = (arr, left = 0, right = arr.length - 1) =&gt; {
+             if (left &gt;= right) {//如果左边的索引大于等于右边的索引说明整理完毕
+                 return
+             }
+             let i = left;
+             let j = right;
+             const baseVal = arr[j]; // 取无序数组最后一个数为基准值
+             //debugger;
+             while (i &lt; j) {//把所有比基准值小的数放在左边大的数放在右边
+                 while (i &lt; j &amp;&amp; arr[i] &lt;= baseVal) { //找到一个比基准值大的数交换
+                     i++
+                 }
+                 arr[j] = arr[i];// 将较大的值放在右边如果没有比基准值大的数就是将自己赋值给自己（i 等于 j）
+                 while (j &gt; i &amp;&amp; arr[j] &gt;= baseVal) { //找到一个比基准值小的数交换
+                     j--
+                 }
+                 arr[i] = arr[j] // 将较小的值放在左边如果没有找到比基准值小的数就是将自己赋值给自己（i 等于 j）
+             }
+             arr[j] = baseVal; // 将基准值放至中央位置完成一次循环（这时候 j 等于 i ）
+             sort(arr, left, j-1); // 将左边的无序数组重复上面的操作
+             sort(arr, j+1, right) // 将右边的无序数组重复上面的操作
+         };
+         const newArr = array.concat(); // 为了保证这个函数是纯函数拷贝一次数组
+         sort(newArr);
+         return newArr
+     };
+
+</code></pre><p>下面是几个简单的排序算法：</p>
 <pre><code> //简单选择排序
  for(let i=0;i&lt;arr.length;i++)
  {
