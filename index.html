@@ -375,6 +375,60 @@ console.log(Book.name);  // 《vue权威指南》
          return newArr
      };
 
+    //二分查找
+    function binary(find, arr, low, high) {
+        if (low &lt;= high) {
+            if (arr[low] == find) {
+                return low;
+            }
+            if (arr[high] == find) {
+                return high;
+            }
+            var mid = Math.ceil((high + low) / 2);
+            if (arr[mid] == find) {
+                return mid;
+            } else if (arr[mid] &gt; find) {
+                return binary(find, arr, low, mid - 1);
+            } else {
+                return binary(find, arr, mid + 1, high);
+            }
+        }
+        return -1;
+    }
+
+        //深度搜索
+        function deepTraversal(node) {
+        var nodeList = [];
+        if (node) {
+            var stack = [];//先进后出
+            stack.push(node);
+            while (stack.length != 0) {
+                var childrenItem = stack.pop();
+                nodeList.push(childrenItem);
+                var childrenList = childrenItem.children;
+                for (var i = childrenList.length - 1; i &gt;= 0; i--)
+                    stack.push(childrenList[i]);
+            }
+        }
+        return nodeList;
+    }
+    //广度搜索
+    function wideTraversal(node) {
+        var nodes = [];
+        if (node ) {
+            var queue = [];//先进先出
+            queue.unshift(node);
+            while (queue.length != 0) {
+                var item = queue.shift();
+                nodes.push(item);
+                var children = item.children;
+                for (var i = 0; i &lt; children.length; i++)
+                    queue.push(children[i]);
+            }
+        }
+        return nodes;
+    }
+
 </code></pre><p>下面是几个简单的排序算法：</p>
 <pre><code> //简单选择排序
  for(let i=0;i&lt;arr.length;i++)
@@ -848,15 +902,7 @@ animation-fill-mode:both;//（动画在播放之前或之后，其动画效果�
 <p><strong>gulp</strong>:</p>
 <ul>
 <li>压缩<code>js</code>插件：gulp-uglify</li>
-<li>压缩<code>css</code>插件：gulp-clean-css<blockquote>
-<p>2018-12-26</p>
-</blockquote>
-</li>
-<li>淘宝前端：<a href="http://taobaofed.org" target="_blank" rel="noopener">http://taobaofed.org</a></li>
-<li>百度前端：<a href="http://fex.baidu.com" target="_blank" rel="noopener">http://fex.baidu.com</a></li>
-<li>腾讯： <a href="http://www.alloyteam.com" target="_blank" rel="noopener">http://www.alloyteam.com</a></li>
-<li>奇虎360： <a href="https://75team.com" target="_blank" rel="noopener">https://75team.com</a></li>
-<li>京东： <a href="https://aotu.io" target="_blank" rel="noopener">https://aotu.io</a></li>
+<li>压缩<code>css</code>插件：gulp-clean-css</li>
 </ul>
 
       
@@ -998,7 +1044,7 @@ console.log(obj.constructor===Object.prototype.constructor);//true
 <blockquote>
 <p>2018-12-4</p>
 </blockquote>
-<h2 id="判断一个对象是否为数组"><a href="#判断一个对象是否为数组" class="headerlink" title="判断一个对象是否为数组"></a>判断一个对象是否为数组</h2><p>1.<code>Array.prototype.isPrototypeOf(obj)</code><br>2.<code>obj instanceof Array</code><br>3.<code>Object.prototype.toString().call(obj)</code><br>4.<code>Array.isArray(obj)</code></p>
+<h2 id="判断一个对象是否为数组"><a href="#判断一个对象是否为数组" class="headerlink" title="判断一个对象是否为数组"></a>判断一个对象是否为数组</h2><p>1.<code>Array.prototype.isPrototypeOf(obj)</code><br>2.<code>obj instanceof Array</code><br>3.<code>Object.prototype.toString.call(obj)</code><br>4.<code>Array.isArray(obj)</code></p>
 <blockquote>
 <p>2018-12-24</p>
 </blockquote>

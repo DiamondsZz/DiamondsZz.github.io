@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="没什么文采，想说什么就说什么。  2019-1-2最近特别怀旧，喜欢看老剧、听老歌，可能。。。。自己真的老了吧。以前看不懂的红楼梦（87版，现在的电视剧真不敢恭维，不排除有好的（有个小戏骨翻拍的红楼梦，听说还可以），但以前的老演员演技是真的好，也敬业。），现在看起来发现剧中各种小细节，很讽刺，也很现实，演员演得也好，眉眼之间但是演技，每个眼神特写都不多余。对了，才发现剧中的王熙凤是邓婕（张国立的老">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-26T01:25:04.948Z">
+<meta property="og:updated_time" content="2019-03-26T06:12:00.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录生活">
 <meta name="twitter:description" content="没什么文采，想说什么就说什么。  2019-1-2最近特别怀旧，喜欢看老剧、听老歌，可能。。。。自己真的老了吧。以前看不懂的红楼梦（87版，现在的电视剧真不敢恭维，不排除有好的（有个小戏骨翻拍的红楼梦，听说还可以），但以前的老演员演技是真的好，也敬业。），现在看起来发现剧中各种小细节，很讽刺，也很现实，演员演得也好，眉眼之间但是演技，每个眼神特写都不多余。对了，才发现剧中的王熙凤是邓婕（张国立的老">
@@ -303,6 +303,60 @@
          return newArr
      };
 
+    //二分查找
+    function binary(find, arr, low, high) {
+        if (low &lt;= high) {
+            if (arr[low] == find) {
+                return low;
+            }
+            if (arr[high] == find) {
+                return high;
+            }
+            var mid = Math.ceil((high + low) / 2);
+            if (arr[mid] == find) {
+                return mid;
+            } else if (arr[mid] &gt; find) {
+                return binary(find, arr, low, mid - 1);
+            } else {
+                return binary(find, arr, mid + 1, high);
+            }
+        }
+        return -1;
+    }
+
+        //深度搜索
+        function deepTraversal(node) {
+        var nodeList = [];
+        if (node) {
+            var stack = [];//先进后出
+            stack.push(node);
+            while (stack.length != 0) {
+                var childrenItem = stack.pop();
+                nodeList.push(childrenItem);
+                var childrenList = childrenItem.children;
+                for (var i = childrenList.length - 1; i &gt;= 0; i--)
+                    stack.push(childrenList[i]);
+            }
+        }
+        return nodeList;
+    }
+    //广度搜索
+    function wideTraversal(node) {
+        var nodes = [];
+        if (node ) {
+            var queue = [];//先进先出
+            queue.unshift(node);
+            while (queue.length != 0) {
+                var item = queue.shift();
+                nodes.push(item);
+                var children = item.children;
+                for (var i = 0; i &lt; children.length; i++)
+                    queue.push(children[i]);
+            }
+        }
+        return nodes;
+    }
+
 </code></pre><p>下面是几个简单的排序算法：</p>
 <pre><code> //简单选择排序
  for(let i=0;i&lt;arr.length;i++)
@@ -364,7 +418,7 @@ for(let i=1;i&lt;arr.length;i++)
         <p><span>本文标题:</span><a href="/2019/01/02/life/">记录生活</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2019年01月02日</p>
-        <p><span>最后更新:</span>2019年03月26日 - 09时25分</p>    
+        <p><span>最后更新:</span>2019年03月26日 - 14时12分</p>    
     </div>
 
 
