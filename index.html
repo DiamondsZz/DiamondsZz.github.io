@@ -1115,6 +1115,18 @@ console.log(obj.constructor===Object.prototype.constructor);//true
   personSpeak.bind(person)();//我的名字叫zs
 
 
+
+     Function.prototype.bind=function (context) {
+        //console.log(arguments); //被绑定函数的参数
+        var self =this;  // 指向执行时被绑定函数
+        return function () {
+            //console.log(arguments);   //被绑定对象的参数
+            return self.apply(context)
+        }
+    };
+
+
+
 </code></pre><h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><ul>
 <li>所谓‘柯里化’，就是把一个多参数的函数，转化成单参数并且返回接受余下的参数且返回结果的新函数。（我的天，好绕啊！！！）</li>
 </ul>

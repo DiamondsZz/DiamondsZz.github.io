@@ -18,7 +18,7 @@
 <meta property="og:description" content="记录了我学习前端的过程(总结当中会有不妥当的地方，会持续进行更新完善)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://diamondszz.github.io/images/js1.png">
-<meta property="og:updated_time" content="2019-03-29T02:40:04.072Z">
+<meta property="og:updated_time" content="2019-03-29T10:27:38.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记">
 <meta name="twitter:description" content="记录了我学习前端的过程(总结当中会有不妥当的地方，会持续进行更新完善)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.">
@@ -347,6 +347,18 @@ console.log(obj.constructor===Object.prototype.constructor);//true
   personSpeak.bind(person)();//我的名字叫zs
 
 
+
+     Function.prototype.bind=function (context) {
+        //console.log(arguments); //被绑定函数的参数
+        var self =this;  // 指向执行时被绑定函数
+        return function () {
+            //console.log(arguments);   //被绑定对象的参数
+            return self.apply(context)
+        }
+    };
+
+
+
 </code></pre><h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><ul>
 <li>所谓‘柯里化’，就是把一个多参数的函数，转化成单参数并且返回接受余下的参数且返回结果的新函数。（我的天，好绕啊！！！）</li>
 </ul>
@@ -546,7 +558,7 @@ Unshift():往最前面添加一个元素。   改变原数组，返回新数组�
         <p><span>本文标题:</span><a href="/2018/12/03/wfe/">前端笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2018年12月03日</p>
-        <p><span>最后更新:</span>2019年03月29日 - 10时40分</p>    
+        <p><span>最后更新:</span>2019年03月29日 - 18时27分</p>    
     </div>
 
 
