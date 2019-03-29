@@ -18,7 +18,7 @@
 <meta property="og:description" content="记录了我学习前端的过程(总结当中会有不妥当的地方，会持续进行更新完善)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://diamondszz.github.io/images/js1.png">
-<meta property="og:updated_time" content="2019-03-29T10:27:38.688Z">
+<meta property="og:updated_time" content="2019-03-29T10:52:49.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记">
 <meta name="twitter:description" content="记录了我学习前端的过程(总结当中会有不妥当的地方，会持续进行更新完善)  2018-12-3  offset.xxx与style.xxx的区别 style.left只能获取行内的，而offsetLeft则可以获取到所有的； offsetLeft 可以返回没有定位盒子距离左侧的位置；而style.left不可以，其只能返回有定位盒子的left; offsetLeft 返回的是数字，而 style.">
@@ -251,7 +251,7 @@
 <li>top 和 left<br><code>offsetTop</code>:当前元素距离有定位的父盒子上边的距离<br><code>offsetLeft</code>:当前元素距离有定位的父盒子左边的距离<br><code>clientLeft</code>:左边边框的宽度；<code>clientTop</code>:上边边框的宽度<br><code>scrollLeft</code>:左边滚动的长度; <code>scrollTop</code>:上边滚动的长度;     </li>
 </ol>
 <h2 id="子元素的margin-top影响父元素"><a href="#子元素的margin-top影响父元素" class="headerlink" title="子元素的margin-top影响父元素"></a>子元素的margin-top影响父元素</h2><p>所有毗邻的两个或更多盒元素的<code>margin</code>将会合并为一个<code>margin</code>共享之。<br>毗邻的定义为：同级或者嵌套的盒元素，并且它们之间没有非空内容、<code>padding</code>或<code>Border</code>分隔。</p>
-<p>解决办法：<br>1.给父元素加上<code>padding/border/overflow:hidden</code>(IE要添加<code>zoom:1</code>)，<br>2.或者给父元素/子元素设置为<code>float/position:absolute.</code>（浮动元素和绝对定位元素不参与<code>margin</code>折叠）</p>
+<p>解决办法：<br>1.给父元素加上<code>padding/border/overflow:hidden</code>，<br>2.或者给父元素/子元素设置为<code>float/position:absolute.</code>（浮动元素和绝对定位元素不参与<code>margin</code>折叠）</p>
 <h2 id="文字溢出"><a href="#文字溢出" class="headerlink" title="文字溢出"></a>文字溢出</h2><p> <strong>单行溢出</strong></p>
 <pre><code>width: xxx;
 overflow: hidden;
@@ -265,23 +265,7 @@ text-overflow: ellipsis;
 display: -webkit-box;  
 -webkit-line-clamp:n; 第n行显示省略号
 -webkit-box-orient: vertical;
-</code></pre><h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><ol>
-<li>原型链的弊端是不支持多重继承。记住，原型链会用另一类型的对象重写类的 <code>prototype</code> 属性。  </li>
-<li>要确保构造函数没有任何参数。</li>
-</ol>
-<pre><code>let obj =new Object();
-console.log(obj.__proto__===Object.prototype);//true
-console.log(obj.constructor===Object.prototype.constructor);//true
-</code></pre><h2 id="call-和apply"><a href="#call-和apply" class="headerlink" title="call 和apply"></a>call 和apply</h2><p><strong>call() 方法</strong></p>
-<ol>
-<li>它的第一个参数用作 <code>this</code> 的对象。其他参数都直接传递给函数自身。</li>
-</ol>
-<p><strong>apply() 方法</strong></p>
-<ol>
-<li><code>apply()</code> 方法有两个参数，用作 <code>this</code> 的对象和要传递给函数的参数的数组。</li>
-<li>只有超类中的参数顺序与子类中的参数顺序完全一致时才可以传递参数对象。如果不是，就必须创建一个单独的数组，按照正确的顺序放置参数。</li>
-</ol>
-<h2 id="css盒子"><a href="#css盒子" class="headerlink" title="css盒子"></a>css盒子</h2><ol>
+</code></pre><h2 id="css盒子"><a href="#css盒子" class="headerlink" title="css盒子"></a>css盒子</h2><ol>
 <li>如果需要控制嵌套关系盒子之间的距离，应首先考虑<code>padding</code>（父子之间）,其次再考虑<code>margin</code>。（兄弟之间）</li>
 <li><code>margin</code>在垂直方向会合并（依据较大的）。</li>
 <li>浮动元素的位置根据元素浮动之前在标准文档流中的位置所决定。</li>
@@ -324,7 +308,7 @@ console.log(obj.constructor===Object.prototype.constructor);//true
 <p>2019-3-15</p>
 </blockquote>
 <h2 id="em-rem-px"><a href="#em-rem-px" class="headerlink" title="em/rem/px"></a>em/rem/px</h2></li>
-<li>em:值并不是固定的,继承父级元素的字体大小(相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px,在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px*62.5%=10px, 这样12px=1.2em, 10px=1em)在#content中声明了字体大小为1.2em，那么在声明p的字体大小时就只能是1em，而不是1.2em, 因为此em非彼em，它因继承#content的字体高而变为了1em=12px。</li>
+<li>em:值并不是固定的,继承父级元素的字体大小(相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px,在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px*62.5%=10px, 这样12px=1.2em, 10px=1em)在父级元素中声明了字体大小为1.2em，那么在子元素的字体大小时就只能是1em，而不是1.2em, 因为此em非彼em，它因继承#content的字体高而变为了1em=12px。</li>
 <li>rem:相对HTML根元素</li>
 <li>px:相对于显示器屏幕分辨率<h2 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h2></li>
 <li>利用事件冒泡原理。假如为一个ul下面100个li添加点击事件，考虑性能，可以使用事件代理。直接给ul添加事件监听，利用事件冒泡，进行触发，如果想在事件捕获阶段执行，可以设置addEventListener参数为true。</li>
@@ -558,7 +542,7 @@ Unshift():往最前面添加一个元素。   改变原数组，返回新数组�
         <p><span>本文标题:</span><a href="/2018/12/03/wfe/">前端笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2018年12月03日</p>
-        <p><span>最后更新:</span>2019年03月29日 - 18时27分</p>    
+        <p><span>最后更新:</span>2019年03月29日 - 18时52分</p>    
     </div>
 
 
@@ -583,7 +567,7 @@ Unshift():往最前面添加一个元素。   改变原数组，返回新数组�
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#offset-xxx与style-xxx的区别"><span class="toc-number">1.</span> <span class="toc-text">offset.xxx与style.xxx的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#offset、client-、scroll"><span class="toc-number">2.</span> <span class="toc-text">offset、client 、scroll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子元素的margin-top影响父元素"><span class="toc-number">3.</span> <span class="toc-text">子元素的margin-top影响父元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文字溢出"><span class="toc-number">4.</span> <span class="toc-text">文字溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链"><span class="toc-number">5.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#call-和apply"><span class="toc-number">6.</span> <span class="toc-text">call 和apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css盒子"><span class="toc-number">7.</span> <span class="toc-text">css盒子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js"><span class="toc-number">8.</span> <span class="toc-text">js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nth-child选择器"><span class="toc-number">9.</span> <span class="toc-text">nth-child选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断一个对象是否为数组"><span class="toc-number">10.</span> <span class="toc-text">判断一个对象是否为数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建BFC"><span class="toc-number">11.</span> <span class="toc-text">创建BFC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除浮动"><span class="toc-number">12.</span> <span class="toc-text">清除浮动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#line-height"><span class="toc-number">13.</span> <span class="toc-text">line-height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#display-flex（弹性盒子、伸缩布局）"><span class="toc-number">14.</span> <span class="toc-text">display:flex（弹性盒子、伸缩布局）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#em-rem-px"><span class="toc-number">15.</span> <span class="toc-text">em/rem/px</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件委托"><span class="toc-number">16.</span> <span class="toc-text">事件委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bind-call-apply"><span class="toc-number">17.</span> <span class="toc-text">bind/call/apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#柯里化"><span class="toc-number">18.</span> <span class="toc-text">柯里化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#块级元素居中"><span class="toc-number">19.</span> <span class="toc-text">块级元素居中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#animation（动画）与transition（过渡）的区别（二者可以与transform结合使用）"><span class="toc-number">20.</span> <span class="toc-text">animation（动画）与transition（过渡）的区别（二者可以与transform结合使用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑运算符（-amp-amp-）位运算符（-amp-）"><span class="toc-number">21.</span> <span class="toc-text">逻辑运算符（&amp;&amp; ||）位运算符（&amp; |）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#寄生组合式继承"><span class="toc-number">22.</span> <span class="toc-text">寄生组合式继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#once函数"><span class="toc-number">23.</span> <span class="toc-text">once函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String与Array-整理巩固"><span class="toc-number">24.</span> <span class="toc-text">String与Array  (整理巩固)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数节流与函数防抖"><span class="toc-number">25.</span> <span class="toc-text">函数节流与函数防抖</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#offset-xxx与style-xxx的区别"><span class="toc-number">1.</span> <span class="toc-text">offset.xxx与style.xxx的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#offset、client-、scroll"><span class="toc-number">2.</span> <span class="toc-text">offset、client 、scroll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子元素的margin-top影响父元素"><span class="toc-number">3.</span> <span class="toc-text">子元素的margin-top影响父元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文字溢出"><span class="toc-number">4.</span> <span class="toc-text">文字溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css盒子"><span class="toc-number">5.</span> <span class="toc-text">css盒子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js"><span class="toc-number">6.</span> <span class="toc-text">js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nth-child选择器"><span class="toc-number">7.</span> <span class="toc-text">nth-child选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断一个对象是否为数组"><span class="toc-number">8.</span> <span class="toc-text">判断一个对象是否为数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建BFC"><span class="toc-number">9.</span> <span class="toc-text">创建BFC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除浮动"><span class="toc-number">10.</span> <span class="toc-text">清除浮动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#line-height"><span class="toc-number">11.</span> <span class="toc-text">line-height</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#display-flex（弹性盒子、伸缩布局）"><span class="toc-number">12.</span> <span class="toc-text">display:flex（弹性盒子、伸缩布局）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#em-rem-px"><span class="toc-number">13.</span> <span class="toc-text">em/rem/px</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件委托"><span class="toc-number">14.</span> <span class="toc-text">事件委托</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bind-call-apply"><span class="toc-number">15.</span> <span class="toc-text">bind/call/apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#柯里化"><span class="toc-number">16.</span> <span class="toc-text">柯里化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#块级元素居中"><span class="toc-number">17.</span> <span class="toc-text">块级元素居中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#animation（动画）与transition（过渡）的区别（二者可以与transform结合使用）"><span class="toc-number">18.</span> <span class="toc-text">animation（动画）与transition（过渡）的区别（二者可以与transform结合使用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑运算符（-amp-amp-）位运算符（-amp-）"><span class="toc-number">19.</span> <span class="toc-text">逻辑运算符（&amp;&amp; ||）位运算符（&amp; |）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#寄生组合式继承"><span class="toc-number">20.</span> <span class="toc-text">寄生组合式继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#once函数"><span class="toc-number">21.</span> <span class="toc-text">once函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String与Array-整理巩固"><span class="toc-number">22.</span> <span class="toc-text">String与Array  (整理巩固)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数节流与函数防抖"><span class="toc-number">23.</span> <span class="toc-text">函数节流与函数防抖</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
