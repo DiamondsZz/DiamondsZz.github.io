@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="2018-12-30  img标签设置伪类after、before无效    2019-3-10  chrome浏览器不支持select标签下option的click事件，可以为select绑定change事件。    2019-3-29  inline元素   margin/padding在竖直方向上无效，水平方向上有效  浮动或绝对定位时会转换为block    IE6浏览器常见的bug">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T10:01:50.555Z">
+<meta property="og:updated_time" content="2019-03-30T10:03:27.899Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="遇到的一些坑">
 <meta name="twitter:description" content="2018-12-30  img标签设置伪类after、before无效    2019-3-10  chrome浏览器不支持select标签下option的click事件，可以为select绑定change事件。    2019-3-29  inline元素   margin/padding在竖直方向上无效，水平方向上有效  浮动或绝对定位时会转换为block    IE6浏览器常见的bug">
@@ -253,21 +253,19 @@
 <ol>
 <li>IE6不支持min-height，解决办法使用css hack：<br>.target {<br> min-height: 100px;<br> height: auto !important;<br> height: 100px;   // IE6下内容高度超过会自动扩展高度<br>}</li>
 <li>IE6只支持a标签的:hover伪类，解决方法：使用js为元素监听mouseenter，mouseleave事件，动态添加类</li>
-<li>IE5-8不支持opacity，解决办法：</li>
-</ol>
-</blockquote>
-<pre><code>.opacity {
-    opacity: 0.4
-    filter: alpha(opacity=60); /* for IE5-7 */
-    -ms-filter: &quot;progid:DXImageTransform.Microsoft.Alpha(Opacity=60)&quot;; /* for IE 8*/
+<li>IE5-8不支持opacity，解决办法：<pre><code>.opacity {
+ opacity: 0.4
+ filter: alpha(opacity=60); /* for IE5-7 */
+ -ms-filter: &quot;progid:DXImageTransform.Microsoft.Alpha(Opacity=60)&quot;; /* for IE 8*/
 }
-</code></pre><ol start="4">
+</code></pre></li>
 <li>IE6不支持PNG透明背景，解决办法: 使用gif图片</li>
 <li>IE6-7不支持display: inline-block 解决办法：<pre><code>display: inline-block;
 *display: inline;
 *zoom: 1;
 </code></pre></li>
 </ol>
+</blockquote>
 
       
     </div>
@@ -279,7 +277,7 @@
         <p><span>本文标题:</span><a href="/2018/12/30/bug/">遇到的一些坑</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2018年12月30日</p>
-        <p><span>最后更新:</span>2019年03月30日 - 18时01分</p>    
+        <p><span>最后更新:</span>2019年03月30日 - 18时03分</p>    
     </div>
 
 
