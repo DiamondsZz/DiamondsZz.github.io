@@ -1299,6 +1299,23 @@ Unshift():往最前面添加一个元素。   改变原数组，返回新数组�
     return debounced;
 }
 
+</code></pre><blockquote>
+<p>2019-3-30</p>
+</blockquote>
+<h2 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h2><pre><code>function jsonp(options)
+  {
+      var callbackName=&apos;diamondszz&apos;+Math.random().toString().substring(2);
+      //console.log(callbackName);
+      window.callbackName=function (data) {
+          options.success(data);
+          document.removeChild(script);
+      };
+      var url=options.url+&apos;?callback=&apos;+callbackName;
+      var script=document.createElement(&apos;script&apos;);
+      script.src=url;
+      document.body.appendChild(script);
+  }
+
 </code></pre>
       
     </div>
