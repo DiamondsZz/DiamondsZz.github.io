@@ -568,20 +568,18 @@ for(let i=1;i&lt;arr.length;i++)
 <ul>
 <li>IE6浏览器常见的bug</li>
 </ul>
-</blockquote>
 <ol>
 <li>IE6不支持min-height，解决办法使用css hack：<br>.target {<br> min-height: 100px;<br> height: auto !important;<br> height: 100px;   // IE6下内容高度超过会自动扩展高度<br>}</li>
+<li>IE6只支持a标签的:hover伪类，解决方法：使用js为元素监听mouseenter，mouseleave事件，动态添加类</li>
+<li>IE5-8不支持opacity，解决办法：</li>
 </ol>
-<ol start="2">
-<li><p>IE6只支持a标签的:hover伪类，解决方法：使用js为元素监听mouseenter，mouseleave事件，动态添加类</p>
-</li>
-<li><p>IE5-8不支持opacity，解决办法：</p>
+</blockquote>
 <pre><code>.opacity {
- opacity: 0.4
- filter: alpha(opacity=60); /* for IE5-7 */
- -ms-filter: &quot;progid:DXImageTransform.Microsoft.Alpha(Opacity=60)&quot;; /* for IE 8*/
+    opacity: 0.4
+    filter: alpha(opacity=60); /* for IE5-7 */
+    -ms-filter: &quot;progid:DXImageTransform.Microsoft.Alpha(Opacity=60)&quot;; /* for IE 8*/
 }
-</code></pre></li>
+</code></pre><ol start="4">
 <li>IE6不支持PNG透明背景，解决办法: 使用gif图片</li>
 <li>IE6-7不支持display: inline-block 解决办法：<pre><code>display: inline-block;
 *display: inline;
