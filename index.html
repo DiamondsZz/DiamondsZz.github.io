@@ -1187,6 +1187,16 @@ class Point {
         }
     }
 }
+</code></pre><h2 id="Array-prototype-map"><a href="#Array-prototype-map" class="headerlink" title="Array.prototype.map"></a>Array.prototype.map</h2><pre><code>Array.prototype.map=function (fn) {
+      var arr=[];
+      //console.log(this);
+      this.forEach(function (item,index) {
+          //console.log(item);
+          //console.log(fn.call(null, item));
+          arr.push(fn.call(null,item,index,this));
+      });
+      return arr;
+  };
 </code></pre><h2 id="String与Array-整理巩固"><a href="#String与Array-整理巩固" class="headerlink" title="String与Array  (整理巩固)"></a>String与Array  (整理巩固)</h2><ul>
 <li>String:</li>
 </ul>
