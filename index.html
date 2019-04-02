@@ -303,7 +303,7 @@ console.log(Book.name);  // 《vue权威指南》
 <p>2019-1-2<br>最近特别怀旧，喜欢看老剧、听老歌，可能。。。。自己真的老了吧。<br>以前看不懂的红楼梦（87版，现在的电视剧真不敢恭维，不排除有好的（有个小戏骨翻拍的红楼梦，听说还可以），但以前的老演员演技是真的好，也敬业。），现在看起来发现剧中各种小细节，很讽刺，也很现实，演员演得也好，眉眼之间但是演技，每个眼神特写都不多余。<br>对了，才发现剧中的王熙凤是邓婕（张国立的老婆）演的。</p>
 </blockquote>
 <blockquote>
-<p>2019-3-10<br>好久没有更新博客了，利用寒假时间把js又深入的学习了一遍，发现时间过的很快，一个月转眼就过去了。<br>大三下学期要面临找实习，我开始焦虑了。<br>算下来学习前端的时间有一年多了吧，自认为学的是一塌糊涂。<br>尤其是大三上学期，我接触了es6、webpack打包工具、vue、vue-cli自动化构建工具、vuex状态管理、以及服务端的js——node、babel编译工具、模块化编程等等，发现前端的知识好杂乱，要学的好多，为了搞懂这些东西，花费了我大量时间，感觉时间都浪费掉了。在追求知识的广度和深度这个问题上，我迷茫了。<br>随着时间的推进，我慢慢察觉基础的重要性，开始对css、js进行更深一步的进阶学习，收获挺多，基础还是很重要的。<br>今天写了一个三级联动，碰到了一些问题，就此谈一下我的感受：</p>
+<p>2019-3-10<br>好久没有更新博客了，利用寒假时间把js又深入的学习了一遍，发现时间过的很快，一个月转眼就过去了。<br>大三下学期要面临找实习，我开始焦虑了。<br>算下来学习前端的时间有一年多了吧。<br>尤其是大三上学期，我接触了es6、webpack打包工具、vue、vue-cli自动化构建工具、vuex状态管理、以及服务端的js——node、babel编译工具、模块化编程等等，发现前端的知识好杂乱，要学的好多，为了搞懂这些东西，花费了我大量时间，感觉时间都浪费掉了。在追求知识的广度和深度这个问题上，我迷茫了。<br>随着时间的推进，我慢慢察觉基础的重要性，开始对css、js进行更深一步的进阶学习，收获挺多，基础还是很重要的。<br>今天写了一个三级联动，碰到了一些问题，就此谈一下我的感受：</p>
 <ol>
 <li>对于jquery动态添加的Dom元素无法绑定事件，可以借助事件代理。但就因为这个问题我折腾了一、两个小时，为啥呢？因为我为动态添加的option标签绑定了click事件！！！（Chrome对option的click事件不支持，卧槽！在我心中堪称完美的Chrome居然也有缺陷），这个问题曾一度让我怀疑自己。</li>
 <li>上面都不是关键，之所以要说这个问题，我想强调的是“百度使用方式的重要性”，之前我一直搜索的是“jquery动态添加的Dom元素绑定事件失效”，然后出来一大堆，基本上都是说使用事件代理，于是就照着这个方法修改了代码，最后发现没用啊，难道是我别的地方出错了？调试了好几遍还是没问题啊，打开控制台，发现事件添加上去了，当时的我一脸懵逼。。。来回折腾进一个小时，几乎快要崩溃。。休息了10分钟，整理了一下思绪，一步步的排除错误，最后锁定在了select标签这个东西上。再次打开百度，输入“select标签绑定click事件无效”，终于真相大白，原来是Chrome浏览器不支持 。</li>
@@ -312,125 +312,92 @@ console.log(Book.name);  // 《vue权威指南》
 </ol>
 </blockquote>
 <blockquote>
-<p>2019-3-25<br>今天用js敲了几个排序算法（为了面试），让我再次发现了调试的重要性！下面是希尔排序，话不多说，上代码</p>
+<p>2019-3-25<br>今天用js敲了几个排序算法（为了面试），让我再次发现了调试的重要性！下面是希尔排序，话不多说，上代码<br><code>`</code><br>//希尔排序<br>    let increase = Math.floor(arr.length / 2);<br>    while (increase!==0) {</p>
 </blockquote>
-<pre><code>//希尔排序
-    let increase = Math.floor(arr.length / 2);
-    while (increase!==0) {
+<pre><code>    //第一层for循环 ：分成几组
+    for (let j = 0; j &lt; increase; j++) {
 
-        //第一层for循环 ：分成几组
-        for (let j = 0; j &lt; increase; j++) {
+         //第二层for循环 ：每组多少成员
+        for (let i = j + increase, t = 1; t &lt; arr.length / increase; i += increase, t++) {
 
-             //第二层for循环 ：每组多少成员
-            for (let i = j + increase, t = 1; t &lt; arr.length / increase; i += increase, t++) {
+            let flag=i; //记录i值
 
-                let flag=i; //记录i值
+            //下面while循环是直接插入排序    注意！while循环会引起i值改变
+            while (arr[i] &lt; arr[i - increase]) {  
 
-                //下面while循环是直接插入排序    注意！while循环会引起i值改变
-                while (arr[i] &lt; arr[i - increase]) {  
+                arr[i - increase] = arr[i] + arr[i - increase];
+                arr[i] = arr[i - increase] - arr[i];
+                arr[i - increase] = arr[i - increase] - arr[i];
 
-                    arr[i - increase] = arr[i] + arr[i - increase];
-                    arr[i] = arr[i - increase] - arr[i];
-                    arr[i - increase] = arr[i - increase] - arr[i];
+                i = i - increase;
+                if (i === j) break;
+            } 
 
-                    i = i - increase;
-                    if (i === j) break;
-                } 
-
-                i=flag; //恢复i值
-            }
+            i=flag; //恢复i值
         }
-        //debugger
-        //console.log(arr);
-        increase = Math.floor(increase/2); //记录每次增量改变
     }
-
-</code></pre><p>折腾最久的就是上面那个i值得恢复，通过debugger发现，只要进行直接插入排序，i值就会发生变化，因此需要排序后进行i值恢复。<br>上面这个希尔排序只是简单的练手，算法的性能以及健壮性上面可能不是很好，但希尔排序算法的思想还是能体现出来的。</p>
-<pre><code>//快速排序  (百度百科)  （基准值、左右索引、递归）
-    const quickSort = (array) =&gt; {
-         const sort = (arr, left = 0, right = arr.length - 1) =&gt; {
-             if (left &gt;= right) {//如果左边的索引大于等于右边的索引说明整理完毕
-                 return
-             }
-             let i = left;
-             let j = right;
-             const baseVal = arr[j]; // 取无序数组最后一个数为基准值
-             //debugger;
-             while (i &lt; j) {//把所有比基准值小的数放在左边大的数放在右边
-                 while (i &lt; j &amp;&amp; arr[i] &lt;= baseVal) { //找到一个比基准值大的数交换
-                     i++
-                 }
-                 arr[j] = arr[i];// 将较大的值放在右边如果没有比基准值大的数就是将自己赋值给自己（i 等于 j）
-                 while (j &gt; i &amp;&amp; arr[j] &gt;= baseVal) { //找到一个比基准值小的数交换
-                     j--
-                 }
-                 arr[i] = arr[j] // 将较小的值放在左边如果没有找到比基准值小的数就是将自己赋值给自己（i 等于 j）
-             }
-             arr[j] = baseVal; // 将基准值放至中央位置完成一次循环（这时候 j 等于 i ）
-             sort(arr, left, j-1); // 将左边的无序数组重复上面的操作
-             sort(arr, j+1, right) // 将右边的无序数组重复上面的操作
-         };
-         const newArr = array.concat(); // 为了保证这个函数是纯函数拷贝一次数组
-         sort(newArr);
-         return newArr
-     };
-
-    //二分查找
-    function binary(find, arr, low, high) {
-        if (low &lt;= high) {
-            if (arr[low] == find) {
-                return low;
-            }
-            if (arr[high] == find) {
-                return high;
-            }
-            var mid = Math.ceil((high + low) / 2);
-            if (arr[mid] == find) {
-                return mid;
-            } else if (arr[mid] &gt; find) {
-                return binary(find, arr, low, mid - 1);
-            } else {
-                return binary(find, arr, mid + 1, high);
-            }
+    //debugger
+    //console.log(arr);
+    increase = Math.floor(increase/2); //记录每次增量改变
+}
+</code></pre><pre><code>折腾最久的就是上面那个i值得恢复，通过debugger发现，只要进行直接插入排序，i值就会发生变化，因此需要排序后进行i值恢复。
+上面这个希尔排序只是简单的练手，算法的性能以及健壮性上面可能不是很好，但希尔排序算法的思想还是能体现出来的。
+</code></pre><p>//快速排序  (百度百科)  （基准值、左右索引、递归）<br>    const quickSort = (array) =&gt; {<br>         const sort = (arr, left = 0, right = arr.length - 1) =&gt; {<br>             if (left &gt;= right) {//如果左边的索引大于等于右边的索引说明整理完毕<br>                 return<br>             }<br>             let i = left;<br>             let j = right;<br>             const baseVal = arr[j]; // 取无序数组最后一个数为基准值<br>             //debugger;<br>             while (i &lt; j) {//把所有比基准值小的数放在左边大的数放在右边<br>                 while (i &lt; j &amp;&amp; arr[i] &lt;= baseVal) { //找到一个比基准值大的数交换<br>                     i++<br>                 }<br>                 arr[j] = arr[i];// 将较大的值放在右边如果没有比基准值大的数就是将自己赋值给自己（i 等于 j）<br>                 while (j &gt; i &amp;&amp; arr[j] &gt;= baseVal) { //找到一个比基准值小的数交换<br>                     j–<br>                 }<br>                 arr[i] = arr[j] // 将较小的值放在左边如果没有找到比基准值小的数就是将自己赋值给自己（i 等于 j）<br>             }<br>             arr[j] = baseVal; // 将基准值放至中央位置完成一次循环（这时候 j 等于 i ）<br>             sort(arr, left, j-1); // 将左边的无序数组重复上面的操作<br>             sort(arr, j+1, right) // 将右边的无序数组重复上面的操作<br>         };<br>         const newArr = array.concat(); // 为了保证这个函数是纯函数拷贝一次数组<br>         sort(newArr);<br>         return newArr<br>     };</p>
+<pre><code>//二分查找
+function binary(find, arr, low, high) {
+    if (low &lt;= high) {
+        if (arr[low] == find) {
+            return low;
         }
-        return -1;
-    }
-
-        //深度搜索
-        function deepTraversal(node) {
-        var nodeList = [];
-        if (node) {
-            var stack = [];//先进后出
-            stack.push(node);
-            while (stack.length != 0) {
-                var childrenItem = stack.pop();
-                nodeList.push(childrenItem);
-                var childrenList = childrenItem.children;
-                for (var i = childrenList.length - 1; i &gt;= 0; i--)
-                    stack.push(childrenList[i]);
-            }
+        if (arr[high] == find) {
+            return high;
         }
-        return nodeList;
-    }
-    //广度搜索
-    function wideTraversal(node) {
-        var nodes = [];
-        if (node ) {
-            var queue = [];//先进先出
-            queue.unshift(node);
-            while (queue.length != 0) {
-                var item = queue.shift();
-                nodes.push(item);
-                var children = item.children;
-                for (var i = 0; i &lt; children.length; i++)
-                    queue.push(children[i]);
-            }
+        var mid = Math.ceil((high + low) / 2);
+        if (arr[mid] == find) {
+            return mid;
+        } else if (arr[mid] &gt; find) {
+            return binary(find, arr, low, mid - 1);
+        } else {
+            return binary(find, arr, mid + 1, high);
         }
-        return nodes;
     }
+    return -1;
+}
 
-</code></pre><p>下面是几个简单的排序算法：</p>
-<pre><code> //简单选择排序
+    //深度搜索
+    function deepTraversal(node) {
+    var nodeList = [];
+    if (node) {
+        var stack = [];//先进后出
+        stack.push(node);
+        while (stack.length != 0) {
+            var childrenItem = stack.pop();
+            nodeList.push(childrenItem);
+            var childrenList = childrenItem.children;
+            for (var i = childrenList.length - 1; i &gt;= 0; i--)
+                stack.push(childrenList[i]);
+        }
+    }
+    return nodeList;
+}
+//广度搜索
+function wideTraversal(node) {
+    var nodes = [];
+    if (node ) {
+        var queue = [];//先进先出
+        queue.unshift(node);
+        while (queue.length != 0) {
+            var item = queue.shift();
+            nodes.push(item);
+            var children = item.children;
+            for (var i = 0; i &lt; children.length; i++)
+                queue.push(children[i]);
+        }
+    }
+    return nodes;
+}
+</code></pre><pre><code>下面是几个简单的排序算法：
+</code></pre><pre><code> //简单选择排序
  for(let i=0;i&lt;arr.length;i++)
  {
      for(let j=i+1;j&lt;arr.length;j++)
@@ -477,8 +444,7 @@ for(let i=1;i&lt;arr.length;i++)
              i=flag;
    // console.log(arr);
 }
-
-</code></pre><p>通过敲这几个排序算法，发现动手实践是很重要的。但我认为，动手之前基本的东西最好搞明白，不然你会发现出的错都是跟它们有关，有些错误还很低级，但足够你折腾半天。<br>还要再说一遍，只是练手，只是练手，只是练手。</p>
+</code></pre><p><code>`</code><br>通过敲这几个排序算法，发现动手实践是很重要的。但我认为，动手之前基本的东西最好搞明白，不然你会发现出的错都是跟它们有关，有些错误还很低级，但足够你折腾半天。<br>还要再说一遍，只是练手，只是练手，只是练手。</p>
 
       
     </div>
