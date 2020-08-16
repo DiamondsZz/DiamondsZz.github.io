@@ -185,6 +185,82 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-log" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/08/16/log/" class="article-date">
+      <time datetime="2020-08-15T16:00:00.000Z" itemprop="datePublished">2020-08-16</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/16/log/">前端记录</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p> 给自己看。</p>
+<blockquote>
+<p>2020-8-16</p>
+</blockquote>
+<h2 id="H5当中contenteditable-属性"><a href="#H5当中contenteditable-属性" class="headerlink" title="H5当中contenteditable 属性"></a>H5当中contenteditable 属性</h2><p>*contenteditable 属性规定元素内容是否可编辑</p>
+<p>*通过<code>&amp;:focus{outline: none;}</code>去除聚焦边框</p>
+<h2 id="微信表情包使用"><a href="#微信表情包使用" class="headerlink" title="微信表情包使用"></a>微信表情包使用</h2><p><em><a href="https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/${Math.floor(Math.random()" target="_blank" rel="noopener">https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/${Math.floor(Math.random()</a> </em> 104 + 1)}.gif”</p>
+<h2 id="点击复制"><a href="#点击复制" class="headerlink" title="点击复制"></a>点击复制</h2><ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">      copy(dom) &#123;</span><br><span class="line">	//创建input元素</span><br><span class="line">	let input = document.createElement(&apos;input&apos;)</span><br><span class="line">	document.body.appendChild(input)</span><br><span class="line">	input.value = this.$refs[dom].innerText</span><br><span class="line">	//input元素选中状态</span><br><span class="line">	input.select()</span><br><span class="line">	//复制内容到剪切板</span><br><span class="line">	document.execCommand(&apos;copy&apos;)</span><br><span class="line">	//移除input元素</span><br><span class="line">	document.body.removeChild(input)</span><br><span class="line">	this.$notify(&#123; type: &apos;success&apos;, message: &apos;复制成功！&apos;, duration: 500 &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-vue" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -1146,82 +1222,6 @@ Unshift():往最前面添加一个元素。   改变原数组，返回新数组�
   }
 
 </code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-log" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/1970/01/01/log/" class="article-date">
-      <time datetime="1970-01-01T00:00:02.020Z" itemprop="datePublished">1970-01-01</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/1970/01/01/log/">前端记录</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p> 给自己看。</p>
-<blockquote>
-<p>2020-8-16</p>
-</blockquote>
-<h2 id="H5当中contenteditable-属性。"><a href="#H5当中contenteditable-属性。" class="headerlink" title="H5当中contenteditable 属性。"></a>H5当中contenteditable 属性。</h2><p><em>contenteditable 属性规定元素内容是否可编辑
-</em>通过<code>&amp;:focus{outline: none;}</code>去除聚焦边框</p>
-<h2 id="微信表情包使用"><a href="#微信表情包使用" class="headerlink" title="微信表情包使用"></a>微信表情包使用</h2><p><em><a href="https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/${Math.floor(Math.random()" target="_blank" rel="noopener">https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/${Math.floor(Math.random()</a> </em> 104 + 1)}.gif”</p>
-<h2 id="点击复制"><a href="#点击复制" class="headerlink" title="点击复制"></a>点击复制</h2><ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">      copy(dom) &#123;</span><br><span class="line">	//创建input元素</span><br><span class="line">	let input = document.createElement(&apos;input&apos;)</span><br><span class="line">	document.body.appendChild(input)</span><br><span class="line">	input.value = this.$refs[dom].innerText</span><br><span class="line">	//input元素选中状态</span><br><span class="line">	input.select()</span><br><span class="line">	//复制内容到剪切板</span><br><span class="line">	document.execCommand(&apos;copy&apos;)</span><br><span class="line">	//移除input元素</span><br><span class="line">	document.body.removeChild(input)</span><br><span class="line">	this.$notify(&#123; type: &apos;success&apos;, message: &apos;复制成功！&apos;, duration: 500 &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
       
     </div>
     
