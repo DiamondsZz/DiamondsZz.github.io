@@ -218,16 +218,27 @@
 <blockquote>
 <p>2020-8-16</p>
 </blockquote>
-<h2 id="H5当中contenteditable-属性"><a href="#H5当中contenteditable-属性" class="headerlink" title="H5当中contenteditable 属性"></a>H5当中contenteditable 属性</h2><p>*contenteditable 属性规定元素内容是否可编辑</p>
-<p>*通过<code>&amp;:focus{outline: none;}</code>去除聚焦边框</p>
-<h2 id="微信表情包使用"><a href="#微信表情包使用" class="headerlink" title="微信表情包使用"></a>微信表情包使用</h2><p><em>`<a href="https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/${Math.floor(Math.random()" target="_blank" rel="noopener">https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/${Math.floor(Math.random()</a> </em> 104 + 1)}.gif”`</p>
+<h2 id="H5当中contenteditable-属性"><a href="#H5当中contenteditable-属性" class="headerlink" title="H5当中contenteditable 属性"></a>H5当中contenteditable 属性</h2><ul>
+<li><p>contenteditable 属性规定元素内容是否可编辑</p>
+</li>
+<li><p>通过<code>&amp;:focus{outline: none;}</code>去除聚焦边框</p>
+</li>
+</ul>
+<h2 id="微信表情包使用"><a href="#微信表情包使用" class="headerlink" title="微信表情包使用"></a>微信表情包使用</h2><ul>
+<li><code>https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/${Math.floor(Math.random() * 104 + 1)}.gif&quot;</code></li>
+</ul>
 <h2 id="点击复制"><a href="#点击复制" class="headerlink" title="点击复制"></a>点击复制</h2><ul>
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">      copy(dom) &#123;</span><br><span class="line">	//创建input元素</span><br><span class="line">	let input = document.createElement(&apos;input&apos;)</span><br><span class="line">	document.body.appendChild(input)</span><br><span class="line">	input.value = this.$refs[dom].innerText</span><br><span class="line">	//input元素选中状态</span><br><span class="line">	input.select()</span><br><span class="line">	//复制内容到剪切板</span><br><span class="line">	document.execCommand(&apos;copy&apos;)</span><br><span class="line">	//移除input元素</span><br><span class="line">	document.body.removeChild(input)</span><br><span class="line">	this.$notify(&#123; type: &apos;success&apos;, message: &apos;复制成功！&apos;, duration: 500 &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="vue-cli-publicPath-来自官方文档"><a href="#vue-cli-publicPath-来自官方文档" class="headerlink" title="vue-cli publicPath(来自官方文档)"></a>vue-cli publicPath(来自官方文档)</h2><p>*默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上，例如 <a href="https://www.my-app.com/。" target="_blank" rel="noopener">https://www.my-app.com/。</a><br>如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。例如，如果你的应用被部署在 <a href="https://www.my-app.com/my-app/，则设置" target="_blank" rel="noopener">https://www.my-app.com/my-app/，则设置</a> publicPath 为 /my-app/。<br>这个值也可以被设置为空字符串 (‘’) 或是相对路径 (‘./‘)，这样所有的资源都会被链接为相对路径，这样打出来的包可以被部署在任意路径，也可以用在类似 Cordova hybrid 应用的文件系统中。</p>
-<p>*相对路径的 publicPath 有一些使用上的限制。在以下情况下，应当避免使用相对 :<br>当使用基于 HTML5 history.pushState 的路由时；<br>当使用 pages 选项构建多页面应用时.</p>
-<p>*这个值在开发环境下同样生效。如果你想把开发服务器架设在根路径，你可以使用一个条件式的值：</p>
+<h2 id="vue-cli-publicPath-来自官方文档"><a href="#vue-cli-publicPath-来自官方文档" class="headerlink" title="vue-cli publicPath(来自官方文档)"></a>vue-cli publicPath(来自官方文档)</h2><ul>
+<li><p>默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上，例如 <a href="https://www.my-app.com/。" target="_blank" rel="noopener">https://www.my-app.com/。</a><br>如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。例如，如果你的应用被部署在 <a href="https://www.my-app.com/my-app/，则设置" target="_blank" rel="noopener">https://www.my-app.com/my-app/，则设置</a> publicPath 为 /my-app/。<br>这个值也可以被设置为空字符串 (‘’) 或是相对路径 (‘./‘)，这样所有的资源都会被链接为相对路径，这样打出来的包可以被部署在任意路径，也可以用在类似 Cordova hybrid 应用的文件系统中。</p>
+</li>
+<li><p>相对路径的 publicPath 有一些使用上的限制。在以下情况下，应当避免使用相对 :<br>当使用基于 HTML5 history.pushState 的路由时；<br>当使用 pages 选项构建多页面应用时.</p>
+</li>
+<li><p>这个值在开发环境下同样生效。如果你想把开发服务器架设在根路径，你可以使用一个条件式的值：</p>
+</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  publicPath: process.env.NODE_ENV === &apos;production&apos;</span><br><span class="line">    ? &apos;/production-sub-path/&apos;</span><br><span class="line">    : &apos;/&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
