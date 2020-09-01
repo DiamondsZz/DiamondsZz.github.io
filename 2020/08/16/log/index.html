@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="记录一下，给自己看。  2020-8-16  H5当中contenteditable 属性 contenteditable 属性规定元素内容是否可编辑   通过&amp;amp;:focus{outline: none;}去除聚焦边框  微信表情包使用 https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/${Math.floor(Mat">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-30T02:21:10.071Z">
+<meta property="og:updated_time" content="2020-09-01T13:54:57.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端记录">
 <meta name="twitter:description" content="记录一下，给自己看。  2020-8-16  H5当中contenteditable 属性 contenteditable 属性规定元素内容是否可编辑   通过&amp;amp;:focus{outline: none;}去除聚焦边框  微信表情包使用 https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/${Math.floor(Mat">
@@ -278,6 +278,26 @@
 <p>2020-8-30</p>
 </blockquote>
 <h2 id="vant-Dialog弹出框、Popup弹出层样式修改"><a href="#vant-Dialog弹出框、Popup弹出层样式修改" class="headerlink" title="vant Dialog弹出框、Popup弹出层样式修改"></a>vant Dialog弹出框、Popup弹出层样式修改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">position: absolute;</span><br><span class="line">left: 0;</span><br><span class="line">right: 0;</span><br><span class="line">top: 0;</span><br><span class="line">bottom: 0;</span><br><span class="line">margin: auto;</span><br><span class="line">transform: translate3d(0, 0, 0); 解决字体模糊</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2020-9-1</p>
+</blockquote>
+<h2 id="滚动条"><a href="#滚动条" class="headerlink" title="滚动条"></a>滚动条</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  &gt; 2020-8-30</span><br><span class="line">		</span><br><span class="line">##  vant Dialog弹出框、Popup弹出层样式修改</span><br></pre></td></tr></table></figure>
+<pre><code>&amp;::-webkit-scrollbar {
+    width: 10px; /*滚动条宽度*/
+}
+&amp;::-webkit-scrollbar-thumb {
+    /*滚动条滑块*/
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #535353;
+}
+&amp;::-webkit-scrollbar-track {
+    /*滚动条轨道*/
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #ededed;
+}
+</code></pre><p><code>`</code></p>
 
       
     </div>
@@ -289,7 +309,7 @@
         <p><span>本文标题:</span><a href="/2020/08/16/log/">前端记录</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2020年08月16日</p>
-        <p><span>最后更新:</span>2020年08月30日 - 10时21分</p>    
+        <p><span>最后更新:</span>2020年09月01日 - 21时54分</p>    
     </div>
 
 
@@ -310,7 +330,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#H5当中contenteditable-属性"><span class="toc-number">1.</span> <span class="toc-text">H5当中contenteditable 属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微信表情包使用"><span class="toc-number">2.</span> <span class="toc-text">微信表情包使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#点击复制"><span class="toc-number">3.</span> <span class="toc-text">点击复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-cli-publicPath-来自官方文档"><span class="toc-number">4.</span> <span class="toc-text">vue-cli publicPath(来自官方文档)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ant-Design-输入框、下拉框取消聚焦时的边框颜色"><span class="toc-number">5.</span> <span class="toc-text">Ant-Design 输入框、下拉框取消聚焦时的边框颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ant-Design-Table组件设置四角圆角属性-border-radius"><span class="toc-number">6.</span> <span class="toc-text">Ant-Design Table组件设置四角圆角属性 border-radius</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#必选星号-字体"><span class="toc-number">7.</span> <span class="toc-text">必选星号 字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现-placeholder-效果"><span class="toc-number">8.</span> <span class="toc-text">实现  placeholder 效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#oninput-事件"><span class="toc-number">9.</span> <span class="toc-text">oninput 事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vant-Dialog弹出框、Popup弹出层样式修改"><span class="toc-number">10.</span> <span class="toc-text">vant Dialog弹出框、Popup弹出层样式修改</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#H5当中contenteditable-属性"><span class="toc-number">1.</span> <span class="toc-text">H5当中contenteditable 属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微信表情包使用"><span class="toc-number">2.</span> <span class="toc-text">微信表情包使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#点击复制"><span class="toc-number">3.</span> <span class="toc-text">点击复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-cli-publicPath-来自官方文档"><span class="toc-number">4.</span> <span class="toc-text">vue-cli publicPath(来自官方文档)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ant-Design-输入框、下拉框取消聚焦时的边框颜色"><span class="toc-number">5.</span> <span class="toc-text">Ant-Design 输入框、下拉框取消聚焦时的边框颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ant-Design-Table组件设置四角圆角属性-border-radius"><span class="toc-number">6.</span> <span class="toc-text">Ant-Design Table组件设置四角圆角属性 border-radius</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#必选星号-字体"><span class="toc-number">7.</span> <span class="toc-text">必选星号 字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现-placeholder-效果"><span class="toc-number">8.</span> <span class="toc-text">实现  placeholder 效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#oninput-事件"><span class="toc-number">9.</span> <span class="toc-text">oninput 事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vant-Dialog弹出框、Popup弹出层样式修改"><span class="toc-number">10.</span> <span class="toc-text">vant Dialog弹出框、Popup弹出层样式修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滚动条"><span class="toc-number">11.</span> <span class="toc-text">滚动条</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {

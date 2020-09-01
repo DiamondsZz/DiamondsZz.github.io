@@ -266,6 +266,26 @@
 <p>2020-8-30</p>
 </blockquote>
 <h2 id="vant-Dialog弹出框、Popup弹出层样式修改"><a href="#vant-Dialog弹出框、Popup弹出层样式修改" class="headerlink" title="vant Dialog弹出框、Popup弹出层样式修改"></a>vant Dialog弹出框、Popup弹出层样式修改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">position: absolute;</span><br><span class="line">left: 0;</span><br><span class="line">right: 0;</span><br><span class="line">top: 0;</span><br><span class="line">bottom: 0;</span><br><span class="line">margin: auto;</span><br><span class="line">transform: translate3d(0, 0, 0); 解决字体模糊</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2020-9-1</p>
+</blockquote>
+<h2 id="滚动条"><a href="#滚动条" class="headerlink" title="滚动条"></a>滚动条</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  &gt; 2020-8-30</span><br><span class="line">		</span><br><span class="line">##  vant Dialog弹出框、Popup弹出层样式修改</span><br></pre></td></tr></table></figure>
+<pre><code>&amp;::-webkit-scrollbar {
+    width: 10px; /*滚动条宽度*/
+}
+&amp;::-webkit-scrollbar-thumb {
+    /*滚动条滑块*/
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #535353;
+}
+&amp;::-webkit-scrollbar-track {
+    /*滚动条轨道*/
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #ededed;
+}
+</code></pre><p><code>`</code></p>
 
       
     </div>
