@@ -10,14 +10,14 @@
   <title>前端记录 | DiamondsZz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="记录一下，给自己看。  2020-8-16  H5当中contenteditable 属性 contenteditable 属性规定元素内容是否可编辑   通过&amp;amp;:focus{outline: none;}去除聚焦边框 oninput 监听文本变化  微信表情包使用 https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/$">
-<meta name="keywords" content="css,js">
+<meta name="keywords" content="js,css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端记录">
 <meta property="og:url" content="https://DiamondsZz.github.io/2020/08/16/log/index.html">
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="记录一下，给自己看。  2020-8-16  H5当中contenteditable 属性 contenteditable 属性规定元素内容是否可编辑   通过&amp;amp;:focus{outline: none;}去除聚焦边框 oninput 监听文本变化  微信表情包使用 https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-10T13:02:02.265Z">
+<meta property="og:updated_time" content="2020-09-15T13:41:02.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端记录">
 <meta name="twitter:description" content="记录一下，给自己看。  2020-8-16  H5当中contenteditable 属性 contenteditable 属性规定元素内容是否可编辑   通过&amp;amp;:focus{outline: none;}去除聚焦边框 oninput 监听文本变化  微信表情包使用 https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/$">
@@ -299,7 +299,15 @@
 <h2 id="deep"><a href="#deep" class="headerlink" title="/deep/"></a><code>/deep/</code></h2><ul>
 <li>less  修改富文本图片样式时需要用到   （这样描述估计只有本尊自己能看懂，没错，就是给我自己看的）</li>
 </ul>
-
+<blockquote>
+<p>2020-9-15</p>
+</blockquote>
+<h2 id="env-prod配置文件"><a href="#env-prod配置文件" class="headerlink" title=".env.prod配置文件"></a><code>.env.prod配置文件</code></h2><ul>
+<li>配置文件注释使用<code>#</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">NODE_ENV=production   (打包部署时，NODE_ENV需为production)</span><br><span class="line">测试环境</span><br><span class="line">VUE_APP_API_BASE_URL=xxx </span><br><span class="line">VUE_APP_API_REDIRECT_URL=xxx</span><br><span class="line">预发环境</span><br><span class="line">VUE_APP_API_BASE_URL=xxx</span><br><span class="line">VUE_APP_API_REDIRECT_URL=xxx</span><br><span class="line">线上测试环境</span><br><span class="line">VUE_APP_API_BASE_URL=xxx</span><br><span class="line">VUE_APP_API_REDIRECT_URL=xxx</span><br><span class="line">正式线上环境</span><br><span class="line">VUE_APP_API_BASE_URL=xxx</span><br><span class="line">VUE_APP_API_REDIRECT_URL=xxx</span><br></pre></td></tr></table></figure>
+<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a><code>package.json</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">        &quot;serve&quot;: &quot;vue-cli-service serve --mode dev&quot;,</span><br><span class="line">        &quot;build&quot;: &quot;vue-cli-service build --mode prod&quot;,</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="npm-cache-clear-–force-清除缓存"><a href="#npm-cache-clear-–force-清除缓存" class="headerlink" title="npm cache clear –force 清除缓存"></a>npm cache clear –force 清除缓存</h2>
       
     </div>
     
@@ -310,7 +318,7 @@
         <p><span>本文标题:</span><a href="/2020/08/16/log/">前端记录</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2020年08月16日</p>
-        <p><span>最后更新:</span>2020年09月10日 - 21时02分</p>    
+        <p><span>最后更新:</span>2020年09月15日 - 21时41分</p>    
     </div>
 
 
@@ -331,7 +339,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#H5当中contenteditable-属性"><span class="toc-number">1.</span> <span class="toc-text">H5当中contenteditable 属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微信表情包使用"><span class="toc-number">2.</span> <span class="toc-text">微信表情包使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#点击复制"><span class="toc-number">3.</span> <span class="toc-text">点击复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-cli-publicPath-来自官方文档"><span class="toc-number">4.</span> <span class="toc-text">vue-cli publicPath(来自官方文档)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ant-Design-输入框、下拉框取消聚焦时的边框颜色"><span class="toc-number">5.</span> <span class="toc-text">Ant-Design 输入框、下拉框取消聚焦时的边框颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ant-Design-Table组件设置四角圆角属性-border-radius"><span class="toc-number">6.</span> <span class="toc-text">Ant-Design Table组件设置四角圆角属性 border-radius</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#必选星号-字体"><span class="toc-number">7.</span> <span class="toc-text">必选星号 字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现-placeholder-效果"><span class="toc-number">8.</span> <span class="toc-text">实现  placeholder 效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#oninput-事件"><span class="toc-number">9.</span> <span class="toc-text">oninput 事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vant-Dialog弹出框、Popup弹出层样式修改"><span class="toc-number">10.</span> <span class="toc-text">vant Dialog弹出框、Popup弹出层样式修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滚动条"><span class="toc-number">11.</span> <span class="toc-text">滚动条</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#location-search"><span class="toc-number">12.</span> <span class="toc-text">location.search</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#attname"><span class="toc-number">13.</span> <span class="toc-text">attname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deep"><span class="toc-number">14.</span> <span class="toc-text">/deep/</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#H5当中contenteditable-属性"><span class="toc-number">1.</span> <span class="toc-text">H5当中contenteditable 属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微信表情包使用"><span class="toc-number">2.</span> <span class="toc-text">微信表情包使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#点击复制"><span class="toc-number">3.</span> <span class="toc-text">点击复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-cli-publicPath-来自官方文档"><span class="toc-number">4.</span> <span class="toc-text">vue-cli publicPath(来自官方文档)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ant-Design-输入框、下拉框取消聚焦时的边框颜色"><span class="toc-number">5.</span> <span class="toc-text">Ant-Design 输入框、下拉框取消聚焦时的边框颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ant-Design-Table组件设置四角圆角属性-border-radius"><span class="toc-number">6.</span> <span class="toc-text">Ant-Design Table组件设置四角圆角属性 border-radius</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#必选星号-字体"><span class="toc-number">7.</span> <span class="toc-text">必选星号 字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现-placeholder-效果"><span class="toc-number">8.</span> <span class="toc-text">实现  placeholder 效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#oninput-事件"><span class="toc-number">9.</span> <span class="toc-text">oninput 事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vant-Dialog弹出框、Popup弹出层样式修改"><span class="toc-number">10.</span> <span class="toc-text">vant Dialog弹出框、Popup弹出层样式修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滚动条"><span class="toc-number">11.</span> <span class="toc-text">滚动条</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#location-search"><span class="toc-number">12.</span> <span class="toc-text">location.search</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#attname"><span class="toc-number">13.</span> <span class="toc-text">attname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deep"><span class="toc-number">14.</span> <span class="toc-text">/deep/</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#env-prod配置文件"><span class="toc-number">15.</span> <span class="toc-text">.env.prod配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package-json"><span class="toc-number">16.</span> <span class="toc-text">package.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-cache-clear-–force-清除缓存"><span class="toc-number">17.</span> <span class="toc-text">npm cache clear –force 清除缓存</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {

@@ -287,7 +287,15 @@
 <h2 id="deep"><a href="#deep" class="headerlink" title="/deep/"></a><code>/deep/</code></h2><ul>
 <li>less  修改富文本图片样式时需要用到   （这样描述估计只有本尊自己能看懂，没错，就是给我自己看的）</li>
 </ul>
-
+<blockquote>
+<p>2020-9-15</p>
+</blockquote>
+<h2 id="env-prod配置文件"><a href="#env-prod配置文件" class="headerlink" title=".env.prod配置文件"></a><code>.env.prod配置文件</code></h2><ul>
+<li>配置文件注释使用<code>#</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">NODE_ENV=production   (打包部署时，NODE_ENV需为production)</span><br><span class="line">测试环境</span><br><span class="line">VUE_APP_API_BASE_URL=xxx </span><br><span class="line">VUE_APP_API_REDIRECT_URL=xxx</span><br><span class="line">预发环境</span><br><span class="line">VUE_APP_API_BASE_URL=xxx</span><br><span class="line">VUE_APP_API_REDIRECT_URL=xxx</span><br><span class="line">线上测试环境</span><br><span class="line">VUE_APP_API_BASE_URL=xxx</span><br><span class="line">VUE_APP_API_REDIRECT_URL=xxx</span><br><span class="line">正式线上环境</span><br><span class="line">VUE_APP_API_BASE_URL=xxx</span><br><span class="line">VUE_APP_API_REDIRECT_URL=xxx</span><br></pre></td></tr></table></figure>
+<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a><code>package.json</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">        &quot;serve&quot;: &quot;vue-cli-service serve --mode dev&quot;,</span><br><span class="line">        &quot;build&quot;: &quot;vue-cli-service build --mode prod&quot;,</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="npm-cache-clear-–force-清除缓存"><a href="#npm-cache-clear-–force-清除缓存" class="headerlink" title="npm cache clear –force 清除缓存"></a>npm cache clear –force 清除缓存</h2>
       
     </div>
     
