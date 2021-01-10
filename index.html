@@ -1011,9 +1011,8 @@
 </code></pre><ul>
 <li><p>2、使用 Vue.set(target, key, value) 时，target 为需要添加属性的对象，key 是要添加的属性名，value 为属性 key 对应的值, vue 中 set 的源码如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">set</span> (<span class="params">target: Array&lt;any&gt; | Object, key: any, val: any</span>): <span class="title">any</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp;</span><br><span class="line">    (isUndef(target) || isPrimitive(target))</span><br><span class="line">  ) &#123;</span><br><span class="line">    warn(<span class="string">`Cannot set reactive property on undefined, null, or primitive value: <span class="subst">$&#123;(target: any)&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(target) &amp;&amp; isValidArrayIndex(key)) &#123;</span><br><span class="line">    target.length = <span class="built_in">Math</span>.max(target.length, key)</span><br><span class="line">    target.splice(key, <span class="number">1</span>, val)</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (key <span class="keyword">in</span> target &amp;&amp; !(key <span class="keyword">in</span> <span class="built_in">Object</span>.prototype)) &#123;</span><br><span class="line">    target[key] = val</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> ob = (target: any).__ob__</span><br><span class="line">  <span class="keyword">if</span> (target._isVue || (ob &amp;&amp; ob.vmCount)) &#123;</span><br><span class="line">    process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; warn(</span><br><span class="line">      <span class="string">'Avoid adding reactive properties to a Vue instance or its root $data '</span> +</span><br><span class="line">      <span class="string">'at runtime - declare it upfront in the data option.'</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (!ob) &#123;</span><br><span class="line">    target[key] = val</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;</span><br><span class="line">  defineReactive(ob.value, key, val)</span><br><span class="line">  ob.dep.notify()</span><br><span class="line">  <span class="keyword">return</span> val</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>上面源码的执行逻辑如下(参考链接：<a href="https://www.cnblogs.com/heavenYJJ/p/9559439.html)：" target="_blank" rel="noopener">https://www.cnblogs.com/heavenYJJ/p/9559439.html)：</a></p>
 <ul>
+<li>上面源码的执行逻辑如下(参考链接：<a href="https://www.cnblogs.com/heavenYJJ/p/9559439.html)：" target="_blank" rel="noopener">https://www.cnblogs.com/heavenYJJ/p/9559439.html)：</a></li>
 <li>1、如果是在开发环境，且 target 未定义（为 null、undefined ）或 target 为基础数据类型（string、boolean、number、symbol）时，抛出告警；</li>
 <li>2、如果 target 为数组且 key 为有效的数组 key 时，将数组的长度设置为 target.length 和 key 中的最大的那一个，然后调用数组的 splice 方法（ vue 中重写的 splice 方法）添加元素；</li>
 <li>3、如果属性 key 存在于 target 对象中且 key 不是 Object.prototype 上的属性时，表明这是在修改 target 对象属性 key 的值（不管 target 对象是否是响应式的，只要 key 存在于 target 对象中，就执行这一步逻辑），此时就直接将 value 直接赋值给 target[key]；</li>
@@ -1059,21 +1058,14 @@
 </ol>
 <h2 id="请简述-Vue-响应式原理。"><a href="#请简述-Vue-响应式原理。" class="headerlink" title="请简述 Vue 响应式原理。"></a>请简述 Vue 响应式原理。</h2><p>解析：</p>
 <ul>
-<li><p>响应式处理整体过程为initState() =&gt; initData() =&gt; observe()</p>
-</li>
-<li><p>其中observe是响应式处理的入口，通过该方法为data对象转化为响应式对象。</p>
-</li>
-<li><p>observe方法接收的是对象且该对象不是响应式时，会为该对象创建一个observe对象，会调用Observer类</p>
-</li>
-<li><p>Observer类中判断该value是数组还是对象，进行不同的处理</p>
-</li>
+<li>响应式处理整体过程为initState() =&gt; initData() =&gt; observe()</li>
+<li>其中observe是响应式处理的入口，通过该方法为data对象转化为响应式对象。</li>
+<li>observe方法接收的是对象且该对象不是响应式时，会为该对象创建一个observe对象，会调用Observer类</li>
+<li>Observer类中判断该value是数组还是对象，进行不同的处理</li>
 <li>数组的响应化处理，是重写push,pop,sort等会修改原数组的方法，调用对应的notify.然后遍历数组中的成员，判断其类型决定是否调用observe方法</li>
-<li><p>对象的响应化处理，会调用walk方法，遍历对象中的每个属性，调用defineReactive</p>
-</li>
-<li><p>defineReactive的核心是为每一个属性定义getter和setter,getter中收集依赖，setter中派发更新,即调用dep.notify。</p>
-</li>
-<li><p>dep.notify()会调用watcher的update()方法。如果该watcher未被处理，会被添加到queue队列中，并调用flushSchedulerQueue()方法，该方法会触发对应的钩子函数以及调用watcher.run()更新视图。</p>
-</li>
+<li>对象的响应化处理，会调用walk方法，遍历对象中的每个属性，调用defineReactive</li>
+<li>defineReactive的核心是为每一个属性定义getter和setter,getter中收集依赖，setter中派发更新,即调用dep.notify。</li>
+<li>dep.notify()会调用watcher的update()方法。如果该watcher未被处理，会被添加到queue队列中，并调用flushSchedulerQueue()方法，该方法会触发对应的钩子函数以及调用watcher.run()更新视图。</li>
 </ul>
 <h2 id="请简述虚拟-DOM-中-Key-的作用和好处。"><a href="#请简述虚拟-DOM-中-Key-的作用和好处。" class="headerlink" title="请简述虚拟 DOM 中 Key 的作用和好处。"></a>请简述虚拟 DOM 中 Key 的作用和好处。</h2><p>解析：</p>
 <p>​    作用： 标识节点在当前层级的唯一性。<br>​    好处： 在执行 updateChildren 对比新旧 Vnode 的子节点差异时，通过设置 key 可以进行更高效的比较，便于复用节点。 降低创建销毁节点成本，从而减少 dom 操作，提升更新 dom 的性能。</p>
