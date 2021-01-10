@@ -7,18 +7,22 @@
   
   
   
-  <title>DiamondsZz</title>
+  <title>前端学习 | DiamondsZz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来自一只野生程序猿...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="DiamondsZz">
-<meta property="og:url" content="https://DiamondsZz.github.io/index.html">
+  <meta name="description" content="2021-1-10  一、如何理解 JS 异步编程，EventLoop、消息队列都是做什么的，什么是宏任务，什么是微任务？ JS 异步编程 JavaScript 语言的执行环境是单线程的，一次只能执行一个任务，多任务需要排队等候，这种模式可能会阻塞代码，导致代码执行效率低下。为了避免这个问题，出现了异步编程。一般是通过 callback 回调函数、事件发布/订阅、Promise 等来组织代码，本">
+<meta name="keywords" content="css,js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端学习">
+<meta property="og:url" content="https://DiamondsZz.github.io/2021/01/10/study/index.html">
 <meta property="og:site_name" content="DiamondsZz">
-<meta property="og:description" content="来自一只野生程序猿...">
+<meta property="og:description" content="2021-1-10  一、如何理解 JS 异步编程，EventLoop、消息队列都是做什么的，什么是宏任务，什么是微任务？ JS 异步编程 JavaScript 语言的执行环境是单线程的，一次只能执行一个任务，多任务需要排队等候，这种模式可能会阻塞代码，导致代码执行效率低下。为了避免这个问题，出现了异步编程。一般是通过 callback 回调函数、事件发布/订阅、Promise 等来组织代码，本">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/0069rEoegy1gg8i0534ytj30zm0p7gol.jpg">
+<meta property="og:updated_time" content="2021-01-10T05:07:46.876Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DiamondsZz">
-<meta name="twitter:description" content="来自一只野生程序猿...">
+<meta name="twitter:title" content="前端学习">
+<meta name="twitter:description" content="2021-1-10  一、如何理解 JS 异步编程，EventLoop、消息队列都是做什么的，什么是宏任务，什么是微任务？ JS 异步编程 JavaScript 语言的执行环境是单线程的，一次只能执行一个任务，多任务需要排队等候，这种模式可能会阻塞代码，导致代码执行效率低下。为了避免这个问题，出现了异步编程。一般是通过 callback 回调函数、事件发布/订阅、Promise 等来组织代码，本">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/0069rEoegy1gg8i0534ytj30zm0p7gol.jpg">
   
     <link rel="alternative" href="/atom.xml" title="DiamondsZz" type="application/atom+xml">
   
@@ -30,9 +34,6 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -43,8 +44,8 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -183,9 +184,7 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-study" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-study" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2021/01/10/study/" class="article-date">
@@ -202,13 +201,28 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/10/study/">前端学习</a>
+    <h1 class="article-title" itemprop="name">
+      前端学习
     </h1>
   
 
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -703,1208 +717,122 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2021/01/10/study/">前端学习</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
+        <p><span>发布时间:</span>2021年01月10日</p>
+        <p><span>最后更新:</span>2021年01月10日 - 13时07分</p>    
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/16/log/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端记录</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
   
 </article>
 
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-log" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/08/16/log/" class="article-date">
-      <time datetime="2020-08-15T16:00:00.000Z" itemprop="datePublished">2020-08-16</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/16/log/">前端记录</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p> 记录一下，给自己看。</p>
-<blockquote>
-<p>2020-8-16</p>
-</blockquote>
-<h2 id="H5当中contenteditable-属性"><a href="#H5当中contenteditable-属性" class="headerlink" title="H5当中contenteditable 属性"></a>H5当中contenteditable 属性</h2><ul>
-<li>contenteditable 属性规定元素内容是否可编辑  </li>
-<li>通过<code>&amp;:focus{outline: none;}</code>去除聚焦边框</li>
-<li><code>oninput</code> 监听文本变化</li>
-</ul>
-<h2 id="微信表情包使用"><a href="#微信表情包使用" class="headerlink" title="微信表情包使用"></a>微信表情包使用</h2><ul>
-<li><code>https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/${Math.floor(Math.random() * 104 + 1)}.gif&quot;</code></li>
-</ul>
-<h2 id="点击复制"><a href="#点击复制" class="headerlink" title="点击复制"></a>点击复制</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">      copy(dom) &#123;</span><br><span class="line">	//创建input元素</span><br><span class="line">	let input = document.createElement(&apos;input&apos;)</span><br><span class="line">	document.body.appendChild(input)</span><br><span class="line">	input.value = this.$refs[dom].innerText</span><br><span class="line">	//input元素选中状态</span><br><span class="line">	input.select()</span><br><span class="line">	//复制内容到剪切板</span><br><span class="line">	document.execCommand(&apos;copy&apos;)</span><br><span class="line">	//移除input元素</span><br><span class="line">	document.body.removeChild(input)</span><br><span class="line">	this.$notify(&#123; type: &apos;success&apos;, message: &apos;复制成功！&apos;, duration: 500 &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2020-8-18</p>
-</blockquote>
-<h2 id="vue-cli-publicPath-来自官方文档"><a href="#vue-cli-publicPath-来自官方文档" class="headerlink" title="vue-cli publicPath(来自官方文档)"></a>vue-cli publicPath(来自官方文档)</h2><ul>
-<li>默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上，例如 <a href="https://www.my-app.com/。" target="_blank" rel="noopener">https://www.my-app.com/。</a><br>如果应用被部署在一个子路径上，你就需要用这个选项指定这个子路径。例如，如果你的应用被部署在 <a href="https://www.my-app.com/my-app/，则设置" target="_blank" rel="noopener">https://www.my-app.com/my-app/，则设置</a> publicPath 为 /my-app/。<br>这个值也可以被设置为空字符串 (‘’) 或是相对路径 (‘./‘)，这样所有的资源都会被链接为相对路径，这样打出来的包可以被部署在任意路径，也可以用在类似 Cordova hybrid 应用的文件系统中。</li>
-<li>相对路径的 publicPath 有一些使用上的限制。在以下情况下，应当避免使用相对 :<br>当使用基于 HTML5 history.pushState 的路由时；<br>当使用 pages 选项构建多页面应用时.</li>
-<li>这个值在开发环境下同样生效。如果你想把开发服务器架设在根路径，你可以使用一个条件式的值：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  publicPath: process.env.NODE_ENV === &apos;production&apos;</span><br><span class="line">    ? &apos;/production-sub-path/&apos;</span><br><span class="line">    : &apos;/&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2020-8-24</p>
-</blockquote>
-<h2 id="Ant-Design-输入框、下拉框取消聚焦时的边框颜色"><a href="#Ant-Design-输入框、下拉框取消聚焦时的边框颜色" class="headerlink" title="Ant-Design 输入框、下拉框取消聚焦时的边框颜色"></a>Ant-Design 输入框、下拉框取消聚焦时的边框颜色</h2><ul>
-<li>输入框</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/deep/ .ant-input &#123;</span><br><span class="line">                     //ant-design输入框聚焦样式通过box-shadow设置</span><br><span class="line">                   &amp;:focus &#123;</span><br><span class="line">                                box-shadow: none;</span><br><span class="line">                            &#125;</span><br><span class="line">                  &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>下拉框</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//ant-design下拉框聚焦样式通过box-shadow设置</span><br><span class="line">                        /deep/ .ant-select-focused &#123;</span><br><span class="line">                            .ant-select-selection &#123;</span><br><span class="line">                                box-shadow: none;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Ant-Design-Table组件设置四角圆角属性-border-radius"><a href="#Ant-Design-Table组件设置四角圆角属性-border-radius" class="headerlink" title="Ant-Design Table组件设置四角圆角属性 border-radius"></a>Ant-Design Table组件设置四角圆角属性 border-radius</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/deep/ .ant-table-thead tr &#123;</span><br><span class="line">            th &#123;</span><br><span class="line">                &amp;:nth-child(1) &#123;</span><br><span class="line">                    border-top-left-radius: 15px;</span><br><span class="line">                &#125;</span><br><span class="line">                &amp;:nth-last-child(1) &#123;</span><br><span class="line">                    border-top-right-radius: 15px;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        /deep/ .ant-table-tbody &#123;</span><br><span class="line">            background-color: #fff;</span><br><span class="line">            tr &#123;</span><br><span class="line">                &amp;:nth-last-child(1) &#123;</span><br><span class="line">                    td &#123;</span><br><span class="line">                        &amp;:nth-child(1) &#123;</span><br><span class="line">                            border-bottom-left-radius: 15px;</span><br><span class="line">                        &#125;</span><br><span class="line">                        &amp;:nth-last-child(1) &#123;</span><br><span class="line">                            border-bottom-right-radius: 15px;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2020-8-27</p>
-</blockquote>
-<h2 id="必选星号-字体"><a href="#必选星号-字体" class="headerlink" title="必选星号 字体"></a>必选星号 字体</h2><ul>
-<li><code>font-family: SimSun, sans-serif</code></li>
-</ul>
-<blockquote>
-<p>2020-8-28</p>
-</blockquote>
-<h2 id="实现-placeholder-效果"><a href="#实现-placeholder-效果" class="headerlink" title="实现  placeholder 效果"></a>实现  placeholder 效果</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&amp;:before &#123;</span><br><span class="line">      content: &apos;请输入...&apos;;</span><br><span class="line">      color: gray;</span><br><span class="line">&#125;</span><br><span class="line">&amp;:focus:before &#123;</span><br><span class="line"> content: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2020-8-29</p>
-</blockquote>
-<h2 id="oninput-事件"><a href="#oninput-事件" class="headerlink" title="oninput 事件"></a><code>oninput</code> 事件</h2><p><em>该事件在<code>&lt;input&gt;</code>或 <code>&lt;textarea&gt;</code>元素的值发生改变时触发。
-</em>提示： 该事件类似于<code>onchange</code>事件。不同之处在于 <code>oninput</code> 事件在元素值发生变化是立即触发，<code>onchange</code> 在元素失去焦点时触发。<br>*另外一点不同是 <code>onchange</code>事件也可以作用于<code>&lt;keygen&gt;</code>和 <code>&lt;select&gt;</code>元素。</p>
-<blockquote>
-<p>2020-8-30</p>
-</blockquote>
-<h2 id="vant-Dialog弹出框、Popup弹出层样式修改"><a href="#vant-Dialog弹出框、Popup弹出层样式修改" class="headerlink" title="vant Dialog弹出框、Popup弹出层样式修改"></a>vant Dialog弹出框、Popup弹出层样式修改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">position: absolute;</span><br><span class="line">left: 0;</span><br><span class="line">right: 0;</span><br><span class="line">top: 0;</span><br><span class="line">bottom: 0;</span><br><span class="line">margin: auto;</span><br><span class="line">transform: translate3d(0, 0, 0); 解决字体模糊</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2020-9-1</p>
-</blockquote>
-<h2 id="滚动条"><a href="#滚动条" class="headerlink" title="滚动条"></a>滚动条</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">                    &amp;::-webkit-scrollbar &#123;</span><br><span class="line">                        width: 10px; /*滚动条宽度*/</span><br><span class="line">                    &#125;</span><br><span class="line">                    &amp;::-webkit-scrollbar-thumb &#123;</span><br><span class="line">                        /*滚动条滑块*/</span><br><span class="line">                        border-radius: 10px;</span><br><span class="line">                        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);</span><br><span class="line">                        background: #535353;</span><br><span class="line">                    &#125;</span><br><span class="line">                    &amp;::-webkit-scrollbar-track &#123;</span><br><span class="line">                        /*滚动条轨道*/</span><br><span class="line">                        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);</span><br><span class="line">                        border-radius: 10px;</span><br><span class="line">                        background: #ededed;</span><br><span class="line">                    &#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>2020-9-9</p>
-</blockquote>
-<h2 id="location-search"><a href="#location-search" class="headerlink" title="location.search"></a><code>location.search</code></h2><ul>
-<li><code>location.search</code> 属性是一个可读可写的字符串，可设置或返回当前 URL 的查询部分（问号 ? 之后的部分）。</li>
-<li>hash路由时也可</li>
-</ul>
-<blockquote>
-<p>2020-9-10</p>
-</blockquote>
-<h2 id="attname"><a href="#attname" class="headerlink" title="attname"></a><code>attname</code></h2><ul>
-<li><code>url?attname=&#39;&#39;</code>  可以自定义资源文件下载的文件后缀和名字（比如七牛云转链的APK文件）</li>
-</ul>
-<h2 id="deep"><a href="#deep" class="headerlink" title="/deep/"></a><code>/deep/</code></h2><ul>
-<li>less  修改富文本图片样式时需要用到   （这样描述估计只有本尊自己能看懂，没错，就是给我自己看的）</li>
-</ul>
-<blockquote>
-<p>2020-9-15</p>
-</blockquote>
-<h2 id="env-prod配置文件"><a href="#env-prod配置文件" class="headerlink" title=".env.prod配置文件"></a><code>.env.prod配置文件</code></h2><ul>
-<li>配置文件注释使用<code>#</code></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">NODE_ENV=production   (打包部署时，NODE_ENV需为production)</span><br><span class="line">测试环境</span><br><span class="line">VUE_APP_API_BASE_URL=xxx </span><br><span class="line">VUE_APP_API_REDIRECT_URL=xxx</span><br><span class="line">预发环境</span><br><span class="line">VUE_APP_API_BASE_URL=xxx</span><br><span class="line">VUE_APP_API_REDIRECT_URL=xxx</span><br><span class="line">线上测试环境</span><br><span class="line">VUE_APP_API_BASE_URL=xxx</span><br><span class="line">VUE_APP_API_REDIRECT_URL=xxx</span><br><span class="line">正式线上环境</span><br><span class="line">VUE_APP_API_BASE_URL=xxx</span><br><span class="line">VUE_APP_API_REDIRECT_URL=xxx</span><br></pre></td></tr></table></figure>
-<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a><code>package.json</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">        &quot;serve&quot;: &quot;vue-cli-service serve --mode dev&quot;,</span><br><span class="line">        &quot;build&quot;: &quot;vue-cli-service build --mode prod&quot;,</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-<h2 id="npm-cache-clear-–force-清除缓存"><a href="#npm-cache-clear-–force-清除缓存" class="headerlink" title="npm cache clear –force 清除缓存"></a>npm cache clear –force 清除缓存</h2><blockquote>
-<p>2020-9-18</p>
-</blockquote>
-<h2 id="env-prod配置文件-1"><a href="#env-prod配置文件-1" class="headerlink" title=".env.prod配置文件"></a><code>.env.prod配置文件</code></h2><ul>
-<li>配置文件注释使用<code>#</code></li>
-</ul>
-<blockquote>
-<p>2020-9-22</p>
-</blockquote>
-<h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a><code>promise</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br></pre></td><td class="code"><pre><span class="line">const PENDING = &quot;pending&quot;; // 等待</span><br><span class="line">const FULFILLED = &quot;fulfilled&quot;; // 成功</span><br><span class="line">const REJECTED = &quot;rejected&quot;; // 失败</span><br><span class="line"></span><br><span class="line">class _Promise &#123;</span><br><span class="line">  constructor(executor) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">      executor(this.resolve, this.reject);</span><br><span class="line">    &#125; catch (e) &#123;</span><br><span class="line">      this.reject(e);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  // promsie 状态</span><br><span class="line">  status = PENDING;</span><br><span class="line">  // 成功之后的值</span><br><span class="line">  value = undefined;</span><br><span class="line">  // 失败后的原因</span><br><span class="line">  reason = undefined;</span><br><span class="line">  // 成功回调</span><br><span class="line">  successCallback = [];</span><br><span class="line">  // 失败回调</span><br><span class="line">  failCallback = [];</span><br><span class="line"></span><br><span class="line">  resolve = (value) =&gt; &#123;</span><br><span class="line">    // 如果状态不是等待 阻止程序向下执行</span><br><span class="line">    if (this.status !== PENDING) return;</span><br><span class="line">    // 将状态更改为成功</span><br><span class="line">    this.status = FULFILLED;</span><br><span class="line">    // 保存成功之后的值</span><br><span class="line">    this.value = value;</span><br><span class="line">    // 判断成功回调是否存在 如果存在 调用</span><br><span class="line">    // this.successCallback &amp;&amp; this.successCallback(this.value);</span><br><span class="line">    while (this.successCallback.length) this.successCallback.shift()();</span><br><span class="line">  &#125;;</span><br><span class="line">  reject = (reason) =&gt; &#123;</span><br><span class="line">    // 如果状态不是等待 阻止程序向下执行</span><br><span class="line">    if (this.status !== PENDING) return;</span><br><span class="line">    // 将状态更改为失败</span><br><span class="line">    this.status = REJECTED;</span><br><span class="line">    // 保存失败后的原因</span><br><span class="line">    this.reason = reason;</span><br><span class="line">    // 判断失败回调是否存在 如果存在 调用</span><br><span class="line">    // this.failCallback &amp;&amp; this.failCallback(this.reason);</span><br><span class="line">    while (this.failCallback.length) this.failCallback.shift()();</span><br><span class="line">  &#125;;</span><br><span class="line">  then(successCallback, failCallback) &#123;</span><br><span class="line">    // 参数可选</span><br><span class="line">    successCallback = successCallback ? successCallback : (value) =&gt; value;</span><br><span class="line">    // 参数可选</span><br><span class="line">    failCallback = failCallback</span><br><span class="line">      ? failCallback</span><br><span class="line">      : (reason) =&gt; &#123;</span><br><span class="line">          throw reason;</span><br><span class="line">        &#125;;</span><br><span class="line">    let promsie2 = new _Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">      // 判断状态</span><br><span class="line">      if (this.status === FULFILLED) &#123;</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">          try &#123;</span><br><span class="line">            let x = successCallback(this.value);</span><br><span class="line">            // 判断 x 的值是普通值还是Promise对象</span><br><span class="line">            // 如果是普通值 直接调用resolve</span><br><span class="line">            // 如果是promise对象 查看promsie对象返回的结果</span><br><span class="line">            // 再根据promise对象返回的结果 决定调用resolve 还是调用reject</span><br><span class="line">            resolvePromise(promsie2, x, resolve, reject);</span><br><span class="line">          &#125; catch (e) &#123;</span><br><span class="line">            reject(e);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, 0);</span><br><span class="line">      &#125; else if (this.status === REJECTED) &#123;</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">          try &#123;</span><br><span class="line">            let x = failCallback(this.reason);</span><br><span class="line">            // 判断 x 的值是普通值还是promise对象</span><br><span class="line">            // 如果是普通值 直接调用resolve</span><br><span class="line">            // 如果是promise对象 查看promsie对象返回的结果</span><br><span class="line">            // 再根据promise对象返回的结果 决定调用resolve 还是调用reject</span><br><span class="line">            resolvePromise(promsie2, x, resolve, reject);</span><br><span class="line">          &#125; catch (e) &#123;</span><br><span class="line">            reject(e);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, 0);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        // 等待</span><br><span class="line">        // 将成功回调和失败回调存储起来</span><br><span class="line">        this.successCallback.push(() =&gt; &#123;</span><br><span class="line">          setTimeout(() =&gt; &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">              let x = successCallback(this.value);</span><br><span class="line">              // 判断 x 的值是普通值还是promise对象</span><br><span class="line">              // 如果是普通值 直接调用resolve</span><br><span class="line">              // 如果是promise对象 查看promsie对象返回的结果</span><br><span class="line">              // 再根据promise对象返回的结果 决定调用resolve 还是调用reject</span><br><span class="line">              resolvePromise(promsie2, x, resolve, reject);</span><br><span class="line">            &#125; catch (e) &#123;</span><br><span class="line">              reject(e);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;, 0);</span><br><span class="line">        &#125;);</span><br><span class="line">        this.failCallback.push(() =&gt; &#123;</span><br><span class="line">          setTimeout(() =&gt; &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">              let x = failCallback(this.reason);</span><br><span class="line">              // 判断 x 的值是普通值还是promise对象</span><br><span class="line">              // 如果是普通值 直接调用resolve</span><br><span class="line">              // 如果是promise对象 查看promsie对象返回的结果</span><br><span class="line">              // 再根据promise对象返回的结果 决定调用resolve 还是调用reject</span><br><span class="line">              resolvePromise(promsie2, x, resolve, reject);</span><br><span class="line">            &#125; catch (e) &#123;</span><br><span class="line">              reject(e);</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;, 0);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    return promsie2;</span><br><span class="line">  &#125;</span><br><span class="line">  finally(callback) &#123;</span><br><span class="line">    return this.then(</span><br><span class="line">      (value) =&gt; &#123;</span><br><span class="line">        return _Promise.resolve(callback()).then(() =&gt; value);</span><br><span class="line">      &#125;,</span><br><span class="line">      (reason) =&gt; &#123;</span><br><span class="line">        return _Promise.resolve(callback()).then(() =&gt; &#123;</span><br><span class="line">          throw reason;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  catch(failCallback) &#123;</span><br><span class="line">    return this.then(undefined, failCallback);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //all静态方法</span><br><span class="line">  static all(array) &#123;</span><br><span class="line">    let result = [];</span><br><span class="line">    let index = 0;</span><br><span class="line">    return new _Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">      function addData(key, value) &#123;</span><br><span class="line">        result[key] = value;</span><br><span class="line">        index++;</span><br><span class="line">        if (index === array.length) &#123;</span><br><span class="line">          resolve(result);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      for (let i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">        let current = array[i];</span><br><span class="line">        if (current instanceof _Promise) &#123;</span><br><span class="line">          // promise 对象</span><br><span class="line">          current.then(</span><br><span class="line">            (value) =&gt; addData(i, value),</span><br><span class="line">            (reason) =&gt; reject(reason)</span><br><span class="line">          );</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          // 普通值</span><br><span class="line">          addData(i, array[i]);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  //resolve静态方法</span><br><span class="line">  static resolve(value) &#123;</span><br><span class="line">    if (value instanceof _Promise) return value;</span><br><span class="line">    return new _Promise((resolve) =&gt; resolve(value));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function resolvePromise(promsie2, x, resolve, reject) &#123;</span><br><span class="line">  if (promsie2 === x) &#123;</span><br><span class="line">    return reject(</span><br><span class="line">      new TypeError(&quot;Chaining cycle detected for promise #&lt;Promise&gt;&quot;)</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  //promise对象</span><br><span class="line">  if (x instanceof _Promise) &#123;</span><br><span class="line">    x.then(resolve, reject);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    // 普通值</span><br><span class="line">    resolve(x);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">module.exports = __Promise;</span><br></pre></td></tr></table></figure>
-<h2 id="AntDesign-Notification"><a href="#AntDesign-Notification" class="headerlink" title="AntDesign  Notification"></a><code>AntDesign  Notification</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">this.$notification.open(&#123;</span><br><span class="line">  getContainer: function () &#123;</span><br><span class="line">    return document.querySelector(&quot;#team_set&quot;);</span><br><span class="line">  &#125;,</span><br><span class="line">  message: &quot;生成链接&quot;,</span><br><span class="line">  description: (h) =&gt; &#123;</span><br><span class="line">    return h(&quot;div&quot;, [</span><br><span class="line">      h(&quot;h3&quot;, &quot;长链接&quot;),</span><br><span class="line">      h(&quot;div&quot;, &#123;</span><br><span class="line">        //html attribute</span><br><span class="line">        attrs: &#123;</span><br><span class="line">          id: &quot;longUrl&quot;,</span><br><span class="line">          class: &quot;notification-text&quot;,</span><br><span class="line">        &#125;, //dom  property</span><br><span class="line">        domProps: &#123;</span><br><span class="line">          innerHTML: `$&#123;this.link.redirectUrl&#125;`,</span><br><span class="line">        &#125;,</span><br><span class="line">        on: &#123;</span><br><span class="line">          click: this.copy,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;),</span><br><span class="line">      h(&quot;h3&quot;, &quot;短链接&quot;),</span><br><span class="line">      h(&quot;div&quot;, &#123;</span><br><span class="line">        //html attribute</span><br><span class="line">        attrs: &#123;</span><br><span class="line">          id: &quot;shortUrl&quot;,</span><br><span class="line">          class: &quot;notification-text&quot;,</span><br><span class="line">        &#125;, //dom  property</span><br><span class="line">        domProps: &#123;</span><br><span class="line">          innerHTML: `$&#123;this.link.shorUrl&#125;`,</span><br><span class="line">        &#125;,</span><br><span class="line">        on: &#123;</span><br><span class="line">          click: this.copy,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;),</span><br><span class="line">    ]);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="图片宽度高度相等"><a href="#图片宽度高度相等" class="headerlink" title="图片宽度高度相等"></a><code>图片宽度高度相等</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> .face-list &#123;</span><br><span class="line">        display: flex;</span><br><span class="line">        justify-content: space-between;</span><br><span class="line">        flex-wrap: wrap;</span><br><span class="line">        padding: 10px;</span><br><span class="line">        &amp;::after &#123;</span><br><span class="line">            content: &apos;&apos;;</span><br><span class="line">            flex-grow: 9999;</span><br><span class="line">        &#125;</span><br><span class="line">        .face-list-item &#123;</span><br><span class="line">            width: 8%;</span><br><span class="line">            margin: 2% 1%;</span><br><span class="line">            padding: 8px;</span><br><span class="line">            border: 1px solid #d9d9d9;</span><br><span class="line">            border-radius: 6px;</span><br><span class="line">            .face-list-item-img &#123;</span><br><span class="line">                padding: 50% 0;</span><br><span class="line">                cursor: pointer;</span><br><span class="line">                position: relative;</span><br><span class="line">                .face-list-item-cover &#123;</span><br><span class="line">                    position: absolute;</span><br><span class="line">                    top: 0px;</span><br><span class="line">                    background-color: rgba(0, 0, 0, 0.5);</span><br><span class="line">                    width: 100%;</span><br><span class="line">                    height: 100%;</span><br><span class="line">                    display: flex;</span><br><span class="line">                    justify-content: center;</span><br><span class="line">                    align-items: center;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="AntDesign-select组件-popupScroll事件"><a href="#AntDesign-select组件-popupScroll事件" class="headerlink" title="AntDesign select组件 popupScroll事件"></a><code>AntDesign select组件 popupScroll事件</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//下拉框滚动事件</span><br><span class="line">        selectScroll(e) &#123;</span><br><span class="line">            //滚动距离顶部的高度</span><br><span class="line">            let scrollTop = e.target.scrollTop</span><br><span class="line">            //滚动区域高度</span><br><span class="line">            let scrollHeight = e.target.scrollHeight</span><br><span class="line">            //滚动可视区域高度</span><br><span class="line">            let height = parseInt(e.target.style.height.replace(&apos;px&apos;, &apos;&apos;))</span><br><span class="line">            //是否滚动到底部</span><br><span class="line">            if (scrollTop + height === scrollHeight) &#123;</span><br><span class="line">               </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
-<h2 id="响应头-responseType-Blob"><a href="#响应头-responseType-Blob" class="headerlink" title="响应头 responseType:Blob"></a>响应头 responseType:Blob</h2><p>处理文件下载时返回的二进制数据</p>
-<h2 id="get请求url含特殊参数时"><a href="#get请求url含特殊参数时" class="headerlink" title="get请求url含特殊参数时"></a>get请求url含特殊参数时</h2><p>需要对特殊参数进行编码(encodeURIComponent)</p>
-<p>encodeURIComponent:该方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * ‘ ( ) 。<br>其他字符（比如 ：;/?:@&amp;=+$,# 这些用于分隔 URI 组件的标点符号），都是由一个或多个十六进制的转义序列替换的。</p>
-<h2 id="lottie-json动画"><a href="#lottie-json动画" class="headerlink" title="lottie  (json动画)"></a>lottie  (json动画)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const el = document.querySelector(&quot;#lottie_avtivity&quot;);</span><br><span class="line">lottie.loadAnimation(&#123;</span><br><span class="line">  container: el,</span><br><span class="line">  renderer: &quot;svg&quot;,</span><br><span class="line">  loop: true,</span><br><span class="line">  autoplay: true,</span><br><span class="line">  path: &quot;lottie.json&quot;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="DatePicker、MonthPicker、RangePicker、WeekPicker-部分-locale-是从-value-中读取，需要先正确设置-moment-的-locale。"><a href="#DatePicker、MonthPicker、RangePicker、WeekPicker-部分-locale-是从-value-中读取，需要先正确设置-moment-的-locale。" class="headerlink" title="DatePicker、MonthPicker、RangePicker、WeekPicker 部分 locale 是从 value 中读取，需要先正确设置 moment 的 locale。"></a>DatePicker、MonthPicker、RangePicker、WeekPicker 部分 locale 是从 value 中读取，需要先正确设置 moment 的 locale。</h2><h2 id="replace-s-g-’’-清除所有空白字符"><a href="#replace-s-g-’’-清除所有空白字符" class="headerlink" title="replace(/\s/g,’’)   清除所有空白字符"></a>replace(/\s/g,’’)   清除所有空白字符</h2><h2 id="375px以下适配"><a href="#375px以下适配" class="headerlink" title="375px以下适配"></a>375px以下适配</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@screen: 3.75;</span><br><span class="line">@media screen and(max-width:375px) &#123;</span><br><span class="line">  #app &#123;</span><br><span class="line">    padding: 20vw / @screen 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="获取url查询参数"><a href="#获取url查询参数" class="headerlink" title="获取url查询参数"></a>获取url查询参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function getUrlParams(field) &#123;</span><br><span class="line">  //查询字符串  去掉?</span><br><span class="line">  const queryStr = window.location.search.slice(1);</span><br><span class="line">  //查询参数数组</span><br><span class="line">  const queryArr = queryStr.split(&quot;&amp;&quot;);</span><br><span class="line">  for (const query of queryArr) &#123;</span><br><span class="line">    const key = query.split(&quot;=&quot;)[0];</span><br><span class="line">    const value = query.split(&quot;=&quot;)[1];</span><br><span class="line">    //匹配到字段</span><br><span class="line">    if (field === key) return value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="提示框"><a href="#提示框" class="headerlink" title="提示框"></a>提示框</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;tip&quot; id=&quot;tip&quot;&gt;复制成功&lt;/div&gt;</span><br><span class="line">.tip&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 30px;</span><br><span class="line">    line-height: 30px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    border-radius: 6px;</span><br><span class="line">    background-color: rgba(0, 0, 0, .4);</span><br><span class="line">    color:  rgba(256, 256, 256, .8);</span><br><span class="line">    font-size: 14px;</span><br><span class="line">    opacity: 0;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    left: 50%;</span><br><span class="line">    transform: translate(-50%);</span><br><span class="line">    transition: opacity .8s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">渠道专属推广位   /^([a-zA-Z])\1_[0-9]&#123;1,&#125;_[0-9]&#123;1,&#125;_[0-9]&#123;1,&#125;$/g, message: &apos;格式:mm_123456_123456_123456&apos; </span><br><span class="line"></span><br><span class="line">手机号  /^[1][3|4|5|6|7|8|9][0-9]&#123;9&#125;$/g</span><br></pre></td></tr></table></figure>
-<h2 id="textarea-禁止拖拽"><a href="#textarea-禁止拖拽" class="headerlink" title="textarea  禁止拖拽"></a>textarea  禁止拖拽</h2><p>resize:none</p>
-<h2 id="腾讯图形验证码"><a href="#腾讯图形验证码" class="headerlink" title="腾讯图形验证码"></a>腾讯图形验证码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://ssl.captcha.qq.com/TCaptcha.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> //验证码生成</span><br><span class="line">    tencentCode() &#123;</span><br><span class="line">      let tencentCodeDom = document.querySelector(&quot;#TencentCaptchaCode&quot;);</span><br><span class="line">      let self = this;</span><br><span class="line">      this.tencentCodeObject = new TencentCaptcha(</span><br><span class="line">        tencentCodeDom,</span><br><span class="line">        &quot;2062726362&quot;,</span><br><span class="line">        function (res) &#123;</span><br><span class="line">          //判断验证成功</span><br><span class="line">          if (res.ret === 2) &#123;</span><br><span class="line">            self.loading = false;</span><br><span class="line">          &#125; else if (res.ret === 0) &#123;</span><br><span class="line">            self</span><br><span class="line">              .Login(&#123;</span><br><span class="line">                loginTilKey: self.loginTilKey,</span><br><span class="line">                values: self.loginParams,</span><br><span class="line">              &#125;)</span><br><span class="line">              .then((res) =&gt; &#123;</span><br><span class="line">                self.loginSuccess();</span><br><span class="line">              &#125;)</span><br><span class="line">              .catch((res) =&gt; self.requestFailed(res))</span><br><span class="line">              .finally(() =&gt; &#123;</span><br><span class="line">                self.loading = false;</span><br><span class="line">                self.resetValidateCode();</span><br><span class="line">              &#125;);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      );</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-<h2 id="h函数"><a href="#h函数" class="headerlink" title="h函数"></a>h函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">render (h) &#123;</span><br><span class="line">  return h(&apos;div&apos;, &#123;</span><br><span class="line">    // Component props</span><br><span class="line">    props: &#123;</span><br><span class="line">      msg: &apos;hi&apos;,</span><br><span class="line">      onCustomEvent: this.customEventHandler</span><br><span class="line">    &#125;,</span><br><span class="line">    // normal HTML attributes</span><br><span class="line">    attrs: &#123;</span><br><span class="line">      id: &apos;foo&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    // DOM props</span><br><span class="line">    domProps: &#123;</span><br><span class="line">      innerHTML: &apos;bar&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    // Event handlers are nested under &quot;on&quot;, though</span><br><span class="line">    // modifiers such as in v-on:keyup.enter are not</span><br><span class="line">    // supported. You&apos;ll have to manually check the</span><br><span class="line">    // keyCode in the handler instead.</span><br><span class="line">    on: &#123;</span><br><span class="line">      click: this.clickHandler</span><br><span class="line">    &#125;,</span><br><span class="line">    // For components only. Allows you to listen to</span><br><span class="line">    // native events, rather than events emitted from</span><br><span class="line">    // the component using vm.$emit.</span><br><span class="line">    nativeOn: &#123;</span><br><span class="line">      click: this.nativeClickHandler</span><br><span class="line">    &#125;,</span><br><span class="line">    // class is a special module, same API as `v-bind:class`</span><br><span class="line">    class: &#123;</span><br><span class="line">      foo: true,</span><br><span class="line">      bar: false</span><br><span class="line">    &#125;,</span><br><span class="line">    // style is also same as `v-bind:style`</span><br><span class="line">    style: &#123;</span><br><span class="line">      color: &apos;red&apos;,</span><br><span class="line">      fontSize: &apos;14px&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    // other special top-level properties</span><br><span class="line">    key: &apos;key&apos;,</span><br><span class="line">    ref: &apos;ref&apos;,</span><br><span class="line">    // assign the `ref` is used on elements/components with v-for</span><br><span class="line">    refInFor: true,</span><br><span class="line">    slot: &apos;slot&apos;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Ant-Design-upload-文件封面设置"><a href="#Ant-Design-upload-文件封面设置" class="headerlink" title="Ant Design  upload   文件封面设置"></a>Ant Design  upload   文件封面设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">:preview-file=&quot;handlePreviewImg&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  //图片base64预览</span><br><span class="line">    getBase64More(file) &#123;</span><br><span class="line">      return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        const reader = new FileReader();</span><br><span class="line">        reader.readAsDataURL(file);</span><br><span class="line">        reader.onload = () =&gt; resolve(reader.result);</span><br><span class="line">        reader.onerror = (error) =&gt; reject(error);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//文件封面设置</span><br><span class="line">    async handlePreviewImg(file) &#123;</span><br><span class="line">      //视频</span><br><span class="line">      if (file.type === &quot;video/mp4&quot;) &#123;</span><br><span class="line">        return Promise.resolve(&quot;https://kuaizhan.ecostudio.cn/video.png&quot;);</span><br><span class="line">      &#125;</span><br><span class="line">      //图片</span><br><span class="line">      else &#123;</span><br><span class="line">        //图片封面</span><br><span class="line">        const imgCover = await this.getBase64More(file);</span><br><span class="line">        return Promise.resolve(imgCover);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-<h2 id="linus"><a href="#linus" class="headerlink" title="linus"></a>linus</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">rm-rf 删除目录</span><br></pre></td></tr></table></figure>
-<h2 id="a标签-下载跨域文件"><a href="#a标签-下载跨域文件" class="headerlink" title="a标签  下载跨域文件"></a>a标签  下载跨域文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"> download(url, name) &#123;</span><br><span class="line">      const xhr = new XMLHttpRequest();</span><br><span class="line">      xhr.open(&quot;GET&quot;, url, true);</span><br><span class="line">      xhr.responseType = &quot;blob&quot;;</span><br><span class="line">      xhr.onload = function (e) &#123;</span><br><span class="line">        const url = window.URL.createObjectURL(xhr.response);</span><br><span class="line">        const a = document.createElement(&quot;a&quot;);</span><br><span class="line">        a.href = url;</span><br><span class="line">        a.download = name;</span><br><span class="line">        a.click();</span><br><span class="line">      &#125;;</span><br><span class="line">      xhr.send();</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-vue" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/24/vue/" class="article-date">
-      <time datetime="2019-03-23T16:00:00.000Z" itemprop="datePublished">2019-03-24</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/24/vue/">vue</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>2019-3-24</p>
-</blockquote>
-<h2 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h2><pre><code>var Book = {}
-var name = &apos;&apos;;
-Object.defineProperty(Book, &apos;name&apos;, {
-  set: function (value) {
-    name = value;
-    console.log(&apos;你取了一个书名叫做&apos; + value);
-  },
-  get: function () {
-    return &apos;《&apos; + name + &apos;》&apos;
-  }
-})
-
-Book.name = &apos;vue权威指南&apos;;  // 你取了一个书名叫做vue权威指南
-console.log(Book.name);  // 《vue权威指南》
-
-</code></pre><p>源自:<a href="http://www.cnblogs.com/canfoo/p/6891868.html" target="_blank" rel="noopener">http://www.cnblogs.com/canfoo/p/6891868.html</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a><a class="article-category-link" href="/categories/前端/框架/">框架</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-life" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/02/life/" class="article-date">
-      <time datetime="2019-01-01T16:00:00.000Z" itemprop="datePublished">2019-01-02</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/02/life/">记录生活</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>没什么文采，想说什么就说什么。</p>
-<blockquote>
-<p>2019-1-2<br>最近特别怀旧，喜欢看老剧、听老歌，可能。。。。自己真的老了吧。<br>以前看不懂的红楼梦（87版，现在的电视剧真不敢恭维，不排除有好的（有个小戏骨翻拍的红楼梦，听说还可以），但以前的老演员演技是真的好，也敬业。），现在看起来发现剧中各种小细节，很讽刺，也很现实，演员演得也好，眉眼之间但是演技，每个眼神特写都不多余。<br>对了，才发现剧中的王熙凤是邓婕（张国立的老婆）演的。</p>
-</blockquote>
-<blockquote>
-<p>2019-3-10<br>好久没有更新博客了，利用寒假时间把js又深入的学习了一遍，发现时间过的很快，一个月转眼就过去了。<br>大三下学期要面临找实习，我开始焦虑了。<br>算下来学习前端的时间有一年多了吧。<br>尤其是大三上学期，我接触了es6、webpack打包工具、vue、vue-cli自动化构建工具、vuex状态管理、以及服务端的js——node、babel编译工具、模块化编程等等，发现前端的知识好杂乱，要学的好多，为了搞懂这些东西，花费了我大量时间，感觉时间都浪费掉了。在追求知识的广度和深度这个问题上，我迷茫了。<br>随着时间的推进，我慢慢察觉基础的重要性，开始对css、js进行更深一步的进阶学习，收获挺多，基础还是很重要的。<br>今天写了一个三级联动，碰到了一些问题，就此谈一下我的感受：</p>
-<ol>
-<li>对于jquery动态添加的Dom元素无法绑定事件，可以借助事件代理。但就因为这个问题我折腾了一、两个小时，为啥呢？因为我为动态添加的option标签绑定了click事件！！！（Chrome对option的click事件不支持，卧槽！在我心中堪称完美的Chrome居然也有缺陷），这个问题曾一度让我怀疑自己。</li>
-<li>上面都不是关键，之所以要说这个问题，我想强调的是“百度使用方式的重要性”，之前我一直搜索的是“jquery动态添加的Dom元素绑定事件失效”，然后出来一大堆，基本上都是说使用事件代理，于是就照着这个方法修改了代码，最后发现没用啊，难道是我别的地方出错了？调试了好几遍还是没问题啊，打开控制台，发现事件添加上去了，当时的我一脸懵逼。。。来回折腾进一个小时，几乎快要崩溃。。休息了10分钟，整理了一下思绪，一步步的排除错误，最后锁定在了select标签这个东西上。再次打开百度，输入“select标签绑定click事件无效”，终于真相大白，原来是Chrome浏览器不支持 。</li>
-<li>由此我发现，我还是没有找到解决问题的关键。但同样一个问题，搜索的方式至关重要，学会使用关键字搜索也是一门学问。</li>
-<li>以上只是我的一些个人看法，因人而异吧。<br>最后想勉励一下自己，还得继续加油啊。</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>2019-3-25<br>今天用js敲了几个排序算法（为了面试），让我再次发现了调试的重要性！下面是希尔排序，话不多说，上代码</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><span class="line">//希尔排序</span><br><span class="line">    let increase = Math.floor(arr.length / 2);</span><br><span class="line">    while (increase!==0) &#123;</span><br><span class="line">		</span><br><span class="line">		//第一层for循环 ：分成几组</span><br><span class="line">        for (let j = 0; j &lt; increase; j++) &#123;</span><br><span class="line">			</span><br><span class="line">             //第二层for循环 ：每组多少成员</span><br><span class="line">            for (let i = j + increase, t = 1; t &lt; arr.length / increase; i += increase, t++) &#123;</span><br><span class="line">				</span><br><span class="line">                let flag=i; //记录i值</span><br><span class="line">				</span><br><span class="line">				//下面while循环是直接插入排序    注意！while循环会引起i值改变</span><br><span class="line">                while (arr[i] &lt; arr[i - increase]) &#123;  </span><br><span class="line"></span><br><span class="line">                    arr[i - increase] = arr[i] + arr[i - increase];</span><br><span class="line">                    arr[i] = arr[i - increase] - arr[i];</span><br><span class="line">                    arr[i - increase] = arr[i - increase] - arr[i];</span><br><span class="line"></span><br><span class="line">                    i = i - increase;</span><br><span class="line">                    if (i === j) break;</span><br><span class="line">                &#125; </span><br><span class="line">				</span><br><span class="line">                i=flag; //恢复i值</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //debugger</span><br><span class="line">        //console.log(arr);</span><br><span class="line">        increase = Math.floor(increase/2); //记录每次增量改变</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">折腾最久的就是上面那个i值得恢复，通过debugger发现，只要进行直接插入排序，i值就会发生变化，因此需要排序后进行i值恢复。</span><br><span class="line">上面这个希尔排序只是简单的练手，算法的性能以及健壮性上面可能不是很好，但希尔排序算法的思想还是能体现出来的。</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">//快速排序  (百度百科)  （基准值、左右索引、递归）</span><br><span class="line">    const quickSort = (array) =&gt; &#123;</span><br><span class="line">         const sort = (arr, left = 0, right = arr.length - 1) =&gt; &#123;</span><br><span class="line">             if (left &gt;= right) &#123;//如果左边的索引大于等于右边的索引说明整理完毕</span><br><span class="line">                 return</span><br><span class="line">             &#125;</span><br><span class="line">             let i = left;</span><br><span class="line">             let j = right;</span><br><span class="line">             const baseVal = arr[j]; // 取无序数组最后一个数为基准值</span><br><span class="line">             //debugger;</span><br><span class="line">             while (i &lt; j) &#123;//把所有比基准值小的数放在左边大的数放在右边</span><br><span class="line">                 while (i &lt; j &amp;&amp; arr[i] &lt;= baseVal) &#123; //找到一个比基准值大的数交换</span><br><span class="line">                     i++</span><br><span class="line">                 &#125;</span><br><span class="line">                 arr[j] = arr[i];// 将较大的值放在右边如果没有比基准值大的数就是将自己赋值给自己（i 等于 j）</span><br><span class="line">                 while (j &gt; i &amp;&amp; arr[j] &gt;= baseVal) &#123; //找到一个比基准值小的数交换</span><br><span class="line">                     j--</span><br><span class="line">                 &#125;</span><br><span class="line">                 arr[i] = arr[j] // 将较小的值放在左边如果没有找到比基准值小的数就是将自己赋值给自己（i 等于 j）</span><br><span class="line">             &#125;</span><br><span class="line">             arr[j] = baseVal; // 将基准值放至中央位置完成一次循环（这时候 j 等于 i ）</span><br><span class="line">             sort(arr, left, j-1); // 将左边的无序数组重复上面的操作</span><br><span class="line">             sort(arr, j+1, right) // 将右边的无序数组重复上面的操作</span><br><span class="line">         &#125;;</span><br><span class="line">         const newArr = array.concat(); // 为了保证这个函数是纯函数拷贝一次数组</span><br><span class="line">         sort(newArr);</span><br><span class="line">         return newArr</span><br><span class="line">     &#125;;</span><br><span class="line"></span><br><span class="line">    //二分查找</span><br><span class="line">    function binary(find, arr, low, high) &#123;</span><br><span class="line">        if (low &lt;= high) &#123;</span><br><span class="line">            if (arr[low] == find) &#123;</span><br><span class="line">                return low;</span><br><span class="line">            &#125;</span><br><span class="line">            if (arr[high] == find) &#123;</span><br><span class="line">                return high;</span><br><span class="line">            &#125;</span><br><span class="line">            var mid = Math.ceil((high + low) / 2);</span><br><span class="line">            if (arr[mid] == find) &#123;</span><br><span class="line">                return mid;</span><br><span class="line">            &#125; else if (arr[mid] &gt; find) &#123;</span><br><span class="line">                return binary(find, arr, low, mid - 1);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                return binary(find, arr, mid + 1, high);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">		</span><br><span class="line">		//深度搜索</span><br><span class="line">		function deepTraversal(node) &#123;</span><br><span class="line">        var nodeList = [];</span><br><span class="line">        if (node) &#123;</span><br><span class="line">            var stack = [];//先进后出</span><br><span class="line">            stack.push(node);</span><br><span class="line">            while (stack.length != 0) &#123;</span><br><span class="line">                var childrenItem = stack.pop();</span><br><span class="line">                nodeList.push(childrenItem);</span><br><span class="line">                var childrenList = childrenItem.children;</span><br><span class="line">                for (var i = childrenList.length - 1; i &gt;= 0; i--)</span><br><span class="line">                    stack.push(childrenList[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return nodeList;</span><br><span class="line">    &#125;</span><br><span class="line">    //广度搜索</span><br><span class="line">    function wideTraversal(node) &#123;</span><br><span class="line">        var nodes = [];</span><br><span class="line">        if (node ) &#123;</span><br><span class="line">            var queue = [];//先进先出</span><br><span class="line">            queue.unshift(node);</span><br><span class="line">            while (queue.length != 0) &#123;</span><br><span class="line">                var item = queue.shift();</span><br><span class="line">                nodes.push(item);</span><br><span class="line">                var children = item.children;</span><br><span class="line">                for (var i = 0; i &lt; children.length; i++)</span><br><span class="line">                    queue.push(children[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return nodes;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">下面是几个简单的排序算法：</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">     //简单选择排序</span><br><span class="line">     for(let i=0;i&lt;arr.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">         for(let j=i+1;j&lt;arr.length;j++)</span><br><span class="line">         &#123;</span><br><span class="line">             if(arr[j]&lt;arr[i])</span><br><span class="line">             &#123;</span><br><span class="line">                 arr[i]=arr[i]+arr[j];</span><br><span class="line">                 arr[j]=arr[i]-arr[j];</span><br><span class="line">                 arr[i]=arr[i]-arr[j];</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         //console.log(arr);</span><br><span class="line">     &#125;</span><br><span class="line">	 </span><br><span class="line">	 //冒泡排序</span><br><span class="line">     for(let i=0;i&lt;arr.length;i++)</span><br><span class="line">     &#123;</span><br><span class="line">         for(let i=0;i&lt;arr.length;i++)</span><br><span class="line">         &#123;</span><br><span class="line">             if(arr[i+1]&lt;arr[i])</span><br><span class="line">             &#123;</span><br><span class="line">                 arr[i]=arr[i]+arr[i+1];</span><br><span class="line">                 arr[i+1]=arr[i]-arr[i+1];</span><br><span class="line">                 arr[i]=arr[i]-arr[i+1];</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         //console.log(arr);</span><br><span class="line">     &#125;</span><br><span class="line">	 </span><br><span class="line">	 //直接插入排序</span><br><span class="line">    for(let i=1;i&lt;arr.length;i++)</span><br><span class="line">    &#123;</span><br><span class="line">			  let flag=i;</span><br><span class="line">        while(arr[i]&lt;arr[i-1])</span><br><span class="line">        &#123;</span><br><span class="line">            arr[i-1]=arr[i]+arr[i-1];</span><br><span class="line">            arr[i]=arr[i-1]-arr[i];</span><br><span class="line">            arr[i-1]=arr[i-1]-arr[i];</span><br><span class="line"></span><br><span class="line">            i=i-1;</span><br><span class="line">            if(i===0) break;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">				 i=flag;</span><br><span class="line">       // console.log(arr);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>通过敲这几个排序算法，发现动手实践是很重要的。但我认为，动手之前基本的东西最好搞明白，不然你会发现出的错都是跟它们有关，有些错误还很低级，但足够你折腾半天。<br>还要再说一遍，只是练手，只是练手，只是练手。</p>
-<blockquote>
-<p>2019-5-22<br>刚开始学习React,官方文档都还没看一遍就开始被狂轰滥炸的问各种React高级和底层基础，？？？？？好慌啊，稳如狗？ 好像翻车了哦。。</p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/生活/">生活</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/生活，心情/">生活，心情</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-bug" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/30/bug/" class="article-date">
-      <time datetime="2018-12-29T16:00:00.000Z" itemprop="datePublished">2018-12-30</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/30/bug/">遇到的一些坑</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>2018-12-30</p>
-<ul>
-<li>img标签设置伪元素after、before无效</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>2019-3-10</p>
-<ul>
-<li>chrome浏览器不支持select标签下option的click事件，可以为select绑定change事件。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>2019-3-29</p>
-<ul>
-<li>inline元素</li>
-</ul>
-<ol>
-<li>margin/padding在竖直方向上无效，水平方向上有效 </li>
-<li>浮动或绝对定位时会转换为block </li>
-</ol>
-<ul>
-<li>IE6浏览器常见的bug</li>
-</ul>
-<ol>
-<li>IE6不支持min-height，解决办法使用css hack：<br>.target {<br> min-height: 100px;<br> height: auto !important;<br> height: 100px;   // IE6下内容高度超过会自动扩展高度<br>}</li>
-<li>IE6只支持a标签的:hover伪类，解决方法：使用js为元素监听mouseenter，mouseleave事件，动态添加类</li>
-<li>IE5-8不支持opacity，解决办法：<pre><code>.opacity {
- opacity: 0.4
- filter: alpha(opacity=60); /* for IE5-7 */
- -ms-filter: &quot;progid:DXImageTransform.Microsoft.Alpha(Opacity=60)&quot;; /* for IE 8*/
-}
-</code></pre></li>
-<li>IE6不支持PNG透明背景，解决办法: 使用gif图片</li>
-<li>IE6-7不支持display: inline-block 解决办法：<pre><code>display: inline-block;
-*display: inline;
-*zoom: 1;
-</code></pre></li>
-</ol>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-es6" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/17/es6/" class="article-date">
-      <time datetime="2018-12-16T16:00:00.000Z" itemprop="datePublished">2018-12-17</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/17/es6/">es6</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>2018-12-17</p>
-</blockquote>
-<ul>
-<li><code>for</code>循环有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域.</li>
-</ul>
-<pre><code>for (let i = 0; i &lt; 3; i++) {
-  let i = &apos;abc&apos;;
-  console.log(i);
-}
-</code></pre><p>上面代码正确运行，输出了 3 次abc。这表明函数内部的变量i与循环变量i不在同一个作用域，有各自单独的作用域。</p>
-<ul>
-<li><code>暂时性死区</code><br><code>ES6</code> 明确规定，如果区块中存在<code>let</code>和<code>const</code>命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。<br>这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。<br>“暂时性死区”也意味着<code>typeof</code>不再是一个百分之百安全的操作。</li>
-<li><code>let</code>不允许在相同作用域内，重复声明同一个变量。</li>
-<li><code>ES6</code> 的块级作用域允许声明函数的规则，只在使用大括号的情况下成立，如果没有使用大括号，就会报错。</li>
-<li><code>const</code><br><code>const</code>实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动。<br>对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。<br>但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指向实际数据的指针，const只能保证这个指针是固定的（即总是指向另一个固定的地址），至于它指向的数据结构是不是可变的，就完全不能控制了。<br>因此，将一个对象声明为常量必须非常小心。</li>
-</ul>
-<p>原文链接:<a href="http://es6.ruanyifeng.com" target="_blank" rel="noopener">http://es6.ruanyifeng.com</a></p>
-<blockquote>
-<p>2019-3-14</p>
-<ul>
-<li>扩展运算符<code>...</code> （参数序列）</li>
-</ul>
-<ol>
-<li>替代函数的apply方法</li>
-</ol>
-</blockquote>
-<pre><code>// ES5 的写法
-function f(x, y, z) {
-  // ...
-}
-var args = [0, 1, 2];
-f.apply(null, args);
-
-// ES6的写法
-function f(x, y, z) {
-  // ...
-}
-let args = [0, 1, 2];
-f(...args);
-
-</code></pre><p>来自阮一峰老师：<a href="http://es6.ruanyifeng.com" target="_blank" rel="noopener">http://es6.ruanyifeng.com</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/14/js/" class="article-date">
-      <time datetime="2018-12-13T16:00:00.000Z" itemprop="datePublished">2018-12-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/14/js/">js</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>2018-12-14</p>
-</blockquote>
-<h2 id="同步异步"><a href="#同步异步" class="headerlink" title="同步异步:"></a>同步异步:</h2><p>如下代码:</p>
-<pre><code>for(var i = 0; i &lt; 5; i++)
-{
- setTimeout(function(){
- console.log(new Date, i);
- }, 1000);
-}
-console.log(new Date, i);
-</code></pre><p>运行结果图:<img src="/images/rs1.png" alt="rs1"><br>如果用箭头表示其前后的两次输出之间有 1 秒的时间间隔,而逗号表示其前后的两次输出之间的时间间隔可以忽略.结果可以描述为:5 -&gt; 5,5,5,5,5,即第 1 个 5 直接输出,1 秒之后,输出 5 个 5</p>
-<blockquote>
-<p>2018-12-16</p>
-</blockquote>
-<p>如果期望代码的输出变成 0 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5,即代码执行时，立即输出 0，之后每隔 1 秒依次输出 1,2,3,4，循环结束后在大概第 5 秒的时候输出 5（这里使用大概,是因为 JS 中的定时器触发时机有可能是不确定的<br><strong>使用Promise</strong></p>
-<pre><code>const tasks = []; // 这里存放异步操作的 Promise
-const output = (i) =&gt; new Promise((resolve) =&gt; {
-setTimeout(() =&gt; {
-console.log(new Date, i);
-resolve();
-}, 1000 * i);
-});
-
-// 生成全部的异步操作
-for (var i = 0; i &lt; 5; i++) {
-tasks.push(output(i));
-}
-
-// 异步操作完成之后，输出最后的 i
-Promise.all(tasks).then(() =&gt; {
-setTimeout(() =&gt; {
-console.log(new Date, i);
-}, 1000);
-});
-</code></pre><p><strong>使用async await</strong></p>
-<pre><code>// 模拟其他语言中的 sleep，实际上可以是任何异步操作
-const sleep = (timeountMS) =&gt; new Promise((resolve) =&gt; {
-setTimeout(resolve, timeountMS);
-});
-
-(async () =&gt; { // 声明即执行的 async 函数表达式
-for (var i = 0; i &lt; 5; i++) {
-await sleep(1000);
-console.log(new Date, i);
-}
-
-await sleep(1000);
-console.log(new Date, i);
-})();
-</code></pre><p>原文链接：<a href="https://zhuanlan.zhihu.com/p/25855075" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25855075</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-store" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/10/store/" class="article-date">
-      <time datetime="2018-12-09T16:00:00.000Z" itemprop="datePublished">2018-12-10</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/10/store/">杂货铺</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>2018-12-10</p>
-</blockquote>
-<p><strong>设计者的网站</strong>:</p>
-<p> <a href="https://hao.uisdc.com/" target="_blank" rel="noopener">https://hao.uisdc.com/</a></p>
-<p><strong>(分布式与集群)</strong>:</p>
-<p>小饭店原来只有一个厨师，切菜洗菜备料炒菜全干。后来客人多了，厨房一个厨师忙不过来，又请了个厨师，两个厨师都能炒一样的菜，这两个厨师的关系是集群。为了让厨师专心炒菜，把菜做到极致，又请了个配菜师负责切菜，备菜，备料，厨师和配菜师的关系是分布式，一个配菜师也忙不过来了，又请了个配菜师，两个配菜师关系是集群。<br><strong><code>css</code>动画框架</strong>:</p>
-<pre><code>(animate.css)
-添加css样式：
-backface-visibility:hidden;//背面隐藏 
--webkit-backface-visibility:hidden;//兼容goole、safari
--moz-backface-visibility:hidden;//兼容firefox
--ms-backface-visibility:hidden;//兼容ie   
--webkit-animation-duration:1s;
--webkit-animation-delay:.2s;
--webkit-animation-timing-function:ease;
--webkit-animation-fill-mode:both;
--moz-animation-duration:1s;
--moz-animation-delay:.2s;
--moz-animation-timing-function:ease;
--moz-animation-fill-mode:both;
--ms-animation-duration:1s;
--ms-animation-delay:.2s;
--ms-animation-timing-function:ease;
--ms-animation-fill-mode:both;
-animation-duration:1s; //1s内完成动画（持续时间）
-animation-delay:.2s; //延迟0.2s后开始动画
-animation-timing-function:ease;//（动画速度）
-animation-fill-mode:both;//（动画在播放之前或之后，其动画效果是否可见）
-
-</code></pre><p><strong>抠图</strong>:</p>
-<p><a href="https://www.gaoding.com/" target="_blank" rel="noopener">https://www.gaoding.com/</a><br><strong>中国色</strong>:</p>
-<p>中国色是一个免费的配色网站，这个网站的配色不仅名字很中国风，配色也是非常好看，做PPT的时候，配色没灵感来这里就没错了。</p>
-<p><strong>gulp</strong>:</p>
-<ul>
-<li>压缩<code>js</code>插件：gulp-uglify</li>
-<li>压缩<code>css</code>插件：gulp-clean-css</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/学习/">学习</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站/">网站</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源/">资源</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-wfe" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/03/wfe/" class="article-date">
-      <time datetime="2018-12-02T16:00:00.000Z" itemprop="datePublished">2018-12-03</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/03/wfe/">前端笔记</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p> 记录了我学习前端的过程(总结当中会有不妥当的地方，会持续进行更新完善)</p>
-<blockquote>
-<p>2018-12-3</p>
-</blockquote>
-<h2 id="offset-xxx与style-xxx的区别"><a href="#offset-xxx与style-xxx的区别" class="headerlink" title="offset.xxx与style.xxx的区别"></a>offset.xxx与style.xxx的区别</h2><ul>
-<li><code>style.left</code>只能获取行内的，而<code>offsetLeft</code>则可以获取到所有的；</li>
-<li><code>offsetLeft</code> 可以返回没有定位盒子距离左侧的位置；而<code>style.left</code>不可以，其只能返回有定位盒子的<code>left</code>;</li>
-<li><code>offsetLeft</code> 返回的是数字，而 <code>style.left</code> 返回的是字符串，除了数字外还带有单位：<code>px</code>;</li>
-<li>注意：可以用<code>parseInt</code>进行转化;比如：<code>styleLeft=&#39;300px&#39;</code> —&gt; <code>parseInt(styleLft)</code> —&gt; 300</li>
-<li><code>offsetLeft</code>是只读的，而<code>style.left</code>是可读写；</li>
-<li>如果没有给当前元素指定过<code>top</code>样式，则 <code>style.top</code>返回的是空字符串。</li>
-</ul>
-<h2 id="offset、client-、scroll"><a href="#offset、client-、scroll" class="headerlink" title="offset、client 、scroll"></a>offset、client 、scroll</h2><p><code>offsetWidth</code>  :内容宽度+<code>padding</code>+<code>border</code><br><code>offsetHeight</code>  :内容高度+<code>padding</code>+<code>border</code><br><code>clientWidth</code>  :内容宽度+<code>padding</code><br><code>clientHeight</code>  :内容高度度+<code>padding</code><br><code>scrollWidth</code>,<br><code>scrollHeight</code> :能够滚动的内容高度+<code>padding</code>1340=44*30（滚动内容高度）+20（<code>padding-top</code>）<br><code>offsetTop</code> :  距离具有定位属性的父盒子的距离,父盒子没有定位属性则一直向上找直到<code>body</code>(不带<code>border</code>值)<br><code>offsetLeft</code><br><code>clientTop</code>:<code>border-top</code>的值<br><code>cllientLeft</code>:<code>border-left</code><br><code>scrollTop</code>:滚动条滚动距离(需要<code>onscroll</code>事件监听)<br><code>scrollLeft</code></p>
-<ol>
-<li>width 和 height</li>
-</ol>
-<p><code>border</code> + <code>padding</code> + 内容的宽度和高度<br><code>console.log(box.offsetWidth, box.offsetHeight);</code></p>
-<p><code>padding</code> + 内容的宽度和高度<br><code>console.log(box.clientWidth, box.clientHeight);</code></p>
-<p> 能够滚动的内容的 宽度 和 高度<br><code>console.log(box.scrollWidth, box.scrollHeight);</code></p>
-<ol start="2">
-<li>top 和 left<br><code>offsetTop</code>:当前元素距离有定位的父盒子上边的距离<br><code>offsetLeft</code>:当前元素距离有定位的父盒子左边的距离<br><code>clientLeft</code>:左边边框的宽度；<code>clientTop</code>:上边边框的宽度<br><code>scrollLeft</code>:左边滚动的长度; <code>scrollTop</code>:上边滚动的长度;     </li>
-</ol>
-<h2 id="子元素的margin-top影响父元素"><a href="#子元素的margin-top影响父元素" class="headerlink" title="子元素的margin-top影响父元素"></a>子元素的margin-top影响父元素</h2><p>所有毗邻的两个或更多盒元素的<code>margin</code>将会合并为一个<code>margin</code>共享之。<br>毗邻的定义为：同级或者嵌套的盒元素，并且它们之间没有非空内容、<code>padding</code>或<code>Border</code>分隔。</p>
-<p>解决办法：<br>1.给父元素加上<code>padding/border/overflow:hidden</code>，<br>2.或者给父元素/子元素设置为<code>float/position:absolute.</code>（浮动元素和绝对定位元素不参与<code>margin</code>折叠）</p>
-<h2 id="文字溢出"><a href="#文字溢出" class="headerlink" title="文字溢出"></a>文字溢出</h2><p> <strong>单行溢出</strong></p>
-<pre><code>width: xxx;
-overflow: hidden;
-white-space: nowrap;
-text-overflow: ellipsis;
-</code></pre><p><code>text-overflow:ellipsis;</code>要达到的效果是：文字超出容器宽度时，文字被隐藏的文字用省略号代替。所以该属性只能用于块状元素或行内块元素中，对行内元素是不起作用的。</p>
-<p><strong>多行溢出（仅适用于谷歌浏览器，可通过js来实现）</strong></p>
-<pre><code>width: xxx;
-overflow: hidden;  
-text-overflow: ellipsis;  
-display: -webkit-box;  
--webkit-line-clamp:n; 第n行显示省略号
--webkit-box-orient: vertical;
-</code></pre><h2 id="css盒子"><a href="#css盒子" class="headerlink" title="css盒子"></a>css盒子</h2><ol>
-<li>如果需要控制嵌套关系盒子之间的距离，应首先考虑<code>padding</code>（父子之间）,其次再考虑<code>margin</code>。（兄弟之间）</li>
-<li><code>margin</code>在垂直方向会合并（依据较大的）。</li>
-<li>浮动元素的位置根据元素浮动之前在标准文档流中的位置所决定。</li>
-<li>margin/padding 百分比根据父元素宽度来计算。translate依据自身。</li>
-</ol>
-<p><strong>定位</strong><br>     绝对定位依据浏览器窗口首屏宽高而不是整个浏览器窗口的宽高。<br>     相对定位不脱离文档流，占据空间，不利于布局。</p>
-<p><strong>inline-block</strong><br>      <code>div</code>设置<code>inline-block</code>不能在排一行<br>   原因：可能是因为你标签间有间隙，空格一起渲染，解决办法可以是把两个<code>div</code>标签间的空隙注释掉，应该就可以了。</p>
-<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><p>1.“<code>！</code>”是逻辑与运算，并且可以与任何变量进行逻辑与将其转化为布尔值，“<code>!!</code>”则是逻辑与的取反运算，尤其后者在判断类型时代码简洁高效，省去了多次判断<code>null</code>、<code>undefined</code>和空字符串的冗余代码。</p>
-<h2 id="nth-child选择器"><a href="#nth-child选择器" class="headerlink" title="nth-child选择器"></a>nth-child选择器</h2><p>1.<code>nth-child(n+2):nth-child(odd):nth-child(-n+9)</code><br>使用 <code>nth-child(n+2):nth-child(odd):nth-child(-n+9)</code> 我们将会选中的子元素是从第2位到第9位，并且只包含奇数位。</p>
-<blockquote>
-<p>2018-12-4</p>
-</blockquote>
-<h2 id="判断一个对象是否为数组"><a href="#判断一个对象是否为数组" class="headerlink" title="判断一个对象是否为数组"></a>判断一个对象是否为数组</h2><p>1.<code>Array.prototype.isPrototypeOf(obj)</code><br>2.<code>obj instanceof Array</code><br>3.<code>Object.prototype.toString.call(obj)</code><br>4.<code>Array.isArray(obj)</code></p>
-<blockquote>
-<p>2018-12-24</p>
-</blockquote>
-<h2 id="创建BFC"><a href="#创建BFC" class="headerlink" title="创建BFC"></a>创建BFC</h2><p>1.float:left/right<br>2.position:absolute/fixed<br>3.overflow:auto/hidden/scroll<br>4.display:table-cell/inline-block<br>5.display:table-cell(ie8+)<br>6.*display:inline-block(ie7-)</p>
-<blockquote>
-<p>2018-12-26</p>
-</blockquote>
-<h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><pre><code>.clearfix:after
-{
-    content:&apos;&apos;;
-    display:table;
-    clear:both;
-}
-.clearfix
-{
-    *zoom:1;
-}
-
-</code></pre><h2 id="line-height"><a href="#line-height" class="headerlink" title="line-height"></a>line-height</h2><ul>
-<li>line-height:1.5 所有可继承元素根据font-size重新计算行高。</li>
-<li>line-height:1.5em/150% 当前元素根据font-size计算行高，继承给下面的元素。<blockquote>
-<p>2019-3-1</p>
-</blockquote>
-<h2 id="display-flex（弹性盒子、伸缩布局）"><a href="#display-flex（弹性盒子、伸缩布局）" class="headerlink" title="display:flex（弹性盒子、伸缩布局）"></a>display:flex（弹性盒子、伸缩布局）</h2></li>
-<li>flex:1 让所有弹性盒模型对象的子元素都有相同的长度,如果元素不是弹性盒模型对象的子元素，则 flex 属性不起作用。(等同于 (扩展)flex-grow:1 (伸缩)flex-shrink:1 (初始长度)flex-basis:0%  默认值为 0 1 auto)</li>
-<li>justify-content 主轴（默认为row方向） align-items 侧轴<blockquote>
-<p>2019-3-15</p>
-</blockquote>
-<h2 id="em-rem-px"><a href="#em-rem-px" class="headerlink" title="em/rem/px"></a>em/rem/px</h2></li>
-<li>em:值并不是固定的,继承父级元素的字体大小(相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px,在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px*62.5%=10px, 这样12px=1.2em, 10px=1em)在父级元素中声明了字体大小为1.2em，那么在子元素的字体大小时就只能是1em，而不是1.2em, 因为此em非彼em，它因继承父级元素的字体高而变为了1em=12px。</li>
-<li>rem:相对HTML根元素</li>
-<li>px:相对于显示器屏幕分辨率<h2 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h2></li>
-<li>利用事件冒泡原理。假如为一个ul下面100个li添加点击事件，考虑性能，可以使用事件代理。直接给ul添加事件监听，利用事件冒泡，进行触发，如果想在事件捕获阶段执行，可以设置addEventListener参数为true。</li>
-<li>event.target 触发事件的元素  event.currentTarget 绑定事件的元素<blockquote>
-<p>2019-3-16</p>
-</blockquote>
-<h2 id="bind-call-apply"><a href="#bind-call-apply" class="headerlink" title="bind/call/apply"></a>bind/call/apply</h2></li>
-<li>都能改变this指向</li>
-<li>bind：（返回对应函数）非立即执行，call/apply：立即执行</li>
-</ul>
-<pre><code>let person={
-    name:&quot;zs&quot;,
-    speak:function(){
-      console.log(&quot;我的名字叫&quot;+this.name);//这里的this看执行时的上下文，箭头函数看定义时的上下文。
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、如何理解-JS-异步编程，EventLoop、消息队列都是做什么的，什么是宏任务，什么是微任务？"><span class="toc-number">1.</span> <span class="toc-text">一、如何理解 JS 异步编程，EventLoop、消息队列都是做什么的，什么是宏任务，什么是微任务？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将下面异步代码使用-Promise-的方式改进"><span class="toc-number">2.</span> <span class="toc-text">将下面异步代码使用 Promise 的方式改进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、基于以下代码完成下面的四个练习"><span class="toc-number">3.</span> <span class="toc-text">二、基于以下代码完成下面的四个练习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用组合函数-fp-flowRight-重新实现下面这个函数"><span class="toc-number">3.1.</span> <span class="toc-text">使用组合函数 fp.flowRight() 重新实现下面这个函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-fp-flowRight-、fp-prop-和-fp-first-获取第一个-car-的-name"><span class="toc-number">3.2.</span> <span class="toc-text">使用 fp.flowRight()、fp.prop() 和 fp.first() 获取第一个 car 的 name</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用帮助函数-average-重构-averageDollarValue，使用函数组合的方式实现"><span class="toc-number">3.3.</span> <span class="toc-text">使用帮助函数 _average 重构 averageDollarValue，使用函数组合的方式实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-flowRight-写一个-sanitizeNames-函数，返回一个下划线连续的小写字符串，把数组中的-name-转换为这种形式，例如：sanitizeNames-“Hello-World”-gt-“hello-world”"><span class="toc-number">3.4.</span> <span class="toc-text">使用 flowRight 写一个 sanitizeNames() 函数，返回一个下划线连续的小写字符串，把数组中的 name 转换为这种形式，例如：sanitizeNames([“Hello World”]) =&gt; [“hello_world”]</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、基于下面提供的代码，完成后续的四个练习"><span class="toc-number">4.</span> <span class="toc-text">三、基于下面提供的代码，完成后续的四个练习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-fp-add-x-y-和-fp-map-f-x-创建一个能让-functor-里的值增加的函数-ex1"><span class="toc-number">4.1.</span> <span class="toc-text">使用 fp.add(x, y) 和 fp.map(f,x) 创建一个能让 functor 里的值增加的函数 ex1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现一个函数-ex2，能够使用-fp-first-获取列表的第一个元素"><span class="toc-number">4.2.</span> <span class="toc-text">实现一个函数 ex2，能够使用 fp.first 获取列表的第一个元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现一个函数-ex3，使用-safeProp-和-fp-first-找到-user-的名字的首字母"><span class="toc-number">4.3.</span> <span class="toc-text">实现一个函数 ex3，使用 safeProp 和 fp.first 找到 user 的名字的首字母</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、手写实现-MyPromise-源码"><span class="toc-number">5.</span> <span class="toc-text">四、手写实现 MyPromise 源码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#九、请谈谈你所认为的TypeScript优缺点。"><span class="toc-number">5.1.</span> <span class="toc-text">九、请谈谈你所认为的TypeScript优缺点。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、谈谈你对工程化的初步认识，结合你之前遇到过的问题说出三个以上工程化能够解决问题或者带来的价值。"><span class="toc-number">5.1.1.</span> <span class="toc-text">1、谈谈你对工程化的初步认识，结合你之前遇到过的问题说出三个以上工程化能够解决问题或者带来的价值。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、你认为脚手架除了为我们创建项目结构，还有什么更深的意义？"><span class="toc-number">5.1.2.</span> <span class="toc-text">2、你认为脚手架除了为我们创建项目结构，还有什么更深的意义？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1、概述脚手架实现的过程，并使用-NodeJS-完成一个自定义的小型脚手架工具。"><span class="toc-number">5.1.3.</span> <span class="toc-text">1、概述脚手架实现的过程，并使用 NodeJS 完成一个自定义的小型脚手架工具。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、尝试使用-Gulp-完成项目的自动化构建"><span class="toc-number">5.1.4.</span> <span class="toc-text">2、尝试使用 Gulp 完成项目的自动化构建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3、使用-Grunt-完成项目的自动化构建"><span class="toc-number">5.1.5.</span> <span class="toc-text">3、使用 Grunt 完成项目的自动化构建</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1、当我们点击按钮的时候动态给-data-增加的成员是否是响应式数据，如果不是的话，如何把新增成员设置成响应式数据，它的内部原理是什么。"><span class="toc-number">6.</span> <span class="toc-text">1、当我们点击按钮的时候动态给 data 增加的成员是否是响应式数据，如果不是的话，如何把新增成员设置成响应式数据，它的内部原理是什么。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、请简述-Diff-算法的执行过程"><span class="toc-number">7.</span> <span class="toc-text">2、请简述 Diff 算法的执行过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1、模拟-VueRouter-的-hash-模式的实现，实现思路和-History-模式类似，把-URL-中的-后面的内容作为路由的地址，可以通过-hashchange-事件监听路由地址的变化。"><span class="toc-number">8.</span> <span class="toc-text">1、模拟 VueRouter 的 hash 模式的实现，实现思路和 History 模式类似，把 URL 中的 # 后面的内容作为路由的地址，可以通过 hashchange 事件监听路由地址的变化。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、在模拟-Vue-js-响应式源码的基础上实现-v-html-指令，以及-v-on-指令。"><span class="toc-number">9.</span> <span class="toc-text">2、在模拟 Vue.js 响应式源码的基础上实现 v-html 指令，以及 v-on 指令。</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#1、-请简述-Vue-首次渲染过程。"><span class="toc-number"></span> <span class="toc-text">1、 请简述 Vue 首次渲染过程。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、-请简述-Vue-响应式原理。"><span class="toc-number"></span> <span class="toc-text">2、 请简述 Vue 响应式原理。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、-请简述虚拟-DOM-中-Key-的作用和好处。"><span class="toc-number"></span> <span class="toc-text">3、 请简述虚拟 DOM 中 Key 的作用和好处。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、-请简述-Vue-中模版编译过程。"><span class="toc-number"></span> <span class="toc-text">4、 请简述 Vue 中模版编译过程。</span></a>
+</li></div>
+<style>
+    .left-col .switch-btn {
+        display: none;
     }
-  };
-    let personSpeak=person.speak;
-  person.speak();//我的名字叫zs
-  personSpeak();//我的名字叫
-  personSpeak.bind(person)();//我的名字叫zs
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
-
-     Function.prototype.bind=function (context) {
-        //console.log(arguments); //被绑定函数的参数
-        var self =this;  // 指向执行时被绑定函数
-        return function () {
-            //console.log(arguments);   //被绑定对象的参数
-            return self.apply(context)
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
         }
-    };
-
-
-
-</code></pre><h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><ul>
-<li>所谓‘柯里化’，就是把一个多参数的函数，转化成单参数并且返回接受余下的参数且返回结果的新函数。（我的天，好绕啊！！！）</li>
-</ul>
-<pre><code>//柯里化之前
-function add(x,y)
-{
-    return x+y;
-}
-//柯里化之后
-function _add(x)
-{
-    return function(y){
-        return x+y;
-    }
-}
-</code></pre><blockquote>
-<p>2019-3-18</p>
-</blockquote>
-<h2 id="块级元素居中"><a href="#块级元素居中" class="headerlink" title="块级元素居中"></a>块级元素居中</h2><ul>
-<li>父级元素：<code>display:table-cell;vertical-align:middle;text-align:center</code>     子级块元素：<code>display:inline-block/display:inline</code>（使text-align:center;生效）</li>
-<li>定位结合margin或translate</li>
-<li>flex<blockquote>
-<p>2019-3-19</p>
-</blockquote>
-<h2 id="animation（动画）与transition（过渡）的区别（二者可以与transform结合使用）"><a href="#animation（动画）与transition（过渡）的区别（二者可以与transform结合使用）" class="headerlink" title="animation（动画）与transition（过渡）的区别（二者可以与transform结合使用）"></a>animation（动画）与transition（过渡）的区别（二者可以与transform结合使用）</h2></li>
-<li>animation自动触发，transition当过渡属性改变时触发，可以借助hover或js进行触发。</li>
-<li>复杂帧动画可以借助animation,简单过渡动画transition足矣（写到这让我想起了‘足以’这个词，思考一番还是‘足矣’适合）。</li>
-<li>animation可以控制暂停（animation-play-state）<blockquote>
-<p>2019-3-21</p>
-</blockquote>
-<h2 id="逻辑运算符（-amp-amp-）位运算符（-amp-）"><a href="#逻辑运算符（-amp-amp-）位运算符（-amp-）" class="headerlink" title="逻辑运算符（&amp;&amp; ||）位运算符（&amp; |）"></a>逻辑运算符（&amp;&amp; ||）位运算符（&amp; |）</h2></li>
-<li>console.log(1 &amp;&amp; 2);//2  console.log(0 || 1);//1</li>
-<li>console.log(1 &amp; 2);//0 console.log(0 | 1);//1  (二进制)<h2 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h2></li>
-</ul>
-<pre><code>//构建Person类
-function Person(name, age) {
-    this.name = name;
-    this.age = age;
-}
-//Person类的原型对象 添加run方法
-Person.prototype.run = function () {
-    console.log(this.name + &apos;人跑步&apos;);
-};
-
-//构建Student类
-function Student(name, age, id) {
-
-    Person.call(this, name, age); //实现Person构造函数的属性和方法继承
-    this.name = name;
-    this.age = age;
-    this.id = id;
-    //Student类的run方法
-    this.run = function () {
-        console.log(this.name + &apos;学生跑步&apos;);
-    }
-}
-//构建一个临时的构造函数（第三者）为了避免Student类污染Person类
-function Temp() {}
-//实现Temp对Person继承
-①Temp.prototype = Person.prototype;
-//作为Student类的原型对象
-var stu = new Temp();
-//实现Student对Person继承(间接)
-Student.prototype = stu;
-//此时 Student.prototype.constructor===stu.constructor,stu是个实例化对象，stu.constructor===stu.__proto__.constructor,stu.__proto__===stu.constructor.prototype,实例化对象stu的构造函数是Temp,由①可得stu.constructor===Person.prototype.constructor。所以此时Student.prototype.constructor不是自己的构造函数，应该设置为自己的构造函数Student。
-Student.prototype.constructor=Student;
-
-
-
-ES6继承：  //下面这段代码来自阮一峰老师
-class Point {
-  constructor(x, y) {
-     this.x = x;
-     this.y = y;
-  }
-}
-
- class ColorPoint extends Point {
-   constructor(x, y, color) {
-   super(x, y);
-   this.color = color; 
-   }
-}
-
-</code></pre><blockquote>
-<p>2019-3-22</p>
-</blockquote>
-<h2 id="once函数"><a href="#once函数" class="headerlink" title="once函数"></a>once函数</h2><pre><code>function once(fn) {
-    var flag = true;
-
-    return function () {    //fn=once(fn) 利用闭包保证函数不被销毁,实现一次执行
-        if (flag) {
-            flag = false;
-            fn();
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
         }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
     }
-}
-</code></pre><h2 id="Array-prototype-map"><a href="#Array-prototype-map" class="headerlink" title="Array.prototype.map"></a>Array.prototype.map</h2><pre><code>Array.prototype.map=function (fn) {
-      var arr=[];
-      //console.log(this);
-      this.forEach(function (item,index) {
-          //console.log(item);
-          //console.log(fn.call(null, item));
-          arr.push(fn.call(null,item,index,this));
-      });
-      return arr;
-  };
-</code></pre><h2 id="String与Array-整理巩固"><a href="#String与Array-整理巩固" class="headerlink" title="String与Array  (整理巩固)"></a>String与Array  (整理巩固)</h2><ul>
-<li>String:</li>
-</ul>
-<pre><code>Slice():提取字符串中选定的元素。    不改变原字符串，返回一个提取后的新字符串。//参数可以使用负值
-Split():将字符串拼接成数组。      不改变原字符串，返回一个数组。  
-Substring():提取字符串。          不改变原字符串，返回一个截取后的新字符串。//参数不可以使用负值
-
-</code></pre><ul>
-<li>Array:</li>
-</ul>
-<pre><code>Concat(): 连接两个数组。        不改变原数组，返回一个连接后的新数组。
-Join():将数组拼接成字符串。      不改变原数组，返回一个字符串。
-Slice():提取数组中选定的元素。    不改变原数组，返回一个提取后的新数组。
-
-Reverse():将数组顺序反转。       改变原数组，返回反转后的新数组。
-Splice():添加或删除数组中的元素。 改变原数组，返回一个被删除元素组成的新数组。
-Sort():对数组元素进行排序。       改变原数组，返回排序后的新数组。
-Pop():删除最后一个元素。     改变原数组， 返回最后一个元素。
-Push():往最后添加一个元素。   改变原数组，返回新数组的长度。
-Shift():删除第一个元素。     改变原数组， 返回第一个元素。
-Unshift():往最前面添加一个元素。   改变原数组，返回新数组的长度。
-
-</code></pre><h2 id="函数节流与函数防抖"><a href="#函数节流与函数防抖" class="headerlink" title="函数节流与函数防抖"></a>函数节流与函数防抖</h2><p>函数节流与防抖图示：<img src="/images/js1.png" alt="js1"><br>图片链接:<a href="https://blog.coding.net/blog/the-difference-between-throttle-and-debounce-in-underscorejs" target="_blank" rel="noopener">https://blog.coding.net/blog/the-difference-between-throttle-and-debounce-in-underscorejs</a></p>
-<p>代码借鉴于<code>underscore.js</code>,感觉源码值得学习一下</p>
-<ul>
-<li>函数节流</li>
-</ul>
-<pre><code>function throttle(fn, wait,options) {
-
-    var timeout, result;
-    var previous = 0;
-    if (!options) options = {};
-
-    var later = function () {
-        previous = options.leading === false ? 0 :  Date.now();
-        timeout = null;
-        result = fn.apply(null);
-    };
-
-    var throttled = function () {
-
-        var now = Date.now();
+</script>
 
 
-        if (!previous &amp;&amp; options.leading === false) previous = now;
 
-        //计算剩余时间
-        var remaining = wait - (now - previous);
 
-        if (remaining &lt;= 0 || remaining &gt; wait) {   //设置options中leading为false时 remaining=wait  不执行函数
-            if (timeout) {
-                clearTimeout(timeout);
-                timeout = null;
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2020/08/16/log/" title="下一篇: 前端记录">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/study/">前端学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/log/">前端记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/vue/">vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/17/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/js/">js</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
             }
-            previous = now;
-            result = fn.apply(null);
-        } else if (!timeout &amp;&amp; options.trailing !== false) {
-            timeout = setTimeout(later, remaining);
-        }
-        return result;
-    };
-    return throttled;
-}
-
-</code></pre><ul>
-<li>函数防抖</li>
-</ul>
-<pre><code>function debounce(func, wait, immediate) {
-    var timeout, result;
-
-    var later = function () {
-        timeout = null;
-        result = func.apply(null);
-    };
-
-    var debounced =function () {
-        if (timeout) clearTimeout(timeout);
-        if (immediate) {
-            var callNow = !timeout;
-            timeout = setTimeout(later, wait);
-            if (callNow) result = func.apply(null);
-        } else {
-            timeout = setTimeout(later, wait);
-        }
-
-        return result;
-    };
-
-    return debounced;
-}
-
-</code></pre><blockquote>
-<p>2019-3-30</p>
-</blockquote>
-<h2 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h2><pre><code>function jsonp(options)
-  {
-      var callbackName=&apos;diamondszz&apos;+Math.random().toString().substring(2);
-      //console.log(callbackName);
-      window.callbackName=function (data) {
-          options.success(data);
-          document.removeChild(script);
-      };
-      var url=options.url+&apos;?callback=&apos;+callbackName;
-      var script=document.createElement(&apos;script&apos;);
-      script.src=url;
-      document.body.appendChild(script);
-  }
-
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
 
 
 
 
-
-
-
-
-
-
-
-  
-  
+    <script>
+        
+    </script>
 
 </div>
       <footer id="footer">
