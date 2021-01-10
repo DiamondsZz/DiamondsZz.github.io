@@ -1066,10 +1066,9 @@
 <li><p>observe方法接收的是对象且该对象不是响应式时，会为该对象创建一个observe对象，会调用Observer类</p>
 </li>
 <li><p>Observer类中判断该value是数组还是对象，进行不同的处理</p>
-<ul>
+</li>
 <li>数组的响应化处理，是重写push,pop,sort等会修改原数组的方法，调用对应的notify.然后遍历数组中的成员，判断其类型决定是否调用observe方法</li>
-<li>对象的响应化处理，会调用walk方法，遍历对象中的每个属性，调用defineReactive</li>
-</ul>
+<li><p>对象的响应化处理，会调用walk方法，遍历对象中的每个属性，调用defineReactive</p>
 </li>
 <li><p>defineReactive的核心是为每一个属性定义getter和setter,getter中收集依赖，setter中派发更新,即调用dep.notify。</p>
 </li>
@@ -1082,12 +1081,10 @@
 <h2 id="请简述-Vue-中模版编译过程。"><a href="#请简述-Vue-中模版编译过程。" class="headerlink" title="请简述 Vue 中模版编译过程。"></a>请简述 Vue 中模版编译过程。</h2><p>解析：</p>
 <ul>
 <li>模版编译入口函数是compileToFunctions,首先判断是否有缓存好的render函数，如果没有，则调用compile。compile用作于合并options, 它将用户传入的options和初始化的options合并起来。然后将template和合并好的options传递给baseCompile。</li>
-<li>在 baseCompile 中完成了模版编译的核心部分：<ul>
+<li>在 baseCompile 中完成了模版编译的核心部分：</li>
 <li>调用parse()将template转换成AST对象；</li>
 <li>调用optimize()优化 AST tree；</li>
 <li>调用 generate() 将优化后的AST tree转换成字符串形式的代码。</li>
-</ul>
-</li>
 <li>最后回到compileToFunctions，通过createFunction()将字符串形式的代码转换为函数,并将其挂载到Vue实例的options对应的属性中。</li>
 </ul>
 
