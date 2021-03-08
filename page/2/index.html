@@ -128,7 +128,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/生活，心情/" style="font-size: 10px;">生活，心情</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/资源/" style="font-size: 10px;">资源</a>
+                        <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/学习/" style="font-size: 13.33px;">学习</a> <a href="/tags/生活，心情/" style="font-size: 10px;">生活，心情</a> <a href="/tags/网站/" style="font-size: 13.33px;">网站</a> <a href="/tags/资源/" style="font-size: 13.33px;">资源</a>
                     </div>
                 </section>
                 
@@ -184,6 +184,122 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-js" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/14/js/" class="article-date">
+      <time datetime="2018-12-13T16:00:00.000Z" itemprop="datePublished">2018-12-14</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/14/js/">js</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>2018-12-14</p>
+</blockquote>
+<h2 id="同步异步"><a href="#同步异步" class="headerlink" title="同步异步:"></a>同步异步:</h2><p>如下代码:</p>
+<pre><code>for(var i = 0; i &lt; 5; i++)
+{
+ setTimeout(function(){
+ console.log(new Date, i);
+ }, 1000);
+}
+console.log(new Date, i);
+</code></pre><p>运行结果图:<img src="/images/rs1.png" alt="rs1"><br>如果用箭头表示其前后的两次输出之间有 1 秒的时间间隔,而逗号表示其前后的两次输出之间的时间间隔可以忽略.结果可以描述为:5 -&gt; 5,5,5,5,5,即第 1 个 5 直接输出,1 秒之后,输出 5 个 5</p>
+<blockquote>
+<p>2018-12-16</p>
+</blockquote>
+<p>如果期望代码的输出变成 0 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5,即代码执行时，立即输出 0，之后每隔 1 秒依次输出 1,2,3,4，循环结束后在大概第 5 秒的时候输出 5（这里使用大概,是因为 JS 中的定时器触发时机有可能是不确定的<br><strong>使用Promise</strong></p>
+<pre><code>const tasks = []; // 这里存放异步操作的 Promise
+const output = (i) =&gt; new Promise((resolve) =&gt; {
+setTimeout(() =&gt; {
+console.log(new Date, i);
+resolve();
+}, 1000 * i);
+});
+
+// 生成全部的异步操作
+for (var i = 0; i &lt; 5; i++) {
+tasks.push(output(i));
+}
+
+// 异步操作完成之后，输出最后的 i
+Promise.all(tasks).then(() =&gt; {
+setTimeout(() =&gt; {
+console.log(new Date, i);
+}, 1000);
+});
+</code></pre><p><strong>使用async await</strong></p>
+<pre><code>// 模拟其他语言中的 sleep，实际上可以是任何异步操作
+const sleep = (timeountMS) =&gt; new Promise((resolve) =&gt; {
+setTimeout(resolve, timeountMS);
+});
+
+(async () =&gt; { // 声明即执行的 async 函数表达式
+for (var i = 0; i &lt; 5; i++) {
+await sleep(1000);
+console.log(new Date, i);
+}
+
+await sleep(1000);
+console.log(new Date, i);
+})();
+</code></pre><p>原文链接：<a href="https://zhuanlan.zhihu.com/p/25855075" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/25855075</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-store" class="article article-type-post" itemscope="" itemprop="blogPost">
   
