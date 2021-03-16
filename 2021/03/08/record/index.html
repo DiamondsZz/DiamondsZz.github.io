@@ -9,18 +9,18 @@
   
   <title>记录 | DiamondsZz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ES Modules1.自动采用严格模式（use strict）2.每个ESM模块都是单独的私有作用域3.ESM模块通过CORS（跨域资源共享）去请求外部js模块4.ESM的script标签会延迟脚本的执行 webpack1.url-loader、file-loader123456789101112url-loader  小文件使用Data URLs,减少请求次数file-loader 大文件单独">
+  <meta name="description" content="ES Modules1.自动采用严格模式（use strict）2.每个ESM模块都是单独的私有作用域3.ESM模块通过CORS（跨域资源共享）去请求外部js模块4.ESM的script标签会延迟脚本的执行 webpack url-loader、file-loader 123456789101112url-loader  小文件使用Data URLs,减少请求次数file-loader 大文件单独">
 <meta name="keywords" content="资源,学习,网站">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记录">
 <meta property="og:url" content="https://DiamondsZz.github.io/2021/03/08/record/index.html">
 <meta property="og:site_name" content="DiamondsZz">
-<meta property="og:description" content="ES Modules1.自动采用严格模式（use strict）2.每个ESM模块都是单独的私有作用域3.ESM模块通过CORS（跨域资源共享）去请求外部js模块4.ESM的script标签会延迟脚本的执行 webpack1.url-loader、file-loader123456789101112url-loader  小文件使用Data URLs,减少请求次数file-loader 大文件单独">
+<meta property="og:description" content="ES Modules1.自动采用严格模式（use strict）2.每个ESM模块都是单独的私有作用域3.ESM模块通过CORS（跨域资源共享）去请求外部js模块4.ESM的script标签会延迟脚本的执行 webpack url-loader、file-loader 123456789101112url-loader  小文件使用Data URLs,减少请求次数file-loader 大文件单独">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-16T15:10:34.558Z">
+<meta property="og:updated_time" content="2021-03-16T15:12:53.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录">
-<meta name="twitter:description" content="ES Modules1.自动采用严格模式（use strict）2.每个ESM模块都是单独的私有作用域3.ESM模块通过CORS（跨域资源共享）去请求外部js模块4.ESM的script标签会延迟脚本的执行 webpack1.url-loader、file-loader123456789101112url-loader  小文件使用Data URLs,减少请求次数file-loader 大文件单独">
+<meta name="twitter:description" content="ES Modules1.自动采用严格模式（use strict）2.每个ESM模块都是单独的私有作用域3.ESM模块通过CORS（跨域资源共享）去请求外部js模块4.ESM的script标签会延迟脚本的执行 webpack url-loader、file-loader 123456789101112url-loader  小文件使用Data URLs,减少请求次数file-loader 大文件单独">
   
     <link rel="alternative" href="/atom.xml" title="DiamondsZz" type="application/atom+xml">
   
@@ -227,10 +227,19 @@
       
           
         <h2 id="ES-Modules"><a href="#ES-Modules" class="headerlink" title="ES Modules"></a>ES Modules</h2><p>1.自动采用严格模式（use strict）<br>2.每个ESM模块都是单独的私有作用域<br>3.ESM模块通过CORS（跨域资源共享）去请求外部js模块<br>4.ESM的script标签会延迟脚本的执行</p>
-<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><p>1.url-loader、file-loader<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">url-loader  小文件使用Data URLs,减少请求次数</span><br><span class="line">file-loader 大文件单独提取存放，提高加载速度</span><br><span class="line">&#123;</span><br><span class="line">  test:/.png$/,</span><br><span class="line">  use:&#123;</span><br><span class="line">    loader:&quot;url-loader&quot;,</span><br><span class="line">	options:&#123;</span><br><span class="line">	   limit:10*1024,//10kb以下使用url-loader,10kb以上使用file-loader</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>2.css-loader、style-loader<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">css-loader 将css代码转换成js模块</span><br><span class="line">style-loader 将css代码通过style标签插入html当中</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"> test:/.css$/,</span><br><span class="line"> use:[&apos;style-loader&apos;,&apos;css-loader&apos;]  //由后往前加载loader</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>3.html-loader<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> test:/.html$/,</span><br><span class="line"> use:&#123;</span><br><span class="line">  loader:&apos;html-loader&apos;,</span><br><span class="line">  options:&#123;</span><br><span class="line">     attrs:[&apos;img:src&apos;,&apos;a:href&apos;]  //默认只处理img标签src属性</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>4.loader</p>
+<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><ol>
+<li><p>url-loader、file-loader</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">url-loader  小文件使用Data URLs,减少请求次数</span><br><span class="line">file-loader 大文件单独提取存放，提高加载速度</span><br><span class="line">&#123;</span><br><span class="line">  test:/.png$/,</span><br><span class="line">  use:&#123;</span><br><span class="line">    loader:&quot;url-loader&quot;,</span><br><span class="line">	options:&#123;</span><br><span class="line">	   limit:10*1024,//10kb以下使用url-loader,10kb以上使用file-loader</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>css-loader、style-loader</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">css-loader 将css代码转换成js模块</span><br><span class="line">style-loader 将css代码通过style标签插入html当中</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"> test:/.css$/,</span><br><span class="line"> use:[&apos;style-loader&apos;,&apos;css-loader&apos;]  //由后往前加载loader</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>html-loader</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> test:/.html$/,</span><br><span class="line"> use:&#123;</span><br><span class="line">  loader:&apos;html-loader&apos;,</span><br><span class="line">  options:&#123;</span><br><span class="line">     attrs:[&apos;img:src&apos;,&apos;a:href&apos;]  //默认只处理img标签src属性</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>loader</p>
+</li>
+</ol>
 <ul>
 <li>专注实现资源模块加载，实现项目打包</li>
 <li>加载过程类似于管道，可以依次使用多个loader，最终结果必须是js代码。</li>
@@ -242,7 +251,9 @@
 <li>文件操作类：将资源模块拷贝到输出目录，向外到处文件的访问路径   //file-loader</li>
 <li>代码检查类：对资源模块进行校验   //eslint-loader</li>
 </ul>
-<p>5.plugin</p>
+<ol start="5">
+<li>plugin</li>
+</ol>
 <ul>
 <li>增强webpack自动化能力，实现大多前端工程化 //清除dist目录插件、拷贝不需要参与打包的静态资源文件到输出目录、压缩输出代码等</li>
 <li>拥有更宽的能力范围，通过钩子机制实现</li>
@@ -251,16 +262,24 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//自定义插件</span><br><span class="line">class MyPlugin&#123;</span><br><span class="line"></span><br><span class="line"> //webpack启动时自动调用</span><br><span class="line"> apply(compiler)&#123;</span><br><span class="line">  compiler.hooks.emit.tap(&apos;MyPlugin&apos;,compilation=&gt;&#123;</span><br><span class="line">    //compilation  //打包上下文</span><br><span class="line">	//compilation.assets   //打包的资源文件 (对象)</span><br><span class="line">	//compilation.assets[&apos;文件名&apos;].source()  //资源文件内容</span><br><span class="line">	</span><br><span class="line">	compilation.assets[&apos;文件名&apos;]=&#123;</span><br><span class="line">	 source:()=&gt; 返回更改的文件内容，</span><br><span class="line">	 size:()=&gt;返回文件的大小</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;)</span><br><span class="line"> </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">const &#123;CleanWebpackPlugin&#125;  from &apos;clean-webpack-plugin&apos; //自动清除输出目录 </span><br><span class="line">const HtmlWebpackPlugin  from &apos;html-webpack-plugin&apos; //自动生成html </span><br><span class="line">const CopyWebpackPlugin  from &apos;copy-webpack-plugin&apos; //拷贝不需要打包静态资源到输出目录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plugins:[ </span><br><span class="line">new CleanWebpackPlugin(),</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//index.html</span><br><span class="line">new HtmlWebpackPlugin(</span><br><span class="line">&#123;</span><br><span class="line">  title:&apos;diamonds&apos;,   //设置生成html的title属性</span><br><span class="line">  meta:&#123;</span><br><span class="line">   viewport:&apos;width=device-width&apos;</span><br><span class="line">  &#125;，</span><br><span class="line">  template:&apos;./src/index.html&apos;   //html使用的模板</span><br><span class="line">&#125;),</span><br><span class="line"></span><br><span class="line">//about.html</span><br><span class="line">new HtmlWebpackPlugin(</span><br><span class="line">&#123;</span><br><span class="line">  filename:&apos;about.html&apos;  //输出的文件名  默认是index.html</span><br><span class="line">&#125;),</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">new CopyWebpackPlugin([&apos;public&apos;]),  //将public目录下资源拷贝到输出目录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<p>5.mode  //工作模式  默认production</p>
+<ol start="5">
+<li>mode  //工作模式  默认production</li>
+</ol>
 <ul>
 <li>production  //优化打包结果      代码压缩等</li>
 <li>development  //优化打包速度，增加辅助函数便于调试</li>
 <li>none   //不做处理</li>
 </ul>
-<p>6.–watch  //监听  自动编译</p>
-<p>7.browser-sync //实现浏览器自动刷新</p>
+<ol start="6">
+<li>–watch  //监听  自动编译</li>
+</ol>
+<ol start="7">
+<li>browser-sync //实现浏览器自动刷新</li>
+</ol>
 <p><code>browser-sync 文件目录  --files  &#39;**/*&#39;</code>   //启动并监听文件改变</p>
-<p>7.webapck-dev-server  //集成自动编译、自动刷新功能</p>
+<ol start="8">
+<li>webapck-dev-server  //集成自动编译、自动刷新功能</li>
+</ol>
 
       
     </div>
@@ -272,7 +291,7 @@
         <p><span>本文标题:</span><a href="/2021/03/08/record/">记录</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2021年03月08日</p>
-        <p><span>最后更新:</span>2021年03月16日 - 23时10分</p>    
+        <p><span>最后更新:</span>2021年03月16日 - 23时12分</p>    
     </div>
 
 
