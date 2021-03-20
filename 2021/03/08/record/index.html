@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="ES Modules1.自动采用严格模式（use strict）2.每个ESM模块都是单独的私有作用域3.ESM模块通过CORS（跨域资源共享）去请求外部js模块4.ESM的script标签会延迟脚本的执行 webpack url-loader、file-loader 123456789101112url-loader  小文件使用Data URLs,减少请求次数file-loader 大文件单独">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-20T08:20:39.309Z">
+<meta property="og:updated_time" content="2021-03-20T08:32:56.778Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录">
 <meta name="twitter:description" content="ES Modules1.自动采用严格模式（use strict）2.每个ESM模块都是单独的私有作用域3.ESM模块通过CORS（跨域资源共享）去请求外部js模块4.ESM的script标签会延迟脚本的执行 webpack url-loader、file-loader 123456789101112url-loader  小文件使用Data URLs,减少请求次数file-loader 大文件单独">
@@ -314,8 +314,9 @@
 <p>const merge=require(‘webpack-merge’)//合并webpack配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">12. definePlugin   </span><br><span class="line">* 为代码注入全局成员</span><br><span class="line">* `production`模式下默认启动，并注入`process.env.NODE_ENV`变量</span><br></pre></td></tr></table></figure></p>
 <p>const webpack =reuqire(‘webpack’)</p>
 <p>plugins:[</p>
-<p>//注入全局变量<br> new webpack.DefinePlugin({<br>    API_BASE_URL:’””‘ //代码片段  可以通过JSON.stringify()传递变量<br> })<br>]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">13.  tree-shaking</span><br><span class="line"></span><br><span class="line">* 移除为引用代码</span><br><span class="line">* 生产模式下自动开启</span><br></pre></td></tr></table></figure></p>
-<p>//优化选项<br>optimization:{<br>  usedExports:true,   //只导出外部使用过的成员<br>  minimize:true, //代码压缩<br>  concatenateModules:true  // <code>ScopeHoisting</code>作用域提升）   尽可能将所有模块合并在一起，提高运行效率，减少代码体积<br>}<br><code>`</code></p>
+<p>//注入全局变量<br> new webpack.DefinePlugin({<br>    API_BASE_URL:’””‘ //代码片段  可以通过JSON.stringify()传递变量<br> })<br>]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">13.  tree-shaking  (基于ES Modules)</span><br><span class="line"></span><br><span class="line">* 移除为引用代码</span><br><span class="line">* 生产模式下自动开启</span><br><span class="line">* 由Webpack打包的代码必须使用ESM</span><br></pre></td></tr></table></figure></p>
+<p>//优化选项<br>optimization:{<br>  usedExports:true,   //只导出外部使用过的成员<br>  minimize:true, //代码压缩<br>  concatenateModules:true  // <code>ScopeHoisting</code>作用域提升）   尽可能将所有模块合并在一起，提高运行效率，减少代码体积<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">14. babel-loader 与 tree-shaking</span><br></pre></td></tr></table></figure></p>
+<p>module:[<br>  {<br>  test:/.js$/,<br>  use:{<br>    loader:’babel-loader’,<br>    options:{<br>     presets:[[‘@babel/preset-env’],{<br>      modules:’commonjs’   //默认是auto 根据环境判断是否开启ES Module插件<br>     }]  //<br>    }<br>  }<br>  }<br>]<br><code>`</code></p>
 
       
     </div>
@@ -327,7 +328,7 @@
         <p><span>本文标题:</span><a href="/2021/03/08/record/">记录</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2021年03月08日</p>
-        <p><span>最后更新:</span>2021年03月20日 - 16时20分</p>    
+        <p><span>最后更新:</span>2021年03月20日 - 16时32分</p>    
     </div>
 
 
