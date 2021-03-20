@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="ES Modules1.自动采用严格模式（use strict）2.每个ESM模块都是单独的私有作用域3.ESM模块通过CORS（跨域资源共享）去请求外部js模块4.ESM的script标签会延迟脚本的执行 webpack url-loader、file-loader 123456789101112url-loader  小文件使用Data URLs,减少请求次数file-loader 大文件单独">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-20T07:42:18.177Z">
+<meta property="og:updated_time" content="2021-03-20T08:20:39.309Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录">
 <meta name="twitter:description" content="ES Modules1.自动采用严格模式（use strict）2.每个ESM模块都是单独的私有作用域3.ESM模块通过CORS（跨域资源共享）去请求外部js模块4.ESM的script标签会延迟脚本的执行 webpack url-loader、file-loader 123456789101112url-loader  小文件使用Data URLs,减少请求次数file-loader 大文件单独">
@@ -309,7 +309,13 @@
 </ul>
 <p>注册模块更新后的处理函数<br>//打包后代码会被自动移除，不会影响生产环境<br>if(module.hot){<br>module.hot.accept(‘模块路径’,()=&gt;{</p>
 <p>})</p>
-<p>}<br><code>`</code></p>
+<p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">11. webpack.config.js</span><br><span class="line"></span><br><span class="line">`webpack --env production`  //生产模式打包</span><br><span class="line">`webpack --config webpack.prod.js`</span><br></pre></td></tr></table></figure></p>
+<p>module.exports=(env,argv)=&gt;{}<br>if(env===’production’){<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>const merge=require(‘webpack-merge’)//合并webpack配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">12. definePlugin   </span><br><span class="line">* 为代码注入全局成员</span><br><span class="line">* `production`模式下默认启动，并注入`process.env.NODE_ENV`变量</span><br></pre></td></tr></table></figure></p>
+<p>const webpack =reuqire(‘webpack’)</p>
+<p>plugins:[</p>
+<p>//注入全局变量<br> new webpack.DefinePlugin({<br>    API_BASE_URL:’””‘ //代码片段  可以通过JSON.stringify()传递变量<br> })<br>]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">13.  tree-shaking</span><br><span class="line"></span><br><span class="line">* 移除为引用代码</span><br><span class="line">* 生产模式下自动开启</span><br></pre></td></tr></table></figure></p>
+<p>//优化选项<br>optimization:{<br>  usedExports:true,   //只导出外部使用过的成员<br>  minimize:true, //代码压缩<br>  concatenateModules:true  // <code>ScopeHoisting</code>作用域提升）   尽可能将所有模块合并在一起，提高运行效率，减少代码体积<br>}<br><code>`</code></p>
 
       
     </div>
@@ -321,7 +327,7 @@
         <p><span>本文标题:</span><a href="/2021/03/08/record/">记录</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2021年03月08日</p>
-        <p><span>最后更新:</span>2021年03月20日 - 15时42分</p>    
+        <p><span>最后更新:</span>2021年03月20日 - 16时20分</p>    
     </div>
 
 
@@ -329,8 +335,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2021/01/10/ts/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">typescript</div>
+    <a href="/2021/01/10/project/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端工程</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -395,12 +401,12 @@
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2021/01/10/ts/" title="下一篇: typescript">
+            <a href="/2021/01/10/project/" title="下一篇: 前端工程">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/record/">记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/ts/">typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/project/">前端工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/study/">前端学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/webpack/">前端构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/log/">前端记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/vue/">vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/17/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/js/">js</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/record/">记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/project/">前端工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/study/">前端学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/ts/">typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/webpack/">前端构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/log/">前端记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/vue/">vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/17/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/js/">js</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
