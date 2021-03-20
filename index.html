@@ -269,8 +269,20 @@
 <li><p>webapck-dev-server  //集成自动编译、自动刷新功能</p>
 </li>
 <li><p>devServer</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//webpack-dev-server 配置选项</span><br><span class="line">devServer:&#123;</span><br><span class="line">  contentBase:&apos;&apos; , //额外为开发服务器指定查找资源目录</span><br><span class="line">  //代理服务配置</span><br><span class="line">  proxy:&#123;</span><br><span class="line">    //前缀</span><br><span class="line">    &apos;/api&apos;:&#123;</span><br><span class="line">	   //代理请求目标  http://localhost:8080/api/users -&gt; https://api.github.com/api/users</span><br><span class="line">	  target:&apos;https://api.github.com&apos;,</span><br><span class="line">	  //路径重写</span><br><span class="line">	  pathRewrite:&#123;</span><br><span class="line">	  &apos;^/api&apos;:&apos;&apos;   // https://api.github.com/users</span><br><span class="line">	  &#125;,</span><br><span class="line">	  //改变请求源</span><br><span class="line">	  changeOrigin:true</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//webpack-dev-server 配置选项</span><br><span class="line">devServer:&#123;</span><br><span class="line">  contentBase:&apos;&apos; , //额外为开发服务器指定查找资源目录</span><br><span class="line">  //代理服务配置</span><br><span class="line">  proxy:&#123;</span><br><span class="line">    //前缀</span><br><span class="line">    &apos;/api&apos;:&#123;</span><br><span class="line">	   //代理请求目标  http://localhost:8080/api/users -&gt; https://api.github.com/api/users</span><br><span class="line">	  target:&apos;https://api.github.com&apos;,</span><br><span class="line">	  //路径重写</span><br><span class="line">	  pathRewrite:&#123;</span><br><span class="line">	  &apos;^/api&apos;:&apos;&apos;   // https://api.github.com/users</span><br><span class="line">	  &#125;,</span><br><span class="line">	  //改变请求源</span><br><span class="line">	  changeOrigin:true</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>devtool  (build初次构建速度、rebuild监视模式重新打包速度、production是否适合在生产环境中使用、quality质量)     </p>
+</li>
 </ol>
+<ul>
+<li>source-map</li>
+<li>eval  //通过sourceURL描述对应模块文件的资源路径   不生成对应的sourceMap,只能定位到错误出现的具体文件  构建速度快</li>
+<li>cheap-eveal-source-map   阉割版  生成的sourceMap只能定位到错误具体行，没有列的信息</li>
+<li>cheap-module-eveal-source-map   解析出来的源代码没有经过对应的loader加工，与手写时候的代码一样</li>
+<li>inline-source-map 通过DataURL方式将sourceMap嵌入到代码当中，eval-source-map也是</li>
+<li>hidden-source-map 代码当中没有通过注释方式引入sourceMap</li>
+<li>nosources-source-map 能看到错误出现行列信息，但看不到源代码   生产环境不会暴露源代码</li>
+</ul>
 
       
     </div>
