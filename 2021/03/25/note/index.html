@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="数据类型 基础类型存储在栈内存，被引用或拷贝时，会创建一个完全相等的变量； Undefined Null String Number Boolean Symbol BigInt   引用类型存储在堆内存，存储的是地址，多个引用指向同一个地址，这里会涉及一个“共享”的概念。 ObjectArray Date RegExp Function Math    1234567891011121314151">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-25T13:18:31.620Z">
+<meta property="og:updated_time" content="2021-03-25T13:20:36.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习记录">
 <meta name="twitter:description" content="数据类型 基础类型存储在栈内存，被引用或拷贝时，会创建一个完全相等的变量； Undefined Null String Number Boolean Symbol BigInt   引用类型存储在堆内存，存储的是地址，多个引用指向同一个地址，这里会涉及一个“共享”的概念。 ObjectArray Date RegExp Function Math    1234567891011121314151">
@@ -250,10 +250,8 @@
 </li>
 </ol>
 <ul>
-<li><p>instanceof 可以准确地判断复杂引用数据类型，但是不能正确判断基础数据类型；</p>
-</li>
-<li><p>而 typeof 也存在弊端，它虽然可以判断基础数据类型（null 除外），但是引用数据类型中，除了 function 类型以外，其他的也无法判断。</p>
-</li>
+<li>instanceof 可以准确地判断复杂引用数据类型，但是不能正确判断基础数据类型；</li>
+<li>而 typeof 也存在弊端，它虽然可以判断基础数据类型（null 除外），但是引用数据类型中，除了 function 类型以外，其他的也无法判断。</li>
 </ul>
 <ol start="3">
 <li>Object.prototype.toString<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString(&#123;&#125;)       // &quot;[object Object]&quot;</span><br><span class="line"></span><br><span class="line">Object.prototype.toString.call(&#123;&#125;)  // 同上结果，加上call也ok</span><br><span class="line"></span><br><span class="line">Object.prototype.toString.call(1)    // &quot;[object Number]&quot;</span><br><span class="line"></span><br><span class="line">Object.prototype.toString.call(&apos;1&apos;)  // &quot;[object String]&quot;</span><br><span class="line"></span><br><span class="line">Object.prototype.toString.call(true)  // &quot;[object Boolean]&quot;</span><br><span class="line"></span><br><span class="line">Object.prototype.toString.call(function()&#123;&#125;)  // &quot;[object Function]&quot;</span><br><span class="line"></span><br><span class="line">Object.prototype.toString.call(null)   //&quot;[object Null]&quot;</span><br><span class="line"></span><br><span class="line">Object.prototype.toString.call(undefined) //&quot;[object Undefined]&quot;</span><br><span class="line"></span><br><span class="line">Object.prototype.toString.call(/123/g)    //&quot;[object RegExp]&quot;</span><br><span class="line"></span><br><span class="line">Object.prototype.toString.call(new Date()) //&quot;[object Date]&quot;</span><br><span class="line"></span><br><span class="line">Object.prototype.toString.call([])       //&quot;[object Array]&quot;</span><br><span class="line"></span><br><span class="line">Object.prototype.toString.call(document)  //&quot;[object HTMLDocument]&quot;</span><br><span class="line"></span><br><span class="line">Object.prototype.toString.call(window)   //&quot;[object Window]&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------------------------------------------------------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function getType(obj)&#123;</span><br><span class="line">  let type  = typeof obj;</span><br><span class="line">  if (type !== &quot;object&quot;) &#123;    // 先进行typeof判断，如果是基础数据类型，直接返回</span><br><span class="line">    return type;</span><br><span class="line">  &#125;</span><br><span class="line">  // 对于typeof返回结果是object的，再进行如下的判断，正则返回结果</span><br><span class="line">  return Object.prototype.toString.call(obj).replace(/^\[object (\S+)\]$/, &apos;$1&apos;);  // 注意正则中间有个空格</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -311,7 +309,7 @@
         <p><span>本文标题:</span><a href="/2021/03/25/note/">学习记录</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2021年03月25日</p>
-        <p><span>最后更新:</span>2021年03月25日 - 21时18分</p>    
+        <p><span>最后更新:</span>2021年03月25日 - 21时20分</p>    
     </div>
 
 
