@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="数据类型 基础类型存储在栈内存，被引用或拷贝时，会创建一个完全相等的变量； Undefined Null String Number Boolean Symbol BigInt   引用类型存储在堆内存，存储的是地址，多个引用指向同一个地址，这里会涉及一个“共享”的概念。 ObjectArray Date RegExp Function Math    1234567891011121314151">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-28T07:58:30.016Z">
+<meta property="og:updated_time" content="2021-03-28T10:24:01.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习记录">
 <meta name="twitter:description" content="数据类型 基础类型存储在栈内存，被引用或拷贝时，会创建一个完全相等的变量； Undefined Null String Number Boolean Symbol BigInt   引用类型存储在堆内存，存储的是地址，多个引用指向同一个地址，这里会涉及一个“共享”的概念。 ObjectArray Date RegExp Function Math    1234567891011121314151">
@@ -415,6 +415,47 @@
 <p>利用 babel 这个编译工具，将 ES6 的代码编译成 ES5</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">function _possibleConstructorReturn (self, call) &#123; </span><br><span class="line"></span><br><span class="line">		// ...</span><br><span class="line"></span><br><span class="line">		return call &amp;&amp; (typeof call === &apos;object&apos; || typeof call === &apos;function&apos;) ? call : self; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function _inherits (subClass, superClass) &#123; </span><br><span class="line"></span><br><span class="line">    // 这里可以看到</span><br><span class="line"></span><br><span class="line">	subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, &#123; </span><br><span class="line"></span><br><span class="line">		constructor: &#123; </span><br><span class="line"></span><br><span class="line">			value: subClass, </span><br><span class="line"></span><br><span class="line">			enumerable: false, </span><br><span class="line"></span><br><span class="line">			writable: true, </span><br><span class="line"></span><br><span class="line">			configurable: true </span><br><span class="line"></span><br><span class="line">		&#125; </span><br><span class="line"></span><br><span class="line">	&#125;); </span><br><span class="line"></span><br><span class="line">	if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var Parent = function Parent () &#123;</span><br><span class="line"></span><br><span class="line">	// 验证是否是 Parent 构造出来的 this</span><br><span class="line"></span><br><span class="line">	_classCallCheck(this, Parent);</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var Child = (function (_Parent) &#123;</span><br><span class="line"></span><br><span class="line">	_inherits(Child, _Parent);</span><br><span class="line"></span><br><span class="line">	function Child () &#123;</span><br><span class="line"></span><br><span class="line">		_classCallCheck(this, Child);</span><br><span class="line"></span><br><span class="line">		return _possibleConstructorReturn(this, (Child.__proto__ || Object.getPrototypeOf(Child)).apply(this, arguments));</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">	return Child;</span><br><span class="line"></span><br><span class="line">&#125;(Parent));</span><br></pre></td></tr></table></figure>
 <p>从上面编译完成的源码中可以看到，它采用的也是寄生组合继承方式，因此也证明了这种方式是较优的解决继承的方式。</p>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><ul>
+<li>不管是什么样的计算机程序语言，运行在对应的代码引擎上，对应的使用内存过程大致逻辑是一样的，可以分为这三个步骤：</li>
+</ul>
+<ol>
+<li>分配你所需要的系统内存空间；</li>
+<li>使用分配到的内存进行读或者写等操作；</li>
+<li>不需要使用内存时，将其空间释放或者归还。</li>
+</ol>
+<ul>
+<li><p>在 JavaScript 中，当我们创建变量（对象，字符串等）的时候，系统会自动给对象分配对应的内存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var a = 123; // 给数值变量分配栈内存</span><br><span class="line"></span><br><span class="line">var etf = &quot;ARK&quot;; // 给字符串分配栈内存</span><br><span class="line"></span><br><span class="line">// 给对象及其包含的值分配堆内存</span><br><span class="line"></span><br><span class="line">var obj = &#123;</span><br><span class="line"></span><br><span class="line">  name: &apos;tom&apos;,</span><br><span class="line"></span><br><span class="line">  age: 13</span><br><span class="line"></span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line">// 给数组及其包含的值分配内存（就像对象一样）</span><br><span class="line"></span><br><span class="line">var a = [1, null, &quot;PSAC&quot;]; </span><br><span class="line"></span><br><span class="line">// 给函数（可调用的对象）分配内存</span><br><span class="line"></span><br><span class="line">function sum(a, b)&#123;</span><br><span class="line"></span><br><span class="line">  return a + b;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>栈内存中的基本类型，可以通过操作系统直接处理；<br>而堆内存中的引用类型，正是由于可以经常变化，大小不固定，因此需要 JavaScript 的引擎通过垃圾回收机制来处理。</p>
+<h3 id="chrome内存回收机制"><a href="#chrome内存回收机制" class="headerlink" title="chrome内存回收机制"></a>chrome内存回收机制</h3></li>
+<li>在 Chrome 浏览器中，JavaScript 的 V8 引擎被限制了内存的使用，根据不同的操作系统（操作系统有 64 位和 32 位的）内存大小会不同，大的可以到 1.4G 的空间，小的只能到 0.7G 的空间。</li>
+<li>为什么要去限制内存使用呢？<br>大致是两个原因：V8 最开始是为浏览器而设计的引擎，早些年由于 Web 应用都比较简单，其实并未考虑占据过多的内存空间；<br>另外又由于被 V8 的垃圾回收机制所限制，比如清理大量的内存时会耗费很多时间，这样会引起 JavaScript 执行的线程被挂起，会影响当前执行的页面应用的性能。<h4 id="新生代内存回收"><a href="#新生代内存回收" class="headerlink" title="新生代内存回收"></a>新生代内存回收</h4></li>
+<li>新生代的内存回收的空间，在 64 位操作系统下分配为 32MB，正是因为新生代中的变量存活时间短，不太容易产生太大的内存压力，因此不够大也是可以理解的。</li>
+<li>系统会将分配给新生代的内存空间分为两部分：正在使用的内存空间[1]，闲置的内存空间[2]<br>当浏览器开始进行内存的垃圾回收时，JavaScript 的 V8 引擎会将[1]的对象检查一遍。如果引擎检测是存活对象，那么会复制到[2]去；如果不是存活的对象，则直接进行系统回收。当所有[1]的对象没有了的时候，等再有新生代的对象产生时，[1][2]对调，这样来循环处理。</li>
+<li><code>算法 Scavenge</code>，它主要就是解决内存碎片<h4 id="老生代内存回收"><a href="#老生代内存回收" class="headerlink" title="老生代内存回收"></a>老生代内存回收</h4></li>
+<li>新生代中的变量如果经过回收之后依然一直存在，那么就会被放入到老生代内存中。</li>
+<li>只要是已经经历过一次 Scavenge 算法回收的，就可以晋升为老生代内存的对象</li>
+<li>对于内存空间比较大的，就不适合用 Scavenge 算法了。</li>
+<li>老生代内存中的垃圾回收,采用了 <code>Mark-Sweep（标记清除）</code> 和 <code>Mark-Compact（标记整理）</code>的策略</li>
+</ul>
+<ol>
+<li>标记清除（Mark-Sweep）<br>分为两个阶段：标记阶段和清除阶段。<br>首先它会遍历堆上的所有的对象，分别对它们打上标记；然后在代码执行过程结束之后，对使用过的变量取消标记。<br>那么没取消标记的就是没有使用过的变量，因此在清除阶段，就会把还有标记的进行整体清除，从而释放内存空间。</li>
+</ol>
+<p>通过标记清除之后，还是会出现内存碎片的问题。标记整理策略（Mark-Compact）用来解决内存碎片的问题。</p>
+<ol start="2">
+<li>标记整理（Mark-Compact）<br>标记整理添加了活动对象整理阶段，处理过程中会将所有的活动对象往一端靠拢，整体移动完成后，直接清理掉边界外的内存。<br>Scavenge 算法比较适合内存较小的情况处理；而对于老生代内存较大、变量较多的时候，还是需要采用“标记-清除”结合“标记-整理”这样的方式处理内存问题，并尽量避免内存碎片的产生。<h3 id="内存泄漏与优化"><a href="#内存泄漏与优化" class="headerlink" title="内存泄漏与优化"></a>内存泄漏与优化</h3></li>
+</ol>
+<ul>
+<li>内存泄漏的场景：</li>
+</ul>
+<ol>
+<li>过多的缓存未释放；</li>
+<li>闭包太多未释放；</li>
+<li>定时器或者回调太多未释放；</li>
+<li>太多无效的 DOM 未释放；</li>
+<li>全局变量太多未被发现。</li>
+</ol>
 
       
     </div>
@@ -426,7 +467,7 @@
         <p><span>本文标题:</span><a href="/2021/03/25/note/">学习记录</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2021年03月25日</p>
-        <p><span>最后更新:</span>2021年03月28日 - 15时58分</p>    
+        <p><span>最后更新:</span>2021年03月28日 - 18时24分</p>    
     </div>
 
 
@@ -447,7 +488,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-number">1.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型检测"><span class="toc-number">2.</span> <span class="toc-text">数据类型检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型转换"><span class="toc-number">3.</span> <span class="toc-text">数据类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拷贝"><span class="toc-number">4.</span> <span class="toc-text">拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#浅拷贝"><span class="toc-number">4.0.1.</span> <span class="toc-text">浅拷贝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#深拷贝"><span class="toc-number">4.0.2.</span> <span class="toc-text">深拷贝</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">5.</span> <span class="toc-text">继承</span></a></li>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-number">1.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型检测"><span class="toc-number">2.</span> <span class="toc-text">数据类型检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型转换"><span class="toc-number">3.</span> <span class="toc-text">数据类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拷贝"><span class="toc-number">4.</span> <span class="toc-text">拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#浅拷贝"><span class="toc-number">4.0.1.</span> <span class="toc-text">浅拷贝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#深拷贝"><span class="toc-number">4.0.2.</span> <span class="toc-text">深拷贝</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">5.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">6.</span> <span class="toc-text">垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存管理"><span class="toc-number">6.1.</span> <span class="toc-text">内存管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chrome内存回收机制"><span class="toc-number">6.2.</span> <span class="toc-text">chrome内存回收机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#新生代内存回收"><span class="toc-number">6.2.1.</span> <span class="toc-text">新生代内存回收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#老生代内存回收"><span class="toc-number">6.2.2.</span> <span class="toc-text">老生代内存回收</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存泄漏与优化"><span class="toc-number">6.3.</span> <span class="toc-text">内存泄漏与优化</span></a></li></ol></li>
 </div>
 <style>
     .left-col .switch-btn {
