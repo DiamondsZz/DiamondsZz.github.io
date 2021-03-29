@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="数据类型 基础类型存储在栈内存，被引用或拷贝时，会创建一个完全相等的变量； Undefined Null String Number Boolean Symbol BigInt   引用类型存储在堆内存，存储的是地址，多个引用指向同一个地址，这里会涉及一个“共享”的概念。 ObjectArray Date RegExp Function Math    1234567891011121314151">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-29T11:18:26.160Z">
+<meta property="og:updated_time" content="2021-03-29T12:57:00.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习记录">
 <meta name="twitter:description" content="数据类型 基础类型存储在栈内存，被引用或拷贝时，会创建一个完全相等的变量； Undefined Null String Number Boolean Symbol BigInt   引用类型存储在堆内存，存储的是地址，多个引用指向同一个地址，这里会涉及一个“共享”的概念。 ObjectArray Date RegExp Function Math    1234567891011121314151">
@@ -127,7 +127,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/学习/" style="font-size: 13.33px;">学习</a> <a href="/tags/生活，心情/" style="font-size: 10px;">生活，心情</a> <a href="/tags/网站/" style="font-size: 13.33px;">网站</a> <a href="/tags/资源/" style="font-size: 13.33px;">资源</a>
+                        <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/学习/" style="font-size: 15px;">学习</a> <a href="/tags/生活，心情/" style="font-size: 10px;">生活，心情</a> <a href="/tags/网站/" style="font-size: 15px;">网站</a> <a href="/tags/资源/" style="font-size: 15px;">资源</a>
                     </div>
                 </section>
                 
@@ -478,6 +478,17 @@
 <li>线性表真正的价值在于，它对数据的存储方式是按照顺序的存储。<br>如果数据的元素个数不确定，且需要经常进行数据的新增和删除时，那么链表会比较合适。<br>如果数据元素大小确定，删除插入的操作并不多，那么数组可能更适合些。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">例 1，链表的翻转。给定一个链表，输出翻转后的链表。例如，输入1 -&gt;2 -&gt; 3 -&gt; 4 -&gt;5，输出 5 -&gt; 4 -&gt; 3 -&gt; 2 -&gt; 1。</span><br><span class="line">我们来仔细看一下这个问题的难点在哪里，这里有两种情况：</span><br><span class="line">如果是数组的翻转，这会非常容易。原因在于，数组在连续的空间进行存储，可以直接求解出数组的长度。而且，数组可以通过索引值去查找元素，然后对相应的数据进行交换操作而完成翻转。</span><br><span class="line">但对于某个单向链表，它的指针结构造成了它的数据通路有去无回，一旦修改了某个指针，后面的数据就会造成失联的状态。为了解决这个问题，我们需要构造三个指针 prev、curr 和 next，对当前结点、以及它之前和之后的结点进行缓存，再完成翻转动作。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">例 2，给定一个奇数个元素的链表，查找出这个链表中间位置的结点的数值。</span><br><span class="line">这个问题也是利用了链表的长度无法直接获取的不足做文章，解决办法如下：</span><br><span class="line">一个暴力的办法是，先通过一次遍历去计算链表的长度，这样我们就知道了链表中间位置是第几个。接着再通过一次遍历去查找这个位置的数值。</span><br><span class="line">除此之外，还有一个巧妙的办法，就是利用快慢指针进行处理。其中快指针每次循环向后跳转两次，而慢指针每次向后跳转一次。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">例 3，判断链表是否有环。</span><br><span class="line">假设链表有环，这个环里面就像是一个跑步赛道的操场一样。经过多次循环之后，快指针和慢指针都会进入到这个赛道中，就好像两个跑步选手在比赛。</span><br><span class="line">快指针每次走两格，而慢指针每次走一格，相对而言，快指针每次循环会多走一步。</span><br><span class="line">这就意味着：如果链表存在环，快指针和慢指针一定会在环内相遇，即 fast == slow 的情况一定会发生。</span><br><span class="line">反之，则最终会完成循环，二者从未相遇。</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><h4 id="顺序栈"><a href="#顺序栈" class="headerlink" title="顺序栈"></a>顺序栈</h4><ol>
+<li>栈的顺序存储可以借助数组来实现。一般来说，会把数组的首元素存在栈底，最后一个元素放在栈顶。<br>然后定义一个 top 指针来指示栈顶元素在数组中的位置。假设栈中只有一个数据元素，则 top = 0。<br>一般以 top 是否为 -1 来判定是否为空栈。<br>当定义了栈的最大容量为 StackSize 时，则栈顶 top 必须小于 StackSize。</li>
+<li>对于查找操作，栈没有额外的改变，跟线性表一样，它也需要遍历整个栈来完成基于某些条件的数值查找。</li>
+<li>删除数据元素，即出栈操作，只需要 top - 1 就可以了。<h4 id="链栈"><a href="#链栈" class="headerlink" title="链栈"></a>链栈</h4></li>
+<li>关于链式栈，就是用链表的方式对栈的表示。</li>
+<li>在链式栈中进行删除操作时，只能在栈顶进行操作。因此，将栈顶的 top 指针指向栈顶元素的 next 指针即可完成删除。</li>
+<li>对于链式栈来说，新增删除数据元素没有任何循环操作，其时间复杂度均为 O(1)。</li>
+</ol>
+<ul>
+<li>不管是顺序栈还是链栈，数据的新增、删除、查找与线性表的操作原理极为相似，时间复杂度完全一样，都依赖当前位置的指针来进行数据对象的操作。区别仅仅在于新增和删除的对象，只能是栈顶的数据结点。</li>
+</ul>
 
       
     </div>
@@ -489,7 +500,7 @@
         <p><span>本文标题:</span><a href="/2021/03/25/note/">学习记录</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2021年03月25日</p>
-        <p><span>最后更新:</span>2021年03月29日 - 19时18分</p>    
+        <p><span>最后更新:</span>2021年03月29日 - 20时57分</p>    
     </div>
 
 
@@ -500,7 +511,7 @@
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          (no title)
+          算法
         
       </div>
     </a>
@@ -519,7 +530,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-number">1.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型检测"><span class="toc-number">2.</span> <span class="toc-text">数据类型检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型转换"><span class="toc-number">3.</span> <span class="toc-text">数据类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拷贝"><span class="toc-number">4.</span> <span class="toc-text">拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浅拷贝"><span class="toc-number">4.1.</span> <span class="toc-text">浅拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深拷贝"><span class="toc-number">4.2.</span> <span class="toc-text">深拷贝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">5.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">6.</span> <span class="toc-text">垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存管理"><span class="toc-number">6.1.</span> <span class="toc-text">内存管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chrome内存回收机制"><span class="toc-number">6.2.</span> <span class="toc-text">chrome内存回收机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#新生代内存回收"><span class="toc-number">6.2.1.</span> <span class="toc-text">新生代内存回收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#老生代内存回收"><span class="toc-number">6.2.2.</span> <span class="toc-text">老生代内存回收</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存泄漏与优化"><span class="toc-number">6.3.</span> <span class="toc-text">内存泄漏与优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">7.</span> <span class="toc-text">数据结构与算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#时间、空间复杂度"><span class="toc-number">7.1.</span> <span class="toc-text">时间、空间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增删查"><span class="toc-number">7.2.</span> <span class="toc-text">增删查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性表"><span class="toc-number">7.3.</span> <span class="toc-text">线性表</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-number">1.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型检测"><span class="toc-number">2.</span> <span class="toc-text">数据类型检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型转换"><span class="toc-number">3.</span> <span class="toc-text">数据类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拷贝"><span class="toc-number">4.</span> <span class="toc-text">拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浅拷贝"><span class="toc-number">4.1.</span> <span class="toc-text">浅拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深拷贝"><span class="toc-number">4.2.</span> <span class="toc-text">深拷贝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">5.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">6.</span> <span class="toc-text">垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存管理"><span class="toc-number">6.1.</span> <span class="toc-text">内存管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chrome内存回收机制"><span class="toc-number">6.2.</span> <span class="toc-text">chrome内存回收机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#新生代内存回收"><span class="toc-number">6.2.1.</span> <span class="toc-text">新生代内存回收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#老生代内存回收"><span class="toc-number">6.2.2.</span> <span class="toc-text">老生代内存回收</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存泄漏与优化"><span class="toc-number">6.3.</span> <span class="toc-text">内存泄漏与优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">7.</span> <span class="toc-text">数据结构与算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#时间、空间复杂度"><span class="toc-number">7.1.</span> <span class="toc-text">时间、空间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增删查"><span class="toc-number">7.2.</span> <span class="toc-text">增删查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性表"><span class="toc-number">7.3.</span> <span class="toc-text">线性表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#栈"><span class="toc-number">7.4.</span> <span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#顺序栈"><span class="toc-number">7.4.1.</span> <span class="toc-text">顺序栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链栈"><span class="toc-number">7.4.2.</span> <span class="toc-text">链栈</span></a></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -568,7 +579,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2021/03/29/algorithm/" title="上一篇: ">
+            <a href="/2021/03/29/algorithm/" title="上一篇: 算法">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -579,7 +590,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">algorithm</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/note/">学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/record/">记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/project/">前端工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/study/">前端学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/webpack/">前端构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/ts/">typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/log/">前端记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/vue/">vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/17/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/js/">js</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/note/">学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/record/">记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/project/">前端工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/study/">前端学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/ts/">typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/webpack/">前端构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/log/">前端记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/vue/">vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/17/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/js/">js</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
