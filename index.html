@@ -185,6 +185,75 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-algorithm" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/03/29/algorithm/" class="article-date">
+      <time datetime="2021-03-29T12:52:13.064Z" itemprop="datePublished">2021-03-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>/*<em>
+ </em>1.假设有任意多张面额为 2 元、3 元、7 元的货币，现要用它们凑出 100 元，求总共有多少种可能性。<br> */<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function test1() &#123;</span><br><span class="line">  let count = 0;</span><br><span class="line">  for (let i = 0; i &lt;= 100 / 7; i++) &#123;</span><br><span class="line">    //这里针对j可以优化一波</span><br><span class="line">    for (let j = 0; j &lt;= 100 / 3; j++) &#123;</span><br><span class="line">      if (100 - i * 7 - j * 3 &gt;= 0 &amp;&amp; (100 - i * 7 - j * 3) % 2 == 0) &#123;</span><br><span class="line">        count += 1;</span><br><span class="line">        console.log(</span><br><span class="line">          `$&#123;count&#125;:7元:$&#123;i&#125;张,3元:$&#123;j&#125;张,2元:$&#123;(100 - i * 7 - j * 3) / 2&#125;张`</span><br><span class="line">        );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(`一共有$&#123;count&#125;种可能性`);</span><br><span class="line">&#125;</span><br><span class="line">//test1();</span><br></pre></td></tr></table></figure></p>
+<p>/*<em>
+ </em></p>
+<ul>
+<li>查找出一个数组中，出现次数最多的那个元素的数值。</li>
+<li>例如，输入数组 a = [1,2,3,4,5,5,6 ] 中，查找出现次数最多的数值。</li>
+<li>从数组中可以看出，只有 5 出现了 2 次，其余都是 1 次。显然 5 出现的次数最多，则输出 5。<br>*/<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function test2(arr) &#123;</span><br><span class="line">  //记录数组元素出现次数  采用map数据结构，查找的时间复杂度是o(1)</span><br><span class="line">  let res = new Map();</span><br><span class="line">  //出现最多次数</span><br><span class="line">  let max = -1;</span><br><span class="line">  for (let i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">    if (res.has(arr[i])) &#123;</span><br><span class="line">      res.set(arr[i], res.get(arr[i]) + 1);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      res.set(arr[i], 1);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  //获取出现次数的最大值</span><br><span class="line">  max = Math.max.apply(null, [...res.values()]);</span><br><span class="line">  for (let [key, value] of res) &#123;</span><br><span class="line">    if (value === max) console.log(`$&#123;key&#125;出现的次数最多，出现了$&#123;value&#125;次`);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//test2([1, 2, 3, 4, 5, 5, 6]);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</li>
+<li>有效字符串需满足：左括号必须与相同类型的右括号匹配，左括号必须以正确的顺序匹配。</li>
+<li>例如，{ [ ( ) ( ) ] } 是合法的，而 { ( [ ) ] } 是非法的。<br><em>
+</em><br>*</li>
+<li>思路：</li>
+<li>从左到右顺序遍历字符串。</li>
+<li>当出现左括号时，压栈。</li>
+<li>当出现右括号时，出栈。</li>
+<li>并且判断当前右括号，和被出栈的左括号是否是互相匹配的一对。</li>
+<li>如果不是，则字符串非法。当遍历完成之后，如果栈为空。则合法。<br>*/<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">function test3(data) &#123;</span><br><span class="line">  //左括号</span><br><span class="line">  const typesLeft = [&quot;(&quot;, &quot;[&quot;, &quot;&#123;&quot;];</span><br><span class="line">  //右括号</span><br><span class="line">  const typesRight = [&quot;)&quot;, &quot;]&quot;, &quot;&#125;&quot;];</span><br><span class="line">  //括号</span><br><span class="line">  const types = [&quot;()&quot;, &quot;[]&quot;, &quot;&#123;&#125;&quot;];</span><br><span class="line"></span><br><span class="line">  //存储 模拟栈</span><br><span class="line">  const store = [];</span><br><span class="line"></span><br><span class="line">  for (let type of data) &#123;</span><br><span class="line">      //匹配到左括号时，进行入栈操作</span><br><span class="line">    if (typesLeft.includes(type)) &#123;</span><br><span class="line">      store.push(type);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      //匹配到右括号时，进行出栈操作，检验当前括号是否合法</span><br><span class="line">      const left = store.pop();</span><br><span class="line">      if (!types.includes(`$&#123;left&#125;$&#123;type&#125;`)) &#123;</span><br><span class="line">        console.log(&quot;非法字符串&quot;);</span><br><span class="line">        break;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//test3([&apos;(&apos;,&apos;&#123;&apos;,&apos;&#125;&apos;,&apos;&#125;&apos;,&apos;)&apos;])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-note" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -1688,111 +1757,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/生活，心情/">生活，心情</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-bug" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/30/bug/" class="article-date">
-      <time datetime="2018-12-29T16:00:00.000Z" itemprop="datePublished">2018-12-30</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/30/bug/">遇到的一些坑</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>2018-12-30</p>
-<ul>
-<li>img标签设置伪元素after、before无效</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>2019-3-10</p>
-<ul>
-<li>chrome浏览器不支持select标签下option的click事件，可以为select绑定change事件。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>2019-3-29</p>
-<ul>
-<li>inline元素</li>
-</ul>
-<ol>
-<li>margin/padding在竖直方向上无效，水平方向上有效 </li>
-<li>浮动或绝对定位时会转换为block </li>
-</ol>
-<ul>
-<li>IE6浏览器常见的bug</li>
-</ul>
-<ol>
-<li>IE6不支持min-height，解决办法使用css hack：<br>.target {<br> min-height: 100px;<br> height: auto !important;<br> height: 100px;   // IE6下内容高度超过会自动扩展高度<br>}</li>
-<li>IE6只支持a标签的:hover伪类，解决方法：使用js为元素监听mouseenter，mouseleave事件，动态添加类</li>
-<li>IE5-8不支持opacity，解决办法：<pre><code>.opacity {
- opacity: 0.4
- filter: alpha(opacity=60); /* for IE5-7 */
- -ms-filter: &quot;progid:DXImageTransform.Microsoft.Alpha(Opacity=60)&quot;; /* for IE 8*/
-}
-</code></pre></li>
-<li>IE6不支持PNG透明背景，解决办法: 使用gif图片</li>
-<li>IE6-7不支持display: inline-block 解决办法：<pre><code>display: inline-block;
-*display: inline;
-*zoom: 1;
-</code></pre></li>
-</ol>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
     </div>
 
       

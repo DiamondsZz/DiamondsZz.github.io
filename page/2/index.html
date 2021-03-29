@@ -185,6 +185,111 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-bug" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/30/bug/" class="article-date">
+      <time datetime="2018-12-29T16:00:00.000Z" itemprop="datePublished">2018-12-30</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/30/bug/">遇到的一些坑</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>2018-12-30</p>
+<ul>
+<li>img标签设置伪元素after、before无效</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>2019-3-10</p>
+<ul>
+<li>chrome浏览器不支持select标签下option的click事件，可以为select绑定change事件。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>2019-3-29</p>
+<ul>
+<li>inline元素</li>
+</ul>
+<ol>
+<li>margin/padding在竖直方向上无效，水平方向上有效 </li>
+<li>浮动或绝对定位时会转换为block </li>
+</ol>
+<ul>
+<li>IE6浏览器常见的bug</li>
+</ul>
+<ol>
+<li>IE6不支持min-height，解决办法使用css hack：<br>.target {<br> min-height: 100px;<br> height: auto !important;<br> height: 100px;   // IE6下内容高度超过会自动扩展高度<br>}</li>
+<li>IE6只支持a标签的:hover伪类，解决方法：使用js为元素监听mouseenter，mouseleave事件，动态添加类</li>
+<li>IE5-8不支持opacity，解决办法：<pre><code>.opacity {
+ opacity: 0.4
+ filter: alpha(opacity=60); /* for IE5-7 */
+ -ms-filter: &quot;progid:DXImageTransform.Microsoft.Alpha(Opacity=60)&quot;; /* for IE 8*/
+}
+</code></pre></li>
+<li>IE6不支持PNG透明背景，解决办法: 使用gif图片</li>
+<li>IE6-7不支持display: inline-block 解决办法：<pre><code>display: inline-block;
+*display: inline;
+*zoom: 1;
+</code></pre></li>
+</ol>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-es6" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
