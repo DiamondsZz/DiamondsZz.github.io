@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="数据类型 基础类型存储在栈内存，被引用或拷贝时，会创建一个完全相等的变量； Undefined Null String Number Boolean Symbol BigInt   引用类型存储在堆内存，存储的是地址，多个引用指向同一个地址，这里会涉及一个“共享”的概念。 ObjectArray Date RegExp Function Math    1234567891011121314151">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-29T13:34:50.010Z">
+<meta property="og:updated_time" content="2021-03-30T13:00:47.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习记录">
 <meta name="twitter:description" content="数据类型 基础类型存储在栈内存，被引用或拷贝时，会创建一个完全相等的变量； Undefined Null String Number Boolean Symbol BigInt   引用类型存储在堆内存，存储的是地址，多个引用指向同一个地址，这里会涉及一个“共享”的概念。 ObjectArray Date RegExp Function Math    1234567891011121314151">
@@ -507,7 +507,43 @@
 </ol>
 <ul>
 <li>空间性能方面，循环队列必须有一个固定的长度，因此存在存储元素数量和空间的浪费问题，而链式队列不存在这种问题，所以在空间上，链式队列更为灵活一些。</li>
-<li>通常情况下，在可以确定队列长度最大值时，建议使用循环队列。无法确定队列长度时，应考虑使用链式队列。队列具有先进先出的特点，很像现实中人们排队买票的场景。在面对数据处理顺序非常敏感的问题时，队列一定是个不错的技术选型。</li>
+<li>通常情况下，在可以确定队列长度最大值时，建议使用循环队列。无法确定队列长度时，应考虑使用链式队列。队列具有先进先出的特点，很像现实中人们排队买票的场景。在面对数据处理顺序非常敏感的问题时，队列一定是个不错的技术选型。<h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3></li>
+<li>树是由结点和边组成的，不存在环的一种数据结构。</li>
+<li>没有父结点，则可以称为根结点</li>
+<li>没有子结点，则称为叶子结点</li>
+<li>树中结点的最大层次数，就是这棵树的树深（称为深度，也称为高度）</li>
+<li>树数据的查找操作和链表一样，都需要遍历每一个数据去判断，所以时间复杂度是 O(n)。</li>
+<li>对于查找操作，如果是普通二叉树，则查找的时间复杂度和遍历一样，都是 O(n)。如果是二叉查找树，则可以在 O(logn) 的时间复杂度内完成查找动作。<h4 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h4></li>
+<li>在二叉树中，每个结点最多有两个分支，即每个结点最多有两个子结点，分别称作左子结点和右子结点。</li>
+<li>满二叉树，定义为除了叶子结点外，所有结点都有 2 个子结点。</li>
+<li>完全二叉树，定义为除了最后一层以外，其他层的结点个数都达到最大，并且最后一层的叶子结点都靠左排列。之所以称为完全二叉树，是从存储空间利用效率的视角来看的。对于一棵完全二叉树而言，仅仅浪费了下标为 0 的存储位置。而如果是一棵非完全二叉树，则会浪费大量的存储空间。</li>
+<li>存储二叉树有两种办法，一种是基于指针的链式存储法，另一种是基于数组的顺序存储法。</li>
+<li>根据基于数组的顺序存储法，我们可以发现如果结点 X 的下标为 i，那么 X 的左子结点总是存放在 2 <em> i 的位置，X 的右子结点总是存放在 2 </em> i + 1 的位置。<h5 id="二叉查找树（二叉搜索树）"><a href="#二叉查找树（二叉搜索树）" class="headerlink" title="二叉查找树（二叉搜索树）"></a>二叉查找树（二叉搜索树）</h5></li>
+<li>在二叉查找树中的任意一个结点，其左子树中的每个结点的值，都要小于这个结点的值。</li>
+<li>在二叉查找树中的任意一个结点，其右子树中每个结点的值，都要大于这个结点的值。</li>
+<li>在二叉查找树中，会尽可能规避两个结点数值相等的情况。</li>
+<li>对二叉查找树进行中序遍历，就可以输出一个从小到大的有序数据队列。</li>
+<li>在利用二叉查找树执行查找操作时，我们可以进行以下判断：</li>
+</ul>
+<ol>
+<li>首先判断根结点是否等于要查找的数据，如果是就返回。</li>
+<li>如果根结点大于要查找的数据，就在左子树中递归执行查找动作，直到叶子结点。</li>
+<li>如果根结点小于要查找的数据，就在右子树中递归执行查找动作，直到叶子结点。</li>
+<li>这样的“二分查找”所消耗的时间复杂度就可以降低为 O(logn)。</li>
+</ol>
+<ul>
+<li>二叉查找树插入数据的时间复杂度是 O(logn)。但这并不意味着它比普通二叉树要复杂。原因在于这里的时间复杂度更多是消耗在了遍历数据去找到查找位置上，真正执行插入动作的时间复杂度仍然是 O(1)。</li>
+<li>二叉查找树的删除操作会比较复杂，这是因为删除完某个结点后的树，仍然要满足二叉查找树的性质。</li>
+</ul>
+<ol>
+<li>情况一，如果要删除的结点是某个叶子结点，则直接删除，将其父结点指针指向 null 即可。</li>
+<li>情况二，如果要删除的结点只有一个子结点，只需要将其父结点指向的子结点的指针换成其子结点的指针即可。</li>
+<li>情况三，如果要删除的结点有两个子结点，则有两种可行的操作方式。①找到这个结点的左子树中最大的结点，替换要删除的结点。②找到这个结点的右子树中最小的结点，替换要删除的结点。<h5 id="Trie-树，或字典树"><a href="#Trie-树，或字典树" class="headerlink" title="Trie 树，或字典树"></a>Trie 树，或字典树</h5></li>
+</ol>
+<ul>
+<li>根结点不包含字符</li>
+<li>除根结点外每一个结点都只包含一个字符；</li>
+<li>从根结点到某一叶子结点，路径上经过的字符连接起来，即为集合中的某个字符串。</li>
 </ul>
 
       
@@ -520,7 +556,7 @@
         <p><span>本文标题:</span><a href="/2021/03/25/note/">学习记录</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2021年03月25日</p>
-        <p><span>最后更新:</span>2021年03月29日 - 21时34分</p>    
+        <p><span>最后更新:</span>2021年03月30日 - 21时00分</p>    
     </div>
 
 
@@ -550,7 +586,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-number">1.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型检测"><span class="toc-number">2.</span> <span class="toc-text">数据类型检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型转换"><span class="toc-number">3.</span> <span class="toc-text">数据类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拷贝"><span class="toc-number">4.</span> <span class="toc-text">拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浅拷贝"><span class="toc-number">4.1.</span> <span class="toc-text">浅拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深拷贝"><span class="toc-number">4.2.</span> <span class="toc-text">深拷贝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">5.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">6.</span> <span class="toc-text">垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存管理"><span class="toc-number">6.1.</span> <span class="toc-text">内存管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chrome内存回收机制"><span class="toc-number">6.2.</span> <span class="toc-text">chrome内存回收机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#新生代内存回收"><span class="toc-number">6.2.1.</span> <span class="toc-text">新生代内存回收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#老生代内存回收"><span class="toc-number">6.2.2.</span> <span class="toc-text">老生代内存回收</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存泄漏与优化"><span class="toc-number">6.3.</span> <span class="toc-text">内存泄漏与优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">7.</span> <span class="toc-text">数据结构与算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#时间、空间复杂度"><span class="toc-number">7.1.</span> <span class="toc-text">时间、空间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增删查"><span class="toc-number">7.2.</span> <span class="toc-text">增删查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性表"><span class="toc-number">7.3.</span> <span class="toc-text">线性表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#栈"><span class="toc-number">7.4.</span> <span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#顺序栈"><span class="toc-number">7.4.1.</span> <span class="toc-text">顺序栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链栈"><span class="toc-number">7.4.2.</span> <span class="toc-text">链栈</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#队列"><span class="toc-number">7.5.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#循环队列"><span class="toc-number">7.5.1.</span> <span class="toc-text">循环队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链式队列"><span class="toc-number">7.5.2.</span> <span class="toc-text">链式队列</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型"><span class="toc-number">1.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型检测"><span class="toc-number">2.</span> <span class="toc-text">数据类型检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型转换"><span class="toc-number">3.</span> <span class="toc-text">数据类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拷贝"><span class="toc-number">4.</span> <span class="toc-text">拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浅拷贝"><span class="toc-number">4.1.</span> <span class="toc-text">浅拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深拷贝"><span class="toc-number">4.2.</span> <span class="toc-text">深拷贝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">5.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">6.</span> <span class="toc-text">垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存管理"><span class="toc-number">6.1.</span> <span class="toc-text">内存管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chrome内存回收机制"><span class="toc-number">6.2.</span> <span class="toc-text">chrome内存回收机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#新生代内存回收"><span class="toc-number">6.2.1.</span> <span class="toc-text">新生代内存回收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#老生代内存回收"><span class="toc-number">6.2.2.</span> <span class="toc-text">老生代内存回收</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存泄漏与优化"><span class="toc-number">6.3.</span> <span class="toc-text">内存泄漏与优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构与算法"><span class="toc-number">7.</span> <span class="toc-text">数据结构与算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#时间、空间复杂度"><span class="toc-number">7.1.</span> <span class="toc-text">时间、空间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增删查"><span class="toc-number">7.2.</span> <span class="toc-text">增删查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性表"><span class="toc-number">7.3.</span> <span class="toc-text">线性表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#栈"><span class="toc-number">7.4.</span> <span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#顺序栈"><span class="toc-number">7.4.1.</span> <span class="toc-text">顺序栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链栈"><span class="toc-number">7.4.2.</span> <span class="toc-text">链栈</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#队列"><span class="toc-number">7.5.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#循环队列"><span class="toc-number">7.5.1.</span> <span class="toc-text">循环队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链式队列"><span class="toc-number">7.5.2.</span> <span class="toc-text">链式队列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树"><span class="toc-number">7.6.</span> <span class="toc-text">树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#二叉树"><span class="toc-number">7.6.1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#二叉查找树（二叉搜索树）"><span class="toc-number">7.6.1.1.</span> <span class="toc-text">二叉查找树（二叉搜索树）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Trie-树，或字典树"><span class="toc-number">7.6.1.2.</span> <span class="toc-text">Trie 树，或字典树</span></a></li></ol></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -610,7 +646,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/note/">学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/record/">记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/project/">前端工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/study/">前端学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/ts/">typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/webpack/">前端构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/log/">前端记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/vue/">vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/17/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/js/">js</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/note/">学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/record/">记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/project/">前端工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/ts/">typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/study/">前端学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/webpack/">前端构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/log/">前端记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/vue/">vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/17/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/js/">js</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
