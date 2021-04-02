@@ -10,7 +10,7 @@
   <title>前端学习 | DiamondsZz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="2021-1-10  如何理解 JS 异步编程，EventLoop、消息队列都是做什么的，什么是宏任务，什么是微任务？ JS 异步编程 JavaScript 语言的执行环境是单线程的，一次只能执行一个任务，多任务需要排队等候，这种模式可能会阻塞代码，导致代码执行效率低下。为了避免这个问题，出现了异步编程。一般是通过 callback 回调函数、事件发布/订阅、Promise 等来组织代码，本质都">
-<meta name="keywords" content="js,css">
+<meta name="keywords" content="css,js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端学习">
 <meta property="og:url" content="https://DiamondsZz.github.io/2021/01/10/study/index.html">
@@ -311,18 +311,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2021/01/10/ts/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/01/10/project/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          typescript
+          前端工程
         
       </div>
     </a>
   
   
-    <a href="/2021/01/10/webpack/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端构建</div>
+    <a href="/2021/01/10/ts/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">typescript</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -383,18 +383,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2021/01/10/ts/" title="上一篇: typescript">
+            <a href="/2021/01/10/project/" title="上一篇: 前端工程">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2021/01/10/webpack/" title="下一篇: 前端构建">
+            <a href="/2021/01/10/ts/" title="下一篇: typescript">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/note/">学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/record/">记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/project/">前端工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/ts/">typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/study/">前端学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/webpack/">前端构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/log/">前端记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/vue/">vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/17/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/js/">js</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/note/">学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/record/">记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/project/">前端工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/study/">前端学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/ts/">typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/webpack/">前端构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/log/">前端记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/vue/">vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/17/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/js/">js</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 

@@ -9,18 +9,18 @@
   
   <title>算法 | DiamondsZz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="/*  1.假设有任意多张面额为 2 元、3 元、7 元的货币，现要用它们凑出 100 元，求总共有多少种可能性。 */ 12345678910111213141516function test1() &amp;#123;  let count = 0;  for (let i = 0; i &amp;lt;= 100 / 7; i++) &amp;#123;    //这里针对j可以优化一波    for (let j">
+  <meta name="description" content="/*  假设有任意多张面额为 2 元、3 元、7 元的货币，现要用它们凑出 100 元，求总共有多少种可能性。 */ 12345678910111213141516function test1() &amp;#123;  let count = 0;  for (let i = 0; i &amp;lt;= 100 / 7; i++) &amp;#123;    //这里针对j可以优化一波    for (let j =">
 <meta name="keywords" content="资源,学习,网站">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法">
 <meta property="og:url" content="https://DiamondsZz.github.io/2021/03/29/algorithm/index.html">
 <meta property="og:site_name" content="DiamondsZz">
-<meta property="og:description" content="/*  1.假设有任意多张面额为 2 元、3 元、7 元的货币，现要用它们凑出 100 元，求总共有多少种可能性。 */ 12345678910111213141516function test1() &amp;#123;  let count = 0;  for (let i = 0; i &amp;lt;= 100 / 7; i++) &amp;#123;    //这里针对j可以优化一波    for (let j">
+<meta property="og:description" content="/*  假设有任意多张面额为 2 元、3 元、7 元的货币，现要用它们凑出 100 元，求总共有多少种可能性。 */ 12345678910111213141516function test1() &amp;#123;  let count = 0;  for (let i = 0; i &amp;lt;= 100 / 7; i++) &amp;#123;    //这里针对j可以优化一波    for (let j =">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-29T12:59:11.460Z">
+<meta property="og:updated_time" content="2021-04-02T13:55:24.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法">
-<meta name="twitter:description" content="/*  1.假设有任意多张面额为 2 元、3 元、7 元的货币，现要用它们凑出 100 元，求总共有多少种可能性。 */ 12345678910111213141516function test1() &amp;#123;  let count = 0;  for (let i = 0; i &amp;lt;= 100 / 7; i++) &amp;#123;    //这里针对j可以优化一波    for (let j">
+<meta name="twitter:description" content="/*  假设有任意多张面额为 2 元、3 元、7 元的货币，现要用它们凑出 100 元，求总共有多少种可能性。 */ 12345678910111213141516function test1() &amp;#123;  let count = 0;  for (let i = 0; i &amp;lt;= 100 / 7; i++) &amp;#123;    //这里针对j可以优化一波    for (let j =">
   
     <link rel="alternative" href="/atom.xml" title="DiamondsZz" type="application/atom+xml">
   
@@ -227,7 +227,7 @@
       
           
         <p>/*<em>
- </em>1.假设有任意多张面额为 2 元、3 元、7 元的货币，现要用它们凑出 100 元，求总共有多少种可能性。<br> */<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function test1() &#123;</span><br><span class="line">  let count = 0;</span><br><span class="line">  for (let i = 0; i &lt;= 100 / 7; i++) &#123;</span><br><span class="line">    //这里针对j可以优化一波</span><br><span class="line">    for (let j = 0; j &lt;= 100 / 3; j++) &#123;</span><br><span class="line">      if (100 - i * 7 - j * 3 &gt;= 0 &amp;&amp; (100 - i * 7 - j * 3) % 2 == 0) &#123;</span><br><span class="line">        count += 1;</span><br><span class="line">        console.log(</span><br><span class="line">          `$&#123;count&#125;:7元:$&#123;i&#125;张,3元:$&#123;j&#125;张,2元:$&#123;(100 - i * 7 - j * 3) / 2&#125;张`</span><br><span class="line">        );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(`一共有$&#123;count&#125;种可能性`);</span><br><span class="line">&#125;</span><br><span class="line">//test1();</span><br></pre></td></tr></table></figure></p>
+ </em>假设有任意多张面额为 2 元、3 元、7 元的货币，现要用它们凑出 100 元，求总共有多少种可能性。<br> */<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function test1() &#123;</span><br><span class="line">  let count = 0;</span><br><span class="line">  for (let i = 0; i &lt;= 100 / 7; i++) &#123;</span><br><span class="line">    //这里针对j可以优化一波</span><br><span class="line">    for (let j = 0; j &lt;= 100 / 3; j++) &#123;</span><br><span class="line">      if (100 - i * 7 - j * 3 &gt;= 0 &amp;&amp; (100 - i * 7 - j * 3) % 2 == 0) &#123;</span><br><span class="line">        count += 1;</span><br><span class="line">        console.log(</span><br><span class="line">          `$&#123;count&#125;:7元:$&#123;i&#125;张,3元:$&#123;j&#125;张,2元:$&#123;(100 - i * 7 - j * 3) / 2&#125;张`</span><br><span class="line">        );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(`一共有$&#123;count&#125;种可能性`);</span><br><span class="line">&#125;</span><br><span class="line">//test1();</span><br></pre></td></tr></table></figure></p>
 <p>/**</p>
 <ul>
 <li>查找出一个数组中，出现次数最多的那个元素的数值。</li>
@@ -248,6 +248,182 @@
 <li>如果不是，则字符串非法。当遍历完成之后，如果栈为空。则合法。<br>*/<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">function test3(data) &#123;</span><br><span class="line">  //左括号</span><br><span class="line">  const typesLeft = [&quot;(&quot;, &quot;[&quot;, &quot;&#123;&quot;];</span><br><span class="line">  //右括号</span><br><span class="line">  const typesRight = [&quot;)&quot;, &quot;]&quot;, &quot;&#125;&quot;];</span><br><span class="line">  //括号</span><br><span class="line">  const types = [&quot;()&quot;, &quot;[]&quot;, &quot;&#123;&#125;&quot;];</span><br><span class="line"></span><br><span class="line">  //存储 模拟栈</span><br><span class="line">  const store = [];</span><br><span class="line"></span><br><span class="line">  for (let type of data) &#123;</span><br><span class="line">      //匹配到左括号时，进行入栈操作</span><br><span class="line">    if (typesLeft.includes(type)) &#123;</span><br><span class="line">      store.push(type);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      //匹配到右括号时，进行出栈操作，检验当前括号是否合法</span><br><span class="line">      const left = store.pop();</span><br><span class="line">      if (!types.includes(`$&#123;left&#125;$&#123;type&#125;`)) &#123;</span><br><span class="line">        console.log(&quot;非法字符串&quot;);</span><br><span class="line">        break;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//test3([&apos;(&apos;,&apos;&#123;&apos;,&apos;&#125;&apos;,&apos;&#125;&apos;,&apos;)&apos;])</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>/**</p>
+<ul>
+<li>约瑟夫环是一个数学的应用问题，具体为，已知 n 个人（以编号 1，2，3…n 分别表示）围坐在一张圆桌周围。</li>
+<li>从编号为 k 的人开始报数，数到 m 的那个人出列；</li>
+<li>他的下一个人又从 1 开始报数，数到 m 的那个人又出列；</li>
+<li>依此规律重复下去，直到圆桌周围的人全部出列。</li>
+<li>这个问题的输入变量就是 n 和 m，即 n 个人和数到 m 的出列的人。输出的结果，就是 n 个人出列的顺序。</li>
+<li>这个问题，用队列的方法实现是个不错的选择。它的结果就是出列的顺序，恰好满足队列对处理顺序敏感的前提。因此，求解方式也是基于队列的先进先出原则。</li>
+<li>解法如下：</li>
+<li>先把所有人都放入循环队列中。注意这个循环队列的长度要大于或者等于 n。</li>
+<li>从第一个人开始依次出队列，出队列一次则计数变量 i 自增。如果 i 比 m 小，则还需要再入队列。</li>
+<li>直到i等于 m 的人出队列时，就不用再让这个人进队列了。而是放入一个用来记录出队列顺序的数组中。</li>
+<li>直到数完 n 个人为止。当队列为空时，则表示队列中的 n 个人都出队列了，这时结束队列循环，输出数组内记录的元素。<br>*/</li>
+</ul>
+<p>//n个人，从编号为k的人开始报数，<br>function test4(persons, k, m) {<br>  //退出的人<br>  const exitPersons = [];<br>  //计数器<br>  let count = 1;</p>
+<p>  //第一次<br>  for (let { name, num } of persons) {<br>    if (num &lt; k) {<br>      persons.shift();<br>      persons.push({<br>        name,<br>        num,<br>      });<br>      continue;<br>    }<br>    break;<br>  }</p>
+<p>  //还有人时<br>  while (persons.length) {<br>    const person = persons.shift();<br>    if (count &lt; m) {<br>      persons.push(person);<br>      count++;<br>    } else {<br>      //找到目标后，重置计数器<br>      count = 1;<br>      exitPersons.push(person);<br>    }<br>  }<br>  //console.log(exitPersons);<br>}<br>// test4(<br>//   [<br>//     { name: “赵一”, num: 1 },<br>//     { name: “钱二”, num: 2 },<br>//     { name: “孙三”, num: 3 },<br>//     { name: “李四”, num: 4 },<br>//     { name: “周五”, num: 5 },<br>//     { name: “吴六”, num: 6 },<br>//     { name: “郑七”, num: 7 },<br>//     { name: “王八”, num: 8 },<br>//   ],<br>//   2,<br>//   4<br>// );</p>
+<p>/**</p>
+<ul>
+<li>10</li>
+<li>/  \</li>
+<li>8   12</li>
+<li>/ \  / \</li>
+<li>6   9 11 13</li>
+<li>给定一棵树，按照层次顺序遍历并打印这棵树。<br>*/<br>const root = {<br>value: 10,<br>left: { value: 8, left: { value: 6 }, right: { value: 9 } },<br>right: { value: 12, left: { value: 11 }, right: { value: 13 } },<br>};<br>function test5(root) {<br>//模拟队列<br>const queue = [];<br>//根节点入队列<br>queue.push(root);<br>while (queue.length) {<br> //当前节点<br> const current = queue.shift();<br> console.log(current.value);<br> //左节点<br> if (current.left) {<br>   queue.push(current.left);<br> }<br> //右节点<br> if (current.right) {<br>   queue.push(current.right);<br> }<br>}<br>}<br>//test5(root);</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>10</li>
+<li>/  \</li>
+<li>8   12</li>
+<li>/ \  / \</li>
+<li>6   9 11 13</li>
+<li>二叉树的三种遍历方式<br>*/<br>//前序<br>function test6(node) {<br>if (!node) return;<br>console.log(node.value);<br>test6(node.left);<br>test6(node.right);<br>}<br>//test6(root)<br>//中序<br>function test7(node) {<br>if (!node) return;<br>test7(node.left);<br>console.log(node.value);<br>test7(node.right);<br>}<br>//test7(root)<br>//后序<br>function test8(node) {<br>if (!node) return;<br>test8(node.left);<br>test8(node.right);<br>console.log(node.value);<br>}<br>//test8(root)<br>/**</li>
+<li>给定一个整数数组 arr 和一个目标值 target，请你在该数组中找出加和等于目标值的那两个整数，并返回它们的在数组中下标。</li>
+<li>你可以假设，原数组中没有重复元素，而且有且只有一组答案。但是，数组中的元素只能使用一次。例如，arr = [1, 2, 3, 4, 5, 6]，target = 4。因为，arr[0] + arr[2] = 1 + 3 = 4 = target，则输出 0，2。<br>*/<br>function test9(data, target) {<br>for (const item of data) {<br> if (data.includes(target - item) &amp;&amp; target - item !== item)<br>   console.log(<code>${target}=${item}+${target - item}</code>);<br>}<br>}<br>//test9([1,2,3,4,5,6],4)</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>汉诺塔问题(递归)</li>
+<li>从左到右有 x、y、z 三根柱子，其中 x 柱子上面有从小叠到大的 n 个圆盘。现要求将 x 柱子上的圆盘移到 z 柱子上去。要求是，每次只能移动一个盘子，且大盘子不能被放在小盘子上面。求移动的步骤。</li>
+<li><hr>
+</li>
+<li>我们的原问题是，把从小到大的 n 个盘子，从 x 移动到 z。</li>
+<li>我们可以将这个大问题拆解为以下 3 个小问题：</li>
+<li>把从小到大的 n-1 个盘子，从 x 移动到 y；</li>
+<li>接着把最大的一个盘子，从 x 移动到 z；</li>
+<li>再把从小到大的 n-1 个盘子，从 y 移动到 z。</li>
+<li><hr>
+</li>
+<li>经过仔细分析可见，汉诺塔问题是完全可以用递归实现的。我们定义汉诺塔的递归函数为 hanio()。这个函数的输入参数包括了：</li>
+<li>3 根柱子的标记 x、y、z；</li>
+<li>待移动的盘子数量 n。</li>
+<li><hr>
+</li>
+<li>具体代码如下所示，在代码中，hanio(n, x, y, z)，代表了把 n 个盘子由 x 移动到 z。根据分析，我们知道递归体包含 3 个步骤：</li>
+<li>把从小到大的 n-1 个盘子从 x 移动到 y，那么代码就是 hanio(n-1, x, z, y)；</li>
+<li>再把最大的一个盘子从 x 移动到 z，那么直接完成一次移动的动作就可以了；</li>
+<li>再把从小到大的 n-1 个盘子从 y 移动到 z，那么代码就是 hanio(n-1, y, x, z)。对于终止条件则需要判断 n 的大小。如果 n 等于 1，那么同样直接移动就可以了。<br>*/<br>function test10(n, x, y, z) {<br>if (n &lt; 1) return console.log(“汉诺塔层数不能小于1”);<br>if (n === 1) return console.log(<code>移动${x}到${z}</code>);<br>test10(n - 1, x, z, y);<br>console.log(<code>移动${x}到${z}</code>);<br>test10(n - 1, y, x, z);<br>}<br>//test10(3, “x”, “y”, “z”);</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>斐波那契数列。(递归)</li>
+<li>斐波那契数列是：0，1，1，2，3，5，8，13，21，34，55，89，144……。</li>
+<li>你会发现，这个数列中元素的性质是，某个数等于它前面两个数的和；</li>
+<li>也就是 a[n+2] = a[n+1] + a[n]。至于起始两个元素，则分别为 0 和 1。</li>
+<li>在这个数列中的数字，就被称为斐波那契数。</li>
+<li><hr>
+</li>
+<li>写一个函数，输入 x，输出斐波那契数列中第 x 位的元素。</li>
+<li>例如，输入 4，输出 2；输入 9，输出 21。</li>
+<li>要求：需要用递归的方式来实现。<br>*/<br>const target = 9;<br>const data = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];<br>function test11(data, x) {<br>if (x === 1) return 0;<br>if (x === 2) return 1;<br>if (x &gt; 2) data[x] = test11(data, x - 1) + test11(data, x - 2);<br>//输出结果<br>if (x === target) console.log(data[x]);<br>return data[x];<br>}<br>//test11(data, target);</li>
+</ul>
+<p>/<strong><br> <em>二分 (基于有序)
+ </em>/<br>function test12(data, target) {<br>  //低<br>  let low = 0;<br>  //高<br>  let high = data.length - 1;<br>  //中<br>  let middle = 0;<br>  //计数器<br>  let count = 1;<br>  while (low &lt;= high) {<br>    middle = Math.floor((low + high) / 2);<br>    if (target === data[middle]) {<br>      console.log(<code>找了${count}次</code>);<br>      return;<br>    }<br>    if (target &gt; data[middle]) {<br>      low = middle + 1;<br>    }<br>    if (target &lt; data[middle]) {<br>      high = middle - 1;<br>    }<br>    count++;<br>  }<br>  console.log(“没有找到”);<br>}<br>//test12([2, 4, 6, 7], 4);<br>/</strong><br> <em>在一个有序数组中，查找出第一个大于 9 的数字，假设一定存在。
+ </em>例如，arr = { -1, 3, 3, 7, 10, 14, 14 }; 则返回 10。<br> <em>查找的目标数字具备这样的性质：
+ </em>第一，它比 9 大；<br> <em>第二，它前面的数字（除非它是第一个数字），比 9 小。
+ </em>因此，当我们作出向左走或向右走的决策时，必须满足这两个条件。<br> */<br>function test13(data, target) {<br>  let low = 0;<br>  let high = data.length - 1;<br>  let middle = 0;<br>  while (low &lt;= high) {<br>    middle = Math.floor((low + high) / 2);<br>    if (target &gt;= data[middle]) {<br>      if (target &lt; data[middle + 1]) return data[middle + 1];<br>      low = middle + 1;<br>    }<br>    if (target &lt; data[middle]) {<br>      if (target &gt; data[middle - 1]) return data[middle];<br>      high = middle - 1;<br>    }<br>  }<br>}<br>//console.log(test13([-1, 3, 3, 7, 10, 14, 14], 9));<br>/**</p>
+<ul>
+<li>冒泡排序<br>*/</li>
+</ul>
+<p>function test14(data) {<br>  for (let i = 0; i &lt; data.length; i++) {<br>    //j &lt; data.length - i 每一轮都会筛选出一个最值，减少没有必要的比较次数<br>    for (let j = 0; j &lt; data.length - i; j++) {<br>      //交换位置<br>      if (data[j] &gt; data[j + 1]) {<br>        data[j + 1] = data[j] + data[j + 1];<br>        data[j] = data[j + 1] - data[j];<br>        data[j + 1] = data[j + 1] - data[j];<br>      }<br>    }<br>  }<br>  console.log(data);<br>}<br>//test14([-1, 3, -3, 7, 10, 14, 14]);<br>/**</p>
+<ul>
+<li>插入排序</li>
+<li>选取未排序的元素，插入到已排序区间的合适位置，直到未排序区间为空。</li>
+<li>插入排序顾名思义，就是从左到右维护一个已经排好序的序列。直到所有的待排数据全都完成插入的动作。<br>*/<br>function test15(data) {<br>for (let i = 1; i &lt; data.length; i++) {<br> //记录当前遍历的元素<br> let current = data[i];<br> for (let j = i - 1; j &gt;= 0; j–) {<br>   if (data[j] &gt; current) {<pre><code>data[j + 1] = data[j] + data[j + 1];
+data[j] = data[j + 1] - data[j];
+data[j + 1] = data[j + 1] - data[j];
+</code></pre>   } else {<pre><code>break;
+</code></pre>   }<br> }<br>}<br>}<br>//test15([-1, 3, -3, 7, 10, 14, 14]);<br>function test16(data) {<br>for (let i = 1; i &lt; data.length; i++) {<br> //记录当前遍历的元素<br> let current = data[i];<br> let j = i - 1;<br> for (; j &gt;= 0; j–) {<br>   if (data[j] &gt; current) {<pre><code>data[j + 1] = data[j];
+</code></pre>   } else {<pre><code>break;
+</code></pre>   }<br> }<br> data[j + 1] = current;<br>}<br>}<br>//test16([-1, 3, -3, 7, 10, 14, 14]);<br>/**</li>
+<li>归并排序</li>
+<li>归并排序的原理就是分治法。</li>
+<li>它首先将数组不断地二分，直到最后每个部分只包含 1 个数据。</li>
+<li>然后再对每个部分分别进行排序，最后将排序好的相邻的两部分合并在一起，这样整个数组就有序了。<br>*/</li>
+</ul>
+<p>function test17(data) {<br>  //临时数组<br>  let temp = [];<br>  //开始下标<br>  let start = 0;<br>  //结束下标<br>  let end = data.length - 1;</p>
+<p>  //拆分<br>  function split(data, temp, start, end) {<br>    if (start &lt; end) {<br>      //中间下标<br>      let mid = Math.floor((start + end) / 2);</p>
+<pre><code>  //对左边进行拆分
+  split(data, temp, start, mid);
+  //对右边进行拆分
+  split(data, temp, mid + 1, end);
+  //合并左右部分
+  merge(data, temp, start, mid, end);
+}
+</code></pre><p>  }</p>
+<p>  //合并<br>  function merge(data, temp, start, mid, end) {<br>    //左边开始下标<br>    let leftStart = start;<br>    //右边开始下标<br>    let rightStart = mid + 1;<br>    //临时数组开始下标<br>    let left = start;</p>
+<pre><code>//左边部分和右边部分都未走完时
+while (leftStart &lt;= mid &amp;&amp; rightStart &lt;= end) {
+  if (data[leftStart] &gt; data[rightStart]) {
+    temp[left++] = data[rightStart++];
+  } else {
+    temp[left++] = data[leftStart++];
+  }
+}
+
+//左边部分未走完时
+while (leftStart &lt;= mid) {
+  temp[left++] = data[leftStart++];
+}
+//右边部分未走完时
+while (rightStart &lt;= end) {
+  temp[left++] = data[rightStart++];
+}
+
+//每次合并完更新原数据
+for (let i = 0; i &lt; temp.length; i++) {
+  data[i] = temp[i];
+}
+</code></pre><p>  }</p>
+<p>  split(data, temp, start, end);<br>  console.log(data);<br>}<br>//test17([-1, -3, -3, 7, 10, 14, 14]);<br>/**</p>
+<ul>
+<li>快速排序</li>
+<li>快速排序法的原理也是分治法。</li>
+<li>它的每轮迭代，会选取数组中任意一个数据作为分区点，将小于它的元素放在它的左侧，大于它的放在它的右侧。</li>
+<li>再利用分治思想，继续分别对左右两侧进行同样的操作，直至每个区间缩小为 1，则完成排序。<br>*/</li>
+</ul>
+<p>function test18(data, start, end) {<br>  if (start &gt;= end) return;</p>
+<p>  //取数据第一个值作为参考值<br>  let temp = data[start];<br>  //左指针<br>  let left = start;<br>  //右指针<br>  let right = end;<br>  while (left &lt; right) {<br>    //从右<br>    while (temp &lt;= data[right] &amp;&amp; left &lt; right) {<br>      right–;<br>    }<br>    //从左<br>    while (temp &gt;= data[left] &amp;&amp; left &lt; right) {<br>      left++;<br>    }<br>    //此时的left和right位置元素交换位置<br>    /**</p>
+<pre><code> * 1.可以使用变量交换两个元素
+ * 2.这里的交换方法针对left和right相同情况时做了一层判断
+ */
+if (left !== right) {
+  data[right] = data[left] + data[right];
+  data[left] = data[right] - data[left];
+  data[right] = data[right] - data[left];
+}
+</code></pre><p>  }<br>  //参考值与此时的结束位置元素交换位置  (判断情况与上面类似)<br>  if (start !== left) {<br>    data[start] = data[left] + data[start];<br>    data[left] = data[start] - data[left];<br>    data[start] = data[start] - data[left];<br>  }</p>
+<p>  test18(data, start, left - 1);<br>  test18(data, left + 1, end);<br>  console.log(data);<br>}<br>//test18([-1, -3, -3, 7, 10, 14, 14], 0, 6);<br>/**</p>
+<ul>
+<li>假设有且仅有 1 个最大公共子串。</li>
+<li>比如，输入 a = “13452439”， b = “123456”。由于字符串 “345” 同时在 a 和 b 中出现，且是同时出现在 a 和 b 中的最长子串。因此输出 “345”。<br>*/</li>
+</ul>
+<p>function test19(strA, strB) {<br>  //记录字符串a的下标<br>  let indexB = -1;<br>  //记录字符串b的下标<br>  let indexA = -1;<br>  let map = new Map();<br>  for (let i = 0; i &lt; strA.length; i++) {<br>    indexA = i;<br>    indexB = strB.indexOf(strA[i]);<br>    //strA[i]是否存在strB中<br>    if (indexB !== -1) {<br>      let str = strA[i];<br>      map.set(str, str.length);<br>      for (let j = indexB + 1; j &lt; strB.length; j++) {<br>        if (strA[++indexA] === strB[j]) {<br>          str += strB[j];<br>          map.set(str, str.length);<br>        } else {<br>          break;<br>        }<br>      }<br>    }<br>  }<br>  for (const [key, value] of map) {<br>    if (value === Math.max.apply(null, […map.values()])) {<br>      console.log(<code>最大公共字符串为：${key}</code>);<br>    }<br>  }<br>}<br>//test19(“13145612439”, “1234562”);<br>/**</p>
+<ul>
+<li>两个有序数组查找合并之后的中位数。给定两个大小为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出这两个正序数组合在一起之后的中位数，并且要求算法的时间复杂度为 O(log(m + n))。</li>
+<li>你可以假设 nums1 和 nums2 不会同时为空，所有的数字全都不相等。还可以再假设，如果数字个数为偶数个，中位数就是中间偏左的那个元素。</li>
+<li>例如：nums1 = [1, 3, 5, 7, 9]</li>
+<li>nums2 = [2, 4, 8, 12]</li>
+<li>输出 5。<br>*/</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>小明从小就喜欢数学，喜欢在笔记里记录很多表达式。他觉得现在的表达式写法很麻烦，为了提高运算符优先级，不得不添加很多括号。如果不小心漏了一个右括号的话，就差之毫厘，谬之千里了。</li>
+<li>因此他改用前缀表达式，例如把 (2 + 3) <em> 4写成</em> + 2 3 4，这样就能避免使用括号了。这样的表达式虽然书写简单，但计算却不够直观。请你写一个程序帮他计算这些前缀表达式。</li>
+<li>在这个题目中，输入就是前缀表达式，输出就是计算的结果。你可以假设除法为整除，即“5/3=1”。例如，输入字符串为 + 2 3，输出 5；输入字符串为 <em> + 2 2 3，输出为 12；输入字符串为 </em> 2 + 2 3，输出为 10。</li>
+<li>我们给出一些提示。假设输入字符串为 <em> 2 + 2 3，即 2</em>(2+3)。第一个字符为运算符号 *，它将对两个数字进行乘法。如果后面紧接着的字符不全是数字字符，那就需要暂存下来，先计算后面的算式。一旦后面的计算完成，就需要接着从后往前去继续计算。</li>
+<li>因为从后往前是一种逆序动作，我们能够很自然地想到可以用栈的数据结构进行存储。你可以尝试利用栈，去解决这个问题。<br>*/</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>给定一个方格棋盘，从左上角出发到右下角有多少种方法</li>
+<li>在一个方格棋盘里，左上角是起点，右下角是终点。每次只能向右或向下，移向相邻的格子。同时，棋盘中有若干个格子是陷阱，不可经过，必须绕开行走。</li>
+<li>要求用动态规划的方法，求出从起点到终点总共有多少种不同的路径。例如，输入二维矩阵 m 代表棋盘，其中，1 表示格子可达，-1 表示陷阱。输出可行的路径数量为 2。<br>*/</li>
+</ul>
 
       
     </div>
@@ -259,7 +435,7 @@
         <p><span>本文标题:</span><a href="/2021/03/29/algorithm/">算法</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2021年03月29日</p>
-        <p><span>最后更新:</span>2021年03月29日 - 20时59分</p>    
+        <p><span>最后更新:</span>2021年04月02日 - 21时55分</p>    
     </div>
 
 
@@ -338,7 +514,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/note/">学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/record/">记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/project/">前端工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/ts/">typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/study/">前端学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/webpack/">前端构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/log/">前端记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/vue/">vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/17/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/js/">js</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/note/">学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/record/">记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/project/">前端工程</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/study/">前端学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/ts/">typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/webpack/">前端构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/log/">前端记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/vue/">vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/17/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/js/">js</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
