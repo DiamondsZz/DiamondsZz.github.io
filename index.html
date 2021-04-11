@@ -1347,7 +1347,17 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 方法 6</span><br><span class="line"></span><br><span class="line">let arr = [1, [2, [3, [4, 5]]], 6];</span><br><span class="line"></span><br><span class="line">function flatten(arr) &#123;</span><br><span class="line"></span><br><span class="line">  let str = JSON.stringify(arr);</span><br><span class="line"></span><br><span class="line">  str = str.replace(/(\[|\])/g, &apos;&apos;);</span><br><span class="line"></span><br><span class="line">  str = &apos;[&apos; + str + &apos;]&apos;;</span><br><span class="line"></span><br><span class="line">  return JSON.parse(str); </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(flatten(arr)); //  [1, 2, 3, 4，5]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="sort-排序方法的实现原理"><a href="#sort-排序方法的实现原理" class="headerlink" title="sort 排序方法的实现原理"></a>sort 排序方法的实现原理</h3><h3 id="JS-数组多个方法的底层实现"><a href="#JS-数组多个方法的底层实现" class="headerlink" title="JS 数组多个方法的底层实现"></a>JS 数组多个方法的底层实现</h3>
+<h3 id="sort-排序方法的实现原理"><a href="#sort-排序方法的实现原理" class="headerlink" title="sort 排序方法的实现原理"></a>sort 排序方法的实现原理</h3><ul>
+<li>sort() 方法用原地算法对数组的元素进行排序，并返回数组。默认排序顺序是在将元素转换为字符串，然后比较它们的UTF-16代码单元值序列时构建的</li>
+<li>通过研究源码我们先直接看一下结论，如果要排序的元素个数是 n 的时候，那么就会有以下几种情况：</li>
+</ul>
+<ol>
+<li>当 n&lt;=10 时，采用插入排序；对于很小的数据量，应用插入排序是一个非常不错的选择。</li>
+<li>当 n&gt;10 时，采用三路快速排序；<br>快速排序的性能瓶颈在于递归的深度，最坏的情况是每次的哨兵都是最小元素或者最大元素，那么进行 partition（一边是小于哨兵的元素，另一边是大于哨兵的元素）时，就会有一边是空的。<br>如果这么排下去，递归的层数就达到了 n , 而每一层的复杂度是 O(n)，因此快排这时候会退化成 O(n^2) 级别。<br>这种情况是要尽力避免的，那么如何来避免？就是让哨兵元素尽可能地处于数组的中间位置，让最大或者最小的情况尽可能少。</li>
+<li>10&lt;n &lt;=1000，采用中位数作为哨兵元素；</li>
+<li>n&gt;1000，每隔 200~215 个元素挑出一个元素，放到一个新数组中，然后对它排序，找到中间位置的数，以此作为中位数。</li>
+</ol>
+
       
     </div>
     
