@@ -9,18 +9,18 @@
   
   <title>脚手架/yeoman | DiamondsZz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="脚手架 创建项目基本结构、提供项目规范和约定(组织结构、开发范式、模块依赖、工具配置、基础代码)Yeoman使用   全局安装：yarn global add yo 或 npm install yo --global 安装相关generator:例如  yarn global add generator-node 或 npm install generator-node --global 运行ge">
+  <meta name="description" content="脚手架 创建项目基本结构、提供项目规范和约定(组织结构、开发范式、模块依赖、工具配置、基础代码) 搭建脚手架   创建cli.js文件, 在package.json添加字段 “bin”:”cli.js” 指明入口文件   yarn add inquirer来发起命令行交互 创建templates目录 yarn add ejs yarn link 使之成为一个全局的模块123456789101112">
 <meta name="keywords" content="资源,学习,网站">
 <meta property="og:type" content="article">
 <meta property="og:title" content="脚手架&#x2F;yeoman">
 <meta property="og:url" content="https://DiamondsZz.github.io/2021/03/08/yeoman/index.html">
 <meta property="og:site_name" content="DiamondsZz">
-<meta property="og:description" content="脚手架 创建项目基本结构、提供项目规范和约定(组织结构、开发范式、模块依赖、工具配置、基础代码)Yeoman使用   全局安装：yarn global add yo 或 npm install yo --global 安装相关generator:例如  yarn global add generator-node 或 npm install generator-node --global 运行ge">
+<meta property="og:description" content="脚手架 创建项目基本结构、提供项目规范和约定(组织结构、开发范式、模块依赖、工具配置、基础代码) 搭建脚手架   创建cli.js文件, 在package.json添加字段 “bin”:”cli.js” 指明入口文件   yarn add inquirer来发起命令行交互 创建templates目录 yarn add ejs yarn link 使之成为一个全局的模块123456789101112">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-11T15:26:50.188Z">
+<meta property="og:updated_time" content="2021-04-12T13:36:35.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="脚手架&#x2F;yeoman">
-<meta name="twitter:description" content="脚手架 创建项目基本结构、提供项目规范和约定(组织结构、开发范式、模块依赖、工具配置、基础代码)Yeoman使用   全局安装：yarn global add yo 或 npm install yo --global 安装相关generator:例如  yarn global add generator-node 或 npm install generator-node --global 运行ge">
+<meta name="twitter:description" content="脚手架 创建项目基本结构、提供项目规范和约定(组织结构、开发范式、模块依赖、工具配置、基础代码) 搭建脚手架   创建cli.js文件, 在package.json添加字段 “bin”:”cli.js” 指明入口文件   yarn add inquirer来发起命令行交互 创建templates目录 yarn add ejs yarn link 使之成为一个全局的模块123456789101112">
   
     <link rel="alternative" href="/atom.xml" title="DiamondsZz" type="application/atom+xml">
   
@@ -227,9 +227,19 @@
       
           
         <h2 id="脚手架"><a href="#脚手架" class="headerlink" title="脚手架"></a>脚手架</h2><ul>
-<li>创建项目基本结构、提供项目规范和约定(组织结构、开发范式、模块依赖、工具配置、基础代码)<h3 id="Yeoman"><a href="#Yeoman" class="headerlink" title="Yeoman"></a>Yeoman</h3><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4></li>
+<li>创建项目基本结构、提供项目规范和约定(组织结构、开发范式、模块依赖、工具配置、基础代码)</li>
+<li>搭建脚手架</li>
 </ul>
 <ol>
+<li>创建cli.js文件,</li>
+<li>在package.json添加字段 “bin”:”cli.js” 指明入口文件  </li>
+<li><code>yarn add inquirer</code>来发起命令行交互</li>
+<li>创建templates目录</li>
+<li><code>yarn add ejs</code></li>
+<li>yarn link 使之成为一个全局的模块<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env node</span><br><span class="line">//Node CLI应用入口文件必须要有这样的文件头</span><br><span class="line">//如果是Linux或者macOS还需要修改此文件的读写权限为755</span><br><span class="line"></span><br><span class="line"> const path=require(&apos;path&apos;)</span><br><span class="line"> const fa=require(&apos;fs&apos;)</span><br><span class="line"> const inquirer=require(&apos;inquirer&apos;)</span><br><span class="line"> const ejs=require(&apos;ejs&apos;)</span><br><span class="line"> inquirer.prompt([</span><br><span class="line"> &#123;</span><br><span class="line">  type:&apos;input&apos;,</span><br><span class="line">  name:&apos;name&apos;,</span><br><span class="line">  message:&apos;project name&apos;</span><br><span class="line"> &#125;</span><br><span class="line"> ]).then(answers=&gt;&#123;</span><br><span class="line"> </span><br><span class="line"> //模板目录</span><br><span class="line">    const tmpDir=path.join(__dirname,&apos;templates&apos;)</span><br><span class="line"> //目标目录   </span><br><span class="line">    const destDir=process.cwd() </span><br><span class="line"> </span><br><span class="line">    fs.readdir(tmpDir,(err,files)=&gt;&#123;</span><br><span class="line">	 if(err) return</span><br><span class="line">	 files.forEach(()=&gt;&#123;</span><br><span class="line">	  //通过模板引擎渲染文件</span><br><span class="line">	  </span><br><span class="line">	  ejs.renderFile(path.join(tmpDir,file,answers,(err,result)=&gt;&#123;</span><br><span class="line">	   if(err) return</span><br><span class="line">	  </span><br><span class="line">	  //将结果写入文件</span><br><span class="line">	   fs.writeFileSync(path.join(destDir,file),result)</span><br><span class="line">	  &#125;))</span><br><span class="line">	 </span><br><span class="line">	 &#125;)</span><br><span class="line">	 </span><br><span class="line">	&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Yeoman"><a href="#Yeoman" class="headerlink" title="Yeoman"></a>Yeoman</h3><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ol>
 <li>全局安装：<code>yarn global add yo</code> 或 <code>npm install yo --global</code></li>
 <li>安装相关generator:例如  <code>yarn global add generator-node</code> 或 <code>npm install generator-node --global</code></li>
 <li>运行generator: 例如  <code>yo node</code><h4 id="自定义generator"><a href="#自定义generator" class="headerlink" title="自定义generator"></a>自定义generator</h4></li>
@@ -251,6 +261,12 @@
 <li>通过<code>yarn link</code>或<code>npm link</code>使之成为一个全局的模块</li>
 <li>通过yo命令运行generator</li>
 <li>发布generator <code>npm publish</code>或<code>yarn publish --registry=https://registry.yarnpkg.com</code><h3 id="Plop"><a href="#Plop" class="headerlink" title="Plop"></a>Plop</h3></li>
+<li>作为开发依赖安装 <code>yarn add plop --dev</code> </li>
+<li><p>创建plopfile.js文件,plop-templates目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">module.exports=plop=&gt;&#123;</span><br><span class="line"></span><br><span class="line"> plop.setGenerator(&apos;component&apos;,&#123;</span><br><span class="line">  description:&apos;create a component&apos;,</span><br><span class="line">  prompts:[&#123;</span><br><span class="line">  </span><br><span class="line">   type:&apos;input&apos;,</span><br><span class="line">   name:&apos;name&apos;,</span><br><span class="line">   message:&apos;component name&apos;,</span><br><span class="line">   default:&apos;MyComponent&apos;</span><br><span class="line">  &#125;],</span><br><span class="line">  actions:[</span><br><span class="line">  &#123;</span><br><span class="line">  //添加文件</span><br><span class="line">  type:&apos;add&apos;,</span><br><span class="line">   path:&apos;src/components/&#123;&#123;name&#125;&#125;/&#123;&#123;name&#125;&#125;.js&apos;</span><br><span class="line">   templateFile:&apos;plop-templates/component.hbs&apos;</span><br><span class="line">  &#125;，</span><br><span class="line">   &#123;</span><br><span class="line">  //添加文件</span><br><span class="line">  type:&apos;add&apos;,</span><br><span class="line">   path:&apos;src/components/&#123;&#123;name&#125;&#125;/&#123;&#123;name&#125;&#125;.css&apos;</span><br><span class="line">   templateFile:&apos;plop-templates/component.css.hbs&apos;</span><br><span class="line">  &#125;，</span><br><span class="line">  ]</span><br><span class="line"> &#125;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>yarn plop component</code> 对应上面设置的generator名字</p>
+</li>
 </ol>
 
       
@@ -263,7 +279,7 @@
         <p><span>本文标题:</span><a href="/2021/03/08/yeoman/">脚手架/yeoman</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2021年03月08日</p>
-        <p><span>最后更新:</span>2021年04月11日 - 23时26分</p>    
+        <p><span>最后更新:</span>2021年04月12日 - 21时36分</p>    
     </div>
 
 
@@ -280,8 +296,8 @@
     </a>
   
   
-    <a href="/2021/01/10/question_four/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">知识点四</div>
+    <a href="/2021/01/10/question_five/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">知识点五</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -348,12 +364,12 @@
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2021/01/10/question_four/" title="下一篇: 知识点四">
+            <a href="/2021/01/10/question_five/" title="下一篇: 知识点五">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/core/">核心进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/module_webpack/">模块化/webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/yeoman/">脚手架/yeoman</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_four/">知识点四</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_five/">知识点五</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_two/">知识点二</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_one/">知识点一</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/question/">知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/question_three/">知识点三</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记（旧）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/core/">核心进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/module_webpack/">模块化/webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/yeoman/">脚手架/yeoman</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_five/">知识点五</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_four/">知识点四</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_one/">知识点一</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_two/">知识点二</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/question/">知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/question_three/">知识点三</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记（旧）</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
