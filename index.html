@@ -443,7 +443,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="响应式原理"><a href="#响应式原理" class="headerlink" title="响应式原理"></a>响应式原理</h2>
+        <h2 id="响应式原理"><a href="#响应式原理" class="headerlink" title="响应式原理"></a>响应式原理</h2><ul>
+<li>Vue.prototype.$mount</li>
+</ul>
+<ol>
+<li>文件路径：vue/src/platforms/web/entry-runtime-with-compiler.js <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">//处理el</span><br><span class="line">export function query (el: string | Element): Element &#123;</span><br><span class="line">  //如果是字符串时，通过选择器获取dom</span><br><span class="line">  if (typeof el === &apos;string&apos;) &#123;</span><br><span class="line">    const selected = document.querySelector(el)</span><br><span class="line">	//如果没有找到对应dom，会返回一个div</span><br><span class="line">    if (!selected) &#123;</span><br><span class="line">      process.env.NODE_ENV !== &apos;production&apos; &amp;&amp; warn(</span><br><span class="line">        &apos;Cannot find element: &apos; + el</span><br><span class="line">      )</span><br><span class="line">      return document.createElement(&apos;div&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">    return selected</span><br><span class="line">  &#125; </span><br><span class="line">  //不是字符串时直接返回</span><br><span class="line">  else &#123;</span><br><span class="line">    return el</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//获取outerHtml</span><br><span class="line">function getOuterHTML (el: Element): string &#123;</span><br><span class="line">  if (el.outerHTML) &#123;</span><br><span class="line">    return el.outerHTML</span><br><span class="line">  &#125; </span><br><span class="line">  //获取不到outerHtml时</span><br><span class="line">  else &#123;</span><br><span class="line">    const container = document.createElement(&apos;div&apos;)</span><br><span class="line">    container.appendChild(el.cloneNode(true))</span><br><span class="line">    return container.innerHTML</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Vue.prototype.$mount = function (el?: string | Element,hydrating?: boolean): Component &#123;</span><br><span class="line"></span><br><span class="line">  //先对el进行处理</span><br><span class="line">  el = el &amp;&amp; query(el);</span><br><span class="line"> //如果el是body或html时，在开发环境会有警告</span><br><span class="line">  if (el === document.body || el === document.documentElement) &#123;</span><br><span class="line">    process.env.NODE_ENV !== &quot;production&quot; &amp;&amp;</span><br><span class="line">      warn(</span><br><span class="line">        `Do not mount Vue to &lt;html&gt; or &lt;body&gt; - mount to normal elements instead.`</span><br><span class="line">      );</span><br><span class="line">    return this;</span><br><span class="line">  &#125;</span><br><span class="line"> //获取options选项</span><br><span class="line">  const options = this.$options;</span><br><span class="line"> //如果没有传render函数</span><br><span class="line">  if (!options.render) &#123;</span><br><span class="line">    //获取模板字符串</span><br><span class="line">    let template = options.template;</span><br><span class="line">    //对模板字符串进行处理</span><br><span class="line">    if (template) &#123;</span><br><span class="line"></span><br><span class="line">      if (typeof template === &quot;string&quot;) &#123;</span><br><span class="line">        if (template.charAt(0) === &quot;#&quot;) &#123;</span><br><span class="line">          template = idToTemplate(template);</span><br><span class="line">          /* istanbul ignore if */</span><br><span class="line">          if (process.env.NODE_ENV !== &quot;production&quot; &amp;&amp; !template) &#123;</span><br><span class="line">            warn(</span><br><span class="line">              `Template element not found or is empty: $&#123;options.template&#125;`,</span><br><span class="line">              this</span><br><span class="line">            );</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; else if (template.nodeType) &#123;</span><br><span class="line">        template = template.innerHTML;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        if (process.env.NODE_ENV !== &quot;production&quot;) &#123;</span><br><span class="line">          warn(&quot;invalid template option:&quot; + template, this);</span><br><span class="line">        &#125;</span><br><span class="line">        return this;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; </span><br><span class="line">    //没有模板时，获取el的outerHtml作为模板</span><br><span class="line">    else if (el) &#123;</span><br><span class="line">      template = getOuterHTML(el);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //将模板生成渲染函数</span><br><span class="line">    if (template) &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //进行挂载</span><br><span class="line">  return mount.call(this, el, hydrating);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
       
     </div>
     
@@ -1900,6 +1906,234 @@
 
 
   
+    <article id="post-question_four" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/01/10/question_four/" class="article-date">
+      <time datetime="2021-01-09T16:00:00.000Z" itemprop="datePublished">2021-01-10</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/10/question_four/">知识点四</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="请说出下列最终的执行结果，并解释为什么。"><a href="#请说出下列最终的执行结果，并解释为什么。" class="headerlink" title="请说出下列最终的执行结果，并解释为什么。"></a>请说出下列最终的执行结果，并解释为什么。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = [];</span><br><span class="line">for (var i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">    a[i] = function() &#123;</span><br><span class="line">        console.log(i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">a[6]()</span><br></pre></td></tr></table></figure>
+<p>答：结果是10。因为for循环里的i是全局变量，for循环执行完之后，i已经变成了10，所以之后无论调用a几，输出的都是10。</p>
+<hr>
+<h2 id="请说出下列最终的执行结果，并解释为什么。-1"><a href="#请说出下列最终的执行结果，并解释为什么。-1" class="headerlink" title="请说出下列最终的执行结果，并解释为什么。"></a>请说出下列最终的执行结果，并解释为什么。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var tmp = 123;</span><br><span class="line">if (true) &#123;</span><br><span class="line">    console.log(tmp)</span><br><span class="line">    let tmp</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>答：结果报错，cannot access ‘tmp’ before initialization<br>     原因：let 会形成块级作用域和封闭作用域，所以 tmp 无法拿到外层 var 声明的值，只能在块级作用域中查找。let 不会导致变量提升，因此<code>console.log(tmp)</code>无法找到声明，出现暂时性死区。</p>
+<hr>
+<h2 id="结合ES6新语法，用最简单的方法找出数组中的最小值。"><a href="#结合ES6新语法，用最简单的方法找出数组中的最小值。" class="headerlink" title="结合ES6新语法，用最简单的方法找出数组中的最小值。"></a>结合ES6新语法，用最简单的方法找出数组中的最小值。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var arr = [12, 34, 32, 89, 4]</span><br></pre></td></tr></table></figure>
+<p>答：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr.sort((a, b) =&gt; a-b)[0]</span><br><span class="line">arr.reduce((min,num)=&gt;min&lt;num?min:num)</span><br><span class="line">Math.min(...arr)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="请详细说明-var，let，const-三种声明变量方式之间的具体差别。"><a href="#请详细说明-var，let，const-三种声明变量方式之间的具体差别。" class="headerlink" title="请详细说明 var，let，const 三种声明变量方式之间的具体差别。"></a>请详细说明 var，let，const 三种声明变量方式之间的具体差别。</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>var</th>
+<th>let</th>
+<th>const</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>提升</td>
+<td>声明提升，使用undefined初始化</td>
+<td>不存在变量提升</td>
+<td>不存在变量提升</td>
+</tr>
+<tr>
+<td>作用域</td>
+<td>全局</td>
+<td>块级</td>
+<td>块级</td>
+</tr>
+<tr>
+<td>初始化</td>
+<td>可以仅声明不初始化</td>
+<td>可以仅声明不初始化</td>
+<td>必须在声明时初始化</td>
+</tr>
+<tr>
+<td>重复定义</td>
+<td>可以</td>
+<td>不可以</td>
+<td>不可以</td>
+</tr>
+<tr>
+<td>多次赋值</td>
+<td>可以</td>
+<td>可以</td>
+<td>基本数据类型不可以，引用数据类型仅可改变值</td>
+</tr>
+<tr>
+<td>声明前访问</td>
+<td>可以</td>
+<td>不可以</td>
+<td>不可以</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="请说出下列代码最终输出的结果，并解释为什么。"><a href="#请说出下列代码最终输出的结果，并解释为什么。" class="headerlink" title="请说出下列代码最终输出的结果，并解释为什么。"></a>请说出下列代码最终输出的结果，并解释为什么。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var a = 10;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 20,</span><br><span class="line">    fn () &#123;</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">            console.log(this.a)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn()</span><br></pre></td></tr></table></figure>
+<p>答：打印20。因为setTimeout是箭头函数，里面的this指向没有改变和fn函数里的this是一致的都指向obj，所以会输出20</p>
+<hr>
+<h2 id="简述Symbol类型的用途。"><a href="#简述Symbol类型的用途。" class="headerlink" title="简述Symbol类型的用途。"></a>简述Symbol类型的用途。</h2><p>答：</p>
+<ul>
+<li>作为对象的属性，可以作为对象的私有属性，</li>
+<li>阻止对象上属性名的冲突，每个 Symbol 都独一无二的，可以保证不与其他属性名产生冲突，</li>
+<li>使用Symbol来替代常量</li>
+</ul>
+<hr>
+<h2 id="说说什么是浅拷贝，什么是深拷贝。"><a href="#说说什么是浅拷贝，什么是深拷贝。" class="headerlink" title="说说什么是浅拷贝，什么是深拷贝。"></a>说说什么是浅拷贝，什么是深拷贝。</h2><p>答：</p>
+<ul>
+<li>浅拷贝：针对 Object,Array 这种复杂数据类型，浅拷贝复制一层对象的属性，属性中的值是基本数据类型直接复制值，如果是引用类型复制内存地址的指针，所以在修改复制后的变量里引用类型的里面的值时，会导致原始数据也被修改</li>
+<li>深拷贝：针对 Object,Array 这种复杂数据类型，深复制递归复制了所有的层级，新数据和原始数据不存在联系，因此在修改复制后的变量里引用类型的里面的值时，不会导致原始数据也被修改</li>
+</ul>
+<hr>
+<h2 id="简述TypeScript和JavaScript之间的关系。"><a href="#简述TypeScript和JavaScript之间的关系。" class="headerlink" title="简述TypeScript和JavaScript之间的关系。"></a>简述TypeScript和JavaScript之间的关系。</h2><p>答：TypeScript 并不是一个完全新的语言, 它是 JavaScript 的超集，为 JavaScript 的生态增加了类型机制，并最终将代码编译为纯粹的 JavaScript 代码。</p>
+<table>
+<thead>
+<tr>
+<th>TypeScript</th>
+<th>JavaScript</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JavaScript 的超集用于解决大型项目的代码复杂性</td>
+<td>一种脚本语言，用于创建动态网页。</td>
+</tr>
+<tr>
+<td>可以在编译期间发现并纠正错误</td>
+<td>作为一种解释型语言，只能在运行时发现错误</td>
+</tr>
+<tr>
+<td>强类型，支持静态和动态类型</td>
+<td>弱类型，没有静态类型选项</td>
+</tr>
+<tr>
+<td>最终被编译成 JavaScript 代码，使浏览器可以理解</td>
+<td>可以直接在浏览器中使用</td>
+</tr>
+<tr>
+<td>支持模块、泛型和接口</td>
+<td>不支持模块，泛型或接口</td>
+</tr>
+<tr>
+<td>支持 ES3，ES4，ES5 和 ES6 等</td>
+<td>不支持编译其他 ES3，ES4，ES5 或 ES6 功能</td>
+</tr>
+<tr>
+<td>社区的支持仍在增长，而且还不是很大</td>
+<td>大量的社区支持以及大量文档和解决问题的支持</td>
+</tr>
+</tbody>
+</table>
+<h2 id="请谈谈你所认为的TypeScript优缺点。"><a href="#请谈谈你所认为的TypeScript优缺点。" class="headerlink" title="请谈谈你所认为的TypeScript优缺点。"></a>请谈谈你所认为的TypeScript优缺点。</h2><p>优点：</p>
+<ul>
+<li>任何一种 javascript 运行环境都支持</li>
+<li>功能更为强大，生态更健全、更完善</li>
+<li>TypeScript 属于渐进式的</li>
+<li>增强代码的可读性和可维护性，增强了编译器和 IDE 的功能，定义可以作为文文档</li>
+<li>在编译阶段就可以发现大部分大错误，不需要在运行时才发现</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>语言本身多了很多概率，提高学习成本</li>
+<li>项目初期，TypeScript 增加开发成本</li>
+<li>集成到构建流程需要一些工足量</li>
+<li>可能和一些库结合不完美，需要单独添加一些声明，不过大部分的库都支持了 TypeScript</li>
+</ul>
+<h2 id="描述引用计数的工作原理和优缺点。"><a href="#描述引用计数的工作原理和优缺点。" class="headerlink" title="描述引用计数的工作原理和优缺点。"></a>描述引用计数的工作原理和优缺点。</h2><p>工作原理：设置引用数,判断当前引用数是否为 0，引用关系改变时修改引用数字</p>
+<p>优点：</p>
+<ol>
+<li>发现垃圾时立即回收</li>
+<li>最大限度减少程序暂停（保证空间不会被占满）</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>无法回收循环引用的对象</li>
+<li>时间开销大（监控对象，维护引用数）</li>
+</ol>
+<h2 id="描述标记整理算法的工作流程。"><a href="#描述标记整理算法的工作流程。" class="headerlink" title="描述标记整理算法的工作流程。"></a>描述标记整理算法的工作流程。</h2><ol>
+<li><p>遍历所有对象找标记活动对象</p>
+</li>
+<li><p>清除阶段会先执行整理，移动对象位置，将活动对象放在一起</p>
+</li>
+<li><p>清除没有标记的对象，同时把第一次遍历所做的标记抹掉</p>
+</li>
+<li><p>把回收的空间放到空闲列表上面，方便后续程序申请空间使用</p>
+<p>优点： 减少了内存空间的碎片化，缺点： 不能立即回收对象</p>
+</li>
+</ol>
+<h2 id="描述V8中新生代存储区垃圾回收的流程。"><a href="#描述V8中新生代存储区垃圾回收的流程。" class="headerlink" title="描述V8中新生代存储区垃圾回收的流程。"></a>描述V8中新生代存储区垃圾回收的流程。</h2><ol>
+<li>回收过程采用复制算法+标记整理算法</li>
+<li>新生代分为 from-to 两个等大空间 32M(32 位为 16M)</li>
+<li>使用空间为 from 内存区，空闲空间为 to 内存区，当 from 空间应用一定大小会触发标记整理</li>
+<li>当发生标记整理后，复制活动对象到 to 内存区，然后 From 空间进行内存释放。</li>
+<li>如果拷贝时出现晋升，将新生代活动对象移入老生代</li>
+<li>当 To 空间的使用率达到 25%时，将新生代活动对象移入老生代</li>
+<li>当一轮 GC 执行完毕后还存活的新生代测需要晋级</li>
+<li>当一次 GC 操作后，From 和 to 需要进行置换</li>
+</ol>
+<h2 id="描述增量标记算法在何时使用及工作原理。"><a href="#描述增量标记算法在何时使用及工作原理。" class="headerlink" title="描述增量标记算法在何时使用及工作原理。"></a>描述增量标记算法在何时使用及工作原理。</h2><p>答： 使用时机：会穿插在程序的运行中执行。</p>
+<p>​工作原理： 对象存在直接可达和间接可达，将遍历对象标记，拆分成多个小步骤，先标记直接可达对象。间接可达的标记与程序执行交替执行，最终完成清除。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-question_one" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -2112,234 +2346,6 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> merge = <span class="built_in">require</span>(<span class="string">'webpack-merge'</span>)</span><br><span class="line"><span class="keyword">const</span> baseConfig = <span class="built_in">require</span>(<span class="string">'./webpack.common'</span>)</span><br><span class="line"><span class="keyword">const</span> MiniCssExtractPlugin = <span class="built_in">require</span>(<span class="string">'mini-css-extract-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> CopyWebpackPlugin = <span class="built_in">require</span>(<span class="string">'copy-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> &#123;CleanWebpackPlugin&#125; = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">const</span> utils = <span class="built_in">require</span>(<span class="string">'./utils.js'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = merge(baseConfig, &#123;</span><br><span class="line">  mode: <span class="string">'production'</span>,</span><br><span class="line">  devtool: <span class="string">'none'</span>,</span><br><span class="line">  optimization: &#123;</span><br><span class="line">    usedExports:<span class="literal">true</span>,</span><br><span class="line">    minimize:<span class="literal">true</span>,</span><br><span class="line">    splitChunks: &#123;</span><br><span class="line">      cacheGroups: &#123;</span><br><span class="line">        commons: &#123;</span><br><span class="line">          test: <span class="regexp">/[\\/]node_modules[\\/]/</span>,</span><br><span class="line">          name: <span class="string">'vendor'</span>,</span><br><span class="line">          chunks: <span class="string">'all'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css?$/</span>,</span><br><span class="line">        use: [MiniCssExtractPlugin.loader, <span class="string">'css-loader'</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.styl(us)?$/</span>,</span><br><span class="line">        use: [MiniCssExtractPlugin.loader, <span class="string">'css-loader'</span>, <span class="string">'stylus-loader'</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.(js|vue)$/</span>,</span><br><span class="line">        use: <span class="string">'eslint-loader'</span>,</span><br><span class="line">        enforce: <span class="string">'pre'</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        test: <span class="regexp">/\.less?$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          <span class="string">'vue-style-loader'</span>,</span><br><span class="line">          <span class="string">'css-loader'</span>,</span><br><span class="line">          <span class="string">'less-loader'</span></span><br><span class="line">        ]</span><br><span class="line">      &#125; ,&#123;</span><br><span class="line">        test: <span class="regexp">/\.vue$/</span>,</span><br><span class="line">        use: <span class="string">'vue-loader'</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">          </span><br><span class="line">        &#125;</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        test: <span class="regexp">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span>,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: <span class="string">'url-loader'</span>,</span><br><span class="line">          options: &#123;</span><br><span class="line">            limit: <span class="number">10</span>*<span class="number">1024</span>,</span><br><span class="line">            esModule: <span class="literal">false</span>,</span><br><span class="line">            name: utils.assetsPath(<span class="string">'img/[name].[hash:7].[ext]'</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        test: <span class="regexp">/\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/</span>,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: <span class="string">'url-loader'</span>,</span><br><span class="line">          options: &#123;</span><br><span class="line">            limit: <span class="number">10000</span>,</span><br><span class="line">            name: utils.assetsPath(<span class="string">'media/[name].[hash:7].[ext]'</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        test: <span class="regexp">/\.(woff2?|eot|ttf|otf)(\?.*)?$/</span>,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: <span class="string">'url-loader'</span>,</span><br><span class="line">          options: &#123;</span><br><span class="line">            limit: <span class="number">10000</span>,</span><br><span class="line">            name: utils.assetsPath(<span class="string">'fonts/[name].[hash:7].[ext]'</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> CleanWebpackPlugin(),</span><br><span class="line">    <span class="keyword">new</span> MiniCssExtractPlugin(&#123;</span><br><span class="line">      filename: <span class="string">'main.css'</span></span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> CopyWebpackPlugin(&#123;</span><br><span class="line">      patterns: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="keyword">from</span>: utils.resolve(<span class="string">'public/'</span>),</span><br><span class="line">          to: utils.resolve(<span class="string">'dist/public'</span>),</span><br><span class="line">          toType: <span class="string">'dir'</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>util.js</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  resolve: <span class="function"><span class="keyword">function</span> (<span class="params">dir</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> path.join(__dirname, dir)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  assetsPath: <span class="function"><span class="keyword">function</span> (<span class="params">_path</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> assetsSubDirectory = <span class="string">'public'</span></span><br><span class="line">    <span class="keyword">return</span> path.posix.join(assetsSubDirectory, _path)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-question_four" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/01/10/question_four/" class="article-date">
-      <time datetime="2021-01-09T16:00:00.000Z" itemprop="datePublished">2021-01-10</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/10/question_four/">知识点四</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="请说出下列最终的执行结果，并解释为什么。"><a href="#请说出下列最终的执行结果，并解释为什么。" class="headerlink" title="请说出下列最终的执行结果，并解释为什么。"></a>请说出下列最终的执行结果，并解释为什么。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = [];</span><br><span class="line">for (var i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">    a[i] = function() &#123;</span><br><span class="line">        console.log(i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">a[6]()</span><br></pre></td></tr></table></figure>
-<p>答：结果是10。因为for循环里的i是全局变量，for循环执行完之后，i已经变成了10，所以之后无论调用a几，输出的都是10。</p>
-<hr>
-<h2 id="请说出下列最终的执行结果，并解释为什么。-1"><a href="#请说出下列最终的执行结果，并解释为什么。-1" class="headerlink" title="请说出下列最终的执行结果，并解释为什么。"></a>请说出下列最终的执行结果，并解释为什么。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var tmp = 123;</span><br><span class="line">if (true) &#123;</span><br><span class="line">    console.log(tmp)</span><br><span class="line">    let tmp</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>答：结果报错，cannot access ‘tmp’ before initialization<br>     原因：let 会形成块级作用域和封闭作用域，所以 tmp 无法拿到外层 var 声明的值，只能在块级作用域中查找。let 不会导致变量提升，因此<code>console.log(tmp)</code>无法找到声明，出现暂时性死区。</p>
-<hr>
-<h2 id="结合ES6新语法，用最简单的方法找出数组中的最小值。"><a href="#结合ES6新语法，用最简单的方法找出数组中的最小值。" class="headerlink" title="结合ES6新语法，用最简单的方法找出数组中的最小值。"></a>结合ES6新语法，用最简单的方法找出数组中的最小值。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var arr = [12, 34, 32, 89, 4]</span><br></pre></td></tr></table></figure>
-<p>答：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr.sort((a, b) =&gt; a-b)[0]</span><br><span class="line">arr.reduce((min,num)=&gt;min&lt;num?min:num)</span><br><span class="line">Math.min(...arr)</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="请详细说明-var，let，const-三种声明变量方式之间的具体差别。"><a href="#请详细说明-var，let，const-三种声明变量方式之间的具体差别。" class="headerlink" title="请详细说明 var，let，const 三种声明变量方式之间的具体差别。"></a>请详细说明 var，let，const 三种声明变量方式之间的具体差别。</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>var</th>
-<th>let</th>
-<th>const</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>提升</td>
-<td>声明提升，使用undefined初始化</td>
-<td>不存在变量提升</td>
-<td>不存在变量提升</td>
-</tr>
-<tr>
-<td>作用域</td>
-<td>全局</td>
-<td>块级</td>
-<td>块级</td>
-</tr>
-<tr>
-<td>初始化</td>
-<td>可以仅声明不初始化</td>
-<td>可以仅声明不初始化</td>
-<td>必须在声明时初始化</td>
-</tr>
-<tr>
-<td>重复定义</td>
-<td>可以</td>
-<td>不可以</td>
-<td>不可以</td>
-</tr>
-<tr>
-<td>多次赋值</td>
-<td>可以</td>
-<td>可以</td>
-<td>基本数据类型不可以，引用数据类型仅可改变值</td>
-</tr>
-<tr>
-<td>声明前访问</td>
-<td>可以</td>
-<td>不可以</td>
-<td>不可以</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="请说出下列代码最终输出的结果，并解释为什么。"><a href="#请说出下列代码最终输出的结果，并解释为什么。" class="headerlink" title="请说出下列代码最终输出的结果，并解释为什么。"></a>请说出下列代码最终输出的结果，并解释为什么。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var a = 10;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 20,</span><br><span class="line">    fn () &#123;</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">            console.log(this.a)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn()</span><br></pre></td></tr></table></figure>
-<p>答：打印20。因为setTimeout是箭头函数，里面的this指向没有改变和fn函数里的this是一致的都指向obj，所以会输出20</p>
-<hr>
-<h2 id="简述Symbol类型的用途。"><a href="#简述Symbol类型的用途。" class="headerlink" title="简述Symbol类型的用途。"></a>简述Symbol类型的用途。</h2><p>答：</p>
-<ul>
-<li>作为对象的属性，可以作为对象的私有属性，</li>
-<li>阻止对象上属性名的冲突，每个 Symbol 都独一无二的，可以保证不与其他属性名产生冲突，</li>
-<li>使用Symbol来替代常量</li>
-</ul>
-<hr>
-<h2 id="说说什么是浅拷贝，什么是深拷贝。"><a href="#说说什么是浅拷贝，什么是深拷贝。" class="headerlink" title="说说什么是浅拷贝，什么是深拷贝。"></a>说说什么是浅拷贝，什么是深拷贝。</h2><p>答：</p>
-<ul>
-<li>浅拷贝：针对 Object,Array 这种复杂数据类型，浅拷贝复制一层对象的属性，属性中的值是基本数据类型直接复制值，如果是引用类型复制内存地址的指针，所以在修改复制后的变量里引用类型的里面的值时，会导致原始数据也被修改</li>
-<li>深拷贝：针对 Object,Array 这种复杂数据类型，深复制递归复制了所有的层级，新数据和原始数据不存在联系，因此在修改复制后的变量里引用类型的里面的值时，不会导致原始数据也被修改</li>
-</ul>
-<hr>
-<h2 id="简述TypeScript和JavaScript之间的关系。"><a href="#简述TypeScript和JavaScript之间的关系。" class="headerlink" title="简述TypeScript和JavaScript之间的关系。"></a>简述TypeScript和JavaScript之间的关系。</h2><p>答：TypeScript 并不是一个完全新的语言, 它是 JavaScript 的超集，为 JavaScript 的生态增加了类型机制，并最终将代码编译为纯粹的 JavaScript 代码。</p>
-<table>
-<thead>
-<tr>
-<th>TypeScript</th>
-<th>JavaScript</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>JavaScript 的超集用于解决大型项目的代码复杂性</td>
-<td>一种脚本语言，用于创建动态网页。</td>
-</tr>
-<tr>
-<td>可以在编译期间发现并纠正错误</td>
-<td>作为一种解释型语言，只能在运行时发现错误</td>
-</tr>
-<tr>
-<td>强类型，支持静态和动态类型</td>
-<td>弱类型，没有静态类型选项</td>
-</tr>
-<tr>
-<td>最终被编译成 JavaScript 代码，使浏览器可以理解</td>
-<td>可以直接在浏览器中使用</td>
-</tr>
-<tr>
-<td>支持模块、泛型和接口</td>
-<td>不支持模块，泛型或接口</td>
-</tr>
-<tr>
-<td>支持 ES3，ES4，ES5 和 ES6 等</td>
-<td>不支持编译其他 ES3，ES4，ES5 或 ES6 功能</td>
-</tr>
-<tr>
-<td>社区的支持仍在增长，而且还不是很大</td>
-<td>大量的社区支持以及大量文档和解决问题的支持</td>
-</tr>
-</tbody>
-</table>
-<h2 id="请谈谈你所认为的TypeScript优缺点。"><a href="#请谈谈你所认为的TypeScript优缺点。" class="headerlink" title="请谈谈你所认为的TypeScript优缺点。"></a>请谈谈你所认为的TypeScript优缺点。</h2><p>优点：</p>
-<ul>
-<li>任何一种 javascript 运行环境都支持</li>
-<li>功能更为强大，生态更健全、更完善</li>
-<li>TypeScript 属于渐进式的</li>
-<li>增强代码的可读性和可维护性，增强了编译器和 IDE 的功能，定义可以作为文文档</li>
-<li>在编译阶段就可以发现大部分大错误，不需要在运行时才发现</li>
-</ul>
-<p>缺点：</p>
-<ul>
-<li>语言本身多了很多概率，提高学习成本</li>
-<li>项目初期，TypeScript 增加开发成本</li>
-<li>集成到构建流程需要一些工足量</li>
-<li>可能和一些库结合不完美，需要单独添加一些声明，不过大部分的库都支持了 TypeScript</li>
-</ul>
-<h2 id="描述引用计数的工作原理和优缺点。"><a href="#描述引用计数的工作原理和优缺点。" class="headerlink" title="描述引用计数的工作原理和优缺点。"></a>描述引用计数的工作原理和优缺点。</h2><p>工作原理：设置引用数,判断当前引用数是否为 0，引用关系改变时修改引用数字</p>
-<p>优点：</p>
-<ol>
-<li>发现垃圾时立即回收</li>
-<li>最大限度减少程序暂停（保证空间不会被占满）</li>
-</ol>
-<p>缺点：</p>
-<ol>
-<li>无法回收循环引用的对象</li>
-<li>时间开销大（监控对象，维护引用数）</li>
-</ol>
-<h2 id="描述标记整理算法的工作流程。"><a href="#描述标记整理算法的工作流程。" class="headerlink" title="描述标记整理算法的工作流程。"></a>描述标记整理算法的工作流程。</h2><ol>
-<li><p>遍历所有对象找标记活动对象</p>
-</li>
-<li><p>清除阶段会先执行整理，移动对象位置，将活动对象放在一起</p>
-</li>
-<li><p>清除没有标记的对象，同时把第一次遍历所做的标记抹掉</p>
-</li>
-<li><p>把回收的空间放到空闲列表上面，方便后续程序申请空间使用</p>
-<p>优点： 减少了内存空间的碎片化，缺点： 不能立即回收对象</p>
-</li>
-</ol>
-<h2 id="描述V8中新生代存储区垃圾回收的流程。"><a href="#描述V8中新生代存储区垃圾回收的流程。" class="headerlink" title="描述V8中新生代存储区垃圾回收的流程。"></a>描述V8中新生代存储区垃圾回收的流程。</h2><ol>
-<li>回收过程采用复制算法+标记整理算法</li>
-<li>新生代分为 from-to 两个等大空间 32M(32 位为 16M)</li>
-<li>使用空间为 from 内存区，空闲空间为 to 内存区，当 from 空间应用一定大小会触发标记整理</li>
-<li>当发生标记整理后，复制活动对象到 to 内存区，然后 From 空间进行内存释放。</li>
-<li>如果拷贝时出现晋升，将新生代活动对象移入老生代</li>
-<li>当 To 空间的使用率达到 25%时，将新生代活动对象移入老生代</li>
-<li>当一轮 GC 执行完毕后还存活的新生代测需要晋级</li>
-<li>当一次 GC 操作后，From 和 to 需要进行置换</li>
-</ol>
-<h2 id="描述增量标记算法在何时使用及工作原理。"><a href="#描述增量标记算法在何时使用及工作原理。" class="headerlink" title="描述增量标记算法在何时使用及工作原理。"></a>描述增量标记算法在何时使用及工作原理。</h2><p>答： 使用时机：会穿插在程序的运行中执行。</p>
-<p>​工作原理： 对象存在直接可达和间接可达，将遍历对象标记，拆分成多个小步骤，先标记直接可达对象。间接可达的标记与程序执行交替执行，最终完成清除。</p>
 
       
     </div>
