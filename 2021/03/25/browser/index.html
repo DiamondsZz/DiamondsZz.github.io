@@ -7,19 +7,19 @@
   
   
   
-  <title>浏览器原理 | DiamondsZz</title>
+  <title>浏览器工作原理 | DiamondsZz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Chrome架构：仅仅打开了1个页面，为什么有4个进程？什么是并行处理？ 计算机中的并行处理就是同一时刻处理多个任务，比如我们要计算下面这三个表达式的值，并显示出结果。12345678910111213141516A = 1+2B = 20/5C = 7*8在编写代码的时候，我们可以把这个过程拆分为四个任务：任务 1 是计算 A=1+2；任务 2 是计算 B=20/5；任务 3 是计算 C=7*8">
 <meta name="keywords" content="资源,学习,网站">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器原理">
+<meta property="og:title" content="浏览器工作原理">
 <meta property="og:url" content="https://DiamondsZz.github.io/2021/03/25/browser/index.html">
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="Chrome架构：仅仅打开了1个页面，为什么有4个进程？什么是并行处理？ 计算机中的并行处理就是同一时刻处理多个任务，比如我们要计算下面这三个表达式的值，并显示出结果。12345678910111213141516A = 1+2B = 20/5C = 7*8在编写代码的时候，我们可以把这个过程拆分为四个任务：任务 1 是计算 A=1+2；任务 2 是计算 B=20/5；任务 3 是计算 C=7*8">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-21T13:19:00.005Z">
+<meta property="og:updated_time" content="2021-04-21T14:12:22.330Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器原理">
+<meta name="twitter:title" content="浏览器工作原理">
 <meta name="twitter:description" content="Chrome架构：仅仅打开了1个页面，为什么有4个进程？什么是并行处理？ 计算机中的并行处理就是同一时刻处理多个任务，比如我们要计算下面这三个表达式的值，并显示出结果。12345678910111213141516A = 1+2B = 20/5C = 7*8在编写代码的时候，我们可以把这个过程拆分为四个任务：任务 1 是计算 A=1+2；任务 2 是计算 B=20/5；任务 3 是计算 C=7*8">
   
     <link rel="alternative" href="/atom.xml" title="DiamondsZz" type="application/atom+xml">
@@ -200,7 +200,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      浏览器原理
+      浏览器工作原理
     </h1>
   
 
@@ -263,7 +263,129 @@
 </ol>
 <ul>
 <li>因为每个进程都会包含公共基础结构的副本（如 JavaScript 运行环境），这就意味着浏览器会消耗更多的内存资源。<h2 id="TCP协议：如何保证页面文件能被完整送达浏览器？"><a href="#TCP协议：如何保证页面文件能被完整送达浏览器？" class="headerlink" title="TCP协议：如何保证页面文件能被完整送达浏览器？"></a>TCP协议：如何保证页面文件能被完整送达浏览器？</h2></li>
+<li>在使用 UDP 发送数据时，有各种因素会导致数据包出错，虽然 UDP 可以校验数据是否正确，但是对于错误的数据包，UDP 并不提供重发机制，只是丢弃当前的包，而且 UDP 在发送之后也无法知道是否能达到目的地。</li>
+<li>虽说 UDP 不能保证数据可靠性，但是传输速度却非常快，所以 UDP 会应用在一些关注速度、但不那么严格要求数据完整性的领域，如在线视频、互动游戏等。</li>
+<li>如果使用 UDP 来传输会存在两个问题：</li>
 </ul>
+<ol>
+<li>数据包在传输过程中容易丢失；</li>
+<li>大文件会被拆分成很多小的数据包来传输，这些小的数据包会经过不同的路由，并在不同的时间到达接收端，而 UDP 协议并不知道如何组装这些数据包，从而把这些数据包还原成完整的文件。</li>
+</ol>
+<ul>
+<li>TCP（Transmission Control Protocol，传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议。相对于 UDP，TCP 有下面两个特点:</li>
+</ul>
+<ol>
+<li>对于数据包丢失的情况，TCP 提供重传机制；</li>
+<li>TCP 引入了数据包排序机制，用来保证把乱序的数据包组合成一个完整的文件。</li>
+</ol>
+<ul>
+<li>和 UDP 头一样，TCP 头除了包含了目标端口和本机端口号外，还提供了用于排序的序列号，以便接收端通过序号来重排数据包。</li>
+</ul>
+<h2 id="HTTP请求流程：为什么很多站点第二次打开速度会很快？"><a href="#HTTP请求流程：为什么很多站点第二次打开速度会很快？" class="headerlink" title="HTTP请求流程：为什么很多站点第二次打开速度会很快？"></a>HTTP请求流程：为什么很多站点第二次打开速度会很快？</h2><ul>
+<li>HTTP 协议，正是建立在 TCP 连接基础之上的。HTTP 是一种允许浏览器向服务器获取资源的协议，是 Web 的基础</li>
+</ul>
+<h3 id="浏览器端发起-HTTP-请求流程"><a href="#浏览器端发起-HTTP-请求流程" class="headerlink" title="浏览器端发起 HTTP 请求流程"></a>浏览器端发起 HTTP 请求流程</h3><ul>
+<li><p>构建请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">首先，浏览器构建请求行信息（如下所示），构建好后，浏览器准备发起网络请求。</span><br><span class="line"></span><br><span class="line">GET /index.html HTTP1.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查找缓存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在真正发起网络请求之前，浏览器会先在浏览器缓存中查询是否有要请求的文件。</span><br><span class="line">其中，浏览器缓存是一种在本地保存资源副本，以供下次请求时直接使用的技术。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>准备 IP 地址和端口</p>
+</li>
+</ul>
+<ol>
+<li>浏览器会请求 DNS 返回域名对应的 IP。</li>
+<li>当然浏览器还提供了 DNS 数据缓存服务，如果某个域名已经解析过了，那么浏览器会缓存解析的结果，以供下次查询时直接使用，这样也会减少一次网络请求。</li>
+</ol>
+<ul>
+<li>等待 TCP 队列</li>
+</ul>
+<ol>
+<li>Chrome 有个机制，同一个域名同时最多只能建立 6 个 TCP 连接，如果在同一个域名下同时有 10 个请求发生，那么其中 4 个请求会进入排队等待状态，直至进行中的请求完成。</li>
+<li>当然，如果当前请求数量少于 6，会直接进入下一步，建立 TCP 连接。</li>
+</ol>
+<ul>
+<li>建立 TCP 连接</li>
+<li>发送 HTTP 请求</li>
+</ul>
+<ol>
+<li>首先浏览器会向服务器发送请求行，它包括了请求方法、请求 URI（Uniform Resource Identifier）和 HTTP 版本协议。</li>
+<li>请求头把浏览器的一些基础信息告诉服务器。比如包含了浏览器所使用的操作系统、浏览器内核等信息，以及当前请求的域名信息、浏览器端的 Cookie 信息，等等。</li>
+<li>如果使用 POST 方法，那么浏览器还要准备数据给服务器，这里准备的数据是通过请求体来发送。<h3 id="服务器端处理-HTTP-请求流程"><a href="#服务器端处理-HTTP-请求流程" class="headerlink" title="服务器端处理 HTTP 请求流程"></a>服务器端处理 HTTP 请求流程</h3></li>
+</ol>
+<ul>
+<li>返回请求</li>
+</ul>
+<ol>
+<li>首先服务器会返回响应行，包括协议版本和状态码</li>
+<li>服务器也会随同响应向浏览器发送响应头。响应头包含了服务器自身的一些信息，比如服务器生成返回数据的时间、返回的数据类型（JSON、HTML、流媒体等类型），以及服务器要在客户端保存的 Cookie 等信息。</li>
+<li>发送完响应头后，服务器就可以继续发送响应体的数据，通常，响应体就包含了 HTML 的实际内容。</li>
+</ol>
+<ul>
+<li>断开连接</li>
+</ul>
+<ol>
+<li>通常情况下，一旦服务器向客户端返回了请求数据，它就要关闭 TCP 连接。不过如果浏览器或者服务器在其头信息中加入了：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Connection:Keep-Alive </span><br><span class="line">那么 TCP 连接在发送后将仍然保持打开状态，这样浏览器就可以继续通过同一个 TCP 连接发送请求。</span><br><span class="line">保持 TCP 连接可以省去下次请求时需要建立连接的时间，提升资源加载速度。</span><br><span class="line">比如，一个 Web 页面中内嵌的图片就都来自同一个 Web 站点，如果初始化了一个持久连接，你就可以复用该连接，以请求其他资源，而不需要重新再建立新的 TCP 连接。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>重定向</li>
+</ul>
+<ol>
+<li>状态 301 就是告诉浏览器，我需要重定向到另外一个网址，而需要重定向的网址正是包含在响应头的 Location 字段中，接下来，浏览器获取 Location 字段中的地址，并使用该地址重新导航，这就是一个完整重定向的执行流程。</li>
+</ol>
+<h3 id="为什么很多站点第二次打开速度会很快？"><a href="#为什么很多站点第二次打开速度会很快？" class="headerlink" title="为什么很多站点第二次打开速度会很快？"></a>为什么很多站点第二次打开速度会很快？</h3><ul>
+<li>如果第二次页面打开很快，主要原因是第一次加载页面过程中，缓存了一些耗时的数据。</li>
+<li>DNS 缓存和页面资源缓存这两块数据是会被浏览器缓存的。DNS 缓存比较简单，它主要就是在浏览器本地把对应的 IP 和域名关联起来</li>
+<li>当服务器返回 HTTP 响应头给浏览器时，浏览器是通过响应头中的 Cache-Control 字段来设置是否缓存该资源。</li>
+<li><p>通常，我们还需要为这个资源设置一个缓存过期时长，而这个时长是通过 Cache-Control 中的 Max-age 参数来设置的，比如上图设置的缓存过期时间是 2000 秒。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Cache-Control:Max-age=2000</span><br><span class="line">这也就意味着，在该缓存资源还未过期的情况下, 如果再次请求该资源，会直接返回缓存中的资源给浏览器。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>但如果缓存过期了，浏览器则会继续发起网络请求，并且在 HTTP 请求头中带上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">If-None-Match:&quot;4f80f-13c-3a1xb12a&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>服务器收到请求头后，会根据 If-None-Match 的值来判断请求的资源是否有更新。</p>
+</li>
+</ul>
+<ol>
+<li>如果没有更新，就返回 304 状态码，相当于服务器告诉浏览器：“这个缓存可以继续使用，这次就不重复发送数据给你了。“</li>
+<li>如果资源有更新，服务器就直接返回最新资源给浏览器。</li>
+</ol>
+<h3 id="登录状态是如何保持的？"><a href="#登录状态是如何保持的？" class="headerlink" title="登录状态是如何保持的？"></a>登录状态是如何保持的？</h3><ul>
+<li><p>服务器接收到浏览器提交的信息之后，查询后台，验证用户登录信息是否正确，如果正确的话，会生成一段表示用户身份的字符串，并把该字符串写到响应头的 Set-Cookie 字段里，如下所示，然后把响应头发送给浏览器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Set-Cookie: UID=3431uad;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>浏览器在接收到服务器的响应头后，开始解析响应头，如果遇到响应头里含有 Set-Cookie 字段的情况，浏览器就会把这个字段信息保存到本地。比如把UID=3431uad保持到本地。</p>
+</li>
+<li><p>当用户再次访问时，浏览器会发起 HTTP 请求，但在发起请求之前，浏览器会读取之前保存的 Cookie 数据，并把数据写进请求头里的 Cookie 字段里（如下所示），然后浏览器再将请求头发送给服务器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Cookie: UID=3431uad;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>服务器在收到 HTTP 请求头数据之后，就会查找请求头里面的“Cookie”字段信息，当查找到包含UID=3431uad的信息时，服务器查询后台，并判断该用户是已登录状态，然后生成含有该用户信息的页面数据，并把生成的数据发送给浏览器。</p>
+</li>
+<li>简单地说，如果服务器端发送的响应头内有 Set-Cookie 的字段，那么浏览器就会将该字段的内容保持到本地。当下次客户端再往该服务器发送请求时，客户端会自动在请求头中加入 Cookie 值后再发送出去。服务器端发现客户端发送过来的 Cookie 后，会去检查究竟是从哪一个客户端发来的连接请求，然后对比服务器上的记录，最后得到该用户的状态信息。</li>
+<li>浏览器中的 HTTP 请求从发起到结束一共经历了如下八个阶段：构建请求、查找缓存、准备 IP 和端口、等待 TCP 队列、建立 TCP 连接、发起 HTTP 请求、服务器处理请求、服务器返回请求和断开连接。</li>
+</ul>
+<h2 id="导航流程：从输入URL到页面展示，这中间发生了什么？"><a href="#导航流程：从输入URL到页面展示，这中间发生了什么？" class="headerlink" title="导航流程：从输入URL到页面展示，这中间发生了什么？"></a>导航流程：从输入URL到页面展示，这中间发生了什么？</h2><ul>
+<li>整个过程需要各个进程之间的配合，所以在开始正式流程之前，我们还是先来快速回顾下浏览器进程、渲染进程和网络进程的主要职责。</li>
+</ul>
+<ol>
+<li>浏览器进程主要负责用户交互、子进程管理和文件储存等功能。</li>
+<li>网络进程是面向渲染进程和浏览器进程等提供网络下载功能。</li>
+<li>渲染进程的主要职责是把从网络下载的 HTML、JavaScript、CSS、图片等资源解析为可以显示和交互的页面。因为渲染进程所有的内容都是通过网络获取的，会存在一些恶意代码利用浏览器漏洞对系统进行攻击，所以运行在渲染进程里面的代码是不被信任的。这也是为什么 Chrome 会让渲染进程运行在安全沙箱里，就是为了保证系统的安全。</li>
+</ol>
+<ul>
+<li>大致描述为如下。</li>
+</ul>
+<ol>
+<li>首先，浏览器进程接收到用户输入的 URL 请求，浏览器进程便将该 URL 转发给网络进程。</li>
+<li>然后，在网络进程中发起真正的 URL 请求。</li>
+<li>接着网络进程接收到了响应头数据，便解析响应头数据，并将数据转发给浏览器进程。</li>
+<li>浏览器进程接收到网络进程的响应头数据之后，发送“提交导航 (CommitNavigation)”消息到渲染进程；</li>
+<li>渲染进程接收到“提交导航”的消息之后，便开始准备接收 HTML 数据，接收数据的方式是直接和网络进程建立数据管道；</li>
+<li>最后渲染进程会向浏览器进程“确认提交”，这是告诉浏览器进程：“已经准备好接受和解析页面数据了”。</li>
+<li>浏览器进程接收到渲染进程“提交文档”的消息之后，便开始移除之前旧的文档，然后更新浏览器进程中的页面状态。</li>
+</ol>
 
       
     </div>
@@ -272,10 +394,10 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2021/03/25/browser/">浏览器原理</a></p>
+        <p><span>本文标题:</span><a href="/2021/03/25/browser/">浏览器工作原理</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2021年03月25日</p>
-        <p><span>最后更新:</span>2021年04月21日 - 21时19分</p>    
+        <p><span>最后更新:</span>2021年04月21日 - 22时12分</p>    
     </div>
 
 
@@ -305,7 +427,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chrome架构：仅仅打开了1个页面，为什么有4个进程？"><span class="toc-number">1.</span> <span class="toc-text">Chrome架构：仅仅打开了1个页面，为什么有4个进程？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是并行处理？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是并行处理？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程-VS-进程"><span class="toc-number">1.2.</span> <span class="toc-text">线程 VS 进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多进程"><span class="toc-number">1.3.</span> <span class="toc-text">多进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP协议：如何保证页面文件能被完整送达浏览器？"><span class="toc-number">2.</span> <span class="toc-text">TCP协议：如何保证页面文件能被完整送达浏览器？</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chrome架构：仅仅打开了1个页面，为什么有4个进程？"><span class="toc-number">1.</span> <span class="toc-text">Chrome架构：仅仅打开了1个页面，为什么有4个进程？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是并行处理？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是并行处理？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程-VS-进程"><span class="toc-number">1.2.</span> <span class="toc-text">线程 VS 进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多进程"><span class="toc-number">1.3.</span> <span class="toc-text">多进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP协议：如何保证页面文件能被完整送达浏览器？"><span class="toc-number">2.</span> <span class="toc-text">TCP协议：如何保证页面文件能被完整送达浏览器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP请求流程：为什么很多站点第二次打开速度会很快？"><span class="toc-number">3.</span> <span class="toc-text">HTTP请求流程：为什么很多站点第二次打开速度会很快？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器端发起-HTTP-请求流程"><span class="toc-number">3.1.</span> <span class="toc-text">浏览器端发起 HTTP 请求流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器端处理-HTTP-请求流程"><span class="toc-number">3.2.</span> <span class="toc-text">服务器端处理 HTTP 请求流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么很多站点第二次打开速度会很快？"><span class="toc-number">3.3.</span> <span class="toc-text">为什么很多站点第二次打开速度会很快？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#登录状态是如何保持的？"><span class="toc-number">3.4.</span> <span class="toc-text">登录状态是如何保持的？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导航流程：从输入URL到页面展示，这中间发生了什么？"><span class="toc-number">4.</span> <span class="toc-text">导航流程：从输入URL到页面展示，这中间发生了什么？</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -365,7 +487,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/browser/">浏览器原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/vue/">vue进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/core/">核心进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/module_webpack/">模块化/webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/yeoman/">脚手架/yeoman/gulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_one/">知识点一</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_four/">知识点四</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_five/">知识点五</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_two/">知识点二</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/question/">知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/question_three/">知识点三</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记（旧）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/browser/">浏览器工作原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/vue/">vue进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/core/">核心进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/module_webpack/">模块化/webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/yeoman/">脚手架/yeoman/gulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_four/">知识点四</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_one/">知识点一</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_five/">知识点五</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_two/">知识点二</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/question/">知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/question_three/">知识点三</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记（旧）</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
