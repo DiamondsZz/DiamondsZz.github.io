@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="DiamondsZz">
 <meta property="og:description" content="时势与英雄：HTTP的前世今生创世纪 URI：即统一资源标识符，作为互联网上资源的唯一身份； HTML：即超文本标记语言，描述超文本文档； HTTP：即超文本传输协议，用来传输超文本。 这三项技术在如今的我们看来已经是稀松平常，但在当时却是了不得的大发明。基于它们，就可以把超文本系统完美地运行在互联网上，让各地的人们能够自由地共享信息，蒂姆把这个系统称为“万维网”（World Wide Web），">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-29T14:07:59.898Z">
+<meta property="og:updated_time" content="2021-05-10T12:57:48.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http协议">
 <meta name="twitter:description" content="时势与英雄：HTTP的前世今生创世纪 URI：即统一资源标识符，作为互联网上资源的唯一身份； HTML：即超文本标记语言，描述超文本文档； HTTP：即超文本传输协议，用来传输超文本。 这三项技术在如今的我们看来已经是稀松平常，但在当时却是了不得的大发明。基于它们，就可以把超文本系统完美地运行在互联网上，让各地的人们能够自由地共享信息，蒂姆把这个系统称为“万维网”（World Wide Web），">
@@ -269,7 +269,64 @@
 <ul>
 <li>2018 年，互联网标准化组织 IETF 提议将“HTTP over QUIC”更名为“HTTP/3”并获得批准，HTTP/3 正式进入了标准化制订阶段，也许两三年后就会正式发布，到时候我们很可能会跳过 HTTP/2 直接进入 HTTP/3。</li>
 </ul>
-<h2 id="HTTP是什么？HTTP又不是什么？"><a href="#HTTP是什么？HTTP又不是什么？" class="headerlink" title="HTTP是什么？HTTP又不是什么？"></a>HTTP是什么？HTTP又不是什么？</h2>
+<h2 id="HTTP是什么？HTTP又不是什么？"><a href="#HTTP是什么？HTTP又不是什么？" class="headerlink" title="HTTP是什么？HTTP又不是什么？"></a>HTTP是什么？HTTP又不是什么？</h2><ul>
+<li>HTTP 是一个用在计算机世界里的协议，它确立了一种计算机之间交流通信的规范，以及相关的各种控制和错误处理方式。</li>
+<li>HTTP 专门用来在两点之间传输数据，不能用于广播、寻址或路由</li>
+<li>HTTP 传输的是文字、图片、音频、视频等超文本数据。</li>
+<li>HTTP 是构建互联网的重要基础技术，它没有实体，依赖许多其他的技术来实现，但同时许多技术也都依赖于它。</li>
+</ul>
+<h2 id="HTTP世界全览（上）：与HTTP相关的各种概念"><a href="#HTTP世界全览（上）：与HTTP相关的各种概念" class="headerlink" title="HTTP世界全览（上）：与HTTP相关的各种概念"></a>HTTP世界全览（上）：与HTTP相关的各种概念</h2><h3 id="网络世界"><a href="#网络世界" class="headerlink" title="网络世界"></a>网络世界</h3><ul>
+<li>互联网的正式名称是 Internet，里面存储着无穷无尽的信息资源，我们通常所说的“上网”实际上访问的只是互联网的一个子集“万维网”（World Wide Web），它基于 HTTP 协议，传输 HTML 等超文本资源，能力也就被限制在 HTTP 协议之内。</li>
+<li>互联网上还有许多万维网之外的资源，例如常用的电子邮件、BT 和 Magnet 点对点下载、FTP 文件下载、SSH 安全登录、各种即时通信服务等等，它们需要用各自的专有协议来访问。</li>
+<li>不过由于 HTTP 协议非常灵活、易于扩展，而且“超文本”的表述能力很强，所以很多其他原本不属于 HTTP 的资源也可以“包装”成 HTTP 来访问，这就是我们为什么能够总看到各种“网页应用”——例如“微信网页版”“邮箱网页版”——的原因。<h3 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h3></li>
+<li>常见的浏览器有 Google 的 Chrome、Mozilla 的 Firefox、Apple 的 Safari、Microsoft 的 IE 和 Edge，还有小众的 Opera 以及国内的各种“换壳”的“极速”“安全”浏览器。</li>
+<li>浏览器本质上是一个 HTTP 协议中的请求方，使用 HTTP 协议获取网络上的各种资源。当然，为了让我们更好地检索查看网页，它还集成了很多额外的功能。</li>
+<li>在 HTTP 协议里，浏览器的角色被称为“User Agent”即“用户代理”，意思是作为访问者的“代理”来发起 HTTP 请求。不过在不引起混淆的情况下，我们通常都简单地称之为“客户端”。<h3 id="Web-服务器"><a href="#Web-服务器" class="headerlink" title="Web 服务器"></a>Web 服务器</h3></li>
+<li>比起层出不穷的各种 Web 浏览器，Web 服务器就要少很多了，一只手的手指头就可以数得过来。</li>
+</ul>
+<ol>
+<li>Apache 是老牌的服务器，到今天已经快 25 年了，功能相当完善，相关的资料很多，学习门槛低，是许多创业者建站的入门产品。</li>
+<li>Nginx 是 Web 服务器里的后起之秀，特点是高性能、高稳定，且易于扩展。自 2004 年推出后就不断蚕食 Apache 的市场份额，在高流量的网站里更是不二之选。</li>
+<li>此外，还有 Windows 上的 IIS、Java 的 Jetty/Tomcat 等，因为性能不是很高，所以在互联网上应用得较少。</li>
+</ol>
+<ul>
+<li>当我们谈到“Web 服务器”时有两个层面的含义：硬件和软件。</li>
+</ul>
+<ol>
+<li>硬件含义就是物理形式或“云”形式的机器，在大多数情况下它可能不是一台服务器，而是利用反向代理、负载均衡等技术组成的庞大集群。但从外界看来，它仍然表现为一台机器，但这个形象是“虚拟的”。</li>
+<li>软件含义的 Web 服务器可能我们更为关心，它就是提供 Web 服务的应用程序，通常会运行在硬件含义的服务器上。它利用强大的硬件能力响应海量的客户端 HTTP 请求，处理磁盘上的网页、图片等静态文件，或者把请求转发给后面的 Tomcat、Node.js 等业务应用，返回动态的信息。<h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3></li>
+</ol>
+<ul>
+<li>浏览器通常不会直接连到服务器，中间会经过“重重关卡”，其中的一个重要角色就叫做 CDN。</li>
+<li>CDN，全称是“Content Delivery Network”，翻译过来就是“内容分发网络”。它应用了 HTTP 协议里的缓存和代理技术，代替源站响应客户端的请求。</li>
+<li>简单来说，它可以缓存源站的数据，让浏览器的请求不用“千里迢迢”地到达源站服务器，直接在“半路”就可以获取响应。如果 CDN 的调度算法很优秀，更可以找到离用户最近的节点，大幅度缩短响应时间。</li>
+<li>CDN 也是现在互联网中的一项重要基础设施，除了基本的网络加速外，还提供负载均衡、安全防护、边缘计算、跨运营商网络等功能，能够成倍地“放大”源站服务器的服务能力，很多云服务商都把 CDN 作为产品的一部分<h3 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h3></li>
+<li>HTTP 协议并没有规定用户代理后面必须是“真正的人类”，它也完全可以是“机器人”，这些“机器人”的正式名称就叫做“爬虫”（Crawler），实际上是一种可以自动访问 Web 资源的应用程序。</li>
+<li>爬虫绝大多数是由各大搜索引擎“放”出来的，抓取网页存入庞大的数据库，再建立关键字索引，这样我们才能够在搜索引擎中快速地搜索到互联网角落里的页面。</li>
+<li>爬虫也有不好的一面，它会过度消耗网络资源，占用服务器和带宽，影响网站对真实数据的分析，甚至导致敏感信息泄漏。所以，又出现了“反爬虫”技术，通过各种手段来限制爬虫。其中一项就是“君子协定”robots.txt，约定哪些该爬，哪些不该爬。</li>
+</ul>
+<h3 id="HTML-WebService-WAF"><a href="#HTML-WebService-WAF" class="headerlink" title="HTML/WebService/WAF"></a>HTML/WebService/WAF</h3><ul>
+<li>HTML 是 HTTP 协议传输的主要内容之一，它描述了超文本页面，用各种“标签”定义文字、图片等资源和排版布局，最终由浏览器“渲染”出可视化页面。</li>
+<li>Web  Service 是一种由 W3C 定义的应用服务开发规范，使用 client-server 主从架构，通常使用 WSDL 定义服务接口，使用 HTTP 协议传输 XML 或 SOAP 消息，也就是说，它是一个基于 Web（HTTP）的服务架构技术，既可以运行在内网，也可以在适当保护后运行在外网。因为采用了 HTTP 协议传输数据，所以在 Web  Service 架构里服务器和客户端可以采用不同的操作系统或编程语言开发。例如服务器端用 Linux+Java，客户端用 Windows+C#，具有跨平台跨语言的优点。</li>
+<li>WAF 是近几年比较“火”的一个词，意思是“网络应用防火墙”。与硬件“防火墙”类似，它是应用层面的“防火墙”，专门检测 HTTP 流量，是防护 Web 应用的安全技术。WAF 通常位于 Web 服务器之前，可以阻止如 SQL 注入、跨站脚本等攻击，目前应用较多的一个开源项目是 ModSecurity，它能够完全集成进 Apache 或 Nginx。</li>
+</ul>
+<h2 id="HTTP世界全览（下）：与HTTP相关的各种协议"><a href="#HTTP世界全览（下）：与HTTP相关的各种协议" class="headerlink" title="HTTP世界全览（下）：与HTTP相关的各种协议"></a>HTTP世界全览（下）：与HTTP相关的各种协议</h2><h3 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h3><ul>
+<li>TCP/IP 协议实际上是一系列网络通信协议的统称，其中最核心的两个协议是 TCP 和 IP，其他的还有 UDP、ICMP、ARP 等等，共同构成了一个复杂但有层次的协议栈。</li>
+<li>这个协议栈有四层，最上层是“应用层”，最下层是“链接层”，TCP 和 IP 则在中间：TCP 属于“传输层”，IP 属于“网际层”。</li>
+<li>IP 协议是“Internet Protocol”的缩写，主要目的是解决寻址和路由问题，以及如何在两点间传送数据包。IP 协议使用“IP 地址”的概念来定位互联网上的每一台计算机。</li>
+<li>现在我们使用的 IP 协议大多数是 v4 版，地址是四个用“.”分隔的数字，例如“192.168.0.1”，总共有 2^32，大约 42 亿个可以分配的地址。看上去好像很多，但互联网的快速发展让地址的分配管理很快就“捉襟见肘”。所以，就又出现了 v6 版，使用 8 组“:”分隔的数字作为地址，容量扩大了很多，有 2^128 个，在未来的几十年里应该是足够用了。</li>
+<li>TCP 协议是“Transmission Control Protocol”的缩写，意思是“传输控制协议”，它位于 IP 协议之上，基于 IP 协议提供可靠的、字节流形式的通信，是 HTTP 协议得以实现的基础。</li>
+<li>“可靠”是指保证数据不丢失，“字节流”是指保证数据完整，所以在 TCP 协议的两端可以如同操作文件一样访问传输的数据，就像是读写在一个密闭的管道里“流动”的字节。</li>
+<li>HTTP 是一个”传输协议”，但它不关心寻址、路由、数据完整性等传输细节，而要求这些工作都由下层来处理。因为互联网上最流行的是 TCP/IP 协议，而它刚好满足 HTTP 的要求，所以互联网上的 HTTP 协议就运行在了 TCP/IP 上，HTTP 也就可以更准确地称为“HTTP over TCP/IP”。<h3 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h3></li>
+<li>在 DNS 中，“域名”（Domain Name）又称为“主机名”（Host），为了更好地标记不同国家或组织的主机，让名字更好记，所以被设计成了一个有层次的结构。</li>
+<li>域名用“.”分隔成多个单词，级别从左到右逐级升高，最右边的被称为“顶级域名”。对于顶级域名，可能你随口就能说出几个，例如表示商业公司的“com”、表示教育机构的“edu”，表示国家的“cn”“uk”等，买火车票时的域名还记得吗？是“<a href="http://www.12306.cn”。" target="_blank" rel="noopener">www.12306.cn”。</a></li>
+<li>想要使用 TCP/IP 协议来通信仍然要使用 IP 地址，所以需要把域名做一个转换，“映射”到它的真实 IP，这就是所谓的“域名解析”。</li>
+<li>目前全世界有 13 组根 DNS 服务器，下面再有许多的顶级 DNS、权威 DNS 和更小的本地 DNS，逐层递归地实现域名查询。<h3 id="URI-URL"><a href="#URI-URL" class="headerlink" title="URI/URL"></a>URI/URL</h3></li>
+<li>URI（Uniform Resource Identifier），中文名称是 统一资源标识符，使用它就能够唯一地标记互联网上资源。</li>
+<li>URI 另一个更常用的表现形式是 URL（Uniform Resource Locator）， 统一资源定位符，也就是我们俗称的“网址”，它实际上是 URI 的一个子集，不过因为这两者几乎是相同的，差异不大，所以通常不会做严格的区分。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">http://nginx.org/en/download.html</span><br><span class="line">URI 主要有三个基本的部分构成：</span><br><span class="line">1.协议名：即访问该资源应当使用的协议，在这里是“http”；</span><br><span class="line">2.主机名：即互联网上主机的标记，可以是域名或 IP 地址，在这里是“nginx.org”；</span><br><span class="line">3.路径：即资源在主机上的位置，使用“/”分隔多级目录，在这里是“/en/download.html”。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
     </div>
     
@@ -280,7 +337,7 @@
         <p><span>本文标题:</span><a href="/2021/04/25/http/">http协议</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
         <p><span>发布时间:</span>2021年04月25日</p>
-        <p><span>最后更新:</span>2021年04月29日 - 22时07分</p>    
+        <p><span>最后更新:</span>2021年05月10日 - 20时57分</p>    
     </div>
 
 
@@ -310,7 +367,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#时势与英雄：HTTP的前世今生"><span class="toc-number">1.</span> <span class="toc-text">时势与英雄：HTTP的前世今生</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创世纪"><span class="toc-number">1.1.</span> <span class="toc-text">创世纪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-0-9"><span class="toc-number">1.2.</span> <span class="toc-text">HTTP/0.9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-1-0"><span class="toc-number">1.3.</span> <span class="toc-text">HTTP/1.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-1-1"><span class="toc-number">1.4.</span> <span class="toc-text">HTTP/1.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-2"><span class="toc-number">1.5.</span> <span class="toc-text">HTTP/2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-3"><span class="toc-number">1.6.</span> <span class="toc-text">HTTP/3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP是什么？HTTP又不是什么？"><span class="toc-number">2.</span> <span class="toc-text">HTTP是什么？HTTP又不是什么？</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#时势与英雄：HTTP的前世今生"><span class="toc-number">1.</span> <span class="toc-text">时势与英雄：HTTP的前世今生</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创世纪"><span class="toc-number">1.1.</span> <span class="toc-text">创世纪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-0-9"><span class="toc-number">1.2.</span> <span class="toc-text">HTTP/0.9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-1-0"><span class="toc-number">1.3.</span> <span class="toc-text">HTTP/1.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-1-1"><span class="toc-number">1.4.</span> <span class="toc-text">HTTP/1.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-2"><span class="toc-number">1.5.</span> <span class="toc-text">HTTP/2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-3"><span class="toc-number">1.6.</span> <span class="toc-text">HTTP/3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP是什么？HTTP又不是什么？"><span class="toc-number">2.</span> <span class="toc-text">HTTP是什么？HTTP又不是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP世界全览（上）：与HTTP相关的各种概念"><span class="toc-number">3.</span> <span class="toc-text">HTTP世界全览（上）：与HTTP相关的各种概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络世界"><span class="toc-number">3.1.</span> <span class="toc-text">网络世界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器"><span class="toc-number">3.2.</span> <span class="toc-text">浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-服务器"><span class="toc-number">3.3.</span> <span class="toc-text">Web 服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CDN"><span class="toc-number">3.4.</span> <span class="toc-text">CDN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#爬虫"><span class="toc-number">3.5.</span> <span class="toc-text">爬虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-WebService-WAF"><span class="toc-number">3.6.</span> <span class="toc-text">HTML/WebService/WAF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP世界全览（下）：与HTTP相关的各种协议"><span class="toc-number">4.</span> <span class="toc-text">HTTP世界全览（下）：与HTTP相关的各种协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP"><span class="toc-number">4.1.</span> <span class="toc-text">TCP/IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS"><span class="toc-number">4.2.</span> <span class="toc-text">DNS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#URI-URL"><span class="toc-number">4.3.</span> <span class="toc-text">URI/URL</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -370,7 +427,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/05/01/performance/">performance</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/25/http/">http协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/vue/">vue进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/core/">核心进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/browser/">浏览器工作原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/module_webpack/">模块化/webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/yeoman/">脚手架/yeoman/gulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_four/">知识点四</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_five/">知识点五</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_two/">知识点二</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_one/">知识点一</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/question/">知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/question_three/">知识点三</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记（旧）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/05/01/performance/">performance</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/25/http/">http协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/29/algorithm/">算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/vue/">vue进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/core/">核心进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/browser/">浏览器工作原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/module_webpack/">模块化/webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/yeoman/">脚手架/yeoman/gulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_five/">知识点五</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_four/">知识点四</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_one/">知识点一</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/10/question_two/">知识点二</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/question/">知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/24/question_three/">知识点三</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/30/bug/">遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/store/">杂货铺</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记（旧）</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
