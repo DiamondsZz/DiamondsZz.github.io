@@ -185,6 +185,71 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-optimize" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/08/01/optimize/" class="article-date">
+      <time datetime="2021-07-31T16:00:00.000Z" itemprop="datePublished">2021-08-01</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/01/optimize/">前端性能优化</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/学习/">学习</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站/">网站</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源/">资源</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-test" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -4832,163 +4897,6 @@
 <h3 id="数字证书链"><a href="#数字证书链" class="headerlink" title="数字证书链"></a>数字证书链</h3><ul>
 <li>将颁发证书的机构划分为两种类型，根 CA(Root CAs)和中间 CA(Intermediates CAs)，通常申请者都是向中间 CA 去申请证书的，而根 CA 作用就是给中间 CA 做认证，一个根 CA 会认证很多中间的 CA，而这些中间 CA 又可以去认证其他的中间 CA。<h3 id="如何验证根证书的合法性"><a href="#如何验证根证书的合法性" class="headerlink" title="如何验证根证书的合法性"></a>如何验证根证书的合法性</h3></li>
 <li>其实浏览器的判断策略很简单，它只是简单地判断这个根证书在不在操作系统里面，如果在，那么浏览器就认为这个根证书是合法的，如果不在，那么就是非法的。</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/学习/">学习</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站/">网站</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源/">资源</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-module_webpack" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/03/08/module_webpack/" class="article-date">
-      <time datetime="2021-03-07T16:00:00.000Z" itemprop="datePublished">2021-03-08</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/08/module_webpack/">模块化/webpack</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="ES-Modules"><a href="#ES-Modules" class="headerlink" title="ES Modules"></a>ES Modules</h2><p>1.自动采用严格模式（use strict）<br>2.每个ESM模块都是单独的私有作用域<br>3.ESM模块通过CORS（跨域资源共享）去请求外部js模块<br>4.ESM的script标签会延迟脚本的执行</p>
-<h2 id="url-loader、file-loader"><a href="#url-loader、file-loader" class="headerlink" title="url-loader、file-loader"></a>url-loader、file-loader</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">url-loader  小文件使用Data URLs,减少请求次数</span><br><span class="line">file-loader 大文件单独提取存放，提高加载速度</span><br><span class="line">&#123;</span><br><span class="line">  test:/.png$/,</span><br><span class="line">  use:&#123;</span><br><span class="line">    loader:&quot;url-loader&quot;,</span><br><span class="line">	options:&#123;</span><br><span class="line">	   limit:10*1024,//10kb以下使用url-loader,10kb以上使用file-loader</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="css-loader、style-loader"><a href="#css-loader、style-loader" class="headerlink" title="css-loader、style-loader"></a>css-loader、style-loader</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">css-loader 将css代码转换成js模块</span><br><span class="line">style-loader 将css代码通过style标签插入html当中</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"> test:/.css$/,</span><br><span class="line"> use:[&apos;style-loader&apos;,&apos;css-loader&apos;]  //由后往前加载loader</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="html-loader"><a href="#html-loader" class="headerlink" title="html-loader"></a>html-loader</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> test:/.html$/,</span><br><span class="line"> use:&#123;</span><br><span class="line">  loader:&apos;html-loader&apos;,</span><br><span class="line">  options:&#123;</span><br><span class="line">     attrs:[&apos;img:src&apos;,&apos;a:href&apos;]  //默认只处理img标签src属性</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><ul>
-<li>专注实现资源模块加载，实现项目打包</li>
-<li>加载过程类似于管道，可以依次使用多个loader，最终结果必须是js代码。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">module:&#123;</span><br><span class="line">rules:[</span><br><span class="line">   &#123;</span><br><span class="line">   test:/.md$/,</span><br><span class="line">   use:&apos;./markdown-loader&apos;  //可以是模块路径或模块名称</span><br><span class="line">   &#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//自定义loader  处理md文件</span><br><span class="line">const marked=reuqire(&apos;marked&apos;)</span><br><span class="line">module.exports=source=&gt;&#123;</span><br><span class="line"> const html = marked(source)</span><br><span class="line"> return  `export default $&#123;JSON.stringify(html)&#125;`   //最终输出结果必须是js代码 。   可以返回html，交给html-loader继续处理</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<ul>
-<li>编译转换类：将资源模块转换为js代码。   //<code>css-loader</code>:将css代码转换成js模块</li>
-<li>文件操作类：将资源模块拷贝到输出目录，向外到处文件的访问路径   //<code>file-loader</code></li>
-<li>代码检查类：对资源模块进行校验   //<code>eslint-loader</code></li>
-</ul>
-<h2 id="plugin"><a href="#plugin" class="headerlink" title="plugin"></a>plugin</h2><ul>
-<li>增强webpack自动化能力，实现大多前端工程化 //清除dist目录插件、拷贝不需要参与打包的静态资源文件到输出目录、压缩输出代码等</li>
-<li>拥有更宽的能力范围，通过钩子机制实现</li>
-<li>必须是一个函数或者包含<code>apply</code>方法的对象,通过在生命周期的钩子中挂载函数实现扩展</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//自定义插件</span><br><span class="line">class MyPlugin&#123;</span><br><span class="line"></span><br><span class="line"> //webpack启动时自动调用</span><br><span class="line"> apply(compiler)&#123;</span><br><span class="line">  compiler.hooks.emit.tap(&apos;MyPlugin&apos;,compilation=&gt;&#123;</span><br><span class="line">    //compilation  //打包上下文</span><br><span class="line">	//compilation.assets   //打包的资源文件 (对象)</span><br><span class="line">	//compilation.assets[&apos;文件名&apos;].source()  //资源文件内容</span><br><span class="line">	</span><br><span class="line">	compilation.assets[&apos;文件名&apos;]=&#123;</span><br><span class="line">	 source:()=&gt; 返回更改的文件内容，</span><br><span class="line">	 size:()=&gt;返回文件的大小</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;)</span><br><span class="line"> </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">const &#123;CleanWebpackPlugin&#125;  from &apos;clean-webpack-plugin&apos; //自动清除输出目录 </span><br><span class="line">const HtmlWebpackPlugin  from &apos;html-webpack-plugin&apos; //自动生成html </span><br><span class="line">const CopyWebpackPlugin  from &apos;copy-webpack-plugin&apos; //拷贝不需要打包静态资源到输出目录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plugins:[ </span><br><span class="line">new CleanWebpackPlugin(),</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//index.html</span><br><span class="line">new HtmlWebpackPlugin(</span><br><span class="line">&#123;</span><br><span class="line">  title:&apos;diamonds&apos;,   //设置生成html的title属性</span><br><span class="line">  meta:&#123;</span><br><span class="line">   viewport:&apos;width=device-width&apos;</span><br><span class="line">  &#125;，</span><br><span class="line">  template:&apos;./src/index.html&apos;   //html使用的模板</span><br><span class="line">&#125;),</span><br><span class="line"></span><br><span class="line">//about.html</span><br><span class="line">new HtmlWebpackPlugin(</span><br><span class="line">&#123;</span><br><span class="line">  filename:&apos;about.html&apos;  //输出的文件名  默认是index.html</span><br><span class="line">&#125;),</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//生产阶段使用</span><br><span class="line">new CopyWebpackPlugin([&apos;public&apos;]),  //将public目录下资源拷贝到输出目录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h2 id="mode"><a href="#mode" class="headerlink" title="mode"></a>mode</h2><p>//工作模式  默认production</p>
-<ul>
-<li>production  //优化打包结果      代码压缩等</li>
-<li>development  //优化打包速度，增加辅助函数便于调试</li>
-<li>none   //不做处理</li>
-</ul>
-<h2 id="–watch"><a href="#–watch" class="headerlink" title="–watch"></a>–watch</h2><p> //监听  自动编译</p>
-<h2 id="browser-sync"><a href="#browser-sync" class="headerlink" title="browser-sync"></a>browser-sync</h2><p>//实现浏览器自动刷新</p>
-<p><code>browser-sync 文件目录  --files  &#39;**/*&#39;</code>   //启动并监听文件改变</p>
-<h2 id="webapck-dev-server"><a href="#webapck-dev-server" class="headerlink" title="webapck-dev-server"></a>webapck-dev-server</h2><p>//集成自动编译、自动刷新功能</p>
-<h2 id="devServer"><a href="#devServer" class="headerlink" title="devServer"></a>devServer</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//webpack-dev-server 配置选项</span><br><span class="line">devServer:&#123;</span><br><span class="line">  contentBase:&apos;&apos; , //额外为开发服务器指定查找资源目录</span><br><span class="line">  //代理服务配置</span><br><span class="line">  proxy:&#123;</span><br><span class="line">    //前缀</span><br><span class="line">    &apos;/api&apos;:&#123;</span><br><span class="line">	   //代理请求目标  http://localhost:8080/api/users -&gt; https://api.github.com/api/users</span><br><span class="line">	  target:&apos;https://api.github.com&apos;,</span><br><span class="line">	  //路径重写</span><br><span class="line">	  pathRewrite:&#123;</span><br><span class="line">	  &apos;^/api&apos;:&apos;&apos;   // https://api.github.com/users</span><br><span class="line">	  &#125;,</span><br><span class="line">	  //改变请求源</span><br><span class="line">	  changeOrigin:true</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="devtool"><a href="#devtool" class="headerlink" title="devtool"></a>devtool</h2><p>(build初次构建速度、rebuild监视模式重新打包速度、production是否适合在生产环境中使用、quality质量)     </p>
-<ul>
-<li><code>source-map</code></li>
-<li><code>eval</code>  //通过<code>sourceURL</code>描述对应模块文件的资源路径   不生成对应的<code>sourceMap</code>,只能定位到错误出现的具体文件  构建速度快</li>
-<li><code>cheap-eveal-source-map</code>   阉割版  生成的<code>sourceMap</code>只能定位到错误具体行，没有列的信息</li>
-<li><code>cheap-module-eveal-source-map</code>   解析出来的源代码没有经过对应的loader加工，与手写时候的代码一样  一般开发环境使用多</li>
-<li><code>inline-source-map</code> 通过<code>DataURL</code>方式将<code>sourceMap</code>嵌入到代码当中，<code>eval-source-map</code>也是</li>
-<li><code>hidden-source-map</code> 代码当中没有通过注释方式引入<code>sourceMap</code></li>
-<li><code>nosources-source-map</code> 能看到错误出现行列信息，但看不到源代码   生产环境不会暴露源代码</li>
-<li><code>none</code>  推荐生产环境使用</li>
-</ul>
-<h2 id="HMR-热更新"><a href="#HMR-热更新" class="headerlink" title="HMR  热更新"></a><code>HMR</code>  热更新</h2><ul>
-<li>应用运行过程中实时替换某个模块，应用运行状态不受影响</li>
-<li>不刷新页面情况下，及时更新模块</li>
-<li>提高开发效率</li>
-<li>集成在<code>webpack-dev-server</code> 中  </li>
-<li>使用方式：<code>webpack-dev-server --hot</code>  或 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">style-loader自动处理样式文件的热更新  js模块热更新需要手动处理</span><br><span class="line">const webpack=require(&apos;webpack&apos;)</span><br><span class="line">devServer:&#123;</span><br><span class="line">  hot:true  //热替换失败，自动刷新浏览器      hotOnly取消浏览器自动刷新</span><br><span class="line">&#125;,</span><br><span class="line">plugins:[</span><br><span class="line">  //module.hot</span><br><span class="line">  new webpack.HotModuleReplacementPlugin()</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">------------------</span><br><span class="line"></span><br><span class="line">注册模块更新后的处理函数</span><br><span class="line">//打包后代码会被自动移除，不会影响生产环境</span><br><span class="line">if(module.hot)&#123;</span><br><span class="line">module.hot.accept(&apos;模块路径&apos;,()=&gt;&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h2><p><code>webpack --env production</code>  //生产模式打包<br><code>webpack --config webpack.prod.js</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.exports=(env,argv)=&gt;&#123;&#125;</span><br><span class="line">if(env===&apos;production&apos;)&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">------------------</span><br><span class="line"></span><br><span class="line">const merge=require(&apos;webpack-merge&apos;)//合并webpack配置文件</span><br></pre></td></tr></table></figure>
-<h2 id="definePlugin"><a href="#definePlugin" class="headerlink" title="definePlugin"></a>definePlugin</h2><ul>
-<li>为代码注入全局成员</li>
-<li><code>production</code>模式下默认启动，并注入<code>process.env.NODE_ENV</code>变量</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const webpack =reuqire(&apos;webpack&apos;)</span><br><span class="line"></span><br><span class="line">plugins:[</span><br><span class="line"></span><br><span class="line">//注入全局变量</span><br><span class="line"> new webpack.DefinePlugin(&#123;</span><br><span class="line">    API_BASE_URL:&apos;&quot;&quot;&apos; //代码片段  可以通过JSON.stringify()传递变量</span><br><span class="line"> &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h2 id="tree-shaking-基于ES-Modules"><a href="#tree-shaking-基于ES-Modules" class="headerlink" title="tree-shaking  (基于ES Modules)"></a>tree-shaking  (基于ES Modules)</h2><ul>
-<li>移除为引用代码</li>
-<li>生产模式下自动开启</li>
-<li>由Webpack打包的代码必须使用ESM</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//优化选项</span><br><span class="line">optimization:&#123;</span><br><span class="line">  usedExports:true,   //只导出外部使用过的成员</span><br><span class="line">  minimize:true, //代码压缩</span><br><span class="line">  concatenateModules:true  // `ScopeHoisting`作用域提升）   尽可能将所有模块合并在一起，提高运行效率，减少代码体积 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="babel-loader-与-tree-shaking"><a href="#babel-loader-与-tree-shaking" class="headerlink" title="babel-loader 与 tree-shaking"></a>babel-loader 与 tree-shaking</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">module:[</span><br><span class="line">  &#123;</span><br><span class="line">  test:/\.js$/,</span><br><span class="line">  use:&#123;</span><br><span class="line">    loader:&apos;babel-loader&apos;,</span><br><span class="line">	options:&#123;</span><br><span class="line">	 presets:[[&apos;@babel/preset-env&apos;],&#123;</span><br><span class="line">	  modules:&apos;commonjs&apos;   //默认是auto 根据环境判断是否开启ES Module插件</span><br><span class="line">	 &#125;]  //</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h2 id="sideEffects"><a href="#sideEffects" class="headerlink" title="sideEffects"></a>sideEffects</h2><p>//副作用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">optimization:&#123;</span><br><span class="line">   //production模式下会自动开启  为tree-shaking提供更大的压缩空间   （使用前应确保代码真的没有副作用。 副作用：模块执行时除了导出成员外所做的其它的事情	）</span><br><span class="line">  sideEffects:true//   webpack会先检查当前项目的package.json当中是否有sideEffects字段 ,  sideEffects:false表示没有副作用，也可是数组 sideEffects:[&apos;*.css&apos;]  表示有副作用的模块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="code-splitting"><a href="#code-splitting" class="headerlink" title="code splitting"></a>code splitting</h2><p>//代码分割 按需加载</p>
-<ul>
-<li>多入口打包</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">entry:&#123;</span><br><span class="line">   index:&apos;&apos;,</span><br><span class="line">   main:&apos;&apos;</span><br><span class="line">&#125;,</span><br><span class="line">output:&#123;</span><br><span class="line">  //动态生成</span><br><span class="line">   filename:&apos;[name].bundle.js&apos;</span><br><span class="line">&#125;,</span><br><span class="line">plugins:[</span><br><span class="line"></span><br><span class="line">    //默认生成自动注入所有打包结果的html，可以通过chunks属性为生成的html指定所需要的bundle</span><br><span class="line">   new HtmlWebpackPlugin(&#123;</span><br><span class="line">     title:&apos;&apos;,</span><br><span class="line">	 template:&apos;./src/index.html&apos;,</span><br><span class="line">	 filename:&apos;index.html&apos;,</span><br><span class="line">	 chunks:[&apos;index&apos;] </span><br><span class="line">   &#125;),</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">     title:&apos;&apos;,</span><br><span class="line">	 template:&apos;./src/main.html&apos;,</span><br><span class="line">	 filename:&apos;main.html&apos;,</span><br><span class="line">	 chunks:[&apos;main&apos;] </span><br><span class="line">   &#125;),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<ul>
-<li>ES Module 动态导入   </li>
-</ul>
-<p>//模块会被自动分包  可以通过魔法注释为生成的bundle文件设置名字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import (/* webpackChunkName:&apos;&apos; */ &apos;&apos;).then((&#123;default:module&#125;)=&gt;&#123;&#125;)   //相同的chunkName会被打包到一起</span><br></pre></td></tr></table></figure>
-<ul>
-<li>提取公共模块<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">optimization:&#123;</span><br><span class="line">  splitChunks:&#123;</span><br><span class="line">    chunks:&apos;all&apos;  // 会将所有的公共模块提取到单独的bundle当中</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="mini-css-extract-plugin"><a href="#mini-css-extract-plugin" class="headerlink" title="mini-css-extract-plugin"></a>mini-css-extract-plugin</h2><p>//（css文件超过150kb时可以考虑单独提取）  样式会单独存放在文件当中，不在需要style标签引入（style-loader）,通过link标签方式注入样式文件  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">module:&#123;</span><br><span class="line">   rules:[</span><br><span class="line">   &#123;</span><br><span class="line">   test:/\.css$/,</span><br><span class="line">   use:[</span><br><span class="line">   MiniCssExtractPlugin.loader,  //通过link标签引入样式文件</span><br><span class="line">   &apos;css-loader&apos;</span><br><span class="line">   ] </span><br><span class="line">   &#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="optimize-css-assets-webpack-plugin"><a href="#optimize-css-assets-webpack-plugin" class="headerlink" title="optimize-css-assets-webpack-plugin"></a>optimize-css-assets-webpack-plugin</h2><p> //压缩css文件   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">optimization:&#123;         </span><br><span class="line">  //webpack默认压缩js代码</span><br><span class="line">  //production模式自动开启</span><br><span class="line">  //自动压缩插件</span><br><span class="line">  minimizer:[</span><br><span class="line">   new OptimizeCssAssetsWebpackPlugin()</span><br><span class="line">   new TerserWebpackPlugin()   //压缩js代码</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="输出文件名-Hash"><a href="#输出文件名-Hash" class="headerlink" title="输出文件名 Hash"></a>输出文件名 Hash</h2><ul>
-<li>filename:’[name]-[hash].bundle.css’  //项目任一文件发生改变，hash值都会改变</li>
-<li>filename:’[name]-[chunkhash].bundle.css’  //chunk级别</li>
-<li>filename:’[name]-[contenthash:8].bundle.css’  //单个文件级别</li>
 </ul>
 
       
