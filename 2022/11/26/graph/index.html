@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
+  
+  
+  
+  
+  <title>可视化 | DiamondsZz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="图形基础篇浏览器中实现可视化的四种方式 传统的 HTML+CSS。这种方式通常用来呈现普通的 Web 网页。 SVG 和传统的 HTML+CSS 的绘图方式差别不大。只不过，HTML 元素在绘制矢量图形方面的能力有些不足，而 SVG 恰好弥补了这方面的缺陷。 Canvas2D。这是浏览器提供的 Canvas API 中的其中一种上下文，使用它可以非常方便地绘制出基础的几何图形。在可视化中，Canv">
+<meta name="keywords" content="学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可视化">
+<meta property="og:url" content="https://DiamondsZz.github.io/2022/11/26/graph/index.html">
+<meta property="og:site_name" content="DiamondsZz">
+<meta property="og:description" content="图形基础篇浏览器中实现可视化的四种方式 传统的 HTML+CSS。这种方式通常用来呈现普通的 Web 网页。 SVG 和传统的 HTML+CSS 的绘图方式差别不大。只不过，HTML 元素在绘制矢量图形方面的能力有些不足，而 SVG 恰好弥补了这方面的缺陷。 Canvas2D。这是浏览器提供的 Canvas API 中的其中一种上下文，使用它可以非常方便地绘制出基础的几何图形。在可视化中，Canv">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2022-11-26T15:30:23.729Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="可视化">
+<meta name="twitter:description" content="图形基础篇浏览器中实现可视化的四种方式 传统的 HTML+CSS。这种方式通常用来呈现普通的 Web 网页。 SVG 和传统的 HTML+CSS 的绘图方式差别不大。只不过，HTML 元素在绘制矢量图形方面的能力有些不足，而 SVG 恰好弥补了这方面的缺陷。 Canvas2D。这是浏览器提供的 Canvas API 中的其中一种上下文，使用它可以非常方便地绘制出基础的几何图形。在可视化中，Canv">
+  
+    <link rel="alternative" href="/atom.xml" title="DiamondsZz" type="application/atom+xml">
+  
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://www.unpkg.com/jquery@3.6.0/dist/jquery.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/iu.jpeg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">DiamondsZz</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">DiamondsZz</p>
+        
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/学习/" style="font-size: 20px;">学习</a> <a href="/tags/生活，心情/" style="font-size: 10px;">生活，心情</a> <a href="/tags/网站/" style="font-size: 17.5px;">网站</a> <a href="/tags/资源/" style="font-size: 17.5px;">资源</a>
+                    </div>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">矮穷矬!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">DiamondsZz</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/iu.jpeg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">DiamondsZz</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">DiamondsZz</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-graph" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/11/26/graph/" class="article-date">
+      <time datetime="2022-11-25T16:00:00.000Z" itemprop="datePublished">2022-11-26</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      可视化
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/学习/">学习</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="图形基础篇"><a href="#图形基础篇" class="headerlink" title="图形基础篇"></a>图形基础篇</h2><h3 id="浏览器中实现可视化的四种方式"><a href="#浏览器中实现可视化的四种方式" class="headerlink" title="浏览器中实现可视化的四种方式"></a>浏览器中实现可视化的四种方式</h3><ol>
+<li>传统的 HTML+CSS。这种方式通常用来呈现普通的 Web 网页。</li>
+<li>SVG 和传统的 HTML+CSS 的绘图方式差别不大。只不过，HTML 元素在绘制矢量图形方面的能力有些不足，而 SVG 恰好弥补了这方面的缺陷。</li>
+<li>Canvas2D。这是浏览器提供的 Canvas API 中的其中一种上下文，使用它可以非常方便地绘制出基础的几何图形。在可视化中，Canvas 比较常用。</li>
+<li>WebGL。这是浏览器提供的 Canvas API 中的另一种上下文，它是 OpenGL ES 规范在 Web 端的实现。我们可以通过它，用 GPU 渲染各种复杂的 2D 和 3D 图形。值得一提的是，WebGL 利用了 GPU 并行处理的特性，这让它在处理大量数据展现的时候，性能大大优于前 3 种绘图方式。因此，在可视化的应用中，一些数据量大、视觉效果要求高的特殊场景，使用 WebGL 渲染是一种比较合适的选择。</li>
+</ol>
+<h4 id="HTML-CSS"><a href="#HTML-CSS" class="headerlink" title="HTML+CSS"></a>HTML+CSS</h4><p>用 CSS 实现柱状图其实很简单，原理就是使用网格布局（Grid Layout）加上线性渐变（Linear-gradient）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">   dataset = &#123;</span><br><span class="line">     current: [15, 11, 17, 25, 37],</span><br><span class="line">     total: [25, 26, 40, 45, 68],</span><br><span class="line">   &#125;</span><br><span class="line"> */</span><br><span class="line">.bargraph &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  width: 150px;</span><br><span class="line">  height: 100px;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  transform: scaleY(3);</span><br><span class="line">  grid-template-columns: repeat(5, 20%);</span><br><span class="line">&#125;</span><br><span class="line">.bargraph div &#123;</span><br><span class="line">  margin: 0 2px;</span><br><span class="line">&#125;</span><br><span class="line">.bargraph div:nth-child(1) &#123;</span><br><span class="line"> background: linear-gradient(to bottom, transparent 75%, #37c 0, #37c 85%, #3c7 0);</span><br><span class="line">&#125;</span><br><span class="line">.bargraph div:nth-child(2) &#123;</span><br><span class="line"> background: linear-gradient(to bottom, transparent 74%, #37c 0, #37c 89%, #3c7 0);</span><br><span class="line">&#125;</span><br><span class="line">.bargraph div:nth-child(3) &#123;</span><br><span class="line"> background: linear-gradient(to bottom, transparent 60%, #37c 0, #37c 83%, #3c7 0);</span><br><span class="line">&#125;</span><br><span class="line">.bargraph div:nth-child(4) &#123;</span><br><span class="line"> background: linear-gradient(to bottom, transparent 55%, #37c 0, #37c 75%, #3c7 0);</span><br><span class="line">&#125;</span><br><span class="line">.bargraph div:nth-child(5) &#123;</span><br><span class="line"> background: linear-gradient(to bottom, transparent 32%, #37c 0, #37c 63%, #3c7 0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而要实现饼图，我们可以使用圆锥渐变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.piegraph &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  width: 250px;</span><br><span class="line">  height: 250px;</span><br><span class="line">  border-radius: 50%;</span><br><span class="line">  background-image: conic-gradient(#37c 30deg, #3c7 30deg, #3c7 65deg, orange 65deg, orange 110deg, #f73 110deg, #f73 200deg, #ccc 200deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以用高度很小的 Div 元素来模拟线段，然后用 transform 改变角度和位置，这样就能拼成折线图了。 另外，如果使用 clip-path 这样的高级属性，我们还能实现更复杂的图表，比如，用不同的颜色表示两个不同折线的面积。</p>
+<p>用 HTML+CSS 实现可视化的缺点:</p>
+<p>首先，HTML 和 CSS 主要还是为网页布局而创造的，使用它们虽然能绘制可视化图表，但是绘制的方式并不简洁。这是因为，从 CSS 代码里，我们很难看出数据与图形的对应关系，有很多换算也需要开发人员自己来做。这样一来，一旦图表或数据发生改动，就需要我们重新计算，维护起来会很麻烦。</p>
+<p>其次，HTML 和 CSS 作为浏览器渲染引擎的一部分，为了完成页面渲染的工作，除了绘制图形外，还要做很多额外的工作。比如说，浏览器的渲染引擎在工作时，要先解析 HTML、SVG、CSS，构建 DOM 树、RenderObject 树和 RenderLayer 树，然后用 HTML（或 SVG）绘图。当图形发生变化时，我们很可能要重新执行全部的工作，这样的性能开销是非常大的。</p>
+<p>因此，相比于 HTML 和 CSS，Canvas2D 和 WebGL 更适合去做可视化这一领域的绘图工作。它们的绘图 API 能够直接操作绘图上下文，一般不涉及引擎的其他部分，在重绘图像时，也不会发生重新解析文档和构建结构的过程，开销要小很多。</p>
+<h4 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h4><p>在介绍 Canvas2D 和 WebGL 之前，我们先来说一说 SVG。现代浏览器支持 SVG（Scalable Vector Graphics，可缩放矢量图），SVG 是一种基于 XML 语法的图像格式，可以用图片（img 元素）的 src 属性加载。而且，浏览器更强大的是，它还可以内嵌 SVG 标签，并且像操作普通的 HTML 元素一样，利用 DOM API 操作 SVG 元素。甚至，CSS 也可以作用于内嵌的 SVG 元素。</p>
+<p>比如，上面的柱状图，如果用 SVG 实现的话，我们可以用如下所示的代码来实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line">     dataset = &#123;</span><br><span class="line">       total: [25, 26, 40, 45, 68],</span><br><span class="line">       current: [15, 11, 17, 25, 37],</span><br><span class="line">     &#125;</span><br><span class="line"> --&gt;</span><br><span class="line"> &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;120px&quot; height=&quot;240px&quot; viewBox=&quot;0 0 60 100&quot;&gt;</span><br><span class="line">   &lt;g transform=&quot;translate(0, 100) scale(1, -1)&quot;&gt;</span><br><span class="line">     &lt;g&gt;</span><br><span class="line">       &lt;rect x=&quot;1&quot; y=&quot;0&quot; width=&quot;10&quot; height=&quot;25&quot; fill=&quot;#37c&quot;/&gt;</span><br><span class="line">       &lt;rect x=&quot;13&quot; y=&quot;0&quot; width=&quot;10&quot; height=&quot;26&quot; fill=&quot;#37c&quot;/&gt;</span><br><span class="line">       &lt;rect x=&quot;25&quot; y=&quot;0&quot; width=&quot;10&quot; height=&quot;40&quot; fill=&quot;#37c&quot;/&gt;</span><br><span class="line">       &lt;rect x=&quot;37&quot; y=&quot;0&quot; width=&quot;10&quot; height=&quot;45&quot; fill=&quot;#37c&quot;/&gt;</span><br><span class="line">       &lt;rect x=&quot;49&quot; y=&quot;0&quot; width=&quot;10&quot; height=&quot;68&quot; fill=&quot;#37c&quot;/&gt;</span><br><span class="line">     &lt;/g&gt;</span><br><span class="line">     &lt;g&gt;</span><br><span class="line">       &lt;rect x=&quot;1&quot; y=&quot;0&quot; width=&quot;10&quot; height=&quot;15&quot; fill=&quot;#3c7&quot;/&gt;</span><br><span class="line">       &lt;rect x=&quot;13&quot; y=&quot;0&quot; width=&quot;10&quot; height=&quot;11&quot; fill=&quot;#3c7&quot;/&gt;</span><br><span class="line">       &lt;rect x=&quot;25&quot; y=&quot;0&quot; width=&quot;10&quot; height=&quot;17&quot; fill=&quot;#3c7&quot;/&gt;</span><br><span class="line">       &lt;rect x=&quot;37&quot; y=&quot;0&quot; width=&quot;10&quot; height=&quot;25&quot; fill=&quot;#3c7&quot;/&gt;</span><br><span class="line">       &lt;rect x=&quot;49&quot; y=&quot;0&quot; width=&quot;10&quot; height=&quot;37&quot; fill=&quot;#3c7&quot;/&gt;</span><br><span class="line">     &lt;/g&gt;</span><br><span class="line">   &lt;/g&gt;</span><br><span class="line"> &lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+<p>HTML 的不足之处在于 HTML 元素的形状一般是矩形，虽然用 CSS 辅助，也能够绘制出各种其它形状的图形，甚至不规则图形，但是总体而言还是非常麻烦的。而 SVG 则弥补了这方面的不足，让不规则图形的绘制变得更简单了。因此，用 SVG 绘图比用 HTML 和 CSS 要便利得多。</p>
+<p>但是，SVG 图表也有缺点。在渲染引擎中，SVG 元素和 HTML 元素一样，在输出图形前都需要经过引擎的解析、布局计算和渲染树生成。而且，一个 SVG 元素只表示一种基本图形，如果展示的数据很复杂，生成图形的 SVG 元素就会很多。这样一来，大量的 SVG 元素不仅会占用很多内存空间，还会增加引擎、布局计算和渲染树生成的开销，降低性能，减慢渲染速度。这也就注定了 SVG 只适合应用于元素较少的简单可视化场景。</p>
+<h4 id="Canvas2D"><a href="#Canvas2D" class="headerlink" title="Canvas2D"></a>Canvas2D</h4><p>无论是使用 HTML/CSS 还是 SVG，它们都属于声明式绘图系统，也就是我们根据数据创建各种不同的图形元素（或者 CSS 规则），然后利用浏览器渲染引擎解析它们并渲染出来。但是 Canvas2D 不同，它是浏览器提供的一种可以直接用代码在一块平面的“画布”上绘制图形的 API，使用它来绘图更像是传统的“编写代码”，简单来说就是调用绘图指令，然后引擎直接在页面上绘制图形。这是一种指令式的绘图系统。</p>
+<p>那 Canvas 到底是怎么绘制可视化图表的呢？我们一起来看。</p>
+<p>首先，Canvas 元素在浏览器上创造一个空白的画布，通过提供渲染上下文，赋予我们绘制内容的能力。然后，我们只需要调用渲染上下文，设置各种属性，然后调用绘图指令完成输出，就能在画布上呈现各种各样的图形了。</p>
+<p>为了实现更加复杂的效果，Canvas 还提供了非常丰富的设置和绘图 API，我们可以通过操作上下文，来改变填充和描边颜色，对画布进行几何变换，调用各种绘图指令，然后将绘制的图形输出到画布上。</p>
+<p>总结来说，Canvas 能够直接操作绘图上下文，不需要经过 HTML、CSS 解析、构建渲染树、布局等一系列操作。因此单纯绘图的话，Canvas 比 HTML/CSS 和 SVG 要快得多。</p>
+<p>但是，因为 HTML 和 SVG 一个元素对应一个基本图形，所以我们可以很方便地操作它们，比如在柱状图的某个柱子上注册点击事件。而同样的功能在 Canvas 上就比较难实现了，因为对于 Canvas 来说，绘制整个柱状图的过程就是一系列指令的执行过程，其中并没有区分“A 柱子”、“B 柱子”，这让我们很难单独对 Canvas 绘图的局部进行控制。不过，这并不代表我们就不能控制 Canvas 的局部了。实际上，通过数学计算我们是可以通过定位的方式来获取局部图形的，在后续的课程中我们会解决这个问题。</p>
+<p>这里有一点需要你注意，Canvas 和 SVG 的使用也不是非此即彼的，它们可以结合使用。因为 SVG 作为一种图形格式，也可以作为 image 元素绘制到 Canvas 中。举个例子，我们可以先使用 SVG 生成某些图形，然后用 Canvas 来渲染。这样，我们就既可以享受 SVG 的便利性，又可以享受 Canvas 的高性能了。</p>
+<h4 id="WebGL"><a href="#WebGL" class="headerlink" title="WebGL"></a>WebGL</h4><p>一般情况下，Canvas2D 绘制图形的性能已经足够高了，但是在三种情况下我们有必要直接操作更强大的 GPU 来实现绘图。</p>
+<p>第一种情况，如果我们要绘制的图形数量非常多，比如有多达数万个几何图形需要绘制，而且它们的位置和方向都在不停地变化，那我们即使用 Canvas2D 绘制了，性能还是会达到瓶颈。这个时候，我们就需要使用 GPU 能力，直接用 WebGL 来绘制。</p>
+<p>第二种情况，如果我们要对较大图像的细节做像素处理，比如，实现物体的光影、流体效果和一些复杂的像素滤镜。由于这些效果往往要精准地改变一个图像全局或局部区域的所有像素点，要计算的像素点数量非常的多（一般是数十万甚至上百万数量级的）。这时，即使采用 Canvas2D 操作，也会达到性能瓶颈，所以我们也要用 WebGL 来绘制。</p>
+<p>第三种情况是绘制 3D 物体。因为 WebGL 内置了对 3D 物体的投影、深度检测等特性，所以用它来渲染 3D 物体就不需要我们自己对坐标做底层的处理了。那在这种情况下，WebGL 无论是在使用上还是性能上都有很大优势。</p>
+<h3 id="指令式绘图系统：如何用Canvas绘制层次关系图？"><a href="#指令式绘图系统：如何用Canvas绘制层次关系图？" class="headerlink" title="指令式绘图系统：如何用Canvas绘制层次关系图？"></a>指令式绘图系统：如何用Canvas绘制层次关系图？</h3><h4 id="Canvas-元素和-2D-上下文"><a href="#Canvas-元素和-2D-上下文" class="headerlink" title="Canvas 元素和 2D 上下文"></a>Canvas 元素和 2D 上下文</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;canvas width=&quot;512&quot; height=&quot;512&quot;&gt;&lt;/canvas&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p>这里有一点需要特别注意，Canvas 元素上的 width 和 height 属性不等同于 Canvas 元素的 CSS 样式的属性。这是因为，CSS 属性中的宽高影响 Canvas 在页面上呈现的大小，而 HTML 属性中的宽高则决定了 Canvas 的坐标系。为了区分它们，我们称 Canvas 的 HTML 属性宽高为画布宽高，CSS 样式宽高为样式宽高。</p>
+<p>在实际绘制的时候，如果我们不设置 Canvas 元素的样式，那么 Canvas 元素的画布宽高就会等于它的样式宽高的像素值，也就是 512px。</p>
+<p>而如果这个时候，我们通过 CSS 设置其他的值指定了它的样式宽高。比如说，我们将样式宽高设置成 256px，那么它实际的画布宽高就是样式宽高的两倍了。代码和效果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">canvas &#123;</span><br><span class="line">  width: 256px;</span><br><span class="line">  height: 256px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为画布宽高决定了可视区域的坐标范围，所以 Canvas 将画布宽高和样式宽高分开的做法，能更方便地适配不同的显示设备。</p>
+<p>比如，我们要在画布宽高为 <code>500*500</code>的Canvas画布上，绘制一个居中显示的<code>100*100</code> 宽高的正方形。我们只要将它的坐标设置在  x = 200, y = 200 处即可。这样，不论这个 Canvas 以多大的尺寸显示在各种设备上，我们的代码都不需要修改。否则，如果 Canvas 的坐标范围（画布宽高）跟着样式宽高变化，那么当屏幕尺寸改变的时候，我们就要重新计算需要绘制的图形的所有坐标，这对于我们来说将会是一场“灾难”。</p>
+<h4 id="Canvas-的坐标系"><a href="#Canvas-的坐标系" class="headerlink" title="Canvas 的坐标系"></a>Canvas 的坐标系</h4><p>Canvas 的坐标系和浏览器窗口的坐标系类似，它们都默认左上角为坐标原点，x 轴水平向右，y 轴垂直向下。那在我们设置好的画布宽高为 512*512 的 Canvas 画布中，它的左上角坐标值为（0,0），右下角坐标值为（512,512） 。这意味着，坐标（0,0）到（512,512）之间的所有图形，都会被浏览器渲染到画布上。</p>
+<p>注意，上图中这个坐标系的 y 轴向下，意味着这个坐标系和笛卡尔坐标系不同，它们的 y 轴是相反的。那在实际应用的时候，如果我们想绘制一个向右上平抛小球的动画，它的抛物线轨迹，在 Canvas 上绘制出来的方向就是向下凹的。</p>
+<h4 id="利用-Canvas-绘制几何图形"><a href="#利用-Canvas-绘制几何图形" class="headerlink" title="利用 Canvas 绘制几何图形"></a>利用 Canvas 绘制几何图形</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">d3-hierarchy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const TAU = 2 * Math.PI;</span><br><span class="line"></span><br><span class="line">function draw(ctx, node, &#123;fillStyle = &apos;rgba(0, 0, 0, 0.2)&apos;, textColor = &apos;white&apos;&#125; = &#123;&#125;) &#123;</span><br><span class="line">  const children = node.children;</span><br><span class="line">  const &#123;x, y, r&#125; = node;</span><br><span class="line">  ctx.fillStyle = fillStyle;</span><br><span class="line">  ctx.beginPath();</span><br><span class="line">  ctx.arc(x, y, r, 0, TAU);</span><br><span class="line">  ctx.fill();</span><br><span class="line">  if(children) &#123;</span><br><span class="line">    for(let i = 0; i &lt; children.length; i++) &#123;</span><br><span class="line">      draw(ctx, children[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    const name = node.data.name;</span><br><span class="line">    ctx.fillStyle = textColor;</span><br><span class="line">    ctx.font = &apos;1.5rem Arial&apos;;</span><br><span class="line">    ctx.textAlign = &apos;center&apos;;</span><br><span class="line">    ctx.fillText(name, x, y);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">draw(context, root);</span><br></pre></td></tr></table></figure>
+<p>因为 Canvas 在 HTML 层面上是一个独立的画布元素，所以所有的绘制内容都是在内部通过绘图指令来完成的，绘制出的图形对于浏览器来说，只是 Canvas 中的一个个像素点，我们很难直接抽取其中的图形对象进行操作。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2022/11/26/graph/">可视化</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 DiamondsZz 的个人博客">DiamondsZz</a></p>
+        <p><span>发布时间:</span>2022年11月26日</p>
+        <p><span>最后更新:</span>2022年11月26日 - 23时30分</p>    
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/08/28/react+/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深入浅出react</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#图形基础篇"><span class="toc-number">1.</span> <span class="toc-text">图形基础篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器中实现可视化的四种方式"><span class="toc-number">1.1.</span> <span class="toc-text">浏览器中实现可视化的四种方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML-CSS"><span class="toc-number">1.1.1.</span> <span class="toc-text">HTML+CSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SVG"><span class="toc-number">1.1.2.</span> <span class="toc-text">SVG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Canvas2D"><span class="toc-number">1.1.3.</span> <span class="toc-text">Canvas2D</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WebGL"><span class="toc-number">1.1.4.</span> <span class="toc-text">WebGL</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指令式绘图系统：如何用Canvas绘制层次关系图？"><span class="toc-number">1.2.</span> <span class="toc-text">指令式绘图系统：如何用Canvas绘制层次关系图？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Canvas-元素和-2D-上下文"><span class="toc-number">1.2.1.</span> <span class="toc-text">Canvas 元素和 2D 上下文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Canvas-的坐标系"><span class="toc-number">1.2.2.</span> <span class="toc-text">Canvas 的坐标系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用-Canvas-绘制几何图形"><span class="toc-number">1.2.3.</span> <span class="toc-text">利用 Canvas 绘制几何图形</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://www.unpkg.com/jquery@3.6.0/dist/jquery.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2022/08/28/react+/" title="下一篇: 深入浅出react">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/11/26/graph/">可视化</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/28/react+/">深入浅出react</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/01/01/vue3/">玩转vue3全家桶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/09/01/interview/">起个名字真难</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/01/optimize/">前端性能优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/01/test/">前端测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/18/node/">node学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/01/performance/">performance</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/25/http/">http协议</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/vue/">vue进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/react/">react进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/core/">核心进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/25/browser/">浏览器工作原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/module_webpack/">模块化/webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/yeoman/">脚手架/yeoman/gulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/08/16/question/">知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/life/">记录生活</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/03/wfe/">前端笔记（旧）</a></li></ul>
+    
+<script src="https://www.unpkg.com/jquery@3.6.0/dist/jquery.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2022 DiamondsZz
+            </div>        
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://www.unpkg.com/jquery@3.6.0/dist/jquery.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" "="">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
